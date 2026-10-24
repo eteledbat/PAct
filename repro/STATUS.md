@@ -22,3 +22,8 @@ PAct 输入除 RGB 外还使用 2D part mask。当前官方示例含作者提供
 ```
 
 断点信息保存在 repro/cache/model-range-progress.json；可用同一 fetch_model_ranges.py 继续，不用稀疏临时文件大小冒充完成进度。下载修复只涉及传输方式，不改变模型或数据。
+
+
+2026-10-24：全部官方权重已完成并通过官方 SHA256；独立环境入口/数据读取/DINOv2 strict load/pip check 已验证。官方 Dishwasher_001 完整 GPU smoke 已通过（模型加载至校验约62秒），输出两个部件、原版动画、Mesh、GS和关节JSON。首次运行写 exploded video 的 API 错误已修复并保留失败运行。详见 REPRODUCTION_REPORT.md 与 CHANGES.md。
+
+PARIS Storage45135 仍作为原优先场景做准备，未启动 PAct 正式推理。已核查本地输入：有RGB/透明度/深度和GT部件Mesh，但没有每视角二维part mask；透明度不能冒充部件标签。公开label_parts.py含SAM候选生成和交互合并，不能直接称为论文VLM+SAM2完整自动流程。准备配置 configs/storage45135-preparation.json 不把缺少的mask虚构成已有路径，也不将官方示例冒充45135。还需核验PAct训练/测试划分和坐标归一化。

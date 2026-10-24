@@ -17,3 +17,8 @@ PyTorch 2.4.0+cu121/CUDA12.1，与官方 YAML 的 2.4.0/CUDA11.8 存在偏差。
 第一例是作者提供的 Dishwasher_001 RGB 与 EXR mask，仅为真实数据工具 smoke，不是 PARIS Storage45135 指标复现。21 个 orbit 预览帧只影响可视化；原版关节动画仍用默认60帧。原版生成、关节参数化、axis-origin bbox 后处理、运动动画及 raw mesh/GS 导出均保留。本轮不做 refinement，不增加物理 Loss，不调整预测值制造更好指标。
 
 真实 GPU 首次运行已完成 25+25 采样、mesh/GS 导出和关节动画，但 exploded video 使用 imageio.imwrite 写 4D 视频触发 ValueError。修复为 imageio.mimsave(..., fps=video_fps)，仅修视频写出接口，不改帧、模型或预测。失败运行独立保留，不写成成功结果。
+
+
+运动评估只读取输出，不回传梯度或改动预测。GS PLY 坐标撤销 save_ply 的默认固定旋转，以对齐 export 的 Mesh/JSON；没有GT/ICP拟合。21状态使用全部opacity≥0.05中心（base469723、door207728），最近中心核代理与真实mesh碰撞严格区分。分析使用原版 _local_transform。base28边界边，真实交叠体积/穿透深度均 unavailable。
+
+Mesh预览使用原始完整三角面，没有补洞、平滑、修复。首版相机在运动终点裁切door，已保留在mesh_previews_camera_v1，用更远固定相机重新渲染到mesh_previews；只是观察视角调整，未重跑模型。官方模型源码中tracked __pycache__ 文件在本机导入后发生字节码变化，已仅恢复这些自动生成文件，不将其提交为源码修复。

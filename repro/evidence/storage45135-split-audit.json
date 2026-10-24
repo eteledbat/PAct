@@ -1,0 +1,41 @@
+{
+  "repository": "3dlg-hcvc/singapo",
+  "commit": "de4b46616a7ecb1290bb84e215da0facb765bda5",
+  "file_url": "https://raw.githubusercontent.com/3dlg-hcvc/singapo/de4b46616a7ecb1290bb84e215da0facb765bda5/data/data_split.json",
+  "sha256": "c6060844fc0b702f1ae30c25cb18b8efa9c311ab998546d8509c9c05348c0a86",
+  "keys": [
+    "train",
+    "test"
+  ],
+  "45135_matches": [
+    {
+      "path": "/train/1215",
+      "value": "augmented_data/StorageFurniture/v1/45135-2"
+    },
+    {
+      "path": "/train/1271",
+      "value": "augmented_data/StorageFurniture/v1/45135-0"
+    },
+    {
+      "path": "/train/1717",
+      "value": "augmented_data/StorageFurniture/v1/45135-1"
+    },
+    {
+      "path": "/train/2043",
+      "value": "augmented_data/StorageFurniture/v4_chest_of_drawers_v1/45135-2"
+    },
+    {
+      "path": "/train/2056",
+      "value": "augmented_data/StorageFurniture/v4_chest_of_drawers_v1/45135-0"
+    },
+    {
+      "path": "/train/2126",
+      "value": "augmented_data/StorageFurniture/v4_chest_of_drawers_v1/45135-1"
+    },
+    {
+      "path": "/test/49",
+      "value": "StorageFurniture/45135"
+    }
+  ],
+  "scope": "SINGAPO published split only; PAct model actual training manifest not supplied, so this checks the split claimed on project page, not independently verified checkpoint training membership."
+}

@@ -1,0 +1,39 @@
+{
+  "scene": "Storage45135",
+  "data_root": "/root/autodl-tmp/Part2GS-data/ArtGS_raw_data/paris/sapien/storage_45135",
+  "model": "PAct000/PAct",
+  "revision": "8c6b56c7011454bbfb45a83e2dbfa6bbbfde63e9",
+  "status": "prepared_not_launched",
+  "input_candidate": "start/train/rgba/0000.png",
+  "input_selection": "fixed first frame, not selected using GT error or generated quality",
+  "part_mask_path": null,
+  "mask_provenance": "unavailable; no per-view part mask in local scene. Silhouette alpha is not a part mask.",
+  "gt_mesh_policy": "Existing GT meshes may be used for evaluation; deriving an oracle GT part mask would be a separate explicitly labeled GT-mask protocol, not automatic GT-independent input.",
+  "sampler": {
+    "ss_steps": 25,
+    "slat_steps": 25,
+    "ss_cfg_strength": 7,
+    "slat_cfg_strength": 7,
+    "arti_mean_num": 20,
+    "seed": 42
+  },
+  "needs_verification": [
+    "2D part mask source and labels 0=background, parts=1..K",
+    "PAct training/test split overlap for PartNet object45135",
+    "camera/canonical normalization and evaluation alignment",
+    "GT mask vs automatic-mask protocol labeling"
+  ],
+  "full_inference_launched": false,
+  "split_audit": {
+    "official_test_entry": "StorageFurniture/45135",
+    "training_family_entries": [
+      "augmented_data/StorageFurniture/v1/45135-2",
+      "augmented_data/StorageFurniture/v1/45135-0",
+      "augmented_data/StorageFurniture/v1/45135-1",
+      "augmented_data/StorageFurniture/v4_chest_of_drawers_v1/45135-2",
+      "augmented_data/StorageFurniture/v4_chest_of_drawers_v1/45135-0",
+      "augmented_data/StorageFurniture/v4_chest_of_drawers_v1/45135-1"
+    ],
+    "conclusion": "Official test identity exists; training family/augmentation overlap requires source+actual checkpoint training manifest audit. Do not claim strictly unseen object."
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "run": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z",
+  "scope": "Official real-world tooling smoke, NOT Storage45135 final benchmark",
+  "smoke": {
+    "passed": true,
+    "scope": "Official supplied sample only, not benchmark reproduction",
+    "elapsed_seconds": 62.172065414488316,
+    "object": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/object.json",
+    "parts": [
+      {
+        "id": 0,
+        "name": "base",
+        "joint_type": "fixed",
+        "vertices": 588454,
+        "faces": 1176888,
+        "watertight": false,
+        "winding_consistent": true
+      },
+      {
+        "id": 1,
+        "name": "door",
+        "joint_type": "revolute",
+        "vertices": 201092,
+        "faces": 402180,
+        "watertight": true,
+        "winding_consistent": true
+      }
+    ],
+    "videos": [
+      "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/00__articulation_animation.mp4",
+      "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/00__exploded_part.mp4"
+    ]
+  },
+  "motion_analysis": {
+    "scope": "Official real-world supplied sample diagnostic; not PARIS45135 benchmark",
+    "states": 21,
+    "opacity_threshold": 0.05,
+    "proxy_definition": "Symmetric opacity-weighted nearest-center Gaussian kernel: sum_i alpha_i alpha_NN(i) exp(-d_i\u00b2/[2(sigma_i\u00b2+sigma_NN(i)\u00b2)]) / sum_i alpha_i over both directions; sigma=mean activated scales. All retained centers used; not all-pairs Gaussian kernel.",
+    "distance_definition": "Exact minimum Euclidean center distance over all opacity-retained cross-part centers; sphere gaps only among nearest-center pairs, not global minimum sphere distance or mesh penetration.",
+    "gaussian_serialization_rotation_undone": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        -0.0,
+        -1.0,
+        -0.0
+      ]
+    ],
+    "coordinate_evidence": "Original export applies inverse(R) to both geometry and joints, then Gaussian.save_ply applies R again. Evaluation undoes only that final serialization R; no GT/ICP fitting.",
+    "mesh_collision": {
+      "status": "unavailable",
+      "reason": "Base mesh is open; self-intersections also not fully verified. No mesh repair applied.",
+      "intersection_volume": null,
+      "penetration_depth": null
+    },
+    "GT_metrics": {
+      "PSNR": null,
+      "SSIM": null,
+      "LPIPS": null,
+      "chamfer_distance": null,
+      "axis_direction_error": null,
+      "pivot_error": null,
+      "joint_type_accuracy": null,
+      "motion_range_error": null,
+      "reason": "Official real-world sample has no verified GT geometry/joints or calibrated multiview target."
+    },
+    "predicted_joints": [
+      {
+        "type": "fixed",
+        "range": [
+          0.0,
+          0.0
+        ],
+        "axis": {
+          "direction": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "origin": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "revolute",
+        "range": [
+          0.0,
+          56.8550910949707
+        ],
+        "axis": {
+          "direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "origin": [
+            0.406048446893692,
+            -0.33665913343429565,
+            0.3302985727787018
+          ]
+        }
+      }
+    ],
+    "mesh_audit": [
+      {
+        "id": 0,
+        "name": "base",
+        "vertices": 588454,
+        "faces": 1176888,
+        "face_components": 1,
+        "largest_component_face_fraction": 1.0,
+        "boundary_edges": 28,
+        "nonmanifold_edges": 0,
+        "watertight": false,
+        "winding_consistent": true,
+        "signed_volume": 0.023895097434938468,
+        "self_intersection_checked": false,
+        "self_intersection": null,
+        "gaussian_count": 589344,
+        "retained_count": 469723,
+        "retained_opacity_fraction": 0.9899565967294655,
+        "mesh_bounds": [
+          [
+            -0.5003777146339417,
+            -0.49987924098968506,
+            -0.38242092728614807
+          ],
+          [
+            0.500135064125061,
+            0.5003222823143005,
+            0.38115352392196655
+          ]
+        ],
+        "aligned_gaussian_bounds": [
+          [
+            -0.5000299215316772,
+            -0.4992413818836212,
+            -0.38660287857055664
+          ],
+          [
+            0.49947232007980347,
+            0.5002323389053345,
+            0.3815726041793823
+          ]
+        ]
+      },
+      {
+        "id": 1,
+        "name": "door",
+        "vertices": 201092,
+        "faces": 402180,
+        "face_components": 2,
+        "largest_component_face_fraction": 0.5318315182256701,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "watertight": true,
+        "winding_consistent": true,
+        "signed_volume": 0.011300457110676626,
+        "self_intersection_checked": false,
+        "self_intersection": null,
+        "gaussian_count": 209024,
+        "retained_count": 207728,
+        "retained_opacity_fraction": 0.9997826000186857,
+        "mesh_bounds": [
+          [
+            -0.49964770674705505,
+            -0.33665913343429565,
+            0.3302985727787018
+          ],
+          [
+            0.5002300143241882,
+            0.37735477089881897,
+            0.38309186697006226
+          ]
+        ],
+        "aligned_gaussian_bounds": [
+          [
+            -0.49875202775001526,
+            -0.3360569477081299,
+            0.331241250038147
+          ],
+          [
+            0.4985693693161011,
+            0.3778640627861023,
+            0.38327252864837646
+          ]
+        ]
+      }
+    ],
+    "numeric_check_real_subsets_passed": true,
+    "elapsed_seconds": 413.28706419840455
+  },
+  "mesh_preview": {
+    "states": 21,
+    "actual_triangles": true,
+    "mesh_repair": false,
+    "motion": "Original _local_transform using exported object.json; no GT fitting",
+    "elapsed_seconds": 3.466781983152032,
+    "gpu_peak_allocated_mb": 463.7099609375
+  },
+  "checkpoint_loads": [
+    {
+      "class": "SparseStructureDecoder",
+      "loaded_keys": 74,
+      "missing_keys": [],
+      "unexpected_keys": [],
+      "missing_parameters": []
+    },
+    {
+      "class": "SLatGaussianDecoder",
+      "loaded_keys": 101,
+      "missing_keys": [],
+      "unexpected_keys": [],
+      "missing_parameters": []
+    },
+    {
+      "class": "SLatMeshDecoder",
+      "loaded_keys": 120,
+      "missing_keys": [],
+      "unexpected_keys": [],
+      "missing_parameters": []
+    },
+    {
+      "class": "PartBasedSparseStructureFlowModel",
+      "loaded_keys": 495,
+      "missing_keys": [],
+      "unexpected_keys": [],
+      "missing_parameters": []
+    },
+    {
+      "class": "ArticulationRegressionHead",
+      "loaded_keys": 542,
+      "missing_keys": [],
+      "unexpected_keys": [],
+      "missing_parameters": []
+    },
+    {
+      "class": "DinoVisionTransformer",
+      "loaded_keys": 344,
+      "missing_keys": [],
+      "unexpected_keys": [],
+      "missing_parameters": []
+    }
+  ],
+  "source": {
+    "upstream": "https://github.com/Mobiuslqm/PAct",
+    "commit": "a5ccec5056e7b27f39ddb5b83613c0efba9b2861",
+    "model_repo": "PAct000/PAct",
+    "model_revision": "8c6b56c7011454bbfb45a83e2dbfa6bbbfde63e9",
+    "utc": "2026-10-24T01:02:22.557947+00:00",
+    "part2gs": "Paused by user at iteration 5020, next_iteration=5021; data/logs/full-state preserved",
+    "first_validation": "Official provided sample with its supplied 2D part mask; tooling smoke only, not PARIS Storage45135 baseline",
+    "status": "source_audited_environment_preparation"
+  },
+  "environment": {
+    "python": "3.10.22 (main, Oct  1 2026, 20:14:04) [GCC 14.3.0]",
+    "torch": "2.4.0+cu121",
+    "cuda": "12.1",
+    "packages": {
+      "pandas": "2.3.2",
+      "transformers": "4.50.3",
+      "huggingface-hub": "0.34.3",
+      "safetensors": "0.6.2",
+      "diffusers": "0.32.0",
+      "pillow": "10.4.0",
+      "imageio": "2.36.1",
+      "imageio-ffmpeg": "0.5.1",
+      "opencv-python-headless": "4.10.0.84",
+      "scipy": "1.14.1",
+      "pymeshfix": "0.17.0",
+      "flash-attn": "2.7.4.post1",
+      "nvdiffrast": "0.4.0",
+      "kaolin": "0.17.0",
+      "numpy": "1.26.4",
+      "spconv-cu120": "2.3.6"
+    },
+    "pipeline_import_passed": true,
+    "official_dataset_first_sample_parts": 2,
+    "dinov2_strict_load_passed": true
+  }
+}
