@@ -1,0 +1,24 @@
+{
+  "10489": {
+    "train": [
+      "Refrigerator/10489"
+    ],
+    "test": []
+  },
+  "31249": {
+    "train": [
+      "augmented_data/Table/v1/31249-0",
+      "augmented_data/Table/v1/31249-1",
+      "augmented_data/Table/v1/31249-2"
+    ],
+    "test": [
+      "Table/31249"
+    ]
+  },
+  "101808": {
+    "train": [
+      "Oven/101808"
+    ],
+    "test": []
+  }
+}

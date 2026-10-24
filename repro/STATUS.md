@@ -1,5 +1,7 @@
 # PAct baseline 准备记录
 
+最新状态（2026-10-24）：根据用户要求改选本机已有案例，10489、31249、101808 的固定帧/固定 seed 推理、raw/导出轴 GT 误差和静态几何配准敏感性均已完成。使用 GT Mesh 投影的 oracle 部件 mask；GT 轴/类型不输入模型。活动关节类型分别2/2、3/4、0/2正确，失败样本保留，不重配 GT 美化指标。见 [GT 对照报告](GT_JOINT_EVALUATION.md) 和 [完整小型证据](evidence/gt-joint-results.json)。当前没有训练/推理任务运行；Part²GS 仍暂停。以下保留准备过程的历史记录。
+
 用户于 2026-10-24 指示暂停 Part²GS，改用 PAct。Part²GS 已保存到 iteration 5020，GPU 已释放；不自动恢复。
 
 官方源码已克隆，commit 与官方模型 revision 见 evidence/provenance.json。独立分支 repro/pact-baseline-20261024，禁止直接 push upstream。

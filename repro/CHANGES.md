@@ -9,6 +9,8 @@
 | guarded_infer.py 检查 checkpoint 参数兼容 | 官方 load_state_dict(strict=False) 可能容忍缺参数 | 不改变模型；缺少必需参数/多余 keys 时停止并记录，不用随机参数冒充完整模型 |
 | 单样本 launcher、状态、输入 SHA、命令和 patch | 防止覆盖、保存可追溯证据、tmux 运行 | 不改 seed42、25+25 steps、CFG7、last20 feature 聚合 |
 | HTTP Range 下载与官方 SHA256 验证 | SDK 长连接反复超时 | 只改变传输方式；所有权重逐字节校验 |
+| 可选 PACT_JOINT_TRACE | 区分 raw head、坐标轴吸附与 Gaussian/Mesh bbox 后处理 | 只复制保存原函数输入输出；不改变预测、随机数或计算图 |
+| GT-case 准备/启动/评估/汇总工具和监控 --gt-scene | 用已有标定数据做可追溯的轴 GT 对照 | GT Mesh 只投影输入 mask 并事后评估；GT 轴/类型不进入推理，未增加或改动物理 Loss |
 
 独立环境 `/root/autodl-tmp/conda_envs/pact` 由 FreeArt3D 环境克隆，未修改源环境。官方导出的完整 YAML 包含许多训练/GUI 依赖，本轮先验证推理所用依赖；没有宣称完整 YAML 逐项一致。
 
@@ -22,3 +24,5 @@ PyTorch 2.4.0+cu121/CUDA12.1，与官方 YAML 的 2.4.0/CUDA11.8 存在偏差。
 运动评估只读取输出，不回传梯度或改动预测。GS PLY 坐标撤销 save_ply 的默认固定旋转，以对齐 export 的 Mesh/JSON；没有GT/ICP拟合。21状态使用全部opacity≥0.05中心（base469723、door207728），最近中心核代理与真实mesh碰撞严格区分。分析使用原版 _local_transform。base28边界边，真实交叠体积/穿透深度均 unavailable。
 
 Mesh预览使用原始完整三角面，没有补洞、平滑、修复。首版相机在运动终点裁切door，已保留在mesh_previews_camera_v1，用更远固定相机重新渲染到mesh_previews；只是观察视角调整，未重跑模型。官方模型源码中tracked __pycache__ 文件在本机导入后发生字节码变化，已仅恢复这些自动生成文件，不将其提交为源码修复。
+
+已有数据的10489、31249、101808新增评估：oracle二维部件mask条件明确披露。主评估仅固定旋转，位置通过GT静态AABB尺度/中心归一化；单独静态几何ICP只作评估敏感性，不回写预测、不使用GT轴拟合。错误类型不计入条件轴均值，但保留全部类型失败、非零残留向量诊断和原始全向量汇总。原图、GT标注、部件排序、raw head、输出和工具SHA可追溯。划分含训练或增强家族重叠，未宣称严格未见泛化。详见GT_JOINT_EVALUATION.md。

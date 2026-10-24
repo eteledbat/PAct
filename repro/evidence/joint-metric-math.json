@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "scope": "Analytic math checks only; not synthetic experimental scene results",
+  "checks": [
+    "axis-sign invariance",
+    "known30degree angle",
+    "parallel-offset3-4-5 distance with arbitrary along-axis origin",
+    "intersecting nonparallel lines have zero line distance but nonzero pivot error",
+    "undefined zero-axis remains unavailable",
+    "rigid-frame and scale covariance"
+  ]
+}

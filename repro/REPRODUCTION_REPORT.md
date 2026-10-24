@@ -4,6 +4,8 @@
 
 **范围：官方 Dishwasher_001 的真实推理 smoke 与运动诊断。不是 PARIS Storage45135 完整 benchmark 复现；该场景尚未运行。**
 
+新增已有数据案例的 GT 对照（10489、31249、101808），单独见 [GT 关节评估报告](GT_JOINT_EVALUATION.md)。下文仅描述原 Dishwasher smoke；其 unavailable GT 项不代表新增案例没有 GT。
+
 ## 1. 来源与环境
 
 官方源码 `Mobiuslqm/PAct`，commit `a5ccec5056e7b27f39ddb5b83613c0efba9b2861`；官方模型 `PAct000/PAct`，revision `8c6b56c7011454bbfb45a83e2dbfa6bbbfde63e9`，3,972,142,331 字节、14 文件，已逐一核对大小和官方 LFS SHA256。

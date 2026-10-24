@@ -1,0 +1,1848 @@
+{
+  "scope": "Three existing GT-mask cases, fixed frame0/seed42, inference only",
+  "wrong_type_vectors": "Diagnostic only; excluded from conditional angle means but retained as type failures.",
+  "cases": [
+    {
+      "scene_id": "10489",
+      "run": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z",
+      "status": {
+        "state": "complete",
+        "scene": "10489",
+        "updated_utc": "2026-10-24T07:02:31.673171+00:00",
+        "elapsed_seconds": 60.73564144782722,
+        "object": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@10489_000000_processed.@ng/object.json",
+        "part_count": 3,
+        "peak_observed_gpu_mib": 17776
+      },
+      "conditional_summary": {
+        "raw_head": {
+          "type_correct_count": 2,
+          "joint_count": 2,
+          "type_accuracy": 1.0,
+          "correct_type_axis_count": 2,
+          "correct_type_mean_axis_error_degrees": 2.9644926663116467
+        },
+        "axis_snapped_before_bbox": {
+          "type_correct_count": 2,
+          "joint_count": 2,
+          "type_accuracy": 1.0,
+          "correct_type_axis_count": 2,
+          "correct_type_mean_axis_error_degrees": 0.0
+        },
+        "original_exported": {
+          "type_correct_count": 2,
+          "joint_count": 2,
+          "type_accuracy": 1.0,
+          "correct_type_axis_count": 2,
+          "correct_type_mean_axis_error_degrees": 0.0
+        }
+      },
+      "primary": {
+        "scene_id": "10489",
+        "protocol": "Explicit GT-mask / oracle part segmentation. GT mesh only projected to2D mask; no GT axis/type/origin passed to PAct.",
+        "input_silhouette_iou": 0.9998604310354854,
+        "selection": "Fixed frame0 and seed42; no GT axis passed to model; correspondence from input-mask reorder, not GT joint-error permutation.",
+        "direction_alignment": "Fixed PAct export canonical frame to VideoArtGS GT-world R, from official source conventions; no fitted rotation or ICP.",
+        "position_alignment": "One uniform scale from static-part AABB diagonals and translation from static AABB centers; uses GT static geometry for evaluation only, never GT joint axis.",
+        "R_export_to_gtworld": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "R_raw_to_gtworld": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "scale": 1.614009443015161,
+        "translation": [
+          -0.0729714205816637,
+          -0.10472051403703798,
+          -0.04836308855643632
+        ],
+        "GT_static_diagonal": 1.9650294583373271,
+        "static_surface_symmetric_rms_after_fixed_alignment": 0.05004365418361922,
+        "static_surface_rms_percent_diagonal": 2.546712669944537,
+        "unit_note": "Distances in GT dataset-coordinate units and percent static diagonal, not claimed physically calibrated centimeters.",
+        "angle_definition": "acos(abs(dot(unit directions))) in degrees, ignores axis sign.",
+        "pivot_definition": "Distance from predicted origin to GT infinite axis, plus shortest infinite-axis line distance. Along-axis origin offset not identifiable; nonparallel intersecting infinite lines can have zero line distance despite a poor pivot.",
+        "GT_joint_ranges_comparison": "Not scored: input is a nonzero articulated state and generated rest-state convention may differ. GT limits and predicted range retained for diagnosis.",
+        "joints": [
+          {
+            "gt_mesh_index": 1,
+            "gt_mobility_id": 1,
+            "predicted_node_id": 2,
+            "GT_type": "revolute",
+            "GT_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "GT_origin_world": [
+              -0.286877693928933,
+              -0.3082993534109631,
+              -0.8995489999999999
+            ],
+            "GT_limit": {
+              "a": 0,
+              "b": 180,
+              "noLimit": false
+            },
+            "predicted_exported_range": [
+              0.0,
+              -6.525190353393555
+            ],
+            "variants": {
+              "raw_head": {
+                "predicted_type": "revolute",
+                "type_correct": true,
+                "direction_world": [
+                  0.03471530531793695,
+                  -0.0323004051577054,
+                  0.9988751330388251
+                ],
+                "origin_world": [
+                  -0.4556642513683695,
+                  -0.31733788246923184,
+                  0.08702728651306521
+                ],
+                "axis_direction_error_degrees": 2.717871562087196,
+                "pivot_to_gt_axis": 0.16902839104657355,
+                "axis_line_distance": 0.12159195000523619,
+                "pivot_to_gt_axis_percent_static_diagonal": 8.601824788397511,
+                "axis_line_distance_percent_static_diagonal": 6.1877927320295205
+              },
+              "axis_snapped_before_bbox": {
+                "predicted_type": "revolute",
+                "type_correct": true,
+                "direction_world": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "origin_world": [
+                  -0.4556642513683695,
+                  -0.31733788246923184,
+                  0.08702728651306521
+                ],
+                "axis_direction_error_degrees": 0.0,
+                "pivot_to_gt_axis": 0.16902839104657355,
+                "axis_line_distance": 0.16902839104657355,
+                "pivot_to_gt_axis_percent_static_diagonal": 8.601824788397511,
+                "axis_line_distance_percent_static_diagonal": 8.601824788397511
+              },
+              "original_exported": {
+                "predicted_type": "revolute",
+                "type_correct": true,
+                "direction_world": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "origin_world": [
+                  -0.34444247146891693,
+                  -0.2710669646305204,
+                  0.2655009951023992
+                ],
+                "axis_direction_error_degrees": 0.0,
+                "pivot_to_gt_axis": 0.06855621334004583,
+                "axis_line_distance": 0.06855621334004583,
+                "pivot_to_gt_axis_percent_static_diagonal": 3.4888135162133085,
+                "axis_line_distance_percent_static_diagonal": 3.4888135162133085
+              }
+            }
+          },
+          {
+            "gt_mesh_index": 2,
+            "gt_mobility_id": 2,
+            "predicted_node_id": 0,
+            "GT_type": "revolute",
+            "GT_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "GT_origin_world": [
+              -0.286877693928933,
+              -0.3082993534109631,
+              -0.8995489999999999
+            ],
+            "GT_limit": {
+              "a": 0,
+              "b": 180,
+              "noLimit": false
+            },
+            "predicted_exported_range": [
+              0.0,
+              9.94786262512207
+            ],
+            "variants": {
+              "raw_head": {
+                "predicted_type": "revolute",
+                "type_correct": true,
+                "direction_world": [
+                  0.043564632984649465,
+                  -0.03521111190994264,
+                  0.9984299175961117
+                ],
+                "origin_world": [
+                  -0.30201189568750886,
+                  -0.38706900866735316,
+                  0.06174113142144485
+                ],
+                "axis_direction_error_degrees": 3.211113770536097,
+                "pivot_to_gt_axis": 0.08021036499156341,
+                "axis_line_distance": 0.07077480893116185,
+                "pivot_to_gt_axis_percent_static_diagonal": 4.081891223118451,
+                "axis_line_distance_percent_static_diagonal": 3.6017174516582884
+              },
+              "axis_snapped_before_bbox": {
+                "predicted_type": "revolute",
+                "type_correct": true,
+                "direction_world": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "origin_world": [
+                  -0.30201189568750886,
+                  -0.38706900866735316,
+                  0.06174113142144485
+                ],
+                "axis_direction_error_degrees": 0.0,
+                "pivot_to_gt_axis": 0.08021036499156341,
+                "axis_line_distance": 0.08021036499156341,
+                "pivot_to_gt_axis_percent_static_diagonal": 4.081891223118451,
+                "axis_line_distance_percent_static_diagonal": 4.081891223118451
+              },
+              "original_exported": {
+                "predicted_type": "revolute",
+                "type_correct": true,
+                "direction_world": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "origin_world": [
+                  -0.34365349104781917,
+                  -0.2687098720940199,
+                  0.061741107370829974
+                ],
+                "axis_direction_error_degrees": 0.0,
+                "pivot_to_gt_axis": 0.06921573642914969,
+                "axis_line_distance": 0.06921573642914969,
+                "pivot_to_gt_axis_percent_static_diagonal": 3.5223765290376505,
+                "axis_line_distance_percent_static_diagonal": 3.5223765290376505
+              }
+            }
+          }
+        ],
+        "aggregate": {
+          "raw_head": {
+            "joint_type_accuracy": 1.0,
+            "mean_axis_direction_error_degrees": 2.9644926663116467,
+            "direction_available_count": 2,
+            "joint_count": 2
+          },
+          "axis_snapped_before_bbox": {
+            "joint_type_accuracy": 1.0,
+            "mean_axis_direction_error_degrees": 0.0,
+            "direction_available_count": 2,
+            "joint_count": 2
+          },
+          "original_exported": {
+            "joint_type_accuracy": 1.0,
+            "mean_axis_direction_error_degrees": 0.0,
+            "direction_available_count": 2,
+            "joint_count": 2
+          }
+        }
+      },
+      "registration_sensitivity": {
+        "scene_id": "10489",
+        "protocol": "Evaluation-only static-geometry local rigid ICP from fixed canonical initialization, 12000 surface samples, 80% trimmed point-to-point, at most50iterations. No GT joint axis/type/origin in fitting, no multistart or score-based rotation selection. No change to generated geometry or model.",
+        "rotation": [
+          [
+            0.9999816097141032,
+            -0.0004163668643426848,
+            -0.006050361330166703
+          ],
+          [
+            0.0003995044043668008,
+            0.9999960338342767,
+            -0.0027879583838359445
+          ],
+          [
+            0.006051498146921819,
+            0.002785489966482309,
+            0.9999778099617125
+          ]
+        ],
+        "translation": [
+          -0.06646856792051695,
+          0.0009870686088352613,
+          0.027348651451881482
+        ],
+        "rotation_delta_degrees": 0.3824108298756504,
+        "iterations": 50,
+        "heldout_static_symmetric_rms_before_percent_diagonal": 2.5305724743782556,
+        "heldout_static_symmetric_rms_after_percent_diagonal": 2.5264781033106036,
+        "caveat": "Static geometry may be symmetric or imperfect; registration-dependent joint error is a sensitivity diagnostic, not a replacement for the primary fixed-frame score.",
+        "joints": [
+          {
+            "gt_mobility_id": 1,
+            "GT_type": "revolute",
+            "variants": {
+              "raw_head": {
+                "axis_direction_error_degrees": 2.596833723276143,
+                "pivot_to_gt_axis": 0.23579351385908287,
+                "axis_line_distance": 0.1877673744443803,
+                "pivot_to_gt_axis_percent_static_diagonal": 11.999490025894834,
+                "axis_line_distance_percent_static_diagonal": 9.5554483240804,
+                "predicted_type": "revolute",
+                "type_correct": true
+              },
+              "axis_snapped_before_bbox": {
+                "axis_direction_error_degrees": 0.3816958684704731,
+                "pivot_to_gt_axis": 0.23579351385908287,
+                "axis_line_distance": 0.09091862497932347,
+                "pivot_to_gt_axis_percent_static_diagonal": 11.999490025894834,
+                "axis_line_distance_percent_static_diagonal": 4.626832671315399,
+                "predicted_type": "revolute",
+                "type_correct": true
+              },
+              "original_exported": {
+                "axis_direction_error_degrees": 0.3816958684704731,
+                "pivot_to_gt_axis": 0.13095755380173887,
+                "axis_line_distance": 0.0864455431170345,
+                "pivot_to_gt_axis_percent_static_diagonal": 6.664406645208574,
+                "axis_line_distance_percent_static_diagonal": 4.399198330094185,
+                "predicted_type": "revolute",
+                "type_correct": true
+              }
+            }
+          },
+          {
+            "gt_mobility_id": 2,
+            "GT_type": "revolute",
+            "variants": {
+              "raw_head": {
+                "axis_direction_error_degrees": 3.060931099713067,
+                "pivot_to_gt_axis": 0.11308552670853166,
+                "axis_line_distance": 0.11306812948399027,
+                "pivot_to_gt_axis_percent_static_diagonal": 5.754902361831097,
+                "axis_line_distance_percent_static_diagonal": 5.7540170201652225,
+                "predicted_type": "revolute",
+                "type_correct": true
+              },
+              "axis_snapped_before_bbox": {
+                "axis_direction_error_degrees": 0.3816958684704731,
+                "pivot_to_gt_axis": 0.11308552670853166,
+                "axis_line_distance": 0.03667073957416102,
+                "pivot_to_gt_axis_percent_static_diagonal": 5.754902361831097,
+                "axis_line_distance_percent_static_diagonal": 1.86616742148941,
+                "predicted_type": "revolute",
+                "type_correct": true
+              },
+              "original_exported": {
+                "axis_direction_error_degrees": 0.3816958684704731,
+                "pivot_to_gt_axis": 0.12989883765719376,
+                "axis_line_distance": 0.08825680184576742,
+                "pivot_to_gt_axis_percent_static_diagonal": 6.610528768719083,
+                "axis_line_distance_percent_static_diagonal": 4.491372964985688,
+                "predicted_type": "revolute",
+                "type_correct": true
+              }
+            }
+          }
+        ]
+      },
+      "input_provenance": {
+        "scene_id": "10489",
+        "frame_index": 0,
+        "source_image": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/10489/images/000000.png",
+        "source_data_root": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/10489",
+        "protocol": "Explicit GT-mask / oracle part segmentation. GT mesh only projected to2D mask; no GT axis/type/origin passed to PAct.",
+        "silhouette_iou": 0.9998604310354854,
+        "mask_labels": "0 background; mesh_index+1 foreground; original PAct bottom-up reorder recorded",
+        "part_count": 3,
+        "part_correspondence": [
+          {
+            "gt_mesh_index": 0,
+            "input_label": 1,
+            "pact_node_id": 1,
+            "visible_pixels": 54595
+          },
+          {
+            "gt_mesh_index": 1,
+            "input_label": 2,
+            "pact_node_id": 2,
+            "visible_pixels": 13195
+          },
+          {
+            "gt_mesh_index": 2,
+            "input_label": 3,
+            "pact_node_id": 0,
+            "visible_pixels": 18182
+          }
+        ],
+        "files": [
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/10489/images/000000.png",
+            "sha256": "db693dd351baa90ecf28aa2c2a32b2371262e2a62d557020478dec4969c8c654"
+          },
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/10489/transforms.json",
+            "sha256": "317f3fc7ce39a66d29ea64f475ae672529eec0652be8a5eba451135d66817764"
+          },
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/10489/gt/part_0.ply",
+            "sha256": "e7374e8597762ac874dab7ccb73f4328e85e9ec796aaea0e0d76e92af246c905"
+          },
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/10489/gt/part_1.ply",
+            "sha256": "7c2e8e8d8812b583cfb86fc5cf163ec2092eb1c259386b1f8d99f903a00b4510"
+          },
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/10489/gt/part_2.ply",
+            "sha256": "330aba27e9a0101e60ef5fa7df946493e97c44e4a5e3b2a0629a2771f633f1eb"
+          }
+        ],
+        "input_dir": "/root/autodl-tmp/PAct/repro/inputs/video_gt_10489_frame000000"
+      },
+      "part_correspondence_with_predicted_semantics": [
+        {
+          "gt_mesh_index": 0,
+          "input_label": 1,
+          "pact_node_id": 1,
+          "visible_pixels": 54595,
+          "predicted_semantic": "base",
+          "predicted_exported_type": "fixed"
+        },
+        {
+          "gt_mesh_index": 1,
+          "input_label": 2,
+          "pact_node_id": 2,
+          "visible_pixels": 13195,
+          "predicted_semantic": "door",
+          "predicted_exported_type": "revolute"
+        },
+        {
+          "gt_mesh_index": 2,
+          "input_label": 3,
+          "pact_node_id": 0,
+          "visible_pixels": 18182,
+          "predicted_semantic": "door",
+          "predicted_exported_type": "revolute"
+        }
+      ],
+      "GT_annotation": {
+        "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/10489/gt/mobility_v2.json",
+        "sha256": "b9942a8eee2e9ee657b8694064e3dd38a915a25111f01bd46d831e8d994db31a"
+      },
+      "exported_object": {
+        "path": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@10489_000000_processed.@ng/object.json",
+        "sha256": "17677d40ee9b2a728128e354dc246ba5a342994609582b011fb0948f01ce215a"
+      },
+      "checkpoint_load_count": 6,
+      "evidence_files": [
+        {
+          "path": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z/command.json",
+          "sha256": "6eb7d0bef07ce804d5b3b132ad3016640bced9cc70e50bc74dae731953f19c14"
+        },
+        {
+          "path": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z/source.patch",
+          "sha256": "7696c25d59a38fcf3cbc7549843a5d26ac18cc12fc9b45cbc1d13d7a9520068d"
+        },
+        {
+          "path": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z/joint_trace/raw_head_00.npy",
+          "sha256": "3d385533ee344e701e1eb709c931dcd50c32111d0130ef3703095bf19d5b8afc"
+        },
+        {
+          "path": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z/joint_evaluation/joint_errors.json",
+          "sha256": "7d0bb12015b6848c1a97ef41f13dbdc71412a72a6b777fa69f643067f5940405"
+        },
+        {
+          "path": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z/joint_evaluation/geometry_registration_sensitivity.json",
+          "sha256": "8aebf9067a6ed669777d5701d293a4c449376f86b8023a844a4d5d59d4e52118"
+        }
+      ],
+      "registration_conditional_summary": {
+        "raw_head": {
+          "type_correct_count": 2,
+          "joint_count": 2,
+          "type_accuracy": 1.0,
+          "correct_type_axis_count": 2,
+          "correct_type_mean_axis_error_degrees": 2.828882411494605
+        },
+        "original_exported": {
+          "type_correct_count": 2,
+          "joint_count": 2,
+          "type_accuracy": 1.0,
+          "correct_type_axis_count": 2,
+          "correct_type_mean_axis_error_degrees": 0.3816958684704731
+        }
+      }
+    },
+    {
+      "scene_id": "31249",
+      "run": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z",
+      "status": {
+        "state": "complete",
+        "scene": "31249",
+        "updated_utc": "2026-10-24T07:06:30.555230+00:00",
+        "elapsed_seconds": 80.92610901780427,
+        "object": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/object.json",
+        "part_count": 5,
+        "peak_observed_gpu_mib": 22752
+      },
+      "conditional_summary": {
+        "raw_head": {
+          "type_correct_count": 3,
+          "joint_count": 4,
+          "type_accuracy": 0.75,
+          "correct_type_axis_count": 3,
+          "correct_type_mean_axis_error_degrees": 0.4767051224553511
+        },
+        "axis_snapped_before_bbox": {
+          "type_correct_count": 3,
+          "joint_count": 4,
+          "type_accuracy": 0.75,
+          "correct_type_axis_count": 3,
+          "correct_type_mean_axis_error_degrees": 0.40446464371448737
+        },
+        "original_exported": {
+          "type_correct_count": 3,
+          "joint_count": 4,
+          "type_accuracy": 0.75,
+          "correct_type_axis_count": 3,
+          "correct_type_mean_axis_error_degrees": 0.40446464371448737
+        }
+      },
+      "primary": {
+        "scene_id": "31249",
+        "protocol": "Explicit GT-mask / oracle part segmentation. GT mesh only projected to2D mask; no GT axis/type/origin passed to PAct.",
+        "input_silhouette_iou": 0.9998961459772144,
+        "selection": "Fixed frame0 and seed42; no GT axis passed to model; correspondence from input-mask reorder, not GT joint-error permutation.",
+        "direction_alignment": "Fixed PAct export canonical frame to VideoArtGS GT-world R, from official source conventions; no fitted rotation or ICP.",
+        "position_alignment": "One uniform scale from static-part AABB diagonals and translation from static AABB centers; uses GT static geometry for evaluation only, never GT joint axis.",
+        "R_export_to_gtworld": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "R_raw_to_gtworld": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "scale": 1.5692885426578609,
+        "translation": [
+          -0.027395148829884045,
+          0.012155870593724374,
+          -0.1162918200877438
+        ],
+        "GT_static_diagonal": 2.1019313998933056,
+        "static_surface_symmetric_rms_after_fixed_alignment": 0.04229433831893155,
+        "static_surface_rms_percent_diagonal": 2.0121654931782462,
+        "unit_note": "Distances in GT dataset-coordinate units and percent static diagonal, not claimed physically calibrated centimeters.",
+        "angle_definition": "acos(abs(dot(unit directions))) in degrees, ignores axis sign.",
+        "pivot_definition": "Distance from predicted origin to GT infinite axis, plus shortest infinite-axis line distance. Along-axis origin offset not identifiable; nonparallel intersecting infinite lines can have zero line distance despite a poor pivot.",
+        "GT_joint_ranges_comparison": "Not scored: input is a nonzero articulated state and generated rest-state convention may differ. GT limits and predicted range retained for diagnosis.",
+        "joints": [
+          {
+            "gt_mesh_index": 1,
+            "gt_mobility_id": 0,
+            "predicted_node_id": 3,
+            "GT_type": "prismatic",
+            "GT_direction_world": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "GT_origin_world": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "GT_limit": {
+              "a": 0,
+              "b": 0.3839999999999999,
+              "noLimit": false
+            },
+            "predicted_exported_range": [
+              0.0,
+              -0.31142136454582214
+            ],
+            "variants": {
+              "raw_head": {
+                "predicted_type": "prismatic",
+                "type_correct": true,
+                "direction_world": [
+                  0.9999560920277343,
+                  3.136710666409281e-05,
+                  0.009370860831649272
+                ],
+                "origin_world": [
+                  -0.10791668125426143,
+                  0.447740032075245,
+                  0.2661188431269544
+                ],
+                "axis_direction_error_degrees": 0.5369216423432445,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null
+              },
+              "axis_snapped_before_bbox": {
+                "predicted_type": "prismatic",
+                "type_correct": true,
+                "direction_world": [
+                  0.999956092027682,
+                  3.136710866988252e-05,
+                  0.009370860837209899
+                ],
+                "origin_world": [
+                  -0.027395148829884045,
+                  0.012155870593724374,
+                  -0.1162918200877438
+                ],
+                "axis_direction_error_degrees": 0.536921642662966,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null
+              },
+              "original_exported": {
+                "predicted_type": "prismatic",
+                "type_correct": true,
+                "direction_world": [
+                  0.999956092027682,
+                  3.136710866988252e-05,
+                  0.009370860837209899
+                ],
+                "origin_world": [
+                  -0.027395148829884045,
+                  0.012155870593724374,
+                  -0.1162918200877438
+                ],
+                "axis_direction_error_degrees": 0.536921642662966,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null
+              }
+            }
+          },
+          {
+            "gt_mesh_index": 2,
+            "gt_mobility_id": 1,
+            "predicted_node_id": 4,
+            "GT_type": "prismatic",
+            "GT_direction_world": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "GT_origin_world": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "GT_limit": {
+              "a": 0,
+              "b": 0.3839999999999999,
+              "noLimit": false
+            },
+            "predicted_exported_range": [
+              0.0,
+              -0.3360891342163086
+            ],
+            "variants": {
+              "raw_head": {
+                "predicted_type": "prismatic",
+                "type_correct": true,
+                "direction_world": [
+                  0.999930302102916,
+                  0.00908382541332306,
+                  0.0075415550274153245
+                ],
+                "origin_world": [
+                  -0.09807201752541649,
+                  -0.3433180869201985,
+                  0.3317066972269714
+                ],
+                "axis_direction_error_degrees": 0.6764722567067217,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null
+              },
+              "axis_snapped_before_bbox": {
+                "predicted_type": "prismatic",
+                "type_correct": true,
+                "direction_world": [
+                  0.9999303020963687,
+                  0.009083825912505377,
+                  0.007541555294242384
+                ],
+                "origin_world": [
+                  -0.027395148829884045,
+                  0.012155870593724374,
+                  -0.1162918200877438
+                ],
+                "axis_direction_error_degrees": 0.676472288480496,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null
+              },
+              "original_exported": {
+                "predicted_type": "prismatic",
+                "type_correct": true,
+                "direction_world": [
+                  0.9999303020963687,
+                  0.009083825912505377,
+                  0.007541555294242384
+                ],
+                "origin_world": [
+                  -0.027395148829884045,
+                  0.012155870593724374,
+                  -0.1162918200877438
+                ],
+                "axis_direction_error_degrees": 0.676472288480496,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null
+              }
+            }
+          },
+          {
+            "gt_mesh_index": 3,
+            "gt_mobility_id": 3,
+            "predicted_node_id": 0,
+            "GT_type": "revolute",
+            "GT_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "GT_origin_world": [
+              -0.22285941751647614,
+              0.5368544630024709,
+              0.04881900000000003
+            ],
+            "GT_limit": {
+              "a": 0,
+              "b": -90,
+              "noLimit": false
+            },
+            "predicted_exported_range": [
+              0.0,
+              -35.13726806640625
+            ],
+            "variants": {
+              "raw_head": {
+                "predicted_type": "revolute",
+                "type_correct": true,
+                "direction_world": [
+                  0.0037730046582965184,
+                  -0.00026776470323131,
+                  0.9999928463433687
+                ],
+                "origin_world": [
+                  -0.2949937039314791,
+                  0.22340869408788588,
+                  -0.19783659927799735
+                ],
+                "axis_direction_error_degrees": 0.2167214683160871,
+                "pivot_to_gt_axis": 0.3216389362733577,
+                "axis_line_distance": 0.3177658207679372,
+                "pivot_to_gt_axis_percent_static_diagonal": 15.302066294346437,
+                "axis_line_distance_percent_static_diagonal": 15.117801693436192
+              },
+              "axis_snapped_before_bbox": {
+                "predicted_type": "revolute",
+                "type_correct": true,
+                "direction_world": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "origin_world": [
+                  -0.2949937039314791,
+                  0.22340869408788588,
+                  -0.19783659927799735
+                ],
+                "axis_direction_error_degrees": 0.0,
+                "pivot_to_gt_axis": 0.3216389362733577,
+                "axis_line_distance": 0.3216389362733577,
+                "pivot_to_gt_axis_percent_static_diagonal": 15.302066294346437,
+                "axis_line_distance_percent_static_diagonal": 15.302066294346437
+              },
+              "original_exported": {
+                "predicted_type": "revolute",
+                "type_correct": true,
+                "direction_world": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "origin_world": [
+                  -0.21091060257006355,
+                  0.5330561951302488,
+                  -0.19783662266221888
+                ],
+                "axis_direction_error_degrees": 0.0,
+                "pivot_to_gt_axis": 0.012537982989810084,
+                "axis_line_distance": 0.012537982989810084,
+                "pivot_to_gt_axis_percent_static_diagonal": 0.5964982011518793,
+                "axis_line_distance_percent_static_diagonal": 0.5964982011518793
+              }
+            }
+          },
+          {
+            "gt_mesh_index": 4,
+            "gt_mobility_id": 4,
+            "predicted_node_id": 1,
+            "GT_type": "revolute",
+            "GT_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "GT_origin_world": [
+              -0.22386711728301867,
+              -0.5119219004394762,
+              0.048819
+            ],
+            "GT_limit": {
+              "a": 0,
+              "b": 90,
+              "noLimit": false
+            },
+            "predicted_exported_range": [
+              0.0,
+              -0.23891043663024902
+            ],
+            "variants": {
+              "raw_head": {
+                "predicted_type": "prismatic",
+                "type_correct": false,
+                "direction_world": [
+                  0.9868691826819113,
+                  -0.024129820807993668,
+                  0.1597090104549852
+                ],
+                "origin_world": [
+                  -0.1339140544681347,
+                  -0.27695579417142496,
+                  0.08866954875541258
+                ],
+                "axis_direction_error_degrees": 80.80999344270799,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null
+              },
+              "axis_snapped_before_bbox": {
+                "predicted_type": "prismatic",
+                "type_correct": false,
+                "direction_world": [
+                  0.98686918416177,
+                  -0.024129820209958613,
+                  0.15970900140103964
+                ],
+                "origin_world": [
+                  -0.027395148829884045,
+                  0.012155870593724374,
+                  -0.1162918200877438
+                ],
+                "axis_direction_error_degrees": 80.80999396820609,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null
+              },
+              "original_exported": {
+                "predicted_type": "prismatic",
+                "type_correct": false,
+                "direction_world": [
+                  0.98686918416177,
+                  -0.024129820209958613,
+                  0.15970900140103964
+                ],
+                "origin_world": [
+                  -0.027395148829884045,
+                  0.012155870593724374,
+                  -0.1162918200877438
+                ],
+                "axis_direction_error_degrees": 80.80999396820609,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null
+              }
+            }
+          }
+        ],
+        "aggregate": {
+          "raw_head": {
+            "joint_type_accuracy": 0.75,
+            "mean_axis_direction_error_degrees": 20.560027202518512,
+            "direction_available_count": 4,
+            "joint_count": 4
+          },
+          "axis_snapped_before_bbox": {
+            "joint_type_accuracy": 0.75,
+            "mean_axis_direction_error_degrees": 20.505846974837386,
+            "direction_available_count": 4,
+            "joint_count": 4
+          },
+          "original_exported": {
+            "joint_type_accuracy": 0.75,
+            "mean_axis_direction_error_degrees": 20.505846974837386,
+            "direction_available_count": 4,
+            "joint_count": 4
+          }
+        }
+      },
+      "registration_sensitivity": {
+        "scene_id": "31249",
+        "protocol": "Evaluation-only static-geometry local rigid ICP from fixed canonical initialization, 12000 surface samples, 80% trimmed point-to-point, at most50iterations. No GT joint axis/type/origin in fitting, no multistart or score-based rotation selection. No change to generated geometry or model.",
+        "rotation": [
+          [
+            0.9986467893185516,
+            -0.0004145519659913988,
+            -0.05200402225234533
+          ],
+          [
+            0.00025568288117848177,
+            0.9999952807456122,
+            -0.0030615539788410935
+          ],
+          [
+            0.05200504600535621,
+            0.003044114513055015,
+            0.9986421824441478
+          ]
+        ],
+        "translation": [
+          -0.017527002302251307,
+          -0.004316446906185129,
+          0.01202768854315012
+        ],
+        "rotation_delta_degrees": 2.986183429987118,
+        "iterations": 50,
+        "heldout_static_symmetric_rms_before_percent_diagonal": 1.9785059527054707,
+        "heldout_static_symmetric_rms_after_percent_diagonal": 1.9788763392251267,
+        "caveat": "Static geometry may be symmetric or imperfect; registration-dependent joint error is a sensitivity diagnostic, not a replacement for the primary fixed-frame score.",
+        "joints": [
+          {
+            "gt_mobility_id": 0,
+            "GT_type": "prismatic",
+            "variants": {
+              "raw_head": {
+                "axis_direction_error_degrees": 3.5179672233831965,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null,
+                "predicted_type": "prismatic",
+                "type_correct": true
+              },
+              "axis_snapped_before_bbox": {
+                "axis_direction_error_degrees": 3.5179672237026955,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null,
+                "predicted_type": "prismatic",
+                "type_correct": true
+              },
+              "original_exported": {
+                "axis_direction_error_degrees": 3.5179672237026955,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null,
+                "predicted_type": "prismatic",
+                "type_correct": true
+              }
+            }
+          },
+          {
+            "gt_mobility_id": 1,
+            "GT_type": "prismatic",
+            "variants": {
+              "raw_head": {
+                "axis_direction_error_degrees": 3.456149396297153,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null,
+                "predicted_type": "prismatic",
+                "type_correct": true
+              },
+              "axis_snapped_before_bbox": {
+                "axis_direction_error_degrees": 3.4561494158961645,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null,
+                "predicted_type": "prismatic",
+                "type_correct": true
+              },
+              "original_exported": {
+                "axis_direction_error_degrees": 3.4561494158961645,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null,
+                "predicted_type": "prismatic",
+                "type_correct": true
+              }
+            }
+          },
+          {
+            "gt_mobility_id": 3,
+            "GT_type": "revolute",
+            "variants": {
+              "raw_head": {
+                "axis_direction_error_degrees": 2.7713505688472146,
+                "pivot_to_gt_axis": 0.3269377298089521,
+                "axis_line_distance": 0.31103772951186953,
+                "pivot_to_gt_axis_percent_static_diagonal": 15.554157943762938,
+                "axis_line_distance_percent_static_diagonal": 14.797710787690686,
+                "predicted_type": "revolute",
+                "type_correct": true
+              },
+              "axis_snapped_before_bbox": {
+                "axis_direction_error_degrees": 2.986121629928886,
+                "pivot_to_gt_axis": 0.3269377298089521,
+                "axis_line_distance": 0.31203797935210725,
+                "pivot_to_gt_axis_percent_static_diagonal": 15.554157943762938,
+                "axis_line_distance_percent_static_diagonal": 14.845297965858752,
+                "predicted_type": "revolute",
+                "type_correct": true
+              },
+              "original_exported": {
+                "axis_direction_error_degrees": 2.986121629928886,
+                "pivot_to_gt_axis": 0.00894609150245404,
+                "axis_line_distance": 0.007832991128157331,
+                "pivot_to_gt_axis_percent_static_diagonal": 0.4256129150032273,
+                "axis_line_distance_percent_static_diagonal": 0.3726568397310652,
+                "predicted_type": "revolute",
+                "type_correct": true
+              }
+            }
+          },
+          {
+            "gt_mobility_id": 4,
+            "GT_type": "revolute",
+            "variants": {
+              "raw_head": {
+                "axis_direction_error_degrees": 77.83422688448539,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null,
+                "predicted_type": "prismatic",
+                "type_correct": false
+              },
+              "axis_snapped_before_bbox": {
+                "axis_direction_error_degrees": 77.83422740981803,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null,
+                "predicted_type": "prismatic",
+                "type_correct": false
+              },
+              "original_exported": {
+                "axis_direction_error_degrees": 77.83422740981803,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null,
+                "predicted_type": "prismatic",
+                "type_correct": false
+              }
+            }
+          }
+        ]
+      },
+      "input_provenance": {
+        "scene_id": "31249",
+        "frame_index": 0,
+        "source_image": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/31249/images/000000.png",
+        "source_data_root": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/31249",
+        "protocol": "Explicit GT-mask / oracle part segmentation. GT mesh only projected to2D mask; no GT axis/type/origin passed to PAct.",
+        "silhouette_iou": 0.9998961459772144,
+        "mask_labels": "0 background; mesh_index+1 foreground; original PAct bottom-up reorder recorded",
+        "part_count": 5,
+        "part_correspondence": [
+          {
+            "gt_mesh_index": 0,
+            "input_label": 1,
+            "pact_node_id": 2,
+            "visible_pixels": 59775
+          },
+          {
+            "gt_mesh_index": 1,
+            "input_label": 2,
+            "pact_node_id": 3,
+            "visible_pixels": 11972
+          },
+          {
+            "gt_mesh_index": 2,
+            "input_label": 3,
+            "pact_node_id": 4,
+            "visible_pixels": 11991
+          },
+          {
+            "gt_mesh_index": 3,
+            "input_label": 4,
+            "pact_node_id": 0,
+            "visible_pixels": 6225
+          },
+          {
+            "gt_mesh_index": 4,
+            "input_label": 5,
+            "pact_node_id": 1,
+            "visible_pixels": 6323
+          }
+        ],
+        "files": [
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/31249/images/000000.png",
+            "sha256": "c11105ef72a22909a1f01c27cb04fdf709c999db453ac1d00daa9b86e00d0c9b"
+          },
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/31249/transforms.json",
+            "sha256": "50d6ffc4e5bbcb51cf4533a2f87a6dd6daf62ed5325b6ea8520887fc500f29a7"
+          },
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/31249/gt/part_0.ply",
+            "sha256": "f7d8f78a8bc330a366c75a29b63d4b274caa9d067d0bda8b15bfbe5edba2b2d0"
+          },
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/31249/gt/part_1.ply",
+            "sha256": "5a8fa4eb3996c4e2ea26c209c69a6d4cf1b2b2c90b89d2d3667c5f9242f291df"
+          },
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/31249/gt/part_2.ply",
+            "sha256": "05c4e565cdcf2738024a127dde9f2ee8611bc6a3ce4b4007c069c68432b0af18"
+          },
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/31249/gt/part_3.ply",
+            "sha256": "725be56acca427afa157db2374cfc6ea4c676f290794b07f25f1eedeb16eb9b6"
+          },
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/31249/gt/part_4.ply",
+            "sha256": "694fe6e4d52ba5b37ccf1957fcea47c74865d22fa44b9fda9a2e75f2ee2633c5"
+          }
+        ],
+        "input_dir": "/root/autodl-tmp/PAct/repro/inputs/video_gt_31249_frame000000"
+      },
+      "part_correspondence_with_predicted_semantics": [
+        {
+          "gt_mesh_index": 0,
+          "input_label": 1,
+          "pact_node_id": 2,
+          "visible_pixels": 59775,
+          "predicted_semantic": "base",
+          "predicted_exported_type": "fixed"
+        },
+        {
+          "gt_mesh_index": 1,
+          "input_label": 2,
+          "pact_node_id": 3,
+          "visible_pixels": 11972,
+          "predicted_semantic": "drawer",
+          "predicted_exported_type": "prismatic"
+        },
+        {
+          "gt_mesh_index": 2,
+          "input_label": 3,
+          "pact_node_id": 4,
+          "visible_pixels": 11991,
+          "predicted_semantic": "drawer",
+          "predicted_exported_type": "prismatic"
+        },
+        {
+          "gt_mesh_index": 3,
+          "input_label": 4,
+          "pact_node_id": 0,
+          "visible_pixels": 6225,
+          "predicted_semantic": "door",
+          "predicted_exported_type": "revolute"
+        },
+        {
+          "gt_mesh_index": 4,
+          "input_label": 5,
+          "pact_node_id": 1,
+          "visible_pixels": 6323,
+          "predicted_semantic": "drawer",
+          "predicted_exported_type": "prismatic"
+        }
+      ],
+      "GT_annotation": {
+        "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/31249/gt/mobility_v2.json",
+        "sha256": "42084655a4a4574bee06cc15891c2277100b58c0725d8e6e061dbb76f90a3e98"
+      },
+      "exported_object": {
+        "path": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/object.json",
+        "sha256": "322e44b12bed529af1f2f45d150343aaf129ea44a1168ffd59a4f955ffecdc24"
+      },
+      "checkpoint_load_count": 6,
+      "evidence_files": [
+        {
+          "path": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/command.json",
+          "sha256": "a09ad0a809a1847f0588b07b2c60b67ec3581636c020d0c2d2e92e28ba201713"
+        },
+        {
+          "path": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/source.patch",
+          "sha256": "7696c25d59a38fcf3cbc7549843a5d26ac18cc12fc9b45cbc1d13d7a9520068d"
+        },
+        {
+          "path": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/joint_trace/raw_head_00.npy",
+          "sha256": "d204c443e9947f3af533703736e3113bcadeec55929bef3eaf7f66fe5142f511"
+        },
+        {
+          "path": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/joint_evaluation/joint_errors.json",
+          "sha256": "3678c11dc7df5e50ea6d0a12f3cd13082b0a373180e482843e845a33219d4921"
+        },
+        {
+          "path": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/joint_evaluation/geometry_registration_sensitivity.json",
+          "sha256": "5101fe62b280a73deadd11545249dc46c38fffd051cfdadcf2faaeaa9d2a5a9a"
+        }
+      ],
+      "registration_conditional_summary": {
+        "raw_head": {
+          "type_correct_count": 3,
+          "joint_count": 4,
+          "type_accuracy": 0.75,
+          "correct_type_axis_count": 3,
+          "correct_type_mean_axis_error_degrees": 3.248489062842521
+        },
+        "original_exported": {
+          "type_correct_count": 3,
+          "joint_count": 4,
+          "type_accuracy": 0.75,
+          "correct_type_axis_count": 3,
+          "correct_type_mean_axis_error_degrees": 3.3200794231759154
+        }
+      }
+    },
+    {
+      "scene_id": "101808",
+      "run": "/root/autodl-tmp/PAct/repro/outputs/gt_101808_20261024T071040Z",
+      "status": {
+        "state": "complete",
+        "scene": "101808",
+        "updated_utc": "2026-10-24T07:11:51.297568+00:00",
+        "elapsed_seconds": 70.76684958487749,
+        "object": "/root/autodl-tmp/PAct/repro/outputs/gt_101808_20261024T071040Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@101808_000000_processed.@ng/object.json",
+        "part_count": 3,
+        "peak_observed_gpu_mib": 21554
+      },
+      "conditional_summary": {
+        "raw_head": {
+          "type_correct_count": 0,
+          "joint_count": 2,
+          "type_accuracy": 0.0,
+          "correct_type_axis_count": 0,
+          "correct_type_mean_axis_error_degrees": null
+        },
+        "axis_snapped_before_bbox": {
+          "type_correct_count": 0,
+          "joint_count": 2,
+          "type_accuracy": 0.0,
+          "correct_type_axis_count": 0,
+          "correct_type_mean_axis_error_degrees": null
+        },
+        "original_exported": {
+          "type_correct_count": 0,
+          "joint_count": 2,
+          "type_accuracy": 0.0,
+          "correct_type_axis_count": 0,
+          "correct_type_mean_axis_error_degrees": null
+        }
+      },
+      "primary": {
+        "scene_id": "101808",
+        "protocol": "Explicit GT-mask / oracle part segmentation. GT mesh only projected to2D mask; no GT axis/type/origin passed to PAct.",
+        "input_silhouette_iou": 0.9995372454850168,
+        "selection": "Fixed frame0 and seed42; no GT axis passed to model; correspondence from input-mask reorder, not GT joint-error permutation.",
+        "direction_alignment": "Fixed PAct export canonical frame to VideoArtGS GT-world R, from official source conventions; no fitted rotation or ICP.",
+        "position_alignment": "One uniform scale from static-part AABB diagonals and translation from static AABB centers; uses GT static geometry for evaluation only, never GT joint axis.",
+        "R_export_to_gtworld": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "R_raw_to_gtworld": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "scale": 3.7939550350793247,
+        "translation": [
+          1.324105301514906,
+          -0.020730839696726948,
+          1.3003827797832705
+        ],
+        "GT_static_diagonal": 2.1492703229705734,
+        "static_surface_symmetric_rms_after_fixed_alignment": 0.26917347875575937,
+        "static_surface_rms_percent_diagonal": 12.523947121910952,
+        "unit_note": "Distances in GT dataset-coordinate units and percent static diagonal, not claimed physically calibrated centimeters.",
+        "angle_definition": "acos(abs(dot(unit directions))) in degrees, ignores axis sign.",
+        "pivot_definition": "Distance from predicted origin to GT infinite axis, plus shortest infinite-axis line distance. Along-axis origin offset not identifiable; nonparallel intersecting infinite lines can have zero line distance despite a poor pivot.",
+        "GT_joint_ranges_comparison": "Not scored: input is a nonzero articulated state and generated rest-state convention may differ. GT limits and predicted range retained for diagnosis.",
+        "joints": [
+          {
+            "gt_mesh_index": 1,
+            "gt_mobility_id": 0,
+            "predicted_node_id": 0,
+            "GT_type": "revolute",
+            "GT_direction_world": [
+              -0.06627497073983131,
+              -0.9978013971995803,
+              0.0
+            ],
+            "GT_origin_world": [
+              -0.4677611856582847,
+              0.4281465047314254,
+              -0.5719901858661538
+            ],
+            "GT_limit": {
+              "a": 0,
+              "b": 90,
+              "noLimit": false
+            },
+            "predicted_exported_range": [
+              0.0,
+              0.0
+            ],
+            "variants": {
+              "raw_head": {
+                "predicted_type": "fixed",
+                "type_correct": false,
+                "direction_world": [
+                  0.7547743257067236,
+                  -0.3255400496222102,
+                  0.5695080274639943
+                ],
+                "origin_world": [
+                  0.983907676029974,
+                  0.20765367163277354,
+                  1.3652392168523928
+                ],
+                "axis_direction_error_degrees": 74.04980465737718,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null
+              },
+              "axis_snapped_before_bbox": {
+                "predicted_type": "fixed",
+                "type_correct": false,
+                "direction_world": null,
+                "origin_world": [
+                  1.324105301514906,
+                  -0.020730839696726948,
+                  1.3003827797832705
+                ],
+                "axis_direction_error_degrees": null,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null
+              },
+              "original_exported": {
+                "predicted_type": "fixed",
+                "type_correct": false,
+                "direction_world": null,
+                "origin_world": [
+                  1.324105301514906,
+                  -0.020730839696726948,
+                  1.3003827797832705
+                ],
+                "axis_direction_error_degrees": null,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null
+              }
+            }
+          },
+          {
+            "gt_mesh_index": 2,
+            "gt_mobility_id": 1,
+            "predicted_node_id": 2,
+            "GT_type": "revolute",
+            "GT_direction_world": [
+              -0.06627497073983166,
+              -0.9978013971995803,
+              0.0
+            ],
+            "GT_origin_world": [
+              -0.468144158905138,
+              0.4336921858655555,
+              0.15593220728466706
+            ],
+            "GT_limit": {
+              "a": 0,
+              "b": 90,
+              "noLimit": false
+            },
+            "predicted_exported_range": [
+              0.0,
+              0.0
+            ],
+            "variants": {
+              "raw_head": {
+                "predicted_type": "prismatic",
+                "type_correct": false,
+                "direction_world": [
+                  0.7240749079020028,
+                  -0.2741041260214104,
+                  0.6329158363042791
+                ],
+                "origin_world": [
+                  0.12133719983428892,
+                  -0.31643450148618024,
+                  2.7125475023208545
+                ],
+                "axis_direction_error_degrees": 76.96692809117816,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null
+              },
+              "axis_snapped_before_bbox": {
+                "predicted_type": "fixed",
+                "type_correct": false,
+                "direction_world": [
+                  0.7240749198598037,
+                  -0.27410413304687803,
+                  0.632915819581592
+                ],
+                "origin_world": [
+                  1.324105301514906,
+                  -0.020730839696726948,
+                  1.3003827797832705
+                ],
+                "axis_direction_error_degrees": 76.96692772552129,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null
+              },
+              "original_exported": {
+                "predicted_type": "fixed",
+                "type_correct": false,
+                "direction_world": [
+                  0.7240749198598037,
+                  -0.27410413304687803,
+                  0.632915819581592
+                ],
+                "origin_world": [
+                  1.324105301514906,
+                  -0.020730839696726948,
+                  1.3003827797832705
+                ],
+                "axis_direction_error_degrees": 76.96692772552129,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null
+              }
+            }
+          }
+        ],
+        "aggregate": {
+          "raw_head": {
+            "joint_type_accuracy": 0.0,
+            "mean_axis_direction_error_degrees": 75.50836637427767,
+            "direction_available_count": 2,
+            "joint_count": 2
+          },
+          "axis_snapped_before_bbox": {
+            "joint_type_accuracy": 0.0,
+            "mean_axis_direction_error_degrees": 76.96692772552129,
+            "direction_available_count": 1,
+            "joint_count": 2
+          },
+          "original_exported": {
+            "joint_type_accuracy": 0.0,
+            "mean_axis_direction_error_degrees": 76.96692772552129,
+            "direction_available_count": 1,
+            "joint_count": 2
+          }
+        }
+      },
+      "registration_sensitivity": {
+        "scene_id": "101808",
+        "protocol": "Evaluation-only static-geometry local rigid ICP from fixed canonical initialization, 12000 surface samples, 80% trimmed point-to-point, at most50iterations. No GT joint axis/type/origin in fitting, no multistart or score-based rotation selection. No change to generated geometry or model.",
+        "rotation": [
+          [
+            0.7031167978434388,
+            -0.7010622503149828,
+            -0.11890538160101681
+          ],
+          [
+            0.703861857149753,
+            0.7099418804829294,
+            -0.023685700033300287
+          ],
+          [
+            0.10102106037899469,
+            -0.06703914915669741,
+            0.9926230391443926
+          ]
+        ],
+        "translation": [
+          -0.0008644626248563906,
+          -0.11113031873213544,
+          -0.15569798461117043
+        ],
+        "rotation_delta_degrees": 45.344626800797435,
+        "iterations": 50,
+        "heldout_static_symmetric_rms_before_percent_diagonal": 12.5684885210668,
+        "heldout_static_symmetric_rms_after_percent_diagonal": 11.99614470664827,
+        "caveat": "Static geometry may be symmetric or imperfect; registration-dependent joint error is a sensitivity diagnostic, not a replacement for the primary fixed-frame score.",
+        "joints": [
+          {
+            "gt_mobility_id": 0,
+            "GT_type": "revolute",
+            "variants": {
+              "raw_head": {
+                "axis_direction_error_degrees": 70.61997829460061,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null,
+                "predicted_type": "fixed",
+                "type_correct": false
+              },
+              "axis_snapped_before_bbox": {
+                "axis_direction_error_degrees": null,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null,
+                "predicted_type": "fixed",
+                "type_correct": false
+              },
+              "original_exported": {
+                "axis_direction_error_degrees": null,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null,
+                "predicted_type": "fixed",
+                "type_correct": false
+              }
+            }
+          },
+          {
+            "gt_mobility_id": 1,
+            "GT_type": "revolute",
+            "variants": {
+              "raw_head": {
+                "axis_direction_error_degrees": 70.06894494455221,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null,
+                "predicted_type": "prismatic",
+                "type_correct": false
+              },
+              "axis_snapped_before_bbox": {
+                "axis_direction_error_degrees": 70.06894465005551,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null,
+                "predicted_type": "fixed",
+                "type_correct": false
+              },
+              "original_exported": {
+                "axis_direction_error_degrees": 70.06894465005551,
+                "pivot_to_gt_axis": null,
+                "axis_line_distance": null,
+                "pivot_to_gt_axis_percent_static_diagonal": null,
+                "axis_line_distance_percent_static_diagonal": null,
+                "predicted_type": "fixed",
+                "type_correct": false
+              }
+            }
+          }
+        ]
+      },
+      "input_provenance": {
+        "scene_id": "101808",
+        "frame_index": 0,
+        "source_image": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/101808/images/000000.png",
+        "source_data_root": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/101808",
+        "protocol": "Explicit GT-mask / oracle part segmentation. GT mesh only projected to2D mask; no GT axis/type/origin passed to PAct.",
+        "silhouette_iou": 0.9995372454850168,
+        "mask_labels": "0 background; mesh_index+1 foreground; original PAct bottom-up reorder recorded",
+        "part_count": 3,
+        "part_correspondence": [
+          {
+            "gt_mesh_index": 0,
+            "input_label": 1,
+            "pact_node_id": 1,
+            "visible_pixels": 64869
+          },
+          {
+            "gt_mesh_index": 1,
+            "input_label": 2,
+            "pact_node_id": 0,
+            "visible_pixels": 9769
+          },
+          {
+            "gt_mesh_index": 2,
+            "input_label": 3,
+            "pact_node_id": 2,
+            "visible_pixels": 5295
+          }
+        ],
+        "files": [
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/101808/images/000000.png",
+            "sha256": "c7af2a6c5069dbd529aa01274b442b4c2724ab562fa312d94b978884108c40e1"
+          },
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/101808/transforms.json",
+            "sha256": "c65441a468c21dcaf238627fb4d8575e5d54655c242eab8bfd599c162bccb971"
+          },
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/101808/gt/part_0.ply",
+            "sha256": "1436897ed78fad8aa52a3baabd144542449f9c8a994f5415ec6d493b5ead9747"
+          },
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/101808/gt/part_1.ply",
+            "sha256": "70867b1d4a73687104ff5e14cb2632e3b99d6eff3c20cd4d329f6a39e6a2f28f"
+          },
+          {
+            "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/101808/gt/part_2.ply",
+            "sha256": "6b5fa57fe70326d3d0b1e49cd1a04bfdf72a22e9faffea897c6039ff1cd9d9ea"
+          }
+        ],
+        "input_dir": "/root/autodl-tmp/PAct/repro/inputs/video_gt_101808_frame000000"
+      },
+      "part_correspondence_with_predicted_semantics": [
+        {
+          "gt_mesh_index": 0,
+          "input_label": 1,
+          "pact_node_id": 1,
+          "visible_pixels": 64869,
+          "predicted_semantic": "door",
+          "predicted_exported_type": "revolute"
+        },
+        {
+          "gt_mesh_index": 1,
+          "input_label": 2,
+          "pact_node_id": 0,
+          "visible_pixels": 9769,
+          "predicted_semantic": "base",
+          "predicted_exported_type": "fixed"
+        },
+        {
+          "gt_mesh_index": 2,
+          "input_label": 3,
+          "pact_node_id": 2,
+          "visible_pixels": 5295,
+          "predicted_semantic": "base",
+          "predicted_exported_type": "fixed"
+        }
+      ],
+      "GT_annotation": {
+        "path": "/root/autodl-tmp/VideoArtGS/data/videoartgs/sapien/101808/gt/mobility_v2.json",
+        "sha256": "6148b1c4f53c9152a98fb2458f3825c85b50cd85c9d2f46751beb04c507b6f0b"
+      },
+      "exported_object": {
+        "path": "/root/autodl-tmp/PAct/repro/outputs/gt_101808_20261024T071040Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@101808_000000_processed.@ng/object.json",
+        "sha256": "4a7c77cad7df8f86107cab88de1ae91195e9ef0bb0e5dd1bbeb313a99ee34c7d"
+      },
+      "checkpoint_load_count": 6,
+      "evidence_files": [
+        {
+          "path": "/root/autodl-tmp/PAct/repro/outputs/gt_101808_20261024T071040Z/command.json",
+          "sha256": "c20d458dd13ed40b992f708312f7011010422900252a7149e9ca3fa0562f0a7b"
+        },
+        {
+          "path": "/root/autodl-tmp/PAct/repro/outputs/gt_101808_20261024T071040Z/source.patch",
+          "sha256": "7696c25d59a38fcf3cbc7549843a5d26ac18cc12fc9b45cbc1d13d7a9520068d"
+        },
+        {
+          "path": "/root/autodl-tmp/PAct/repro/outputs/gt_101808_20261024T071040Z/joint_trace/raw_head_00.npy",
+          "sha256": "e3577e2e35b5108f37fc499eede5cfb12807ca8555ef9eef130c7710d4357d10"
+        },
+        {
+          "path": "/root/autodl-tmp/PAct/repro/outputs/gt_101808_20261024T071040Z/joint_evaluation/joint_errors.json",
+          "sha256": "af89a3eeb0c85847110f0db46b7ceb1b1836e82fc11ddcb2ee0ba64f9c2f5838"
+        },
+        {
+          "path": "/root/autodl-tmp/PAct/repro/outputs/gt_101808_20261024T071040Z/joint_evaluation/geometry_registration_sensitivity.json",
+          "sha256": "0917589d1ea6248d202136574011aa5392faea8a85c50691316889b7e0450736"
+        }
+      ],
+      "registration_conditional_summary": {
+        "raw_head": {
+          "type_correct_count": 0,
+          "joint_count": 2,
+          "type_accuracy": 0.0,
+          "correct_type_axis_count": 0,
+          "correct_type_mean_axis_error_degrees": null
+        },
+        "original_exported": {
+          "type_correct_count": 0,
+          "joint_count": 2,
+          "type_accuracy": 0.0,
+          "correct_type_axis_count": 0,
+          "correct_type_mean_axis_error_degrees": null
+        }
+      }
+    }
+  ],
+  "GT_coordinate_reference": {
+    "path": "/root/autodl-tmp/VideoArtGS/utils/metrics.py",
+    "sha256": "5fa006c1ee9ca56f0bc01eb52bcc9cd3e163f2a206f22dd6e251de64c7dd10fe"
+  },
+  "PAct_articulation_reference": {
+    "path": "/root/autodl-tmp/PAct/modules/utils/articulation_utils.py",
+    "sha256": "a6cb2295f614d208497c0d8878d40f4c17709f355974e8a80a7c9a85210d8375"
+  },
+  "split_reference": {
+    "path": "/root/autodl-tmp/PAct/repro/evidence/singapo-data-split.json",
+    "sha256": "c6060844fc0b702f1ae30c25cb18b8efa9c311ab998546d8509c9c05348c0a86"
+  },
+  "evaluation_tools": [
+    {
+      "path": "/root/autodl-tmp/PAct/repro/tools/prepare_video_gt_case.py",
+      "sha256": "b5e377f9f1c08e1cc1b084df16494ba2c93c1496d740812ac6acc9c000bc4ba0"
+    },
+    {
+      "path": "/root/autodl-tmp/PAct/repro/tools/run_gt_case.py",
+      "sha256": "d41cbb0934a10b0bf4514bfd18b31d367202d4ecba8462c64dac0c7149c20ff0"
+    },
+    {
+      "path": "/root/autodl-tmp/PAct/repro/tools/guarded_infer.py",
+      "sha256": "7965a64e75e7de01cb3271ece02ea1d7f85fb0879d5ce390fcb1fe6dd1f7c6f7"
+    },
+    {
+      "path": "/root/autodl-tmp/PAct/repro/tools/evaluate_gt_joints.py",
+      "sha256": "23aaf0afc36791b93644d13f73e8b8c70e5a93b5c7017f9b7840fb79e0225edd"
+    },
+    {
+      "path": "/root/autodl-tmp/PAct/repro/tools/evaluate_registration_sensitivity.py",
+      "sha256": "4e5f51c8a8aa74ee2137a5e54f7f2afcd3c23150c6147bd1cd212bcea4ac65a2"
+    },
+    {
+      "path": "/root/autodl-tmp/PAct/repro/tools/build_gt_joint_report.py",
+      "sha256": "46f46d890812a810c072fed2c20d7e5a70d4df4ff79b24d2ed55a714fb001510"
+    }
+  ],
+  "split_audit": {
+    "10489": {
+      "train": [
+        "Refrigerator/10489"
+      ],
+      "test": []
+    },
+    "31249": {
+      "train": [
+        "augmented_data/Table/v1/31249-0",
+        "augmented_data/Table/v1/31249-1",
+        "augmented_data/Table/v1/31249-2"
+      ],
+      "test": [
+        "Table/31249"
+      ]
+    },
+    "101808": {
+      "train": [
+        "Oven/101808"
+      ],
+      "test": []
+    }
+  }
+}

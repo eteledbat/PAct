@@ -1,0 +1,317 @@
+[
+  {
+    "id": "100481",
+    "names": [
+      "handle"
+    ],
+    "joints": 2,
+    "types": [
+      "hinge"
+    ],
+    "split": {
+      "train": [],
+      "test": []
+    }
+  },
+  {
+    "id": "101284",
+    "names": [
+      "leg"
+    ],
+    "joints": 2,
+    "types": [
+      "hinge"
+    ],
+    "split": {
+      "train": [],
+      "test": []
+    }
+  },
+  {
+    "id": "101287",
+    "names": [
+      "leg"
+    ],
+    "joints": 2,
+    "types": [
+      "hinge"
+    ],
+    "split": {
+      "train": [],
+      "test": []
+    }
+  },
+  {
+    "id": "101808",
+    "names": [
+      "door",
+      "knob"
+    ],
+    "joints": 9,
+    "types": [
+      "hinge"
+    ],
+    "split": {
+      "train": [
+        "Oven/101808"
+      ],
+      "test": []
+    }
+  },
+  {
+    "id": "101908",
+    "names": [
+      "door",
+      "knob"
+    ],
+    "joints": 12,
+    "types": [
+      "hinge"
+    ],
+    "split": {
+      "train": [
+        "Oven/101908"
+      ],
+      "test": []
+    }
+  },
+  {
+    "id": "103015",
+    "names": [
+      "rotation"
+    ],
+    "joints": 3,
+    "types": [
+      "hinge"
+    ],
+    "split": {
+      "train": [],
+      "test": []
+    }
+  },
+  {
+    "id": "103811",
+    "names": [
+      "button",
+      "drawer"
+    ],
+    "joints": 30,
+    "types": [
+      "slider"
+    ],
+    "split": {
+      "train": [],
+      "test": []
+    }
+  },
+  {
+    "id": "10489",
+    "names": [
+      "door_frame"
+    ],
+    "joints": 2,
+    "types": [
+      "hinge"
+    ],
+    "split": {
+      "train": [
+        "Refrigerator/10489"
+      ],
+      "test": []
+    }
+  },
+  {
+    "id": "10655",
+    "names": [
+      "control_panel",
+      "door"
+    ],
+    "joints": 2,
+    "types": [
+      "hinge"
+    ],
+    "split": {
+      "train": [
+        "Refrigerator/10655"
+      ],
+      "test": []
+    }
+  },
+  {
+    "id": "1280",
+    "names": [
+      "switch"
+    ],
+    "joints": 2,
+    "types": [
+      "hinge"
+    ],
+    "split": {
+      "train": [],
+      "test": []
+    }
+  },
+  {
+    "id": "168",
+    "names": [
+      "spout",
+      "switch"
+    ],
+    "joints": 2,
+    "types": [
+      "hinge"
+    ],
+    "split": {
+      "train": [],
+      "test": []
+    }
+  },
+  {
+    "id": "25493",
+    "names": [
+      "drawer_box"
+    ],
+    "joints": 3,
+    "types": [
+      "slider"
+    ],
+    "split": {
+      "train": [
+        "Table/25493"
+      ],
+      "test": []
+    }
+  },
+  {
+    "id": "30666",
+    "names": [
+      "drawer"
+    ],
+    "joints": 9,
+    "types": [
+      "slider"
+    ],
+    "split": {
+      "train": [
+        "Table/30666"
+      ],
+      "test": []
+    }
+  },
+  {
+    "id": "31249",
+    "names": [
+      "cabinet_door_surface",
+      "drawer"
+    ],
+    "joints": 4,
+    "types": [
+      "hinge",
+      "slider"
+    ],
+    "split": {
+      "train": [],
+      "test": [
+        "Table/31249"
+      ]
+    }
+  },
+  {
+    "id": "45194",
+    "names": [
+      "cabinet_door",
+      "drawer"
+    ],
+    "joints": 4,
+    "types": [
+      "hinge",
+      "slider"
+    ],
+    "split": {
+      "train": [
+        "StorageFurniture/45194"
+      ],
+      "test": []
+    }
+  },
+  {
+    "id": "45503",
+    "names": [
+      "cabinet_door"
+    ],
+    "joints": 3,
+    "types": [
+      "hinge"
+    ],
+    "split": {
+      "train": [
+        "StorageFurniture/45503"
+      ],
+      "test": []
+    }
+  },
+  {
+    "id": "45612",
+    "names": [
+      "cabinet_door",
+      "drawer"
+    ],
+    "joints": 6,
+    "types": [
+      "hinge",
+      "slider"
+    ],
+    "split": {
+      "train": [],
+      "test": [
+        "StorageFurniture/45612"
+      ]
+    }
+  },
+  {
+    "id": "47648",
+    "names": [
+      "cabinet_door",
+      "drawer"
+    ],
+    "joints": 6,
+    "types": [
+      "hinge",
+      "slider"
+    ],
+    "split": {
+      "train": [],
+      "test": [
+        "StorageFurniture/47648"
+      ]
+    }
+  },
+  {
+    "id": "8961",
+    "names": [
+      "fixed_part"
+    ],
+    "joints": 2,
+    "types": [
+      "hinge"
+    ],
+    "split": {
+      "train": [],
+      "test": []
+    }
+  },
+  {
+    "id": "9016",
+    "names": [
+      "surface_board"
+    ],
+    "joints": 2,
+    "types": [
+      "hinge"
+    ],
+    "split": {
+      "train": [],
+      "test": []
+    }
+  }
+]
