@@ -1,0 +1,393 @@
+{
+  "case": "20411",
+  "completed_utc": "2026-10-24T17:07:07.439734+00:00",
+  "branch": "research/pact-20411-collision-20261025",
+  "original_run": "/root/autodl-tmp/PAct/repro/outputs/gt_20411_20261024T163340Z",
+  "experiment_root": "/root/autodl-tmp/PAct/repro/outputs/pact_20411_collision_20261024T163625Z",
+  "input_protocol": "Oracle visible 2D part segmentation from actual GT mesh, with published FreeArt3D camera; RGB is the existing 05_pure image. GT type, axis, origin and range are excluded from PAct input.",
+  "selection": "Fixed seed42 original / fixed step200 refinement; no GT selection",
+  "original": {
+    "GT_axis_deg": 0.636032264430124,
+    "same_static_ICP_GT_axis_deg": 2.834966110802739,
+    "Gaussian_proxy_mean": 0.0009555485228750991,
+    "triangle_line_over_D_mean": 0.8582888843173058,
+    "trajectory_RMSE_percent_GT_D": 0.2678930427047518
+  },
+  "refined": {
+    "GT_axis_deg": 5.0923196501061385,
+    "same_static_ICP_GT_axis_deg": 7.501983339788398,
+    "Gaussian_proxy_mean": 0.00020409862749896205,
+    "triangle_line_over_D_mean": 0.12545247725035452,
+    "trajectory_RMSE_percent_GT_D": 1.3483896103888038
+  },
+  "Gaussian_proxy_reduction_percent": 78.64068410834224,
+  "triangle_line_reduction_percent": 85.38342048433482,
+  "max_Gaussian_proxy_unchanged": true,
+  "refinement_direction_change_degrees": 4.685340604942524,
+  "endpoint_refined_minus_original_GT_frame": [
+    -0.0014023928884188367,
+    -0.034089314591778996,
+    -0.0016233652399424885
+  ],
+  "pivot_error": null,
+  "true_solid_volume": null,
+  "true_penetration_depth": null,
+  "GT_registration": {
+    "rotation": [
+      [
+        0.9999933050031672,
+        -0.001227077651839538,
+        -0.0034473510532685493
+      ],
+      [
+        0.0010805410641840712,
+        0.9991089394118192,
+        -0.042191937836547996
+      ],
+      [
+        0.0034960520386184005,
+        0.042187930357282036,
+        0.999103576288421
+      ]
+    ],
+    "translation": [
+      0.004126157307176984,
+      0.05726592120037848,
+      -0.012000694931093828
+    ],
+    "iterations": 49,
+    "protocol": "Evaluation-only 80% trimmed static point-to-point ICP from fixed identity, 12000 points, max50 iterations, no GT axis/moving part fitting.",
+    "heldout_before": {
+      "symmetric_mean_distance": 0.03630691576590119,
+      "symmetric_mean_distance_percent_static_diagonal": 2.2443298034850527,
+      "symmetric_RMS_percent_static_diagonal": 2.713290964288092,
+      "samples_each": 12000,
+      "note": "Surface Chamfer with unsquared Euclidean distances; not a solid occupancy score."
+    },
+    "heldout_after": {
+      "symmetric_mean_distance": 0.03211723064885143,
+      "symmetric_mean_distance_percent_static_diagonal": 1.9853423632948364,
+      "symmetric_RMS_percent_static_diagonal": 2.800595067705134,
+      "samples_each": 12000,
+      "note": "Surface Chamfer with unsquared Euclidean distances; not a solid occupancy score."
+    },
+    "rotation_delta_degrees": 2.427101982437833,
+    "caveat": "Imperfect or symmetric geometry can bias registration. Primary fixed-frame and sensitivity errors are both retained."
+  },
+  "rest_geometry": {
+    "fixed": {
+      "symmetric_mean_distance": 0.03538819979038407,
+      "symmetric_mean_distance_percent_static_diagonal": 2.1875389249073844,
+      "symmetric_RMS_percent_static_diagonal": 2.673789133532271,
+      "samples_each": 18000,
+      "note": "Surface Chamfer with unsquared Euclidean distances; not a solid occupancy score."
+    },
+    "moving_vs_GT_closed": {
+      "symmetric_mean_distance": 0.06595747791253177,
+      "symmetric_mean_distance_percent_static_diagonal": 4.077193843626606,
+      "symmetric_RMS_percent_static_diagonal": 4.776472473511254,
+      "samples_each": 18000,
+      "note": "Surface Chamfer with unsquared Euclidean distances; not a solid occupancy score."
+    },
+    "moving_vs_GT_open_input": {
+      "symmetric_mean_distance": 0.1699761069997644,
+      "symmetric_mean_distance_percent_static_diagonal": 10.507156412834632,
+      "symmetric_RMS_percent_static_diagonal": 12.954019546745357,
+      "samples_each": 18000,
+      "note": "Surface Chamfer with unsquared Euclidean distances; not a solid occupancy score."
+    },
+    "whole_vs_GT_closed": {
+      "symmetric_mean_distance": 0.04007978686723844,
+      "symmetric_mean_distance_percent_static_diagonal": 2.4775516808826152,
+      "symmetric_RMS_percent_static_diagonal": 3.145285704351894,
+      "samples_each": 18000,
+      "note": "Surface Chamfer with unsquared Euclidean distances; not a solid occupancy score."
+    }
+  },
+  "mesh_audit": {
+    "run": "/root/autodl-tmp/PAct/repro/outputs/gt_20411_20261024T163340Z",
+    "parts": [
+      {
+        "node_id": 0,
+        "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_20411_20261024T163340Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@20411_05_processed.@ng/ply/part_0.ply",
+        "sha256": "4d601727b256e6fba76db9247c0b92b889c9c223d85899aa1f156e70c4c39490",
+        "status": "unavailable_timeout",
+        "self_intersecting": null,
+        "reason": "Self-intersection worker exceeded 45.0s; undefined is not collision-free.",
+        "elapsed_seconds": 45.13056579232216
+      },
+      {
+        "node_id": 1,
+        "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_20411_20261024T163340Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@20411_05_processed.@ng/ply/part_1.ply",
+        "sha256": "045078193e223751cb0a6c4b63a9934a37f60c242be83761744d5f267725d6f8",
+        "status": "unavailable_timeout",
+        "self_intersecting": null,
+        "reason": "Self-intersection worker exceeded 45.0s; undefined is not collision-free.",
+        "elapsed_seconds": 45.09673680178821
+      }
+    ],
+    "updated_utc": "2026-10-24T16:41:57.193681+00:00",
+    "geometry_repaired": false
+  },
+  "integrity": {
+    "passed": true,
+    "case": "20411",
+    "source_mesh_GS_SHA_unchanged": true,
+    "only_allowed_joint_direction_changed": true,
+    "direction_changes": [
+      {
+        "id": 1,
+        "degrees": 4.685340604942524
+      }
+    ],
+    "steps": 200,
+    "finite_loss_and_direction_gradients": true,
+    "prismatic_pivot": "not_applicable; no fake pivot gradient",
+    "GT_reads_blocked_during_optimization": [],
+    "selection": "Original fixed seed42 / refined fixed final step200",
+    "Gaussian_states_per_method": 41,
+    "heldout_times_per_method": 20,
+    "full_triangle_states_per_method": 21,
+    "zero_state_motion_metrics_and_unlabelled_preview_pixels_identical": true,
+    "videos": {
+      "previews_20411/original_direction.mp4": {
+        "frames": 21,
+        "sha256": "7fdf60f78faa3b50705be80f6720c09f4a66e1e5793fa733944b5bd0e4a453d7"
+      },
+      "GT_mesh_previews/GT_original_refined.mp4": {
+        "frames": 21,
+        "sha256": "ecc76d081b8bb1b4dc5349383df16cf1107d0effeebd10a8f60cee6b47b25c52"
+      }
+    },
+    "true_solid_collision_metrics": "unavailable, never zero-filled",
+    "input_source_SHA_unchanged": true,
+    "all_triangle_partition_against_legacy_checks": [
+      {
+        "label": "original_frozen",
+        "states": 6,
+        "max_line_over_D_difference": 1.5169816736104735e-07
+      },
+      {
+        "label": "direction",
+        "states": 6,
+        "max_line_over_D_difference": 1.1607208261210644e-07
+      }
+    ]
+  },
+  "environment": {
+    "utc": "2026-10-24T16:45:08.634001+00:00",
+    "python": "3.10.22 (main, Oct  1 2026, 20:14:04) [GCC 14.3.0]",
+    "executable": "/root/autodl-tmp/conda_envs/pact/bin/python",
+    "torch": "2.4.0+cu121",
+    "CUDA_runtime": "12.1",
+    "GPU": "NVIDIA GeForce RTX 4080 SUPER, 595.71.05, 32760 MiB",
+    "kernel": "Linux-5.15.0-78-generic-x86_64-with-glibc2.35",
+    "git_sha": "164be674ed45a75bcea84584f3bb3433e0da1707"
+  },
+  "inference_seconds": 80.95424358732998,
+  "formal_seconds": 458.94707413576543,
+  "timings": {
+    "gradient_timing": {
+      "seconds": 6.616652924567461,
+      "completed_utc": "2026-10-24T16:39:12.306252+00:00"
+    },
+    "smoke_timing": {
+      "seconds": 18.578913141041994,
+      "completed_utc": "2026-10-24T16:39:30.886521+00:00"
+    },
+    "formal_timing": {
+      "seconds": 462.09973998740315,
+      "completed_utc": "2026-10-24T16:47:12.989500+00:00"
+    },
+    "GT_timing": {
+      "seconds": 27.357087781652808,
+      "completed_utc": "2026-10-24T16:47:40.347841+00:00"
+    },
+    "gaussian_original_timing": {
+      "seconds": 8.84548083692789,
+      "completed_utc": "2026-10-24T16:47:49.200504+00:00"
+    },
+    "gaussian_direction_timing": {
+      "seconds": 8.498866828158498,
+      "completed_utc": "2026-10-24T16:47:57.700421+00:00"
+    },
+    "triangle_direction_timing": {
+      "seconds": 9.980955686420202,
+      "completed_utc": "2026-10-24T17:00:35.043786+00:00"
+    },
+    "triangle_original_timing": {
+      "seconds": 12.256498947739601,
+      "completed_utc": "2026-10-24T17:00:37.320604+00:00"
+    },
+    "render_timing": {
+      "seconds": 11.407478341832757,
+      "completed_utc": "2026-10-24T17:00:46.452288+00:00"
+    },
+    "hotspots_timing": {
+      "seconds": 17.85202175565064,
+      "completed_utc": "2026-10-24T17:01:04.305511+00:00"
+    }
+  },
+  "triangle_evaluation_acceleration": {
+    "reason": "Legacy full-triangle VTK per-state evaluation takes about115s; conservative complete-triangle spatial partition validated without changing loss, geometry or VTK tolerance.",
+    "stopped_only_own_evaluation_processes": [
+      {
+        "pid": 105982,
+        "argv": [
+          "/root/autodl-tmp/conda_envs/pact/bin/python",
+          "repro/tools/run_single_case_refinement.py",
+          "--root",
+          "/root/autodl-tmp/PAct/repro/outputs/pact_20411_collision_20261024T163625Z",
+          ""
+        ]
+      }
+    ],
+    "legacy_results_preserved": true,
+    "refinement_not_interrupted": true
+  },
+  "experiment_configuration": {
+    "cases": {
+      "20411": "/root/autodl-tmp/PAct/repro/outputs/gt_20411_20261024T163340Z"
+    },
+    "variants": [
+      "direction"
+    ],
+    "hotspot_variant": "direction",
+    "steps": 200,
+    "samples": 2048,
+    "protocol": "Reuse 20261024 settings without retuning; fixed geometry/type/range, 5deg direction bound, regularizer .05, final step200. Prismatic origin has no effect: position-only is identity and both equals direction; no duplicate training.",
+    "GT_use": "Input oracle 2D part labels disclosed; no GT joint data read in optimization; evaluation afterward only.",
+    "triangle_partition_size": 12000
+  },
+  "refinement_protocol": {
+    "run": "/root/autodl-tmp/PAct/repro/outputs/gt_20411_20261024T163340Z",
+    "variant": "direction",
+    "steps": 200,
+    "samples_per_part": 2048,
+    "training_states": 21,
+    "sample_seed": 0,
+    "axis_bound_degrees": 5,
+    "pivot_bound_fraction_asset_diagonal": 0.05,
+    "sampling": "Uniform source quadrature, exact NN in all opacity-retained target centers, count reweighting for the full opacity-weighted kernel",
+    "regularization_weight": 0.05,
+    "objective": "mean nearest-center Gaussian overlap / original overlap + .05 * normalized quadratic axis/pivot displacement",
+    "geometry_frozen": true,
+    "range_frozen": true,
+    "type_frozen": true,
+    "selection": "Fixed final step only, no GT reads; all three ablations reported",
+    "original_object_sha256": "654f391624480a653d3d322ea5e43b44446c2aa61b9a57864748e745bac54365",
+    "source_sha256": {
+      "/root/autodl-tmp/PAct/repro/tools/refine_collision_axes.py": "adb04a161f190f2451d7b1445fb0ffed20776e241028886543feddc13d10ea90",
+      "/root/autodl-tmp/PAct/repro/tools/collision_refinement_common.py": "09c9b1adf7618718e3813c6defd749b2acc21488e4d0dbbedd4bd4429c1d584d"
+    },
+    "frozen_files": [
+      {
+        "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_20411_20261024T163340Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@20411_05_processed.@ng/ply/part_0.ply",
+        "mesh_sha256": "4d601727b256e6fba76db9247c0b92b889c9c223d85899aa1f156e70c4c39490",
+        "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_20411_20261024T163340Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@20411_05_processed.@ng/gs/part_0.ply",
+        "gs_sha256": "465ad194e9de698b5cc923c52384f4e1e7b033b9b9bacbfe9189586888a9152b"
+      },
+      {
+        "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_20411_20261024T163340Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@20411_05_processed.@ng/ply/part_1.ply",
+        "mesh_sha256": "045078193e223751cb0a6c4b63a9934a37f60c242be83761744d5f267725d6f8",
+        "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_20411_20261024T163340Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@20411_05_processed.@ng/gs/part_1.ply",
+        "gs_sha256": "794cc5f6362e1d041cc235fbb076aefb34ef7c0653def153f31073a5a535abd8"
+      }
+    ]
+  },
+  "input_provenance": {
+    "scene_id": "20411",
+    "frame_index": 5,
+    "source_image": "/root/autodl-tmp/FreeArt3D/refinement/data/inputs/20411/05_pure.png",
+    "source_data_root": "/root/autodl-tmp/FreeArt3D/refinement/data/inputs/20411",
+    "protocol": "Oracle visible 2D part segmentation from actual GT mesh, with published FreeArt3D camera; RGB is the existing 05_pure image. GT type, axis, origin and range are excluded from PAct input.",
+    "selection": "Fixed last existing frame (05) chosen before inference to expose the drawer; single seed42, no GT metric sample selection.",
+    "silhouette_iou": 0.9997694258704174,
+    "part_count": 2,
+    "part_correspondence": [
+      {
+        "gt_mesh_index": 0,
+        "input_label": 1,
+        "pact_node_id": 0,
+        "visible_pixels": 54547
+      },
+      {
+        "gt_mesh_index": 1,
+        "input_label": 2,
+        "pact_node_id": 1,
+        "visible_pixels": 45192
+      }
+    ],
+    "input_dir": "/root/autodl-tmp/PAct/repro/inputs/freeart_partnet_20411_frame05",
+    "GT_partition": "Same-topology endpoint motion separates fixed/moving triangles; this oracle information enters only the 2D mask.",
+    "files": [
+      {
+        "path": "/root/autodl-tmp/FreeArt3D/refinement/data/inputs/20411/05_pure.png",
+        "sha256": "20e800f59b6bb49393fabbfaa42b3eefb7dda2b818aa0987f3561b3dbda1964e"
+      },
+      {
+        "path": "/root/autodl-tmp/FreeArt3D/refinement/data/inputs/20411/gt_mesh/00.glb",
+        "sha256": "20b9bca3ecff96f061333feb3db18e9167438dab68240588f533bcf54f6d9746"
+      },
+      {
+        "path": "/root/autodl-tmp/FreeArt3D/refinement/data/inputs/20411/gt_mesh/01.glb",
+        "sha256": "f30ff3a69bdd5790d04fc452cc8ae274e2875ffa570235420d51185444fe80b8"
+      },
+      {
+        "path": "/root/autodl-tmp/FreeArt3D/refinement/data/inputs/20411/gt_mesh/02.glb",
+        "sha256": "26d20500dd7fcac7d6a381b11fc8bab3db7132080efaa3337ba53f0a908e1b4c"
+      },
+      {
+        "path": "/root/autodl-tmp/FreeArt3D/refinement/data/inputs/20411/gt_mesh/03.glb",
+        "sha256": "170fff15c7948355a7841bee0b0732f0b59560ba162e826844c34290785918a4"
+      },
+      {
+        "path": "/root/autodl-tmp/FreeArt3D/refinement/data/inputs/20411/gt_mesh/04.glb",
+        "sha256": "a49232c684b1ed588db92513a4f774ecdc529e131cef03c40d3b50fd8ae2e1ba"
+      },
+      {
+        "path": "/root/autodl-tmp/FreeArt3D/refinement/data/inputs/20411/gt_mesh/05.glb",
+        "sha256": "5951aa1daccc00b4671f995db1417b5ae6370748a037eebd95ec2394f46d3f10"
+      },
+      {
+        "path": "/root/autodl-tmp/FreeArt3D/pipelines/render.py",
+        "sha256": "299cfd67dd74d2b050c5289630676cce97b7a9f4803a68736ff07a45bbdd098f"
+      }
+    ]
+  },
+  "original_inference_command": {
+    "argv": [
+      "/root/autodl-tmp/conda_envs/pact/bin/python",
+      "repro/tools/guarded_infer.py",
+      "--model",
+      "/root/autodl-tmp/PAct/repro/cache/PAct-official",
+      "--data_dir",
+      "/root/autodl-tmp/PAct/repro/inputs/freeart_partnet_20411_frame05",
+      "--outdir",
+      "/root/autodl-tmp/PAct/repro/outputs/gt_20411_20261024T163340Z",
+      "--batch_size",
+      "1",
+      "--ss_steps",
+      "25",
+      "--slat_steps",
+      "25",
+      "--ss_cfg_strength",
+      "7",
+      "--slat_cfg_strength",
+      "7",
+      "--arti_mean_num",
+      "20",
+      "--render_num_frames",
+      "21",
+      "--export_arti_objects",
+      "--save_gs",
+      "--no-save_video_grid",
+      "--no-save_cond_vis_grid"
+    ],
+    "git_sha": "0cc2f87bc278f29f8d3a74ac0f56eaea10550fbd",
+    "fixed_seed": 42,
+    "protocol": "Oracle visible 2D part segmentation from actual GT mesh, with published FreeArt3D camera; RGB is the existing 05_pure image. GT type, axis, origin and range are excluded from PAct input.",
+    "GT_joint_axis_passed_to_model": false,
+    "selection": "Fixed last existing frame (05) chosen before inference to expose the drawer; single seed42, no GT metric sample selection."
+  }
+}

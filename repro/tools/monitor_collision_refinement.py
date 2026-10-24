@@ -28,6 +28,9 @@ while True:
     artifacts = root / 'artifact_status.json'
     if artifacts.exists():
         print('Artifacts:', artifacts.read_text(), flush=True)
+    controller = root / 'controller_status.json'
+    if controller.exists():
+        print('Controller:', controller.read_text(), flush=True)
     if not args.watch:
         break
     time.sleep(20)

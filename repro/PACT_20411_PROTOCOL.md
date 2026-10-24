@@ -10,7 +10,11 @@
 
 优化器原有 GT 文件读取阻断、文件 SHA 检查继续生效。推理原始结果和最终候选均保留。GT 轴评估只在 prediction seal 后进行，GT 平移方向和行程由实际六状态 Mesh 位移核实，再与 GT joint label 交叉检查。固定坐标主结果使用两者 Y-up、x lateral、z front 的 canonical frame；位置尺度仅由固定部件 AABB 对齐。额外保留静态几何 ICP 的误差敏感性，不按候选重新配准。GT 00→05 位移用于明确标注 rest convention 的运动诊断；分别保存重建 rest 对 GT closed/open 的几何误差，避免把输入打开状态与生成闭合 rest 混淆。
 
+GT 访问边界补充：上述 seal 后评估指正式对照评分阶段；准备数据时已查看 GT joint 元信息、六状态位移，并做原始方向 sanity check，因此不能声称首次读取 GT 在 seal 后。GT-mask 输入本身也依赖 GT。实际未用 GT 更新轴、调整本轮沿用的 loss 超参数或选择最终候选，优化子进程的 GT 读取阻断记录为空。
+
 评估用独立 source samples（最多每部件 12000，与训练 disjoint），全部 targets，41 个时间状态，其中 20 个为训练时间间隔中点；独立 CUDA NN 对 CPU NN 做实际点核查。另用全量原始三角形、21 个状态计算 surface intersection curves，并输出静态/中间/终点、双视角动画与红色交线位置。所有方法共享几何、运动范围和相机。Gaussian overlap、中心间距和三角形交线均是代理，不能宣称真实实体碰撞体积。Mesh 未验证为合法封闭实体时 volume/depth 为 unavailable，不能写 0。
+
+实际运行补充（仅评估加速，不改 loss/模型）：百万级 Mesh 的旧版整网格 VTK 空间查询每姿态约两分钟，保留了原始/优化各前六状态。新增三角形质心递归分块（每块≤12000 triangles），每个原始三角形严格属于一块；保守 AABB 粗检只排除不相交块对，其余仍用原版 VTK AllContacts、零最终判定容差。两方法各六个既有状态与旧实现交叉验证，接触计数、非零交线计数完全一致，归一长度差≤1.52e-7。通过后改用分块评估完成 21 状态；没有 decimation、补洞、凸化或近似几何，旧 partial outputs/logs 留在实验目录。该效率修复不影响优化参数或候选选择。
 
 在本地保存的 SINGAPO data split 中，Table/20411 及其三个增强版本出现在 train。这不能支持未见物体泛化结论；实际 PAct 预训练样本完整清单仍未核实。与 FreeArt3D 的历史数字只作带协议说明的参考，不能当成相同输入、相同训练和相同对齐下的公平排名。
 
@@ -18,6 +22,7 @@
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 /root/autodl-tmp/conda_envs/pact/bin/python repro/tools/run_single_case_refinement.py --root "$(cat repro/current_20411_experiment.txt)"
+PYTHONDONTWRITEBYTECODE=1 /root/autodl-tmp/conda_envs/pact/bin/python repro/tools/finish_single_case_artifacts.py --root "$(cat repro/current_20411_experiment.txt)"
 python repro/tools/monitor_collision_refinement.py --root "$(cat repro/current_20411_experiment.txt)" --watch
 ```
 
