@@ -15,3 +15,9 @@ preprocesss
 outputs
 *_preview_mask.png
 Datasets/
+# Local reproduction artifacts
+repro/logs/
+repro/vendor/
+repro/cache/
+repro/inputs/
+repro/outputs/

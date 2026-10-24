@@ -1,0 +1,10 @@
+{
+  "upstream": "https://github.com/Mobiuslqm/PAct",
+  "commit": "a5ccec5056e7b27f39ddb5b83613c0efba9b2861",
+  "model_repo": "PAct000/PAct",
+  "model_revision": "8c6b56c7011454bbfb45a83e2dbfa6bbbfde63e9",
+  "utc": "2026-10-24T01:02:22.557947+00:00",
+  "part2gs": "Paused by user at iteration 5020, next_iteration=5021; data/logs/full-state preserved",
+  "first_validation": "Official provided sample with its supplied 2D part mask; tooling smoke only, not PARIS Storage45135 baseline",
+  "status": "source_audited_environment_preparation"
+}

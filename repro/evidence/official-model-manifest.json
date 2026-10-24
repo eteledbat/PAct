@@ -1,0 +1,77 @@
+{
+  "repo": "PAct000/PAct",
+  "revision": "8c6b56c7011454bbfb45a83e2dbfa6bbbfde63e9",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "size": 1519,
+      "sha256": null
+    },
+    {
+      "path": "README.md",
+      "size": 220,
+      "sha256": null
+    },
+    {
+      "path": "part_sparse_structure_flow_model/model.json",
+      "size": 780,
+      "sha256": null
+    },
+    {
+      "path": "part_sparse_structure_flow_model/model.safetensors",
+      "size": 2247669816,
+      "sha256": "0b18031b0e9e217a64423ed966b183f3c8d566348333edfa17ed4cd5396a31db"
+    },
+    {
+      "path": "pipeline.json",
+      "size": 2806,
+      "sha256": null
+    },
+    {
+      "path": "slat_arti_flow_model/model.safetensors",
+      "size": 1223518660,
+      "sha256": "f2ba73d0ea27d263e011bc563c033ba1b81179b555224da8d5017170969aeef0"
+    },
+    {
+      "path": "slat_arti_flow_model/model_arti.json",
+      "size": 480,
+      "sha256": null
+    },
+    {
+      "path": "slat_arti_flow_model/model_slat.json",
+      "size": 464,
+      "sha256": null
+    },
+    {
+      "path": "slat_decoder_gs/model.json",
+      "size": 696,
+      "sha256": null
+    },
+    {
+      "path": "slat_decoder_gs/model.safetensors",
+      "size": 171450952,
+      "sha256": "38c84bcef5ce0af1f48b1b5558dabc7575a13346043c41a7e0610f1fa619a161"
+    },
+    {
+      "path": "slat_decoder_mesh/model.json",
+      "size": 316,
+      "sha256": null
+    },
+    {
+      "path": "slat_decoder_mesh/model.safetensors",
+      "size": 181903412,
+      "sha256": "3e87aba94b5786407eb06d0502c1ed0885a0027a3f2b8537bfe15b0a92c01859"
+    },
+    {
+      "path": "sparse_structure_decoder/model.json",
+      "size": 238,
+      "sha256": null
+    },
+    {
+      "path": "sparse_structure_decoder/model.safetensors",
+      "size": 147591972,
+      "sha256": "1c76d4a40519aa2d711cc263a8404105231ac26db31d946bed48b84fee79009a"
+    }
+  ],
+  "total_bytes": 3972142331
+}

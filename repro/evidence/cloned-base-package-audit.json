@@ -1,0 +1,1615 @@
+{
+  "python": "3.10.22 (main, Oct  1 2026, 20:14:04) [GCC 14.3.0]",
+  "torch": "2.4.0+cu121",
+  "cuda": "12.1",
+  "pip_comparison": [
+    {
+      "name": "absl-py",
+      "official": "2.3.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "accelerate",
+      "official": "1.10.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "addict",
+      "official": "2.4.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "aiofiles",
+      "official": "24.1.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "aiohappyeyeballs",
+      "official": "2.6.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "aiohttp",
+      "official": "3.12.15",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "aiosignal",
+      "official": "1.4.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "annotated-types",
+      "official": "0.7.0",
+      "cloned_base": "0.8.0",
+      "exact_match": false
+    },
+    {
+      "name": "antlr4-python3-runtime",
+      "official": "4.9.3",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "anyio",
+      "official": "4.10.0",
+      "cloned_base": "4.15.1",
+      "exact_match": false
+    },
+    {
+      "name": "argon2-cffi",
+      "official": "25.1.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "argon2-cffi-bindings",
+      "official": "25.1.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "arrow",
+      "official": "1.3.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "asttokens",
+      "official": "3.0.0",
+      "cloned_base": "3.0.2",
+      "exact_match": false
+    },
+    {
+      "name": "async-lru",
+      "official": "2.0.5",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "async-timeout",
+      "official": "5.0.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "attrs",
+      "official": "25.3.0",
+      "cloned_base": "26.1.0",
+      "exact_match": false
+    },
+    {
+      "name": "babel",
+      "official": "2.17.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "beautifulsoup4",
+      "official": "4.13.5",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "bitsandbytes",
+      "official": "0.48.2",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "black",
+      "official": "25.1.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "bleach",
+      "official": "6.2.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "blenderproc",
+      "official": "2.7.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "blessed",
+      "official": "1.21.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "blinker",
+      "official": "1.9.0",
+      "cloned_base": "1.9.0",
+      "exact_match": true
+    },
+    {
+      "name": "boto3",
+      "official": "1.40.18",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "botocore",
+      "official": "1.40.18",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "brotli",
+      "official": "1.1.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "ccimport",
+      "official": "0.4.4",
+      "cloned_base": "0.4.4",
+      "exact_match": true
+    },
+    {
+      "name": "click",
+      "official": "8.2.1",
+      "cloned_base": "8.5.0",
+      "exact_match": false
+    },
+    {
+      "name": "cloudpickle",
+      "official": "3.1.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "coloredlogs",
+      "official": "15.0.1",
+      "cloned_base": "15.0.1",
+      "exact_match": true
+    },
+    {
+      "name": "comm",
+      "official": "0.2.3",
+      "cloned_base": "0.2.3",
+      "exact_match": true
+    },
+    {
+      "name": "configargparse",
+      "official": "1.7.1",
+      "cloned_base": "1.8.0",
+      "exact_match": false
+    },
+    {
+      "name": "contourpy",
+      "official": "1.3.2",
+      "cloned_base": "1.3.2",
+      "exact_match": true
+    },
+    {
+      "name": "cumm-cu118",
+      "official": "0.7.11",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "cycler",
+      "official": "0.12.1",
+      "cloned_base": "0.12.1",
+      "exact_match": true
+    },
+    {
+      "name": "dash",
+      "official": "3.2.0",
+      "cloned_base": "4.4.1",
+      "exact_match": false
+    },
+    {
+      "name": "dataclasses-json",
+      "official": "0.6.7",
+      "cloned_base": "0.6.7",
+      "exact_match": true
+    },
+    {
+      "name": "debugpy",
+      "official": "1.8.16",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "decorator",
+      "official": "5.2.1",
+      "cloned_base": "5.3.1",
+      "exact_match": false
+    },
+    {
+      "name": "defusedxml",
+      "official": "0.7.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "deprecated",
+      "official": "1.2.18",
+      "cloned_base": "1.3.1",
+      "exact_match": false
+    },
+    {
+      "name": "diffusers",
+      "official": "0.32.0",
+      "cloned_base": "0.41.0",
+      "exact_match": false
+    },
+    {
+      "name": "distro",
+      "official": "1.9.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "easydict",
+      "official": "1.13",
+      "cloned_base": "1.13",
+      "exact_match": true
+    },
+    {
+      "name": "einops",
+      "official": "0.8.1",
+      "cloned_base": "0.8.2",
+      "exact_match": false
+    },
+    {
+      "name": "entrypoints",
+      "official": "0.4",
+      "cloned_base": "0.4.2",
+      "exact_match": false
+    },
+    {
+      "name": "exceptiongroup",
+      "official": "1.3.0",
+      "cloned_base": "1.3.1",
+      "exact_match": false
+    },
+    {
+      "name": "executing",
+      "official": "2.2.0",
+      "cloned_base": "2.3.0",
+      "exact_match": false
+    },
+    {
+      "name": "fastapi",
+      "official": "0.116.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "fastjsonschema",
+      "official": "2.21.2",
+      "cloned_base": "2.22.2",
+      "exact_match": false
+    },
+    {
+      "name": "ffmpy",
+      "official": "0.6.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "fire",
+      "official": "0.7.1",
+      "cloned_base": "0.7.1",
+      "exact_match": true
+    },
+    {
+      "name": "flash-attn",
+      "official": "2.7.0.post2",
+      "cloned_base": "2.7.4.post1",
+      "exact_match": false
+    },
+    {
+      "name": "flask",
+      "official": "3.1.2",
+      "cloned_base": "3.1.3",
+      "exact_match": false
+    },
+    {
+      "name": "flatbuffers",
+      "official": "25.2.10",
+      "cloned_base": "25.12.19",
+      "exact_match": false
+    },
+    {
+      "name": "fonttools",
+      "official": "4.59.1",
+      "cloned_base": "4.65.0",
+      "exact_match": false
+    },
+    {
+      "name": "fqdn",
+      "official": "1.5.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "freetype-py",
+      "official": "2.5.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "frozenlist",
+      "official": "1.7.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "fsspec",
+      "official": "2024.12.0",
+      "cloned_base": "2026.9.0",
+      "exact_match": false
+    },
+    {
+      "name": "fvcore",
+      "official": "0.1.5.post20221221",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "glcontext",
+      "official": "3.0.0",
+      "cloned_base": "3.1.0",
+      "exact_match": false
+    },
+    {
+      "name": "gpustat",
+      "official": "1.1.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "gradio",
+      "official": "5.39.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "gradio-client",
+      "official": "1.11.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "groovy",
+      "official": "0.1.2",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "grpcio",
+      "official": "1.74.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "h11",
+      "official": "0.16.0",
+      "cloned_base": "0.16.0",
+      "exact_match": true
+    },
+    {
+      "name": "h5py",
+      "official": "3.14.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "hf-xet",
+      "official": "1.2.0",
+      "cloned_base": "1.7.0",
+      "exact_match": false
+    },
+    {
+      "name": "httpcore",
+      "official": "1.0.9",
+      "cloned_base": "1.0.9",
+      "exact_match": true
+    },
+    {
+      "name": "httpx",
+      "official": "0.28.1",
+      "cloned_base": "0.28.1",
+      "exact_match": true
+    },
+    {
+      "name": "huggingface-hub",
+      "official": "0.34.3",
+      "cloned_base": "1.33.0",
+      "exact_match": false
+    },
+    {
+      "name": "humanfriendly",
+      "official": "10.0",
+      "cloned_base": "10.0",
+      "exact_match": true
+    },
+    {
+      "name": "hydra-core",
+      "official": "1.3.2",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "igraph",
+      "official": "0.11.8",
+      "cloned_base": "1.0.0",
+      "exact_match": false
+    },
+    {
+      "name": "imageio",
+      "official": "2.36.1",
+      "cloned_base": "2.38.0",
+      "exact_match": false
+    },
+    {
+      "name": "imageio-ffmpeg",
+      "official": "0.5.1",
+      "cloned_base": "0.6.0",
+      "exact_match": false
+    },
+    {
+      "name": "imath",
+      "official": "0.0.2",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "importlib-metadata",
+      "official": "8.7.0",
+      "cloned_base": "9.0.1",
+      "exact_match": false
+    },
+    {
+      "name": "iopath",
+      "official": "0.1.9",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "ipycanvas",
+      "official": "0.14.1",
+      "cloned_base": "0.14.3",
+      "exact_match": false
+    },
+    {
+      "name": "ipyevents",
+      "official": "2.0.2",
+      "cloned_base": "2.0.4",
+      "exact_match": false
+    },
+    {
+      "name": "ipykernel",
+      "official": "6.30.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "ipython",
+      "official": "8.37.0",
+      "cloned_base": "8.39.0",
+      "exact_match": false
+    },
+    {
+      "name": "ipywidgets",
+      "official": "8.1.7",
+      "cloned_base": "8.1.9",
+      "exact_match": false
+    },
+    {
+      "name": "isoduration",
+      "official": "20.11.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "itsdangerous",
+      "official": "2.2.0",
+      "cloned_base": "2.2.0",
+      "exact_match": true
+    },
+    {
+      "name": "jedi",
+      "official": "0.19.2",
+      "cloned_base": "0.20.1",
+      "exact_match": false
+    },
+    {
+      "name": "jiter",
+      "official": "0.12.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "jmespath",
+      "official": "1.0.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "joblib",
+      "official": "1.5.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "json5",
+      "official": "0.12.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "jsonpointer",
+      "official": "3.0.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "jsonschema",
+      "official": "4.25.1",
+      "cloned_base": "4.26.0",
+      "exact_match": false
+    },
+    {
+      "name": "jsonschema-specifications",
+      "official": "2025.4.1",
+      "cloned_base": "2025.9.1",
+      "exact_match": false
+    },
+    {
+      "name": "jupyter-client",
+      "official": "8.6.3",
+      "cloned_base": "7.4.9",
+      "exact_match": false
+    },
+    {
+      "name": "jupyter-core",
+      "official": "5.8.1",
+      "cloned_base": "5.9.1",
+      "exact_match": false
+    },
+    {
+      "name": "jupyter-events",
+      "official": "0.12.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "jupyter-lsp",
+      "official": "2.2.6",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "jupyter-server",
+      "official": "2.17.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "jupyter-server-terminals",
+      "official": "0.5.3",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "jupyterlab",
+      "official": "4.4.6",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "jupyterlab-pygments",
+      "official": "0.3.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "jupyterlab-server",
+      "official": "2.27.3",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "jupyterlab-widgets",
+      "official": "3.0.15",
+      "cloned_base": "3.0.17",
+      "exact_match": false
+    },
+    {
+      "name": "kaolin",
+      "official": "0.18.0",
+      "cloned_base": "0.17.0",
+      "exact_match": false
+    },
+    {
+      "name": "kiwisolver",
+      "official": "1.4.9",
+      "cloned_base": "1.5.1",
+      "exact_match": false
+    },
+    {
+      "name": "kornia",
+      "official": "0.8.1",
+      "cloned_base": "0.8.2",
+      "exact_match": false
+    },
+    {
+      "name": "kornia-rs",
+      "official": "0.1.9",
+      "cloned_base": "0.2.0",
+      "exact_match": false
+    },
+    {
+      "name": "lark",
+      "official": "1.2.2",
+      "cloned_base": "1.3.1",
+      "exact_match": false
+    },
+    {
+      "name": "lazy-loader",
+      "official": "0.4",
+      "cloned_base": "0.6",
+      "exact_match": false
+    },
+    {
+      "name": "lightning",
+      "official": "2.2.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "lightning-utilities",
+      "official": "0.15.2",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "llvmlite",
+      "official": "0.44.0",
+      "cloned_base": "0.50.0",
+      "exact_match": false
+    },
+    {
+      "name": "loguru",
+      "official": "0.7.3",
+      "cloned_base": "0.7.3",
+      "exact_match": true
+    },
+    {
+      "name": "lpips",
+      "official": "0.1.4",
+      "cloned_base": "0.1.4",
+      "exact_match": true
+    },
+    {
+      "name": "markdown",
+      "official": "3.8.2",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "markdown-it-py",
+      "official": "4.0.0",
+      "cloned_base": "4.2.0",
+      "exact_match": false
+    },
+    {
+      "name": "marshmallow",
+      "official": "3.26.1",
+      "cloned_base": "3.26.2",
+      "exact_match": false
+    },
+    {
+      "name": "matplotlib",
+      "official": "3.10.5",
+      "cloned_base": "3.10.9",
+      "exact_match": false
+    },
+    {
+      "name": "matplotlib-inline",
+      "official": "0.1.7",
+      "cloned_base": "0.2.2",
+      "exact_match": false
+    },
+    {
+      "name": "mdurl",
+      "official": "0.1.2",
+      "cloned_base": "0.1.2",
+      "exact_match": true
+    },
+    {
+      "name": "mesh2sdf",
+      "official": "1.1.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "mistune",
+      "official": "3.1.3",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "modelscope",
+      "official": "1.33.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "moderngl",
+      "official": "5.12.0",
+      "cloned_base": "5.13.0",
+      "exact_match": false
+    },
+    {
+      "name": "multidict",
+      "official": "6.6.4",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "mypy-extensions",
+      "official": "1.1.0",
+      "cloned_base": "1.1.0",
+      "exact_match": true
+    },
+    {
+      "name": "narwhals",
+      "official": "2.2.0",
+      "cloned_base": "2.27.1",
+      "exact_match": false
+    },
+    {
+      "name": "nbclient",
+      "official": "0.10.2",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "nbconvert",
+      "official": "7.16.6",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "nbformat",
+      "official": "5.10.4",
+      "cloned_base": "5.11.1",
+      "exact_match": false
+    },
+    {
+      "name": "nest-asyncio",
+      "official": "1.6.0",
+      "cloned_base": "1.6.0",
+      "exact_match": true
+    },
+    {
+      "name": "ninja",
+      "official": "1.13.0",
+      "cloned_base": "1.13.2",
+      "exact_match": false
+    },
+    {
+      "name": "notebook-shim",
+      "official": "0.2.4",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "numba",
+      "official": "0.61.2",
+      "cloned_base": "0.68.0",
+      "exact_match": false
+    },
+    {
+      "name": "numpy",
+      "official": "2.2.6",
+      "cloned_base": "1.26.4",
+      "exact_match": false
+    },
+    {
+      "name": "nvdiffrast",
+      "official": "0.3.3",
+      "cloned_base": "0.4.0",
+      "exact_match": false
+    },
+    {
+      "name": "nvidia-ml-py",
+      "official": "13.580.65",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "omegaconf",
+      "official": "2.3.0",
+      "cloned_base": "2.4.0",
+      "exact_match": false
+    },
+    {
+      "name": "onnxruntime",
+      "official": "1.20.1",
+      "cloned_base": "1.23.2",
+      "exact_match": false
+    },
+    {
+      "name": "open3d",
+      "official": "0.19.0",
+      "cloned_base": "0.20.0",
+      "exact_match": false
+    },
+    {
+      "name": "openai",
+      "official": "2.15.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "opencv-python-headless",
+      "official": "4.10.0.84",
+      "cloned_base": "4.11.0.86",
+      "exact_match": false
+    },
+    {
+      "name": "openexr",
+      "official": "3.4.4",
+      "cloned_base": "3.5.2",
+      "exact_match": false
+    },
+    {
+      "name": "orjson",
+      "official": "3.11.3",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "overrides",
+      "official": "7.7.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "packaging",
+      "official": "24.2",
+      "cloned_base": "26.3",
+      "exact_match": false
+    },
+    {
+      "name": "pandas",
+      "official": "2.3.2",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "pandocfilters",
+      "official": "1.5.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "parso",
+      "official": "0.8.5",
+      "cloned_base": "0.8.7",
+      "exact_match": false
+    },
+    {
+      "name": "pathspec",
+      "official": "0.12.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "pccm",
+      "official": "0.4.16",
+      "cloned_base": "0.4.16",
+      "exact_match": true
+    },
+    {
+      "name": "peft",
+      "official": "0.17.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "pexpect",
+      "official": "4.9.0",
+      "cloned_base": "4.9.0",
+      "exact_match": true
+    },
+    {
+      "name": "pillow",
+      "official": "10.4.0",
+      "cloned_base": "12.3.0",
+      "exact_match": false
+    },
+    {
+      "name": "platformdirs",
+      "official": "4.3.8",
+      "cloned_base": "4.12.4",
+      "exact_match": false
+    },
+    {
+      "name": "plotly",
+      "official": "6.3.0",
+      "cloned_base": "6.0.1",
+      "exact_match": false
+    },
+    {
+      "name": "plyfile",
+      "official": "1.1.2",
+      "cloned_base": "1.1.3",
+      "exact_match": false
+    },
+    {
+      "name": "pooch",
+      "official": "1.8.2",
+      "cloned_base": "1.9.0",
+      "exact_match": false
+    },
+    {
+      "name": "portalocker",
+      "official": "3.2.0",
+      "cloned_base": "4.4.1",
+      "exact_match": false
+    },
+    {
+      "name": "progressbar",
+      "official": "2.5",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "prometheus-client",
+      "official": "0.22.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "prompt-toolkit",
+      "official": "3.0.51",
+      "cloned_base": "3.0.53",
+      "exact_match": false
+    },
+    {
+      "name": "propcache",
+      "official": "0.3.2",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "protobuf",
+      "official": "6.32.0",
+      "cloned_base": "7.36.2",
+      "exact_match": false
+    },
+    {
+      "name": "psutil",
+      "official": "5.9.8",
+      "cloned_base": "7.2.2",
+      "exact_match": false
+    },
+    {
+      "name": "ptyprocess",
+      "official": "0.7.0",
+      "cloned_base": "0.7.0",
+      "exact_match": true
+    },
+    {
+      "name": "pure-eval",
+      "official": "0.2.3",
+      "cloned_base": "0.2.4",
+      "exact_match": false
+    },
+    {
+      "name": "pybind11",
+      "official": "3.0.1",
+      "cloned_base": "3.1.0",
+      "exact_match": false
+    },
+    {
+      "name": "pycocotools",
+      "official": "2.0.10",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "pydantic",
+      "official": "2.10.6",
+      "cloned_base": "2.14.1",
+      "exact_match": false
+    },
+    {
+      "name": "pydantic-core",
+      "official": "2.27.2",
+      "cloned_base": "2.50.1",
+      "exact_match": false
+    },
+    {
+      "name": "pydub",
+      "official": "0.25.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "pyglet",
+      "official": "1.5.31",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "pygltflib",
+      "official": "1.16.5",
+      "cloned_base": "1.16.5",
+      "exact_match": true
+    },
+    {
+      "name": "pygments",
+      "official": "2.19.2",
+      "cloned_base": "2.21.0",
+      "exact_match": false
+    },
+    {
+      "name": "pymatting",
+      "official": "1.1.14",
+      "cloned_base": "1.1.16",
+      "exact_match": false
+    },
+    {
+      "name": "pymeshfix",
+      "official": "0.17.0",
+      "cloned_base": "0.18.1",
+      "exact_match": false
+    },
+    {
+      "name": "pyopengl",
+      "official": "3.1.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "pyparsing",
+      "official": "3.2.3",
+      "cloned_base": "3.3.3",
+      "exact_match": false
+    },
+    {
+      "name": "pyquaternion",
+      "official": "0.9.9",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "pyrender",
+      "official": "0.1.45",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "python-dateutil",
+      "official": "2.9.0.post0",
+      "cloned_base": "2.9.0.post0",
+      "exact_match": true
+    },
+    {
+      "name": "python-json-logger",
+      "official": "3.3.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "python-multipart",
+      "official": "0.0.20",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "pytorch-lightning",
+      "official": "2.5.3",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "pytorch3d",
+      "official": "0.7.8",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "pytz",
+      "official": "2025.2",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "pyvista",
+      "official": "0.44.2",
+      "cloned_base": "0.49.1",
+      "exact_match": false
+    },
+    {
+      "name": "pyzmq",
+      "official": "27.0.2",
+      "cloned_base": "27.2.0",
+      "exact_match": false
+    },
+    {
+      "name": "referencing",
+      "official": "0.36.2",
+      "cloned_base": "0.37.0",
+      "exact_match": false
+    },
+    {
+      "name": "regex",
+      "official": "2025.7.34",
+      "cloned_base": "2026.9.29",
+      "exact_match": false
+    },
+    {
+      "name": "rembg",
+      "official": "2.0.60",
+      "cloned_base": "2.0.69",
+      "exact_match": false
+    },
+    {
+      "name": "retrying",
+      "official": "1.4.2",
+      "cloned_base": "1.4.2",
+      "exact_match": true
+    },
+    {
+      "name": "rfc3339-validator",
+      "official": "0.1.4",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "rfc3986-validator",
+      "official": "0.1.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "rfc3987-syntax",
+      "official": "1.1.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "rich",
+      "official": "14.1.0",
+      "cloned_base": "15.0.0",
+      "exact_match": false
+    },
+    {
+      "name": "rpds-py",
+      "official": "0.27.0",
+      "cloned_base": "0.30.0",
+      "exact_match": false
+    },
+    {
+      "name": "ruff",
+      "official": "0.12.10",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "s3transfer",
+      "official": "0.13.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "safehttpx",
+      "official": "0.1.6",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "safetensors",
+      "official": "0.6.2",
+      "cloned_base": "0.8.0",
+      "exact_match": false
+    },
+    {
+      "name": "scikit-image",
+      "official": "0.25.2",
+      "cloned_base": "0.25.2",
+      "exact_match": true
+    },
+    {
+      "name": "scikit-learn",
+      "official": "1.7.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "scipy",
+      "official": "1.14.1",
+      "cloned_base": "1.15.3",
+      "exact_match": false
+    },
+    {
+      "name": "scooby",
+      "official": "0.10.1",
+      "cloned_base": "0.12.0",
+      "exact_match": false
+    },
+    {
+      "name": "segment-anything",
+      "official": "1.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "semantic-version",
+      "official": "2.10.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "send2trash",
+      "official": "1.8.3",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "shellingham",
+      "official": "1.5.4",
+      "cloned_base": "1.5.4",
+      "exact_match": true
+    },
+    {
+      "name": "six",
+      "official": "1.17.0",
+      "cloned_base": "1.17.0",
+      "exact_match": true
+    },
+    {
+      "name": "sniffio",
+      "official": "1.3.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "soupsieve",
+      "official": "2.7",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "spaces",
+      "official": "0.40.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "spconv-cu118",
+      "official": "2.3.8",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "stack-data",
+      "official": "0.6.3",
+      "cloned_base": "0.6.3",
+      "exact_match": true
+    },
+    {
+      "name": "starlette",
+      "official": "0.47.3",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "tabulate",
+      "official": "0.9.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "tensorboard",
+      "official": "2.20.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "tensorboard-data-server",
+      "official": "0.7.2",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "termcolor",
+      "official": "3.1.0",
+      "cloned_base": "3.3.0",
+      "exact_match": false
+    },
+    {
+      "name": "terminado",
+      "official": "0.18.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "tetgen",
+      "official": "0.6.3",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "texttable",
+      "official": "1.7.0",
+      "cloned_base": "1.7.2",
+      "exact_match": false
+    },
+    {
+      "name": "threadpoolctl",
+      "official": "3.6.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "tifffile",
+      "official": "2025.5.10",
+      "cloned_base": "2025.5.10",
+      "exact_match": true
+    },
+    {
+      "name": "timm",
+      "official": "1.0.19",
+      "cloned_base": "1.0.30",
+      "exact_match": false
+    },
+    {
+      "name": "tinycss2",
+      "official": "1.4.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "tokenizers",
+      "official": "0.21.4",
+      "cloned_base": "0.23.3",
+      "exact_match": false
+    },
+    {
+      "name": "tomli",
+      "official": "2.2.1",
+      "cloned_base": "2.5.0",
+      "exact_match": false
+    },
+    {
+      "name": "tomlkit",
+      "official": "0.13.3",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "torch-scatter",
+      "official": "2.1.2",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "torchmetrics",
+      "official": "1.8.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "tornado",
+      "official": "6.5.2",
+      "cloned_base": "6.5.10",
+      "exact_match": false
+    },
+    {
+      "name": "tqdm",
+      "official": "4.67.1",
+      "cloned_base": "4.70.1",
+      "exact_match": false
+    },
+    {
+      "name": "traitlets",
+      "official": "5.14.3",
+      "cloned_base": "5.16.1",
+      "exact_match": false
+    },
+    {
+      "name": "transformers",
+      "official": "4.50.3",
+      "cloned_base": "5.20.2",
+      "exact_match": false
+    },
+    {
+      "name": "trimesh",
+      "official": "4.5.3",
+      "cloned_base": "5.1.1",
+      "exact_match": false
+    },
+    {
+      "name": "typer",
+      "official": "0.16.1",
+      "cloned_base": "0.27.3",
+      "exact_match": false
+    },
+    {
+      "name": "types-python-dateutil",
+      "official": "2.9.0.20250822",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "typing-inspect",
+      "official": "0.9.0",
+      "cloned_base": "0.9.0",
+      "exact_match": true
+    },
+    {
+      "name": "typing-inspection",
+      "official": "0.4.1",
+      "cloned_base": "0.4.4",
+      "exact_match": false
+    },
+    {
+      "name": "tzdata",
+      "official": "2025.2",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "uri-template",
+      "official": "1.3.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "usd-core",
+      "official": "25.8",
+      "cloned_base": "26.8",
+      "exact_match": false
+    },
+    {
+      "name": "utils3d",
+      "official": "0.0.2",
+      "cloned_base": "0.0.2",
+      "exact_match": true
+    },
+    {
+      "name": "uvicorn",
+      "official": "0.35.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "vit-pytorch",
+      "official": "1.17.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "vtk",
+      "official": "9.3.1",
+      "cloned_base": "9.7.1",
+      "exact_match": false
+    },
+    {
+      "name": "warp-lang",
+      "official": "1.8.1",
+      "cloned_base": "1.18.0",
+      "exact_match": false
+    },
+    {
+      "name": "wcwidth",
+      "official": "0.2.13",
+      "cloned_base": "0.9.3",
+      "exact_match": false
+    },
+    {
+      "name": "webcolors",
+      "official": "24.11.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "webencodings",
+      "official": "0.5.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "websocket-client",
+      "official": "1.8.0",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "websockets",
+      "official": "15.0.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "werkzeug",
+      "official": "3.1.3",
+      "cloned_base": "3.1.9",
+      "exact_match": false
+    },
+    {
+      "name": "widgetsnbextension",
+      "official": "4.0.14",
+      "cloned_base": "4.0.16",
+      "exact_match": false
+    },
+    {
+      "name": "wrapt",
+      "official": "1.17.3",
+      "cloned_base": "2.5.1",
+      "exact_match": false
+    },
+    {
+      "name": "xatlas",
+      "official": "0.0.9",
+      "cloned_base": "0.0.11",
+      "exact_match": false
+    },
+    {
+      "name": "xformers",
+      "official": "0.0.27.post2+cu118",
+      "cloned_base": "0.0.27.post2",
+      "exact_match": false
+    },
+    {
+      "name": "yacs",
+      "official": "0.1.8",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "yarl",
+      "official": "1.20.1",
+      "cloned_base": null,
+      "exact_match": false
+    },
+    {
+      "name": "zipp",
+      "official": "3.23.0",
+      "cloned_base": "4.1.1",
+      "exact_match": false
+    }
+  ]
+}
