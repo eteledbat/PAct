@@ -1,0 +1,26 @@
+{
+  "python": "3.10.22 (main, Oct  1 2026, 20:14:04) [GCC 14.3.0]",
+  "torch": "2.4.0+cu121",
+  "cuda": "12.1",
+  "packages": {
+    "pandas": "2.3.2",
+    "transformers": "4.50.3",
+    "huggingface-hub": "0.34.3",
+    "safetensors": "0.6.2",
+    "diffusers": "0.32.0",
+    "pillow": "10.4.0",
+    "imageio": "2.36.1",
+    "imageio-ffmpeg": "0.5.1",
+    "opencv-python-headless": "4.10.0.84",
+    "scipy": "1.14.1",
+    "pymeshfix": "0.17.0",
+    "flash-attn": "2.7.4.post1",
+    "nvdiffrast": "0.4.0",
+    "kaolin": "0.17.0",
+    "numpy": "1.26.4",
+    "spconv-cu120": "2.3.6"
+  },
+  "pipeline_import_passed": true,
+  "official_dataset_first_sample_parts": 2,
+  "dinov2_strict_load_passed": true
+}

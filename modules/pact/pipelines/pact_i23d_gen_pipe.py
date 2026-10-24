@@ -211,7 +211,11 @@ class PActPipeline(Pipeline):
         Args:
             name (str): Name of the DINOv2 model to load
         """
-        dinov2_model = torch.hub.load("facebookresearch/dinov2", name)
+        local_repo = os.environ.get("PACT_DINOV2_REPO")
+        if local_repo:
+            dinov2_model = torch.hub.load(local_repo, name, source="local")
+        else:
+            dinov2_model = torch.hub.load("facebookresearch/dinov2", name)
         dinov2_model.eval()
         self.models["image_cond_model"] = dinov2_model
 

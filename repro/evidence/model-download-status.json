@@ -1,0 +1,15 @@
+{
+  "state": "verified",
+  "method": "bounded_HTTP_ranges",
+  "revision": "8c6b56c7011454bbfb45a83e2dbfa6bbbfde63e9",
+  "total_bytes": 3972142331,
+  "confirmed_downloaded_bytes": 3972142331,
+  "resumed_bytes": 702545920,
+  "newly_downloaded_bytes": 2768642556,
+  "bytes_per_second": 1016933.99310524,
+  "eta_seconds": 0.0,
+  "elapsed_seconds": 2722.539097690955,
+  "updated_utc": "2026-10-24T02:16:56.948978+00:00",
+  "path": "/root/autodl-tmp/PAct/repro/cache/PAct-official",
+  "file_count": 14
+}
