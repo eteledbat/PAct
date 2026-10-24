@@ -15,3 +15,5 @@
 PyTorch 2.4.0+cu121/CUDA12.1，与官方 YAML 的 2.4.0/CUDA11.8 存在偏差。pandas、transformers、huggingface-hub、safetensors、diffusers、Pillow、imageio、FFmpeg、OpenCV、SciPy、pymeshfix、trimesh、OpenEXR、timm 已按官方指定版本安装；编译依赖 FlashAttention 2.7.4.post1、spconv-cu120 2.3.6、nvdiffrast0.4.0、kaolin0.17.0 和 NumPy1.26.4 等暂用独立克隆中的版本，须通过实际 GPU 运行验证，具体版本见 evidence/environment-smoke.json。未使用的训练依赖不伪称已安装。
 
 第一例是作者提供的 Dishwasher_001 RGB 与 EXR mask，仅为真实数据工具 smoke，不是 PARIS Storage45135 指标复现。21 个 orbit 预览帧只影响可视化；原版关节动画仍用默认60帧。原版生成、关节参数化、axis-origin bbox 后处理、运动动画及 raw mesh/GS 导出均保留。本轮不做 refinement，不增加物理 Loss，不调整预测值制造更好指标。
+
+真实 GPU 首次运行已完成 25+25 采样、mesh/GS 导出和关节动画，但 exploded video 使用 imageio.imwrite 写 4D 视频触发 ValueError。修复为 imageio.mimsave(..., fps=video_fps)，仅修视频写出接口，不改帧、模型或预测。失败运行独立保留，不写成成功结果。

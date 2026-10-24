@@ -936,7 +936,7 @@ class PActPipeline(Pipeline):
                 exploded_path = os.path.join(
                     outdir, f"{batch_index + obj_idx:02d}__exploded_part.mp4"
                 )
-                imageio.imwrite(exploded_path, exploded_video)
+                imageio.mimsave(exploded_path, exploded_video, fps=video_fps)
 
             if save_conditional_images:
                 cond_path = os.path.join(
