@@ -1,0 +1,73 @@
+{
+  "video": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/00__articulation_animation.mp4",
+  "frames": 60,
+  "mean_absolute_RGB_difference_first_last": 0.4588330586751302,
+  "pixels_with_any_channel_change_over_5_percent": 1.056671142578125,
+  "difference_note": "Decoded original video, includes codec effects; image difference is not a joint/geometry metric.",
+  "animation_joints": [
+    {
+      "node_id": 0,
+      "name": "door",
+      "type": "revolute",
+      "range": [
+        0.0,
+        9.94786262512207
+      ],
+      "axis": {
+        "direction": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "origin": [
+          0.10341435670852661,
+          -0.17106401920318604,
+          0.06821781396865845
+        ]
+      }
+    },
+    {
+      "node_id": 1,
+      "name": "base",
+      "type": "fixed",
+      "range": [
+        0.0,
+        0.0
+      ],
+      "axis": {
+        "direction": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "origin": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "node_id": 2,
+      "name": "door",
+      "type": "revolute",
+      "range": [
+        0.0,
+        -6.525190353393555
+      ],
+      "axis": {
+        "direction": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "origin": [
+          0.13173241913318634,
+          -0.23710693418979645,
+          0.1944623589515686
+        ]
+      }
+    }
+  ],
+  "motion_note": "Original _local_transform uses linear interpolation of the predicted range in degrees; fixed parts remain static. No range override or GT motion injected."
+}

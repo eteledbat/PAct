@@ -118,6 +118,6 @@ PYTHONDONTWRITEBYTECODE=1 /root/autodl-tmp/conda_envs/pact/bin/python repro/tool
 
 ## 解释边界
 
-当前结果支持：部分正确类型关节 raw 轴已较准，原版坐标轴吸附进一步压低方向误差；轴位置、类型与部件语义仍会失败。不能由0°方向误差推出 pivot 正确或全运动无穿模。本轮没有对三例计算新碰撞曲线、标准 Chamfer 或图像重建指标，也没有关节范围对齐后的误差，均不冒充已测。原始 GT limit 与预测 range 保留在 JSON；输入处于非零开合状态，未强行比较不同 rest-state 的范围。原版官方 Dishwasher_001 的21状态代理分析仍单独见 [原 smoke 报告](REPRODUCTION_REPORT.md)，不能移植为三例的碰撞结果。
+当前结果支持：部分正确类型关节 raw 轴已较准，原版坐标轴吸附进一步压低方向误差；轴位置、类型与部件语义仍会失败。不能由0°方向误差推出 pivot 正确或全运动无穿模。本轮没有对三例计算新碰撞曲线、标准 Chamfer 或图像重建指标，也没有关节范围对齐后的误差，均不冒充已测。原始 GT limit 与预测 range 保留在 JSON；输入处于非零开合状态，未强行比较不同 rest-state 的范围。10489原版动画看似不动的原因见 [运动幅度检查](ANIMATION_10489_DIAGNOSIS.md)：两门仅预测约6.53°和9.95°的运动，不能用方向0°误差代表完整运动成功。原版官方 Dishwasher_001 的21状态代理分析仍单独见 [原 smoke 报告](REPRODUCTION_REPORT.md)，不能移植为三例的碰撞结果。
 
 所有工具和小型证据提交独立分支；大型模型、输入/输出Mesh和视频仅保留本机，不向官方上游提交或推送。
