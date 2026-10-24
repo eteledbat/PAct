@@ -26,3 +26,5 @@ PyTorch 2.4.0+cu121/CUDA12.1，与官方 YAML 的 2.4.0/CUDA11.8 存在偏差。
 Mesh预览使用原始完整三角面，没有补洞、平滑、修复。首版相机在运动终点裁切door，已保留在mesh_previews_camera_v1，用更远固定相机重新渲染到mesh_previews；只是观察视角调整，未重跑模型。官方模型源码中tracked __pycache__ 文件在本机导入后发生字节码变化，已仅恢复这些自动生成文件，不将其提交为源码修复。
 
 已有数据的10489、31249、101808新增评估：oracle二维部件mask条件明确披露。主评估仅固定旋转，位置通过GT静态AABB尺度/中心归一化；单独静态几何ICP只作评估敏感性，不回写预测、不使用GT轴拟合。错误类型不计入条件轴均值，但保留全部类型失败、非零残留向量诊断和原始全向量汇总。原图、GT标注、部件排序、raw head、输出和工具SHA可追溯。划分含训练或增强家族重叠，未宣称严格未见泛化。详见GT_JOINT_EVALUATION.md。
+
+用户随后明确授权探索碰撞引导轴优化：另建research/collision-axis-refinement-20261024分支，新增独立Gaussian核后处理目标及位置/方向/联合三项消融，未修改原版模型、生成Loss或原始预测。所有几何/外观、类型、range和rest-state冻结；GT不进入新优化/选择。6项均固定200步，保存完整Adam、SHA和日志。新增41状态留出源点GPU核评估与21状态VTK全三角面检查、GT同一对齐对照、共享相机视频与X-ray交线图。未用开放/自交网格计算实体穿透体积。原baseline和Part²GS checkpoint均不覆盖。独立环境不新增安装包；Open3D自交检查临时借用已有libEGL路径，不更改其他环境。详见COLLISION_REFINEMENT_DESIGN.md及COLLISION_REFINEMENT_RESULTS.md。

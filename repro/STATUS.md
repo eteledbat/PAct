@@ -1,6 +1,8 @@
 # PAct baseline 准备记录
 
-最新状态（2026-10-24）：根据用户要求改选本机已有案例，10489、31249、101808 的固定帧/固定 seed 推理、raw/导出轴 GT 误差和静态几何配准敏感性均已完成。使用 GT Mesh 投影的 oracle 部件 mask；GT 轴/类型不输入模型。活动关节类型分别2/2、3/4、0/2正确，失败样本保留，不重配 GT 美化指标。见 [GT 对照报告](GT_JOINT_EVALUATION.md) 和 [完整小型证据](evidence/gt-joint-results.json)。当前没有训练/推理任务运行；Part²GS 仍暂停。以下保留准备过程的历史记录。
+最新状态（2026-10-24）：依用户新增授权，在独立research/collision-axis-refinement-20261024分支完成PAct的31249与Dishwasher共6项固定几何轴后处理（每项200步）。联合优化的留出Gaussian核均值降低32.79%/96.73%，21状态表面交线均值降低12.14%/98.98%；31249主协议GT轴/位置反而变差。无合法实体体积认证，不称为严格无穿模。见 [新实验完整对照](COLLISION_REFINEMENT_RESULTS.md)。原模型/几何/行程/类型和baseline保留，Part²GS仍暂停。以下为此前记录。
+
+此前GT对照（2026-10-24）：根据用户要求改选本机已有案例，10489、31249、101808 的固定帧/固定 seed 推理、raw/导出轴 GT 误差和静态几何配准敏感性均已完成。使用 GT Mesh 投影的 oracle 部件 mask；GT 轴/类型不输入模型。活动关节类型分别2/2、3/4、0/2正确，失败样本保留，不重配 GT 美化指标。见 [GT 对照报告](GT_JOINT_EVALUATION.md) 和 [完整小型证据](evidence/gt-joint-results.json)。
 
 用户于 2026-10-24 指示暂停 Part²GS，改用 PAct。Part²GS 已保存到 iteration 5020，GPU 已释放；不自动恢复。
 

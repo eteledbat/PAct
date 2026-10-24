@@ -8,7 +8,7 @@ import numpy as np
 import vtk
 from vtk.util.numpy_support import numpy_to_vtk, numpy_to_vtkIdTypeArray, vtk_to_numpy
 
-from collision_refinement_common import candidate_nodes, load_asset, transforms
+from collision_refinement_common import candidate_nodes, load_asset, sha256, transforms
 
 
 def polydata(mesh):
@@ -96,15 +96,24 @@ def main():
     p.add_argument('--candidate')
     p.add_argument('--states', type=int, default=21)
     p.add_argument('--pair', nargs=2, type=int)
+    p.add_argument('--resume', action='store_true')
     a = p.parse_args()
     out = pathlib.Path(a.out)
-    out.mkdir(parents=True, exist_ok=False)
+    out.mkdir(parents=True, exist_ok=a.resume)
     asset = load_asset(a.run)
     nodes = candidate_nodes(asset, a.candidate)
+    protocol = {'run': str(asset['run']), 'states': a.states, 'selected_pair': a.pair,
+                'prediction_sha256': sha256(a.candidate or asset['object_path'])}
+    if a.resume:
+        assert json.loads((out / 'protocol.json').read_text()) == protocol
+    else:
+        (out / 'protocol.json').write_text(json.dumps(protocol, indent=2))
     checker = TrianglePairs(asset, a.pair)
     started = time.monotonic()
-    rows = []
+    rows = json.loads((out / 'states.json').read_text()) if a.resume and (out / 'states.json').exists() else []
     for state, t in enumerate(np.linspace(0, 1, a.states)):
+        if state < len(rows):
+            continue
         pairs, segments = checker.state(nodes, t, state in [0, a.states // 2, a.states - 1])
         rows.append({'state': state, 't': float(t), 'pairs': pairs})
         if segments:

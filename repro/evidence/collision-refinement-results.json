@@ -1,0 +1,1535 @@
+{
+  "experiment_root": "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z",
+  "config": {
+    "created_utc": "2026-10-24T11:06:22.622431+00:00",
+    "cases": {
+      "31249": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z",
+      "dishwasher": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z"
+    },
+    "steps": 200,
+    "samples": 2048,
+    "variants": [
+      "position",
+      "direction",
+      "both"
+    ],
+    "selection": "Fixed final step; all variants retained; GT access blocked",
+    "evaluation_states": 41,
+    "mesh_evaluation_states": 21,
+    "evaluation_gaussians_per_part": 12000,
+    "evaluation_seed": 2026,
+    "baseline_GT_scores_previously_known": true,
+    "design": "repro/COLLISION_REFINEMENT_DESIGN.md"
+  },
+  "cases": {
+    "31249": {
+      "methods": {
+        "original": {
+          "metric": {
+            "case": "31249",
+            "method": "original",
+            "run": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z",
+            "candidate_sha256": "322e44b12bed529af1f2f45d150343aaf129ea44a1168ffd59a4f955ffecdc24",
+            "mean_all_state_pair_proxy": 0.008442817449745753,
+            "mean_interleaved_heldout_time_proxy": 0.008028044982469878,
+            "max_state_mean_pair_proxy": 0.04244166141762408,
+            "initial_state_mean_pair_proxy": 0.04244166141762408,
+            "sampling": "Up to12000 source centers per part, seed2026, disjoint from training seed0 source centers. All retained centers remain NN targets; sources reweighted to full populations.",
+            "sample_counts": {
+              "0": 12000,
+              "1": 12000,
+              "2": 12000,
+              "3": 12000,
+              "4": 12000
+            },
+            "full_counts": {
+              "0": 51799,
+              "1": 55259,
+              "2": 756658,
+              "3": 102124,
+              "4": 101039
+            },
+            "GT": {
+              "status": "measured",
+              "alignment": "Exactly the same fixed rotation, scale and translation as the original GT evaluation; never re-fit per candidate",
+              "joint_type_correct_count": 3,
+              "joint_count": 4,
+              "valid_axis_count": 3,
+              "mean_valid_axis_error_degrees": 0.40446464371448737,
+              "joints": [
+                {
+                  "gt_mobility_id": 0,
+                  "predicted_node_id": 3,
+                  "GT_type": "prismatic",
+                  "predicted_type": "prismatic",
+                  "type_correct": true,
+                  "direction_vector_diagnostic_degrees": 0.536921642662966,
+                  "valid_axis_error_degrees": 0.536921642662966,
+                  "pivot_to_GT_axis_percent_static_diagonal": null,
+                  "same_baseline_registration_axis_error_degrees": 3.5179672237026955,
+                  "same_baseline_registration_pivot_percent_diagonal": null
+                },
+                {
+                  "gt_mobility_id": 1,
+                  "predicted_node_id": 4,
+                  "GT_type": "prismatic",
+                  "predicted_type": "prismatic",
+                  "type_correct": true,
+                  "direction_vector_diagnostic_degrees": 0.676472288480496,
+                  "valid_axis_error_degrees": 0.676472288480496,
+                  "pivot_to_GT_axis_percent_static_diagonal": null,
+                  "same_baseline_registration_axis_error_degrees": 3.4561494158961645,
+                  "same_baseline_registration_pivot_percent_diagonal": null
+                },
+                {
+                  "gt_mobility_id": 3,
+                  "predicted_node_id": 0,
+                  "GT_type": "revolute",
+                  "predicted_type": "revolute",
+                  "type_correct": true,
+                  "direction_vector_diagnostic_degrees": 0.0,
+                  "valid_axis_error_degrees": 0.0,
+                  "pivot_to_GT_axis_percent_static_diagonal": 0.5964982011518793,
+                  "same_baseline_registration_axis_error_degrees": 2.986121629928886,
+                  "same_baseline_registration_pivot_percent_diagonal": 0.4256129150032273
+                },
+                {
+                  "gt_mobility_id": 4,
+                  "predicted_node_id": 1,
+                  "GT_type": "revolute",
+                  "predicted_type": "prismatic",
+                  "type_correct": false,
+                  "direction_vector_diagnostic_degrees": 80.80999396820609,
+                  "valid_axis_error_degrees": null,
+                  "pivot_to_GT_axis_percent_static_diagonal": null,
+                  "same_baseline_registration_axis_error_degrees": null,
+                  "same_baseline_registration_pivot_percent_diagonal": null
+                }
+              ]
+            },
+            "axis_changes": [
+              {
+                "node_id": 0,
+                "type": "revolute",
+                "direction_change_degrees": 0.0,
+                "origin_shift_percent_asset_diagonal": 0.0,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": 0.0
+              },
+              {
+                "node_id": 1,
+                "type": "prismatic",
+                "direction_change_degrees": 1.2074182697257333e-06,
+                "origin_shift_percent_asset_diagonal": null,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": null
+              },
+              {
+                "node_id": 3,
+                "type": "prismatic",
+                "direction_change_degrees": 0.0,
+                "origin_shift_percent_asset_diagonal": null,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": null
+              },
+              {
+                "node_id": 4,
+                "type": "prismatic",
+                "direction_change_degrees": 0.0,
+                "origin_shift_percent_asset_diagonal": null,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": null
+              }
+            ],
+            "mesh_geometry_frozen": true,
+            "solid_collision": {
+              "status": "unavailable",
+              "volume": null,
+              "penetration_depth": null,
+              "reason": "Open or self-intersecting/unverified mesh; Gaussian overlap is not solid overlap."
+            },
+            "elapsed_seconds": 12.084894239902496
+          },
+          "mesh": {
+            "method": "VTK full original triangles, AllContacts, zero tolerances; segments <=1e-6*diagonal excluded",
+            "interpretation": "Surface intersections include valid contact and inherited geometry errors. Transverse excludes face normal angles <=5deg but is still not a solid collision measure.",
+            "mean_total_line_length_over_diagonal": 6.887172205335947,
+            "mean_transverse_line_length_over_diagonal": 6.5829636194868195,
+            "solid_overlap_volume": null,
+            "solid_penetration_depth": null,
+            "elapsed_seconds": 537.6189313717186
+          },
+          "gaussian_mean_reduction_percent": 0.0,
+          "surface_line_mean_reduction_percent": 0.0,
+          "pivot_mean_percent_GT_static_diagonal": 0.5964982011518793,
+          "evidence": {
+            "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/eval_31249_original/metrics.json": "e95d7d76d512e8183bd45d7df1c7147d2ae7e1fbb62ba6799583f7c3663cbe90",
+            "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/mesh_31249_original/metrics.json": "9fd14ef6b737a97182643aa5a359fcfb06084c2e3c94602800d80b6e9cfd8b4a"
+          }
+        },
+        "position": {
+          "metric": {
+            "case": "31249",
+            "method": "position",
+            "run": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z",
+            "candidate_sha256": "bd2413b18a9862377b84da4617a9731ff3d1540d756f925bde5033bff08456a6",
+            "mean_all_state_pair_proxy": 0.006400782226226799,
+            "mean_interleaved_heldout_time_proxy": 0.005926851926918093,
+            "max_state_mean_pair_proxy": 0.04244166141762408,
+            "initial_state_mean_pair_proxy": 0.04244166141762408,
+            "sampling": "Up to12000 source centers per part, seed2026, disjoint from training seed0 source centers. All retained centers remain NN targets; sources reweighted to full populations.",
+            "sample_counts": {
+              "0": 12000,
+              "1": 12000,
+              "2": 12000,
+              "3": 12000,
+              "4": 12000
+            },
+            "full_counts": {
+              "0": 51799,
+              "1": 55259,
+              "2": 756658,
+              "3": 102124,
+              "4": 101039
+            },
+            "GT": {
+              "status": "measured",
+              "alignment": "Exactly the same fixed rotation, scale and translation as the original GT evaluation; never re-fit per candidate",
+              "joint_type_correct_count": 3,
+              "joint_count": 4,
+              "valid_axis_count": 3,
+              "mean_valid_axis_error_degrees": 0.40446464371448737,
+              "joints": [
+                {
+                  "gt_mobility_id": 0,
+                  "predicted_node_id": 3,
+                  "GT_type": "prismatic",
+                  "predicted_type": "prismatic",
+                  "type_correct": true,
+                  "direction_vector_diagnostic_degrees": 0.536921642662966,
+                  "valid_axis_error_degrees": 0.536921642662966,
+                  "pivot_to_GT_axis_percent_static_diagonal": null,
+                  "same_baseline_registration_axis_error_degrees": 3.5179672237026955,
+                  "same_baseline_registration_pivot_percent_diagonal": null
+                },
+                {
+                  "gt_mobility_id": 1,
+                  "predicted_node_id": 4,
+                  "GT_type": "prismatic",
+                  "predicted_type": "prismatic",
+                  "type_correct": true,
+                  "direction_vector_diagnostic_degrees": 0.676472288480496,
+                  "valid_axis_error_degrees": 0.676472288480496,
+                  "pivot_to_GT_axis_percent_static_diagonal": null,
+                  "same_baseline_registration_axis_error_degrees": 3.4561494158961645,
+                  "same_baseline_registration_pivot_percent_diagonal": null
+                },
+                {
+                  "gt_mobility_id": 3,
+                  "predicted_node_id": 0,
+                  "GT_type": "revolute",
+                  "predicted_type": "revolute",
+                  "type_correct": true,
+                  "direction_vector_diagnostic_degrees": 0.0,
+                  "valid_axis_error_degrees": 0.0,
+                  "pivot_to_GT_axis_percent_static_diagonal": 4.58888972252142,
+                  "same_baseline_registration_axis_error_degrees": 2.986121629928886,
+                  "same_baseline_registration_pivot_percent_diagonal": 4.641541617165668
+                },
+                {
+                  "gt_mobility_id": 4,
+                  "predicted_node_id": 1,
+                  "GT_type": "revolute",
+                  "predicted_type": "prismatic",
+                  "type_correct": false,
+                  "direction_vector_diagnostic_degrees": 80.80999396820609,
+                  "valid_axis_error_degrees": null,
+                  "pivot_to_GT_axis_percent_static_diagonal": null,
+                  "same_baseline_registration_axis_error_degrees": null,
+                  "same_baseline_registration_pivot_percent_diagonal": null
+                }
+              ]
+            },
+            "axis_changes": [
+              {
+                "node_id": 0,
+                "type": "revolute",
+                "direction_change_degrees": 0.0,
+                "origin_shift_percent_asset_diagonal": 4.999999432929934,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": 3.0184799711287846
+              },
+              {
+                "node_id": 1,
+                "type": "prismatic",
+                "direction_change_degrees": 1.2074182697257333e-06,
+                "origin_shift_percent_asset_diagonal": null,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": null
+              },
+              {
+                "node_id": 3,
+                "type": "prismatic",
+                "direction_change_degrees": 0.0,
+                "origin_shift_percent_asset_diagonal": null,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": null
+              },
+              {
+                "node_id": 4,
+                "type": "prismatic",
+                "direction_change_degrees": 0.0,
+                "origin_shift_percent_asset_diagonal": null,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": null
+              }
+            ],
+            "mesh_geometry_frozen": true,
+            "solid_collision": {
+              "status": "unavailable",
+              "volume": null,
+              "penetration_depth": null,
+              "reason": "Open or self-intersecting/unverified mesh; Gaussian overlap is not solid overlap."
+            },
+            "elapsed_seconds": 12.288864493370056
+          },
+          "mesh": {
+            "method": "VTK full original triangles, AllContacts, zero tolerances; segments <=1e-6*diagonal excluded",
+            "interpretation": "Surface intersections include valid contact and inherited geometry errors. Transverse excludes face normal angles <=5deg but is still not a solid collision measure.",
+            "mean_total_line_length_over_diagonal": 6.188634049028975,
+            "mean_transverse_line_length_over_diagonal": 5.895457731082142,
+            "solid_overlap_volume": null,
+            "solid_penetration_depth": null,
+            "elapsed_seconds": 516.5558258630335
+          },
+          "gaussian_mean_reduction_percent": 24.18665612129808,
+          "surface_line_mean_reduction_percent": 10.142597505631823,
+          "pivot_mean_percent_GT_static_diagonal": 4.58888972252142,
+          "evidence": {
+            "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/eval_31249_position/metrics.json": "5b9b6eb86aed554562336e143f418cee595ae48b377fb2123ea6dee66b8266ae",
+            "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/mesh_31249_position/metrics.json": "b3d432358302483fc20a3d14e683c096e79bd1870f9a39a9a275184e39590441"
+          },
+          "training_status": {
+            "state": "complete",
+            "step": 200,
+            "total_steps": 200,
+            "variant": "position",
+            "elapsed_seconds": 1007.2141629140824,
+            "gpu_peak_allocated_MiB": 53.6044921875,
+            "updated_utc": "2026-10-24T11:33:22.449094+00:00",
+            "candidate_sha256": "bd2413b18a9862377b84da4617a9731ff3d1540d756f925bde5033bff08456a6",
+            "GT_reads_blocked": [],
+            "frozen_files_unchanged": true,
+            "final_training_proxy": 0.006863539107143879,
+            "initial_training_proxy": 0.008821934461593628,
+            "selection": "Fixed final step, not best collision or GT score"
+          },
+          "protocol": {
+            "run": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z",
+            "variant": "position",
+            "steps": 200,
+            "samples_per_part": 2048,
+            "training_states": 21,
+            "sample_seed": 0,
+            "axis_bound_degrees": 5,
+            "pivot_bound_fraction_asset_diagonal": 0.05,
+            "sampling": "Uniform source quadrature, exact NN in all opacity-retained target centers, count reweighting for the full opacity-weighted kernel",
+            "regularization_weight": 0.05,
+            "objective": "mean nearest-center Gaussian overlap / original overlap + .05 * normalized quadratic axis/pivot displacement",
+            "geometry_frozen": true,
+            "range_frozen": true,
+            "type_frozen": true,
+            "selection": "Fixed final step only, no GT reads; all three ablations reported",
+            "original_object_sha256": "322e44b12bed529af1f2f45d150343aaf129ea44a1168ffd59a4f955ffecdc24",
+            "source_sha256": {
+              "/root/autodl-tmp/PAct/repro/tools/refine_collision_axes.py": "adb04a161f190f2451d7b1445fb0ffed20776e241028886543feddc13d10ea90",
+              "/root/autodl-tmp/PAct/repro/tools/collision_refinement_common.py": "09c9b1adf7618718e3813c6defd749b2acc21488e4d0dbbedd4bd4429c1d584d"
+            },
+            "frozen_files": [
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply/part_0.ply",
+                "mesh_sha256": "221d2ec98c5976e10810cfd2876b0ebc348fd3dfe85f7daa6191a72a8977aab0",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs/part_0.ply",
+                "gs_sha256": "8c7d36675180de2699ba36f2bc023657bff207e7f29a00c2c735fd8181fbbf80"
+              },
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply/part_1.ply",
+                "mesh_sha256": "54560d27825ed77fb0453e6d484508aff3d6dabeddf56e54cfbc89231e51c41c",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs/part_1.ply",
+                "gs_sha256": "f8df733ba2bee777f3e612907b2c06963de87a7d97dcc32ae8edf22705953257"
+              },
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply/part_2.ply",
+                "mesh_sha256": "514857e3c1dc5cbbd9aa1c94e61356d212abdab1c05b601a0910a53d5e42d106",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs/part_2.ply",
+                "gs_sha256": "936ef1ddcc06fd7008936f6a44f192caa1736ecc8dbfd5d297e45a47eece1c74"
+              },
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply/part_3.ply",
+                "mesh_sha256": "e12da256a9062aaa73c4dd2377a71b9d912be2a88d1667015415dda85c36c745",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs/part_3.ply",
+                "gs_sha256": "06975b48737b8d76ade3483cbe250cd23450ac2556b5ab75c18260157acdc2da"
+              },
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply/part_4.ply",
+                "mesh_sha256": "62ae5c98ee0c406161b1f71618dbed16ebbacf0a454e2a1b9f1a88dd37fcd891",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs/part_4.ply",
+                "gs_sha256": "d85ca638c3acc47f95aeb5f237d153473dacc572066961413156ba013e1f4e19"
+              }
+            ]
+          },
+          "wall_seconds_since_protocol_write_including_resume_or_contention": 1360.3173253536224
+        },
+        "direction": {
+          "metric": {
+            "case": "31249",
+            "method": "direction",
+            "run": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z",
+            "candidate_sha256": "7de4ee681b35f9894cd092a1feb4760b11e0ab466bfc1b534171664ac22e924f",
+            "mean_all_state_pair_proxy": 0.0069619804150561175,
+            "mean_interleaved_heldout_time_proxy": 0.006510740242746388,
+            "max_state_mean_pair_proxy": 0.04244166141762408,
+            "initial_state_mean_pair_proxy": 0.04244166141762408,
+            "sampling": "Up to12000 source centers per part, seed2026, disjoint from training seed0 source centers. All retained centers remain NN targets; sources reweighted to full populations.",
+            "sample_counts": {
+              "0": 12000,
+              "1": 12000,
+              "2": 12000,
+              "3": 12000,
+              "4": 12000
+            },
+            "full_counts": {
+              "0": 51799,
+              "1": 55259,
+              "2": 756658,
+              "3": 102124,
+              "4": 101039
+            },
+            "GT": {
+              "status": "measured",
+              "alignment": "Exactly the same fixed rotation, scale and translation as the original GT evaluation; never re-fit per candidate",
+              "joint_type_correct_count": 3,
+              "joint_count": 4,
+              "valid_axis_count": 3,
+              "mean_valid_axis_error_degrees": 3.5953168246270977,
+              "joints": [
+                {
+                  "gt_mobility_id": 0,
+                  "predicted_node_id": 3,
+                  "GT_type": "prismatic",
+                  "predicted_type": "prismatic",
+                  "type_correct": true,
+                  "direction_vector_diagnostic_degrees": 4.658845957831732,
+                  "valid_axis_error_degrees": 4.658845957831732,
+                  "pivot_to_GT_axis_percent_static_diagonal": null,
+                  "same_baseline_registration_axis_error_degrees": 4.562339537266819,
+                  "same_baseline_registration_pivot_percent_diagonal": null
+                },
+                {
+                  "gt_mobility_id": 1,
+                  "predicted_node_id": 4,
+                  "GT_type": "prismatic",
+                  "predicted_type": "prismatic",
+                  "type_correct": true,
+                  "direction_vector_diagnostic_degrees": 3.124273914394656,
+                  "valid_axis_error_degrees": 3.124273914394656,
+                  "pivot_to_GT_axis_percent_static_diagonal": null,
+                  "same_baseline_registration_axis_error_degrees": 2.2391414518734756,
+                  "same_baseline_registration_pivot_percent_diagonal": null
+                },
+                {
+                  "gt_mobility_id": 3,
+                  "predicted_node_id": 0,
+                  "GT_type": "revolute",
+                  "predicted_type": "revolute",
+                  "type_correct": true,
+                  "direction_vector_diagnostic_degrees": 3.002830601654906,
+                  "valid_axis_error_degrees": 3.002830601654906,
+                  "pivot_to_GT_axis_percent_static_diagonal": 0.5964982011518793,
+                  "same_baseline_registration_axis_error_degrees": 3.156691665562648,
+                  "same_baseline_registration_pivot_percent_diagonal": 0.4256129150032273
+                },
+                {
+                  "gt_mobility_id": 4,
+                  "predicted_node_id": 1,
+                  "GT_type": "revolute",
+                  "predicted_type": "prismatic",
+                  "type_correct": false,
+                  "direction_vector_diagnostic_degrees": 77.7689341791988,
+                  "valid_axis_error_degrees": null,
+                  "pivot_to_GT_axis_percent_static_diagonal": null,
+                  "same_baseline_registration_axis_error_degrees": null,
+                  "same_baseline_registration_pivot_percent_diagonal": null
+                }
+              ]
+            },
+            "axis_changes": [
+              {
+                "node_id": 0,
+                "type": "revolute",
+                "direction_change_degrees": 3.002830601654906,
+                "origin_shift_percent_asset_diagonal": 0.0,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": 2.0447190234817133e-15
+              },
+              {
+                "node_id": 1,
+                "type": "prismatic",
+                "direction_change_degrees": 5.000000522842716,
+                "origin_shift_percent_asset_diagonal": null,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": null
+              },
+              {
+                "node_id": 3,
+                "type": "prismatic",
+                "direction_change_degrees": 4.871208641307448,
+                "origin_shift_percent_asset_diagonal": null,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": null
+              },
+              {
+                "node_id": 4,
+                "type": "prismatic",
+                "direction_change_degrees": 3.1639914133785356,
+                "origin_shift_percent_asset_diagonal": null,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": null
+              }
+            ],
+            "mesh_geometry_frozen": true,
+            "solid_collision": {
+              "status": "unavailable",
+              "volume": null,
+              "penetration_depth": null,
+              "reason": "Open or self-intersecting/unverified mesh; Gaussian overlap is not solid overlap."
+            },
+            "elapsed_seconds": 13.159673565998673
+          },
+          "mesh": {
+            "method": "VTK full original triangles, AllContacts, zero tolerances; segments <=1e-6*diagonal excluded",
+            "interpretation": "Surface intersections include valid contact and inherited geometry errors. Transverse excludes face normal angles <=5deg but is still not a solid collision measure.",
+            "mean_total_line_length_over_diagonal": 6.6518807468942915,
+            "mean_transverse_line_length_over_diagonal": 6.352669801455567,
+            "solid_overlap_volume": null,
+            "solid_penetration_depth": null,
+            "elapsed_seconds": 501.4817798715085
+          },
+          "gaussian_mean_reduction_percent": 17.539607405987788,
+          "surface_line_mean_reduction_percent": 3.416372517291777,
+          "pivot_mean_percent_GT_static_diagonal": 0.5964982011518793,
+          "evidence": {
+            "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/eval_31249_direction/metrics.json": "e8c3f066f2e64999ac01a8a56de62ad777360141c5641d00f9bebfa531d2bfe9",
+            "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/mesh_31249_direction/metrics.json": "bc5a248e84c21dfb457011538c75ea7c84c69155d4ec5a735df22491f2d35eda"
+          },
+          "training_status": {
+            "state": "complete",
+            "step": 200,
+            "total_steps": 200,
+            "variant": "direction",
+            "elapsed_seconds": 1325.709304407239,
+            "gpu_peak_allocated_MiB": 70.49560546875,
+            "updated_utc": "2026-10-24T11:38:41.124649+00:00",
+            "candidate_sha256": "7de4ee681b35f9894cd092a1feb4760b11e0ab466bfc1b534171664ac22e924f",
+            "GT_reads_blocked": [],
+            "frozen_files_unchanged": true,
+            "final_training_proxy": 0.007232369389384985,
+            "initial_training_proxy": 0.008821934461593628,
+            "selection": "Fixed final step, not best collision or GT score"
+          },
+          "protocol": {
+            "run": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z",
+            "variant": "direction",
+            "steps": 200,
+            "samples_per_part": 2048,
+            "training_states": 21,
+            "sample_seed": 0,
+            "axis_bound_degrees": 5,
+            "pivot_bound_fraction_asset_diagonal": 0.05,
+            "sampling": "Uniform source quadrature, exact NN in all opacity-retained target centers, count reweighting for the full opacity-weighted kernel",
+            "regularization_weight": 0.05,
+            "objective": "mean nearest-center Gaussian overlap / original overlap + .05 * normalized quadratic axis/pivot displacement",
+            "geometry_frozen": true,
+            "range_frozen": true,
+            "type_frozen": true,
+            "selection": "Fixed final step only, no GT reads; all three ablations reported",
+            "original_object_sha256": "322e44b12bed529af1f2f45d150343aaf129ea44a1168ffd59a4f955ffecdc24",
+            "source_sha256": {
+              "/root/autodl-tmp/PAct/repro/tools/refine_collision_axes.py": "adb04a161f190f2451d7b1445fb0ffed20776e241028886543feddc13d10ea90",
+              "/root/autodl-tmp/PAct/repro/tools/collision_refinement_common.py": "09c9b1adf7618718e3813c6defd749b2acc21488e4d0dbbedd4bd4429c1d584d"
+            },
+            "frozen_files": [
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply/part_0.ply",
+                "mesh_sha256": "221d2ec98c5976e10810cfd2876b0ebc348fd3dfe85f7daa6191a72a8977aab0",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs/part_0.ply",
+                "gs_sha256": "8c7d36675180de2699ba36f2bc023657bff207e7f29a00c2c735fd8181fbbf80"
+              },
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply/part_1.ply",
+                "mesh_sha256": "54560d27825ed77fb0453e6d484508aff3d6dabeddf56e54cfbc89231e51c41c",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs/part_1.ply",
+                "gs_sha256": "f8df733ba2bee777f3e612907b2c06963de87a7d97dcc32ae8edf22705953257"
+              },
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply/part_2.ply",
+                "mesh_sha256": "514857e3c1dc5cbbd9aa1c94e61356d212abdab1c05b601a0910a53d5e42d106",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs/part_2.ply",
+                "gs_sha256": "936ef1ddcc06fd7008936f6a44f192caa1736ecc8dbfd5d297e45a47eece1c74"
+              },
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply/part_3.ply",
+                "mesh_sha256": "e12da256a9062aaa73c4dd2377a71b9d912be2a88d1667015415dda85c36c745",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs/part_3.ply",
+                "gs_sha256": "06975b48737b8d76ade3483cbe250cd23450ac2556b5ab75c18260157acdc2da"
+              },
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply/part_4.ply",
+                "mesh_sha256": "62ae5c98ee0c406161b1f71618dbed16ebbacf0a454e2a1b9f1a88dd37fcd891",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs/part_4.ply",
+                "gs_sha256": "d85ca638c3acc47f95aeb5f237d153473dacc572066961413156ba013e1f4e19"
+              }
+            ]
+          },
+          "wall_seconds_since_protocol_write_including_resume_or_contention": 1316.7571349143982
+        },
+        "both": {
+          "metric": {
+            "case": "31249",
+            "method": "both",
+            "run": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z",
+            "candidate_sha256": "7cee623b0d28257d12237bed2e9ead586cebf62a817306299ccdc447dd953def",
+            "mean_all_state_pair_proxy": 0.005674789695932573,
+            "mean_interleaved_heldout_time_proxy": 0.00518052068963902,
+            "max_state_mean_pair_proxy": 0.04244166141762408,
+            "initial_state_mean_pair_proxy": 0.04244166141762408,
+            "sampling": "Up to12000 source centers per part, seed2026, disjoint from training seed0 source centers. All retained centers remain NN targets; sources reweighted to full populations.",
+            "sample_counts": {
+              "0": 12000,
+              "1": 12000,
+              "2": 12000,
+              "3": 12000,
+              "4": 12000
+            },
+            "full_counts": {
+              "0": 51799,
+              "1": 55259,
+              "2": 756658,
+              "3": 102124,
+              "4": 101039
+            },
+            "GT": {
+              "status": "measured",
+              "alignment": "Exactly the same fixed rotation, scale and translation as the original GT evaluation; never re-fit per candidate",
+              "joint_type_correct_count": 3,
+              "joint_count": 4,
+              "valid_axis_count": 3,
+              "mean_valid_axis_error_degrees": 3.1713998518825335,
+              "joints": [
+                {
+                  "gt_mobility_id": 0,
+                  "predicted_node_id": 3,
+                  "GT_type": "prismatic",
+                  "predicted_type": "prismatic",
+                  "type_correct": true,
+                  "direction_vector_diagnostic_degrees": 4.662651707064942,
+                  "valid_axis_error_degrees": 4.662651707064942,
+                  "pivot_to_GT_axis_percent_static_diagonal": null,
+                  "same_baseline_registration_axis_error_degrees": 4.590683119729699,
+                  "same_baseline_registration_pivot_percent_diagonal": null
+                },
+                {
+                  "gt_mobility_id": 1,
+                  "predicted_node_id": 4,
+                  "GT_type": "prismatic",
+                  "predicted_type": "prismatic",
+                  "type_correct": true,
+                  "direction_vector_diagnostic_degrees": 3.1229384260098834,
+                  "valid_axis_error_degrees": 3.1229384260098834,
+                  "pivot_to_GT_axis_percent_static_diagonal": null,
+                  "same_baseline_registration_axis_error_degrees": 2.238075271408803,
+                  "same_baseline_registration_pivot_percent_diagonal": null
+                },
+                {
+                  "gt_mobility_id": 3,
+                  "predicted_node_id": 0,
+                  "GT_type": "revolute",
+                  "predicted_type": "revolute",
+                  "type_correct": true,
+                  "direction_vector_diagnostic_degrees": 1.7286094225727746,
+                  "valid_axis_error_degrees": 1.7286094225727746,
+                  "pivot_to_GT_axis_percent_static_diagonal": 4.128904268056039,
+                  "same_baseline_registration_axis_error_degrees": 2.248115887782784,
+                  "same_baseline_registration_pivot_percent_diagonal": 4.200272524908151
+                },
+                {
+                  "gt_mobility_id": 4,
+                  "predicted_node_id": 1,
+                  "GT_type": "revolute",
+                  "predicted_type": "prismatic",
+                  "type_correct": false,
+                  "direction_vector_diagnostic_degrees": 78.7004308973349,
+                  "valid_axis_error_degrees": null,
+                  "pivot_to_GT_axis_percent_static_diagonal": null,
+                  "same_baseline_registration_axis_error_degrees": null,
+                  "same_baseline_registration_pivot_percent_diagonal": null
+                }
+              ]
+            },
+            "axis_changes": [
+              {
+                "node_id": 0,
+                "type": "revolute",
+                "direction_change_degrees": 1.7286094225727746,
+                "origin_shift_percent_asset_diagonal": 4.562027976429955,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": 2.752832494337339
+              },
+              {
+                "node_id": 1,
+                "type": "prismatic",
+                "direction_change_degrees": 3.895091561631384,
+                "origin_shift_percent_asset_diagonal": null,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": null
+              },
+              {
+                "node_id": 3,
+                "type": "prismatic",
+                "direction_change_degrees": 4.870697406447052,
+                "origin_shift_percent_asset_diagonal": null,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": null
+              },
+              {
+                "node_id": 4,
+                "type": "prismatic",
+                "direction_change_degrees": 3.162805678624674,
+                "origin_shift_percent_asset_diagonal": null,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": null
+              }
+            ],
+            "mesh_geometry_frozen": true,
+            "solid_collision": {
+              "status": "unavailable",
+              "volume": null,
+              "penetration_depth": null,
+              "reason": "Open or self-intersecting/unverified mesh; Gaussian overlap is not solid overlap."
+            },
+            "elapsed_seconds": 12.912410892546177
+          },
+          "mesh": {
+            "method": "VTK full original triangles, AllContacts, zero tolerances; segments <=1e-6*diagonal excluded",
+            "interpretation": "Surface intersections include valid contact and inherited geometry errors. Transverse excludes face normal angles <=5deg but is still not a solid collision measure.",
+            "mean_total_line_length_over_diagonal": 6.0510574012854335,
+            "mean_transverse_line_length_over_diagonal": 5.764169908995572,
+            "solid_overlap_volume": null,
+            "solid_penetration_depth": null,
+            "elapsed_seconds": 480.9842004906386
+          },
+          "gaussian_mean_reduction_percent": 32.78559284610063,
+          "surface_line_mean_reduction_percent": 12.140175664588726,
+          "pivot_mean_percent_GT_static_diagonal": 4.128904268056039,
+          "evidence": {
+            "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/eval_31249_both/metrics.json": "c691031105aa90694f231e067508c95703ab027c37d7c8a3e02ae72af20be74c",
+            "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/mesh_31249_both/metrics.json": "a6a71c34bd5e0060356e3cf7a92a04f975f164365d5496123bc6d800c0a5eb30"
+          },
+          "training_status": {
+            "state": "complete",
+            "step": 200,
+            "total_steps": 200,
+            "variant": "both",
+            "elapsed_seconds": 1360.3343039061874,
+            "gpu_peak_allocated_MiB": 70.49755859375,
+            "updated_utc": "2026-10-24T11:39:15.492691+00:00",
+            "candidate_sha256": "7cee623b0d28257d12237bed2e9ead586cebf62a817306299ccdc447dd953def",
+            "GT_reads_blocked": [],
+            "frozen_files_unchanged": true,
+            "final_training_proxy": 0.006011033430695534,
+            "initial_training_proxy": 0.008821934461593628,
+            "selection": "Fixed final step, not best collision or GT score"
+          },
+          "protocol": {
+            "run": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z",
+            "variant": "both",
+            "steps": 200,
+            "samples_per_part": 2048,
+            "training_states": 21,
+            "sample_seed": 0,
+            "axis_bound_degrees": 5,
+            "pivot_bound_fraction_asset_diagonal": 0.05,
+            "sampling": "Uniform source quadrature, exact NN in all opacity-retained target centers, count reweighting for the full opacity-weighted kernel",
+            "regularization_weight": 0.05,
+            "objective": "mean nearest-center Gaussian overlap / original overlap + .05 * normalized quadratic axis/pivot displacement",
+            "geometry_frozen": true,
+            "range_frozen": true,
+            "type_frozen": true,
+            "selection": "Fixed final step only, no GT reads; all three ablations reported",
+            "original_object_sha256": "322e44b12bed529af1f2f45d150343aaf129ea44a1168ffd59a4f955ffecdc24",
+            "source_sha256": {
+              "/root/autodl-tmp/PAct/repro/tools/refine_collision_axes.py": "adb04a161f190f2451d7b1445fb0ffed20776e241028886543feddc13d10ea90",
+              "/root/autodl-tmp/PAct/repro/tools/collision_refinement_common.py": "09c9b1adf7618718e3813c6defd749b2acc21488e4d0dbbedd4bd4429c1d584d"
+            },
+            "frozen_files": [
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply/part_0.ply",
+                "mesh_sha256": "221d2ec98c5976e10810cfd2876b0ebc348fd3dfe85f7daa6191a72a8977aab0",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs/part_0.ply",
+                "gs_sha256": "8c7d36675180de2699ba36f2bc023657bff207e7f29a00c2c735fd8181fbbf80"
+              },
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply/part_1.ply",
+                "mesh_sha256": "54560d27825ed77fb0453e6d484508aff3d6dabeddf56e54cfbc89231e51c41c",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs/part_1.ply",
+                "gs_sha256": "f8df733ba2bee777f3e612907b2c06963de87a7d97dcc32ae8edf22705953257"
+              },
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply/part_2.ply",
+                "mesh_sha256": "514857e3c1dc5cbbd9aa1c94e61356d212abdab1c05b601a0910a53d5e42d106",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs/part_2.ply",
+                "gs_sha256": "936ef1ddcc06fd7008936f6a44f192caa1736ecc8dbfd5d297e45a47eece1c74"
+              },
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply/part_3.ply",
+                "mesh_sha256": "e12da256a9062aaa73c4dd2377a71b9d912be2a88d1667015415dda85c36c745",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs/part_3.ply",
+                "gs_sha256": "06975b48737b8d76ade3483cbe250cd23450ac2556b5ab75c18260157acdc2da"
+              },
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply/part_4.ply",
+                "mesh_sha256": "62ae5c98ee0c406161b1f71618dbed16ebbacf0a454e2a1b9f1a88dd37fcd891",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs/part_4.ply",
+                "gs_sha256": "d85ca638c3acc47f95aeb5f237d153473dacc572066961413156ba013e1f4e19"
+              }
+            ]
+          },
+          "wall_seconds_since_protocol_write_including_resume_or_contention": 1351.2171800136566
+        }
+      },
+      "original_vs_both_pair_surface_intersections": [
+        {
+          "ids": [
+            0,
+            1
+          ],
+          "original_mean_line_over_D": 0.5831660435832312,
+          "refined_mean_line_over_D": 0.3420444567441734,
+          "original_end_line_over_D": 0.05304389182818441,
+          "refined_end_line_over_D": 0.0
+        },
+        {
+          "ids": [
+            0,
+            2
+          ],
+          "original_mean_line_over_D": 0.6359345964077031,
+          "refined_mean_line_over_D": 0.1724771204476284,
+          "original_end_line_over_D": 0.5758349932696261,
+          "refined_end_line_over_D": 0.0
+        },
+        {
+          "ids": [
+            0,
+            3
+          ],
+          "original_mean_line_over_D": 0.0,
+          "refined_mean_line_over_D": 0.0,
+          "original_end_line_over_D": 0.0,
+          "refined_end_line_over_D": 0.0
+        },
+        {
+          "ids": [
+            0,
+            4
+          ],
+          "original_mean_line_over_D": 0.0,
+          "refined_mean_line_over_D": 0.0,
+          "original_end_line_over_D": 0.0,
+          "refined_end_line_over_D": 0.0
+        },
+        {
+          "ids": [
+            1,
+            2
+          ],
+          "original_mean_line_over_D": 1.1620670522849583,
+          "refined_mean_line_over_D": 1.2044014173736148,
+          "original_end_line_over_D": 0.6556950445228898,
+          "refined_end_line_over_D": 0.7553142914106736
+        },
+        {
+          "ids": [
+            1,
+            3
+          ],
+          "original_mean_line_over_D": 0.0,
+          "refined_mean_line_over_D": 0.0,
+          "original_end_line_over_D": 0.0,
+          "refined_end_line_over_D": 0.0
+        },
+        {
+          "ids": [
+            1,
+            4
+          ],
+          "original_mean_line_over_D": 0.0,
+          "refined_mean_line_over_D": 0.0,
+          "original_end_line_over_D": 0.0,
+          "refined_end_line_over_D": 0.0
+        },
+        {
+          "ids": [
+            2,
+            3
+          ],
+          "original_mean_line_over_D": 2.331050750274973,
+          "refined_mean_line_over_D": 2.197229811000875,
+          "original_end_line_over_D": 1.903910138382482,
+          "refined_end_line_over_D": 1.578860517836477
+        },
+        {
+          "ids": [
+            2,
+            4
+          ],
+          "original_mean_line_over_D": 2.174953762785079,
+          "refined_mean_line_over_D": 2.1349045957191413,
+          "original_end_line_over_D": 1.5811234639405733,
+          "refined_end_line_over_D": 1.318229687325787
+        },
+        {
+          "ids": [
+            3,
+            4
+          ],
+          "original_mean_line_over_D": 0.0,
+          "refined_mean_line_over_D": 0.0,
+          "original_end_line_over_D": 0.0,
+          "refined_end_line_over_D": 0.0
+        }
+      ],
+      "same_baseline_registration_mean_axis_error_degrees": {
+        "original": 3.3200794231759154,
+        "position": 3.3200794231759154,
+        "direction": 3.3193908849009808,
+        "both": 3.025624759640429
+      }
+    },
+    "dishwasher": {
+      "methods": {
+        "original": {
+          "metric": {
+            "case": "dishwasher",
+            "method": "original",
+            "run": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z",
+            "candidate_sha256": "e9574a81ec1a02a954227a2c304a454b2f8ff83e72a20128281a02aa2878ae82",
+            "mean_all_state_pair_proxy": 0.001446352854303393,
+            "mean_interleaved_heldout_time_proxy": 0.001396196231980786,
+            "max_state_mean_pair_proxy": 0.006462787799300738,
+            "initial_state_mean_pair_proxy": 0.0009241685387354752,
+            "sampling": "Up to12000 source centers per part, seed2026, disjoint from training seed0 source centers. All retained centers remain NN targets; sources reweighted to full populations.",
+            "sample_counts": {
+              "0": 12000,
+              "1": 12000
+            },
+            "full_counts": {
+              "0": 469723,
+              "1": 207728
+            },
+            "GT": {
+              "status": "unavailable",
+              "reason": "No verified GT for official real-world sample"
+            },
+            "axis_changes": [
+              {
+                "node_id": 1,
+                "type": "revolute",
+                "direction_change_degrees": 0.0,
+                "origin_shift_percent_asset_diagonal": 0.0,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": 0.0
+              }
+            ],
+            "mesh_geometry_frozen": true,
+            "solid_collision": {
+              "status": "unavailable",
+              "volume": null,
+              "penetration_depth": null,
+              "reason": "Open or self-intersecting/unverified mesh; Gaussian overlap is not solid overlap."
+            },
+            "elapsed_seconds": 1.840963713824749
+          },
+          "mesh": {
+            "method": "VTK full original triangles, AllContacts, zero tolerances; segments <=1e-6*diagonal excluded",
+            "interpretation": "Surface intersections include valid contact and inherited geometry errors. Transverse excludes face normal angles <=5deg but is still not a solid collision measure.",
+            "mean_total_line_length_over_diagonal": 0.9879271854460454,
+            "mean_transverse_line_length_over_diagonal": 0.98758090823057,
+            "solid_overlap_volume": null,
+            "solid_penetration_depth": null,
+            "elapsed_seconds": 147.9885692577809
+          },
+          "gaussian_mean_reduction_percent": 0.0,
+          "surface_line_mean_reduction_percent": 0.0,
+          "pivot_mean_percent_GT_static_diagonal": null,
+          "evidence": {
+            "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/eval_dishwasher_original/metrics.json": "2fca9e6d37278427e235a57d4cf48c93dd45b6b9769cec77d400858f48a75316",
+            "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/mesh_dishwasher_original/metrics.json": "15b5d6e26922ca47649a4621d28689db61eda42992647d03c8416d66c0cd5965"
+          }
+        },
+        "position": {
+          "metric": {
+            "case": "dishwasher",
+            "method": "position",
+            "run": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z",
+            "candidate_sha256": "fb38056a4b3f011bdc78f7409b9fdeae1a193a02ea55077c3ecf4c3f0371d8b6",
+            "mean_all_state_pair_proxy": 5.120201816330893e-05,
+            "mean_interleaved_heldout_time_proxy": 3.84461250681096e-05,
+            "max_state_mean_pair_proxy": 0.0009241685387354752,
+            "initial_state_mean_pair_proxy": 0.0009241685387354752,
+            "sampling": "Up to12000 source centers per part, seed2026, disjoint from training seed0 source centers. All retained centers remain NN targets; sources reweighted to full populations.",
+            "sample_counts": {
+              "0": 12000,
+              "1": 12000
+            },
+            "full_counts": {
+              "0": 469723,
+              "1": 207728
+            },
+            "GT": {
+              "status": "unavailable",
+              "reason": "No verified GT for official real-world sample"
+            },
+            "axis_changes": [
+              {
+                "node_id": 1,
+                "type": "revolute",
+                "direction_change_degrees": 0.0,
+                "origin_shift_percent_asset_diagonal": 2.2713308074255885,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": 2.1625206807685204
+              }
+            ],
+            "mesh_geometry_frozen": true,
+            "solid_collision": {
+              "status": "unavailable",
+              "volume": null,
+              "penetration_depth": null,
+              "reason": "Open or self-intersecting/unverified mesh; Gaussian overlap is not solid overlap."
+            },
+            "elapsed_seconds": 2.3293168004602194
+          },
+          "mesh": {
+            "method": "VTK full original triangles, AllContacts, zero tolerances; segments <=1e-6*diagonal excluded",
+            "interpretation": "Surface intersections include valid contact and inherited geometry errors. Transverse excludes face normal angles <=5deg but is still not a solid collision measure.",
+            "mean_total_line_length_over_diagonal": 0.009164111307594456,
+            "mean_transverse_line_length_over_diagonal": 0.009148312625783748,
+            "solid_overlap_volume": null,
+            "solid_penetration_depth": null,
+            "elapsed_seconds": 74.57821404747665
+          },
+          "gaussian_mean_reduction_percent": 96.45992207150796,
+          "surface_line_mean_reduction_percent": 99.07239000580222,
+          "pivot_mean_percent_GT_static_diagonal": null,
+          "evidence": {
+            "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/eval_dishwasher_position/metrics.json": "975941ffa4124ae4476fa7135e103dd7ee9ffaba261e7db26619e53f1cab5205",
+            "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/mesh_dishwasher_position/metrics.json": "19377e62cefe9325a08983541dc8aee80b0861cbe83b4f1abb007fbb04a0cbfc"
+          },
+          "training_status": {
+            "state": "complete",
+            "step": 200,
+            "total_steps": 200,
+            "variant": "position",
+            "elapsed_seconds": 194.76362472586334,
+            "gpu_peak_allocated_MiB": 36.8134765625,
+            "updated_utc": "2026-10-24T11:36:40.669082+00:00",
+            "candidate_sha256": "fb38056a4b3f011bdc78f7409b9fdeae1a193a02ea55077c3ecf4c3f0371d8b6",
+            "GT_reads_blocked": [],
+            "frozen_files_unchanged": true,
+            "final_training_proxy": 8.543705916963518e-05,
+            "initial_training_proxy": 0.001204223488457501,
+            "selection": "Fixed final step, not best collision or GT score"
+          },
+          "protocol": {
+            "run": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z",
+            "variant": "position",
+            "steps": 200,
+            "samples_per_part": 2048,
+            "training_states": 21,
+            "sample_seed": 0,
+            "axis_bound_degrees": 5,
+            "pivot_bound_fraction_asset_diagonal": 0.05,
+            "sampling": "Uniform source quadrature, exact NN in all opacity-retained target centers, count reweighting for the full opacity-weighted kernel",
+            "regularization_weight": 0.05,
+            "objective": "mean nearest-center Gaussian overlap / original overlap + .05 * normalized quadratic axis/pivot displacement",
+            "geometry_frozen": true,
+            "range_frozen": true,
+            "type_frozen": true,
+            "selection": "Fixed final step only, no GT reads; all three ablations reported",
+            "original_object_sha256": "e9574a81ec1a02a954227a2c304a454b2f8ff83e72a20128281a02aa2878ae82",
+            "source_sha256": {
+              "/root/autodl-tmp/PAct/repro/tools/refine_collision_axes.py": "adb04a161f190f2451d7b1445fb0ffed20776e241028886543feddc13d10ea90",
+              "/root/autodl-tmp/PAct/repro/tools/collision_refinement_common.py": "09c9b1adf7618718e3813c6defd749b2acc21488e4d0dbbedd4bd4429c1d584d"
+            },
+            "frozen_files": [
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/ply/part_0.ply",
+                "mesh_sha256": "ffe7be58dc0e40f0ecba5cdc7b5c73a3403817e83c87246760950631f4ed4edd",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/gs/part_0.ply",
+                "gs_sha256": "f7c1ebfdbe4a936995f98d5f6e3e2ac3770129efd875e8f74c415422e8feaa1a"
+              },
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/ply/part_1.ply",
+                "mesh_sha256": "03499d1f8be78a0b031e42a52e8ed39e002eeecb8188be5719d2016a24592e3e",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/gs/part_1.ply",
+                "gs_sha256": "6ed5e9c28394af86febbd7628d41c1efb78fb956094db05ede93149bc371d554"
+              }
+            ]
+          },
+          "wall_seconds_since_protocol_write_including_resume_or_contention": 191.50455451011658
+        },
+        "direction": {
+          "metric": {
+            "case": "dishwasher",
+            "method": "direction",
+            "run": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z",
+            "candidate_sha256": "326b82daaafd49a77ee7f2ecf105fb57d3a54c19f37bbd9b5412f6a6d2c5ad7c",
+            "mean_all_state_pair_proxy": 0.00020776101462772602,
+            "mean_interleaved_heldout_time_proxy": 0.00018380562584121774,
+            "max_state_mean_pair_proxy": 0.0010606528649489027,
+            "initial_state_mean_pair_proxy": 0.0009241685387354752,
+            "sampling": "Up to12000 source centers per part, seed2026, disjoint from training seed0 source centers. All retained centers remain NN targets; sources reweighted to full populations.",
+            "sample_counts": {
+              "0": 12000,
+              "1": 12000
+            },
+            "full_counts": {
+              "0": 469723,
+              "1": 207728
+            },
+            "GT": {
+              "status": "unavailable",
+              "reason": "No verified GT for official real-world sample"
+            },
+            "axis_changes": [
+              {
+                "node_id": 1,
+                "type": "revolute",
+                "direction_change_degrees": 3.394601234030136,
+                "origin_shift_percent_asset_diagonal": 0.0,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": 0.0
+              }
+            ],
+            "mesh_geometry_frozen": true,
+            "solid_collision": {
+              "status": "unavailable",
+              "volume": null,
+              "penetration_depth": null,
+              "reason": "Open or self-intersecting/unverified mesh; Gaussian overlap is not solid overlap."
+            },
+            "elapsed_seconds": 2.000903991982341
+          },
+          "mesh": {
+            "method": "VTK full original triangles, AllContacts, zero tolerances; segments <=1e-6*diagonal excluded",
+            "interpretation": "Surface intersections include valid contact and inherited geometry errors. Transverse excludes face normal angles <=5deg but is still not a solid collision measure.",
+            "mean_total_line_length_over_diagonal": 0.18551489367745785,
+            "mean_transverse_line_length_over_diagonal": 0.18541134703790504,
+            "solid_overlap_volume": null,
+            "solid_penetration_depth": null,
+            "elapsed_seconds": 88.12807520851493
+          },
+          "gaussian_mean_reduction_percent": 85.63552358544003,
+          "surface_line_mean_reduction_percent": 81.22180496595014,
+          "pivot_mean_percent_GT_static_diagonal": null,
+          "evidence": {
+            "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/eval_dishwasher_direction/metrics.json": "34f82ff4e7d7bb036edf0e52797a6def9079f1f253713eb727637152f3a158fa",
+            "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/mesh_dishwasher_direction/metrics.json": "f6d341058dc6b77d7cccf15f2fcd13d6d8be9dee609cf4cb043d9817d43a5586"
+          },
+          "training_status": {
+            "state": "complete",
+            "step": 200,
+            "total_steps": 200,
+            "variant": "direction",
+            "elapsed_seconds": 195.8664690963924,
+            "gpu_peak_allocated_MiB": 36.8154296875,
+            "updated_utc": "2026-10-24T11:39:59.549200+00:00",
+            "candidate_sha256": "326b82daaafd49a77ee7f2ecf105fb57d3a54c19f37bbd9b5412f6a6d2c5ad7c",
+            "GT_reads_blocked": [],
+            "frozen_files_unchanged": true,
+            "final_training_proxy": 0.000248655240284279,
+            "initial_training_proxy": 0.001204223488457501,
+            "selection": "Fixed final step, not best collision or GT score"
+          },
+          "protocol": {
+            "run": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z",
+            "variant": "direction",
+            "steps": 200,
+            "samples_per_part": 2048,
+            "training_states": 21,
+            "sample_seed": 0,
+            "axis_bound_degrees": 5,
+            "pivot_bound_fraction_asset_diagonal": 0.05,
+            "sampling": "Uniform source quadrature, exact NN in all opacity-retained target centers, count reweighting for the full opacity-weighted kernel",
+            "regularization_weight": 0.05,
+            "objective": "mean nearest-center Gaussian overlap / original overlap + .05 * normalized quadratic axis/pivot displacement",
+            "geometry_frozen": true,
+            "range_frozen": true,
+            "type_frozen": true,
+            "selection": "Fixed final step only, no GT reads; all three ablations reported",
+            "original_object_sha256": "e9574a81ec1a02a954227a2c304a454b2f8ff83e72a20128281a02aa2878ae82",
+            "source_sha256": {
+              "/root/autodl-tmp/PAct/repro/tools/refine_collision_axes.py": "adb04a161f190f2451d7b1445fb0ffed20776e241028886543feddc13d10ea90",
+              "/root/autodl-tmp/PAct/repro/tools/collision_refinement_common.py": "09c9b1adf7618718e3813c6defd749b2acc21488e4d0dbbedd4bd4429c1d584d"
+            },
+            "frozen_files": [
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/ply/part_0.ply",
+                "mesh_sha256": "ffe7be58dc0e40f0ecba5cdc7b5c73a3403817e83c87246760950631f4ed4edd",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/gs/part_0.ply",
+                "gs_sha256": "f7c1ebfdbe4a936995f98d5f6e3e2ac3770129efd875e8f74c415422e8feaa1a"
+              },
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/ply/part_1.ply",
+                "mesh_sha256": "03499d1f8be78a0b031e42a52e8ed39e002eeecb8188be5719d2016a24592e3e",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/gs/part_1.ply",
+                "gs_sha256": "6ed5e9c28394af86febbd7628d41c1efb78fb956094db05ede93149bc371d554"
+              }
+            ]
+          },
+          "wall_seconds_since_protocol_write_including_resume_or_contention": 192.79516792297363
+        },
+        "both": {
+          "metric": {
+            "case": "dishwasher",
+            "method": "both",
+            "run": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z",
+            "candidate_sha256": "405a5fb7bf611b59f22be6e55197e3ade0a19825ca87252d262fce47dbf199d9",
+            "mean_all_state_pair_proxy": 4.728169527176774e-05,
+            "mean_interleaved_heldout_time_proxy": 3.467609624131128e-05,
+            "max_state_mean_pair_proxy": 0.0009241685387354752,
+            "initial_state_mean_pair_proxy": 0.0009241685387354752,
+            "sampling": "Up to12000 source centers per part, seed2026, disjoint from training seed0 source centers. All retained centers remain NN targets; sources reweighted to full populations.",
+            "sample_counts": {
+              "0": 12000,
+              "1": 12000
+            },
+            "full_counts": {
+              "0": 469723,
+              "1": 207728
+            },
+            "GT": {
+              "status": "unavailable",
+              "reason": "No verified GT for official real-world sample"
+            },
+            "axis_changes": [
+              {
+                "node_id": 1,
+                "type": "revolute",
+                "direction_change_degrees": 1.6775198660553354,
+                "origin_shift_percent_asset_diagonal": 1.5477026270806093,
+                "max_original_pivot_anchor_displacement_percent_asset_diagonal": 1.472930847613418
+              }
+            ],
+            "mesh_geometry_frozen": true,
+            "solid_collision": {
+              "status": "unavailable",
+              "volume": null,
+              "penetration_depth": null,
+              "reason": "Open or self-intersecting/unverified mesh; Gaussian overlap is not solid overlap."
+            },
+            "elapsed_seconds": 2.3132029473781586
+          },
+          "mesh": {
+            "method": "VTK full original triangles, AllContacts, zero tolerances; segments <=1e-6*diagonal excluded",
+            "interpretation": "Surface intersections include valid contact and inherited geometry errors. Transverse excludes face normal angles <=5deg but is still not a solid collision measure.",
+            "mean_total_line_length_over_diagonal": 0.010088596903867892,
+            "mean_transverse_line_length_over_diagonal": 0.010072798222057186,
+            "solid_overlap_volume": null,
+            "solid_penetration_depth": null,
+            "elapsed_seconds": 69.22394311986864
+          },
+          "gaussian_mean_reduction_percent": 96.73097092932139,
+          "surface_line_mean_reduction_percent": 98.97881169255274,
+          "pivot_mean_percent_GT_static_diagonal": null,
+          "evidence": {
+            "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/eval_dishwasher_both/metrics.json": "304b9ca594de83e385c85c781f98a4866a1bbb7976136f293955d44cff200ff1",
+            "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/mesh_dishwasher_both/metrics.json": "6ba2c85f3cdce773864892df323cb7fd5774a655ba86c081c1ee325ccc9b6a62"
+          },
+          "training_status": {
+            "state": "complete",
+            "step": 200,
+            "total_steps": 200,
+            "variant": "both",
+            "elapsed_seconds": 197.07564737461507,
+            "gpu_peak_allocated_MiB": 36.82177734375,
+            "updated_utc": "2026-10-24T11:42:01.138844+00:00",
+            "candidate_sha256": "405a5fb7bf611b59f22be6e55197e3ade0a19825ca87252d262fce47dbf199d9",
+            "GT_reads_blocked": [],
+            "frozen_files_unchanged": true,
+            "final_training_proxy": 8.029417222132906e-05,
+            "initial_training_proxy": 0.001204223488457501,
+            "selection": "Fixed final step, not best collision or GT score"
+          },
+          "protocol": {
+            "run": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z",
+            "variant": "both",
+            "steps": 200,
+            "samples_per_part": 2048,
+            "training_states": 21,
+            "sample_seed": 0,
+            "axis_bound_degrees": 5,
+            "pivot_bound_fraction_asset_diagonal": 0.05,
+            "sampling": "Uniform source quadrature, exact NN in all opacity-retained target centers, count reweighting for the full opacity-weighted kernel",
+            "regularization_weight": 0.05,
+            "objective": "mean nearest-center Gaussian overlap / original overlap + .05 * normalized quadratic axis/pivot displacement",
+            "geometry_frozen": true,
+            "range_frozen": true,
+            "type_frozen": true,
+            "selection": "Fixed final step only, no GT reads; all three ablations reported",
+            "original_object_sha256": "e9574a81ec1a02a954227a2c304a454b2f8ff83e72a20128281a02aa2878ae82",
+            "source_sha256": {
+              "/root/autodl-tmp/PAct/repro/tools/refine_collision_axes.py": "adb04a161f190f2451d7b1445fb0ffed20776e241028886543feddc13d10ea90",
+              "/root/autodl-tmp/PAct/repro/tools/collision_refinement_common.py": "09c9b1adf7618718e3813c6defd749b2acc21488e4d0dbbedd4bd4429c1d584d"
+            },
+            "frozen_files": [
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/ply/part_0.ply",
+                "mesh_sha256": "ffe7be58dc0e40f0ecba5cdc7b5c73a3403817e83c87246760950631f4ed4edd",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/gs/part_0.ply",
+                "gs_sha256": "f7c1ebfdbe4a936995f98d5f6e3e2ac3770129efd875e8f74c415422e8feaa1a"
+              },
+              {
+                "mesh": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/ply/part_1.ply",
+                "mesh_sha256": "03499d1f8be78a0b031e42a52e8ed39e002eeecb8188be5719d2016a24592e3e",
+                "gs": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/gs/part_1.ply",
+                "gs_sha256": "6ed5e9c28394af86febbd7628d41c1efb78fb956094db05ede93149bc371d554"
+              }
+            ]
+          },
+          "wall_seconds_since_protocol_write_including_resume_or_contention": 193.9733955860138
+        }
+      },
+      "original_vs_both_pair_surface_intersections": [
+        {
+          "ids": [
+            0,
+            1
+          ],
+          "original_mean_line_over_D": 0.9879271854460454,
+          "refined_mean_line_over_D": 0.010088596903867892,
+          "original_end_line_over_D": 2.608072441914986,
+          "refined_end_line_over_D": 0.0
+        }
+      ]
+    }
+  },
+  "scope": "Independent bounded Gaussian-proxy axis refinement. Not strict nonpenetration, no solid volume claims.",
+  "gradient_check": {
+    "passed": true,
+    "run": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z",
+    "scope": "Real-asset kinematic and gradient validation, not improvement metrics",
+    "numpy_torch_transform_agreement": true,
+    "zero_state_invariant_under_axis_refinement": true,
+    "gradient_scope": "Fixed NN branch, production recomputes NN and is piecewise smooth",
+    "gradient_checks": [
+      {
+        "parameter": "direction",
+        "analytic": 0.010172324255108833,
+        "finite_difference": 0.010172370821237564,
+        "relative_error": 4.577706569008927e-06
+      },
+      {
+        "parameter": "pivot",
+        "analytic": -0.044820547103881836,
+        "finite_difference": -0.044819081033796004,
+        "relative_error": 3.270977666634899e-05
+      }
+    ]
+  },
+  "resume_check": {
+    "passed": true,
+    "resumed_from_step": 1,
+    "final_steps": 5,
+    "final_candidate_bitwise_JSON_equal_to_uninterrupted_smoke": true,
+    "checkpoint_includes_optimizer": true
+  },
+  "geometry_audit": {
+    "case": "31249",
+    "method": "Open3D0.20.0 TriangleMesh.is_self_intersecting on original triangles",
+    "parts": {
+      "0": {
+        "watertight": true,
+        "winding_consistent": true,
+        "self_intersecting": true,
+        "seconds": 6.6308910846710205
+      },
+      "1": {
+        "watertight": true,
+        "winding_consistent": true,
+        "self_intersecting": true,
+        "seconds": 8.522886276245117
+      },
+      "2": {
+        "self_intersecting": null,
+        "reason": "Stopped after >180seconds; no completed determination"
+      },
+      "3": {
+        "self_intersecting": null,
+        "reason": "Not reached"
+      },
+      "4": {
+        "self_intersecting": null,
+        "reason": "Not reached"
+      }
+    },
+    "solid_collision": "unavailable: some parts self-intersect and remaining validation incomplete; never treated as zero"
+  },
+  "environment": {
+    "python": "3.10.22 (main, Oct  1 2026, 20:14:04) [GCC 14.3.0]",
+    "torch": "2.4.0+cu121",
+    "cuda_runtime": "12.1",
+    "packages": {
+      "numpy": "1.26.4",
+      "scipy": "1.14.1",
+      "trimesh": "4.5.3",
+      "kaolin": "0.17.0",
+      "vtk": "9.7.1",
+      "open3d": "0.20.0",
+      "plyfile": "1.1.3",
+      "matplotlib": "3.10.9"
+    },
+    "gpu": "NVIDIA GeForce RTX 4080 SUPER, 32760 MiB, 595.71.05",
+    "optimizer_source_commit": "fc7fe30",
+    "branch": "research/collision-axis-refinement-20261024",
+    "self_intersection_audit_note": "Open3D import required process-local LD_LIBRARY_PATH=/root/autodl-tmp/conda_envs/part2gs/lib/python3.10/site-packages/open3d to find EGL; no package/global environment changes."
+  },
+  "nn_backend_check": {
+    "passed_distance_tolerance": true,
+    "source_points_per_pair": 128,
+    "states": [
+      0.0,
+      0.5,
+      1.0
+    ],
+    "scope": "Real-motion numerical backend comparison, not collision improvement statistics",
+    "max_kernel_absolute_difference": 0.0,
+    "max_mean_kernel_absolute_difference": 0.0
+  },
+  "geometry_links": {
+    "no_mesh_copies_or_modifications": true,
+    "candidate_hashes_unchanged": true,
+    "links": [
+      {
+        "link": "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/31249_position/ply",
+        "target": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply"
+      },
+      {
+        "link": "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/31249_position/gs",
+        "target": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs"
+      },
+      {
+        "link": "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/31249_direction/ply",
+        "target": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply"
+      },
+      {
+        "link": "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/31249_direction/gs",
+        "target": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs"
+      },
+      {
+        "link": "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/31249_both/ply",
+        "target": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/ply"
+      },
+      {
+        "link": "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/31249_both/gs",
+        "target": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@31249_000000_processed.@ng/gs"
+      },
+      {
+        "link": "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/dishwasher_position/ply",
+        "target": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/ply"
+      },
+      {
+        "link": "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/dishwasher_position/gs",
+        "target": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/gs"
+      },
+      {
+        "link": "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/dishwasher_direction/ply",
+        "target": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/ply"
+      },
+      {
+        "link": "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/dishwasher_direction/gs",
+        "target": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/gs"
+      },
+      {
+        "link": "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/dishwasher_both/ply",
+        "target": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/ply"
+      },
+      {
+        "link": "/root/autodl-tmp/PAct/repro/outputs/collision_refinement_20261024T105559Z/dishwasher_both/gs",
+        "target": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Dishwasher@Dishwasher_001_processed.@ng/gs"
+      }
+    ]
+  },
+  "camera_changes": {
+    "reason": "First camera showed too much empty space; closer common camera for all methods/states, original images archived. No prediction/geometry change.",
+    "radius_multiplier_original": 1.7,
+    "radius_multiplier_final": 1.15,
+    "archived_render_info": {
+      "31249": {
+        "states": 21,
+        "methods": [
+          "original",
+          "position",
+          "direction",
+          "both"
+        ],
+        "actual_original_triangles": true,
+        "geometry_repair": false,
+        "range_change": false,
+        "shared_camera_center": [
+          -1.856684684753418e-05,
+          -0.022207024978704942,
+          0.21253583178159863
+        ],
+        "shared_camera_radius": 2.6618110689854713,
+        "motion": "All retain original predicted range; no GT range override"
+      },
+      "dishwasher": {
+        "states": 21,
+        "methods": [
+          "original",
+          "position",
+          "direction",
+          "both"
+        ],
+        "actual_original_triangles": true,
+        "geometry_repair": false,
+        "range_change": false,
+        "shared_camera_center": [
+          0.014363088313042782,
+          0.00022152066230773926,
+          0.2936392294752238
+        ],
+        "shared_camera_radius": 3.352262413700134,
+        "motion": "All retain original predicted range; no GT range override"
+      }
+    }
+  },
+  "sources": {
+    "/root/autodl-tmp/PAct/repro/tools/fetch_official_model.py": "b2f2240269938b7d20907eea4c0aa5a833694b38922eb2f05d76d9ff56d802eb",
+    "/root/autodl-tmp/PAct/repro/tools/fetch_model_ranges.py": "1589c985a0367c8883544158738ec5a1233681c1fb0b1a6325cd8f9dbd835163",
+    "/root/autodl-tmp/PAct/repro/tools/model_status.py": "62efb2fd457c4b9a82eda3429048e3a889609bf7f6571ee84e0e85192966d09a",
+    "/root/autodl-tmp/PAct/repro/tools/run_official_smoke.py": "8e7429ac3e54357bb04dd16a5b83ff6b8c745df7328ca7e3b327d6f523d5a7ae",
+    "/root/autodl-tmp/PAct/repro/tools/guarded_infer.py": "7965a64e75e7de01cb3271ece02ea1d7f85fb0879d5ce390fcb1fe6dd1f7c6f7",
+    "/root/autodl-tmp/PAct/repro/tools/analyze_exported_motion.py": "2927387debcd71c694bcf55eb2124519832abed16e092bcfda92b810da178e22",
+    "/root/autodl-tmp/PAct/repro/tools/render_mesh_motion.py": "0f2f345ea32a00365e9d842c638420b39199445022dcfb8e1248195d3a8dd230",
+    "/root/autodl-tmp/PAct/repro/tools/run_status.py": "82cb4d5c60f6682f30db12ee71d3b59a81cd1d1e93e2921589615b42418bd872",
+    "/root/autodl-tmp/PAct/repro/tools/build_smoke_report.py": "a46e4300ef263be40c573ed7188293eb0bf10fe0e0e4048fe9438aa03fb812a0",
+    "/root/autodl-tmp/PAct/repro/tools/annotate_motion_hotspots.py": "2d206e0d713521b93036e79d566cfed6e1d0ddc8ec8c6f59c023a08b1a8b66cf",
+    "/root/autodl-tmp/PAct/repro/tools/prepare_video_gt_case.py": "b5e377f9f1c08e1cc1b084df16494ba2c93c1496d740812ac6acc9c000bc4ba0",
+    "/root/autodl-tmp/PAct/repro/tools/run_gt_case.py": "d41cbb0934a10b0bf4514bfd18b31d367202d4ecba8462c64dac0c7149c20ff0",
+    "/root/autodl-tmp/PAct/repro/tools/evaluate_gt_joints.py": "23aaf0afc36791b93644d13f73e8b8c70e5a93b5c7017f9b7840fb79e0225edd",
+    "/root/autodl-tmp/PAct/repro/tools/check_joint_metric_math.py": "5a345cd652e2ae5f6d855353916fba534ef3dc50567f80179b3a620338b39244",
+    "/root/autodl-tmp/PAct/repro/tools/evaluate_registration_sensitivity.py": "4e5f51c8a8aa74ee2137a5e54f7f2afcd3c23150c6147bd1cd212bcea4ac65a2",
+    "/root/autodl-tmp/PAct/repro/tools/build_gt_joint_report.py": "12c1cdd84836aff5b1c78df98827bc1b02723e3fcd7b15cade2ec4ebf42ea39e",
+    "/root/autodl-tmp/PAct/repro/tools/inspect_animation_motion.py": "85bd6e35501cd38ab0340f1aeaa8334dd94a3e795db3eacf1e87b13a9c722e88",
+    "/root/autodl-tmp/PAct/repro/tools/collision_refinement_common.py": "09c9b1adf7618718e3813c6defd749b2acc21488e4d0dbbedd4bd4429c1d584d",
+    "/root/autodl-tmp/PAct/repro/tools/screen_collision_cases.py": "32f25ce4e0ee90ed9decc9d907e7f787b9fb70732e342aae42d09c393a00109b",
+    "/root/autodl-tmp/PAct/repro/tools/refine_collision_axes.py": "adb04a161f190f2451d7b1445fb0ffed20776e241028886543feddc13d10ea90",
+    "/root/autodl-tmp/PAct/repro/tools/test_collision_axis_gradients.py": "7aa38c5fd1c33b8d40ccada5bfe0e0cc7ecfdcc5fb9ba052075d56bbf1c08818",
+    "/root/autodl-tmp/PAct/repro/tools/run_collision_experiment.py": "524287a4fae26da897692c3351b6fb4f7083fd2d8eebfc3fde226cea851b4ad7",
+    "/root/autodl-tmp/PAct/repro/tools/inspect_triangle_motion.py": "a4de9b3a086e89284629e5c4a9eadede525394361db9134dae055a779bc28077",
+    "/root/autodl-tmp/PAct/repro/tools/evaluate_refined_axes.py": "af8fb17af8e3c176c16de4dbbbb8e4b9fffd736d37e0333600980a6c3d37fa10",
+    "/root/autodl-tmp/PAct/repro/tools/run_refinement_validation.py": "e41613ec208676f06d66017793c70da2486a2eef973fd66fbbbfb715af08bf69",
+    "/root/autodl-tmp/PAct/repro/tools/monitor_collision_refinement.py": "84f8e531a9953957195f9210132b7e4ec1b3f83e2026e8fbfbfbd82c4cfb5161",
+    "/root/autodl-tmp/PAct/repro/tools/render_refinement_comparison.py": "ffc54c4d8a9c37d1cb663c559691d96e9b2e58f58e24f802a9dae626237fdc25",
+    "/root/autodl-tmp/PAct/repro/tools/build_collision_refinement_report.py": "9a8809a06d64507a54e8de8f14b609e5f5bbafdef5277e9c9403751f3bc8001c",
+    "/root/autodl-tmp/PAct/repro/tools/plot_refined_gt_axes.py": "9ddc52055ab4801614022db83c8e51c7eb0d19782d5c65893bd81c1e97d04e35",
+    "/root/autodl-tmp/PAct/repro/tools/plot_intersection_hotspots.py": "be8bc9500324c20cc5491ff10d26736039892071c99f63161fa3c8e32993fc13",
+    "/root/autodl-tmp/PAct/repro/tools/finish_refinement_artifacts.py": "e146cd3f058e85f0db9af32079b305b0d5565644ba37b496052827390f4de866",
+    "/root/autodl-tmp/PAct/repro/tools/check_refinement_nn_backends.py": "728b93343ec8c4c29cc2ab7da997f2530626115880f02b71f686d02c10434adc",
+    "/root/autodl-tmp/PAct/repro/tools/link_refined_assets.py": "fa7daff127d4cb5c176ccd284620804b3677b8ee33153e3a52a23a85aa30dca6",
+    "/root/autodl-tmp/PAct/repro/tools/validate_refinement_artifacts.py": "e36ffabb50cc71827497b46ceb725233575fe226da4bb46d73bc80eeb47d9f8d"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "sealed_200_step_trials": 6,
+  "optimizer_steps": 1200,
+  "measured_Gaussian_states_including_originals": 328,
+  "measured_full_triangle_states_including_originals": 168,
+  "unique_frozen_mesh_and_Gaussian_files_verified": 14,
+  "source_files_verified_and_syntax_parsed": 34,
+  "report_links_verified": 24,
+  "rest_render_body_pixels_identical_across_methods": true,
+  "both_comparison_videos_have_21_frames": true,
+  "solid_undefined_kept_null": true,
+  "report_sha256": "673fd3303f842f32d0fc2cabf32dabeed8db8cb9471989a57023b2dcc5b5c9e9"
+}
