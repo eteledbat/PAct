@@ -27,6 +27,10 @@ loss = objective()
 loss.backward()
 checks = []
 for name, param, epsilon in [('direction', params.theta, 2e-4), ('pivot', params.phi, 2e-5 * asset['diagonal'])]:
+    if name == 'pivot' and not bool(params.pivot_mask.any()):
+        assert param.grad is None or torch.count_nonzero(param.grad) == 0
+        checks.append({'parameter': name, 'status': 'not_applicable', 'reason': 'All active joints are translational: origin does not affect kinematics.'})
+        continue
     grad = param.grad.detach().clone()
     flat = int(grad.abs().argmax())
     analytic = float(grad.flatten()[flat])

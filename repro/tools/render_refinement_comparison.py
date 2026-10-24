@@ -22,9 +22,10 @@ parser.add_argument('--root', required=True)
 parser.add_argument('--case', required=True)
 args = parser.parse_args()
 root = pathlib.Path(args.root)
-run = json.loads((root / 'experiment.json').read_text())['cases'][args.case]
+config = json.loads((root / 'experiment.json').read_text())
+run = config['cases'][args.case]
 asset = load_asset(run)
-methods = ['original', 'position', 'direction', 'both']
+methods = ['original', *config.get('variants', ['position', 'direction', 'both'])]
 nodes = {m: candidate_nodes(asset, None if m == 'original' else root / f'{args.case}_{m}/candidate.json') for m in methods}
 out = root / f'previews_{args.case}'
 out.mkdir(exist_ok=False)
@@ -83,7 +84,7 @@ for state, t in enumerate(np.linspace(0, 1, 21)):
     if state in [0, 10, 20]:
         Image.fromarray(panel).save(out / f'mesh_state{state:02d}_comparison.png')
     print('RENDERED', args.case, state, flush=True)
-imageio.mimsave(out / 'original_position_direction_both.mp4', frames, fps=10)
+imageio.mimsave(out / ('_'.join(methods) + '.mp4'), frames, fps=10)
 (out / 'render_info.json').write_text(json.dumps({'states': 21, 'methods': methods, 'actual_original_triangles': True,
                                                'geometry_repair': False, 'range_change': False,
                                                'shared_camera_center': center.tolist(), 'shared_camera_radius': radius,

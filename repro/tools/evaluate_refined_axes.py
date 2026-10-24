@@ -180,7 +180,7 @@ def main():
     for name, run in config['cases'].items():
         if a.case and name != a.case:
             continue
-        for method in ([a.method] if a.method else ['original', 'position', 'direction', 'both']):
+        for method in ([a.method] if a.method else ['original', *config.get('variants', ['position', 'direction', 'both'])]):
             evaluate(root, name, run, method)
 
 

@@ -20,7 +20,8 @@ config = json.loads((root / 'experiment.json').read_text())
 asset = load_asset(config['cases'][a.case])
 out = root / f'hotspots_{a.case}'
 out.mkdir(exist_ok=False)
-nodes = {m: candidate_nodes(asset, None if m == 'original' else root / f'{a.case}_{m}/candidate.json') for m in ['original', 'both']}
+methods = ['original', config.get('hotspot_variant', 'both')]
+nodes = {m: candidate_nodes(asset, None if m == 'original' else root / f'{a.case}_{m}/candidate.json') for m in methods}
 allpoints = []
 states = {}
 rng = np.random.default_rng(2026)
@@ -38,7 +39,7 @@ palette = ['#e88b31', '#43a875', '#888888', '#aa66cc', '#bc4057']
 regions = []
 for state in [0, 10, 20]:
     fig = plt.figure(figsize=(15, 9))
-    for row, method in enumerate(['original', 'both']):
+    for row, method in enumerate(methods):
         path = root / f'mesh_{a.case}_{method}/segments_{state:02d}.json'
         if path.exists():
             segments = json.loads(path.read_text())

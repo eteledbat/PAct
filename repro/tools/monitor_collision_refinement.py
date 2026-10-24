@@ -14,7 +14,7 @@ config = json.loads((root / 'experiment.json').read_text())
 while True:
     print('Experiment:', root, flush=True)
     for name in config['cases']:
-        for variant in ['position', 'direction', 'both']:
+        for variant in config.get('variants', ['position', 'direction', 'both']):
             path = root / f'{name}_{variant}/status.json'
             if path.exists():
                 data = json.loads(path.read_text())
