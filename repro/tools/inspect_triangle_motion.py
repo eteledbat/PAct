@@ -24,7 +24,7 @@ def polydata(mesh):
 
 
 class TrianglePairs:
-    def __init__(self, asset, selected=None):
+    def __init__(self, asset, selected=None, leaf_cells=2):
         self.asset = asset
         self.inputs = [polydata(p['mesh']) for p in asset['parts']]
         self.filters = {}
@@ -42,7 +42,7 @@ class TrianglePairs:
                 f.SetCollisionModeToAllContacts()
                 f.SetBoxTolerance(0.)
                 f.SetCellTolerance(0.)
-                f.SetNumberOfCellsPerNode(2)
+                f.SetNumberOfCellsPerNode(leaf_cells)
                 f.SetGenerateScalars(0)
                 self.filters[i, j] = (f, matrices)
 
@@ -97,6 +97,7 @@ def main():
     p.add_argument('--states', type=int, default=21)
     p.add_argument('--pair', nargs=2, type=int)
     p.add_argument('--resume', action='store_true')
+    p.add_argument('--partition-size', type=int, default=0, help='Optional conservative spatial partition of all original triangles; zero preserves legacy evaluator')
     a = p.parse_args()
     out = pathlib.Path(a.out)
     out.mkdir(parents=True, exist_ok=a.resume)
@@ -104,11 +105,18 @@ def main():
     nodes = candidate_nodes(asset, a.candidate)
     protocol = {'run': str(asset['run']), 'states': a.states, 'selected_pair': a.pair,
                 'prediction_sha256': sha256(a.candidate or asset['object_path'])}
+    if a.partition_size:
+        protocol['partition_size'] = a.partition_size
+        protocol['evaluation_source_sha256'] = {str(q): sha256(q) for q in [pathlib.Path(__file__),pathlib.Path(__file__).with_name('partitioned_triangle_motion.py')]}
     if a.resume:
         assert json.loads((out / 'protocol.json').read_text()) == protocol
     else:
         (out / 'protocol.json').write_text(json.dumps(protocol, indent=2))
-    checker = TrianglePairs(asset, a.pair)
+    if a.partition_size:
+        from partitioned_triangle_motion import PartitionedTrianglePairs
+        checker = PartitionedTrianglePairs(asset, a.pair, a.partition_size)
+    else:
+        checker = TrianglePairs(asset, a.pair)
     started = time.monotonic()
     rows = json.loads((out / 'states.json').read_text()) if a.resume and (out / 'states.json').exists() else []
     for state, t in enumerate(np.linspace(0, 1, a.states)):
@@ -121,6 +129,7 @@ def main():
         (out / 'states.json').write_text(json.dumps(rows, indent=2, allow_nan=False))
         print('TRIANGLES', state, 'line/D', sum(p['line_length_over_diagonal'] for p in pairs), flush=True)
     result = {'states': rows, 'method': 'VTK full original triangles, AllContacts, zero tolerances; segments <=1e-6*diagonal excluded',
+              'spatial_partition_size': a.partition_size, 'geometry_decimated': False,
               'interpretation': 'Surface intersections include valid contact and inherited geometry errors. Transverse excludes face normal angles <=5deg but is still not a solid collision measure.',
               'mean_total_line_length_over_diagonal': float(np.mean([sum(p['line_length_over_diagonal'] for p in row['pairs']) for row in rows])),
               'mean_transverse_line_length_over_diagonal': float(np.mean([sum(p['transverse_line_length_over_diagonal'] for p in row['pairs']) for row in rows])),

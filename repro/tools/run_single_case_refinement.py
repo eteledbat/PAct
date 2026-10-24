@@ -42,7 +42,7 @@ try:
     for method in ['original','direction']:
         tasks.append((f'gaussian_{method}','evaluate_refined_axes.py',['--root',root,'--case',name,'--method',method],root/f'eval_{name}_{method}/metrics.json'))
         meshout=root/f'mesh_{name}_{method}'
-        tasks.append((f'triangle_{method}','inspect_triangle_motion.py',['--run',run,'--out',meshout,'--states','21',*(['--candidate',trial/'candidate.json'] if method!='original' else []),*(['--resume'] if (meshout/'protocol.json').exists() else [])],meshout/'metrics.json'))
+        tasks.append((f'triangle_{method}','inspect_triangle_motion.py',['--run',run,'--out',meshout,'--states','21',*(['--partition-size',config['triangle_partition_size']] if config.get('triangle_partition_size') else []),*(['--candidate',trial/'candidate.json'] if method!='original' else []),*(['--resume'] if (meshout/'protocol.json').exists() else [])],meshout/'metrics.json'))
     tasks.append(('render','render_refinement_comparison.py',['--root',root,'--case',name],root/f'previews_{name}/render_info.json'))
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
         results=[executor.submit(job,*task) for task in tasks]

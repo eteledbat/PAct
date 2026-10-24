@@ -52,6 +52,16 @@ for path in [root/f'previews_{name}/original_{variant}.mp4',root/'GT_mesh_previe
     reader=imageio.get_reader(str(path));count=reader.count_frames();reader.close();assert count==21;videos[str(path.relative_to(root))]={'frames':count,'sha256':sha256(path)}
 for path in [root/'figures/collision_curves.png',root/'figures/GT_direction_overlay.png',root/f'hotspots_{name}/regions.json']:
     assert path.is_file()
+partition_checks=[]
+if config.get('triangle_partition_size'):
+    for label in ['original_frozen','direction']:
+        check=json.loads((root/f'partition_check_{label}.json').read_text());assert check['passed'] and not check['geometry_decimated']
+        assert all(row['exact_counts_match'] and row['max_line_over_D_absolute_difference']<2e-6 for row in check['states'])
+        partition_checks.append({'label':label,'states':len(check['states']),'max_line_over_D_difference':max(row['max_line_over_D_absolute_difference'] for row in check['states'])})
+    for method in ['original',variant]:
+        mesh_protocol=json.loads((root/f'mesh_{name}_{method}/protocol.json').read_text())
+        assert mesh_protocol['partition_size']==config['triangle_partition_size']
+        for path,digest in mesh_protocol['evaluation_source_sha256'].items():assert sha256(path)==digest
 provenance=json.loads((asset['run']/'input_provenance.json').read_text());assert provenance['silhouette_iou']>.98 and provenance['part_count']==2
 assert all(sha256(row['path'])==row['sha256'] for row in provenance['files'])
 result={'passed':True,'case':name,'source_mesh_GS_SHA_unchanged':True,'only_allowed_joint_direction_changed':True,
@@ -59,5 +69,5 @@ result={'passed':True,'case':name,'source_mesh_GS_SHA_unchanged':True,'only_allo
         'GT_reads_blocked_during_optimization':seal['GT_reads_blocked'],'selection':'Original fixed seed42 / refined fixed final step200',
         'Gaussian_states_per_method':41,'heldout_times_per_method':20,'full_triangle_states_per_method':21,
         'zero_state_motion_metrics_and_unlabelled_preview_pixels_identical':True,'videos':videos,'true_solid_collision_metrics':'unavailable, never zero-filled',
-        'input_source_SHA_unchanged':True}
+        'input_source_SHA_unchanged':True,'all_triangle_partition_against_legacy_checks':partition_checks}
 (root/'integrity.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))
