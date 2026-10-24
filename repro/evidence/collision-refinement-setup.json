@@ -1,0 +1,109 @@
+{
+  "experiment": {
+    "created_utc": "2026-10-24T11:06:22.622431+00:00",
+    "cases": {
+      "31249": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z",
+      "dishwasher": "/root/autodl-tmp/PAct/repro/outputs/official_dishwasher001_20261024T030718Z"
+    },
+    "steps": 200,
+    "samples": 2048,
+    "variants": [
+      "position",
+      "direction",
+      "both"
+    ],
+    "selection": "Fixed final step; all variants retained; GT access blocked",
+    "evaluation_states": 41,
+    "mesh_evaluation_states": 21,
+    "evaluation_gaussians_per_part": 12000,
+    "evaluation_seed": 2026,
+    "baseline_GT_scores_previously_known": true,
+    "design": "repro/COLLISION_REFINEMENT_DESIGN.md"
+  },
+  "gradient": {
+    "passed": true,
+    "run": "/root/autodl-tmp/PAct/repro/outputs/gt_31249_20261024T070509Z",
+    "scope": "Real-asset kinematic and gradient validation, not improvement metrics",
+    "numpy_torch_transform_agreement": true,
+    "zero_state_invariant_under_axis_refinement": true,
+    "gradient_scope": "Fixed NN branch, production recomputes NN and is piecewise smooth",
+    "gradient_checks": [
+      {
+        "parameter": "direction",
+        "analytic": 0.010172324255108833,
+        "finite_difference": 0.010172370821237564,
+        "relative_error": 4.577706569008927e-06
+      },
+      {
+        "parameter": "pivot",
+        "analytic": -0.044820547103881836,
+        "finite_difference": -0.044819081033796004,
+        "relative_error": 3.270977666634899e-05
+      }
+    ]
+  },
+  "smokes": {
+    "31249": {
+      "state": "complete",
+      "step": 5,
+      "total_steps": 5,
+      "variant": "both",
+      "elapsed_seconds": 48.996108055114746,
+      "gpu_peak_allocated_MiB": 70.33056640625,
+      "updated_utc": "2026-10-24T11:09:16.772575+00:00",
+      "candidate_sha256": "3277064d8c344e8d2cbb52e68de9836047ecb912902b279ca879a2dd89bd3483",
+      "GT_reads_blocked": [],
+      "frozen_files_unchanged": true,
+      "final_training_proxy": 0.008225220255553722,
+      "initial_training_proxy": 0.008821934461593628,
+      "selection": "Fixed final step, not best collision or GT score"
+    },
+    "dishwasher": {
+      "state": "complete",
+      "step": 5,
+      "total_steps": 5,
+      "variant": "both",
+      "elapsed_seconds": 9.53599183820188,
+      "gpu_peak_allocated_MiB": 36.70751953125,
+      "updated_utc": "2026-10-24T11:09:55.434938+00:00",
+      "candidate_sha256": "b2780b53ed167f451e4f06f6c098e77969b1970794d961bb47d85b4abd68a08d",
+      "GT_reads_blocked": [],
+      "frozen_files_unchanged": true,
+      "final_training_proxy": 0.00022622932738158852,
+      "initial_training_proxy": 0.001204223488457501,
+      "selection": "Fixed final step, not best collision or GT score"
+    }
+  },
+  "solid_audit": {
+    "case": "31249",
+    "method": "Open3D0.20.0 TriangleMesh.is_self_intersecting on original triangles",
+    "parts": {
+      "0": {
+        "watertight": true,
+        "winding_consistent": true,
+        "self_intersecting": true,
+        "seconds": 6.6308910846710205
+      },
+      "1": {
+        "watertight": true,
+        "winding_consistent": true,
+        "self_intersecting": true,
+        "seconds": 8.522886276245117
+      },
+      "2": {
+        "self_intersecting": null,
+        "reason": "Stopped after >180seconds; no completed determination"
+      },
+      "3": {
+        "self_intersecting": null,
+        "reason": "Not reached"
+      },
+      "4": {
+        "self_intersecting": null,
+        "reason": "Not reached"
+      }
+    },
+    "solid_collision": "unavailable: some parts self-intersect and remaining validation incomplete; never treated as zero"
+  },
+  "design_sha256": "319c25cbb2f380498a316ffa79312072e164e003eaec4fd568d1d0e09eeee21f"
+}
