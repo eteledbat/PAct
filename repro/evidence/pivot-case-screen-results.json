@@ -1,0 +1,390 @@
+{
+  "scope": "GT-assisted diagnostic screen, not an unbiased benchmark",
+  "cases": {
+    "10489": {
+      "run": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z",
+      "static_RMS_percent_GT_D": 2.546712669944537,
+      "moving_shape_CD_percent_GT_D": [
+        1.8285412607966558,
+        2.1822950112969712
+      ],
+      "joints": [
+        {
+          "GT_part": 1,
+          "GT_type": "revolute",
+          "predicted_type": "revolute",
+          "type_correct": true,
+          "axis_deg": 0.0,
+          "pivot_percent_GT_D": 3.4888135162133085,
+          "native_range": [
+            0.0,
+            -6.525190353393555
+          ]
+        },
+        {
+          "GT_part": 2,
+          "GT_type": "revolute",
+          "predicted_type": "revolute",
+          "type_correct": true,
+          "axis_deg": 0.0,
+          "pivot_percent_GT_D": 3.5223765290376505,
+          "native_range": [
+            0.0,
+            9.94786262512207
+          ]
+        }
+      ],
+      "type_ok": true,
+      "geometry_ok": true,
+      "signal_ok": false,
+      "axes_ok": true,
+      "pivot_bad": true,
+      "strict_pass": false,
+      "shape_protocol": "Global static-AABB scale/pose remains fixed for joint scores. Independent per-moving-part rigid PCA24 + trimmed ICP35 (4000 fit / 8000 fresh evaluation samples), no scaling, gives shape-only lower-bound error at unknown rest pose. Not a corrected assembly and never passed to optimization."
+    },
+    "45503": {
+      "run": "/root/autodl-tmp/PAct/repro/outputs/gt_45503_20261025T100115Z",
+      "static_RMS_percent_GT_D": 7.787604557611268,
+      "moving_shape_CD_percent_GT_D": [
+        15.268262917200685,
+        2.362354476318735,
+        3.7983999206638095
+      ],
+      "joints": [
+        {
+          "GT_part": 1,
+          "GT_type": "revolute",
+          "predicted_type": "fixed",
+          "type_correct": false,
+          "axis_deg": null,
+          "pivot_percent_GT_D": null,
+          "native_range": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "GT_part": 2,
+          "GT_type": "revolute",
+          "predicted_type": "revolute",
+          "type_correct": true,
+          "axis_deg": 0.0,
+          "pivot_percent_GT_D": 37.77384730111004,
+          "native_range": [
+            0.0,
+            -26.93122673034668
+          ]
+        },
+        {
+          "GT_part": 3,
+          "GT_type": "revolute",
+          "predicted_type": "revolute",
+          "type_correct": true,
+          "axis_deg": 0.0,
+          "pivot_percent_GT_D": 25.589307805788984,
+          "native_range": [
+            0.0,
+            40.59726333618164
+          ]
+        }
+      ],
+      "type_ok": false,
+      "geometry_ok": false,
+      "signal_ok": false,
+      "axes_ok": false,
+      "pivot_bad": true,
+      "strict_pass": false,
+      "shape_protocol": "Global static-AABB scale/pose remains fixed for joint scores. Independent per-moving-part rigid PCA24 + trimmed ICP35 (4000 fit / 8000 fresh evaluation samples), no scaling, gives shape-only lower-bound error at unknown rest pose. Not a corrected assembly and never passed to optimization."
+    },
+    "10655": {
+      "run": "/root/autodl-tmp/PAct/repro/outputs/gt_10655_20261025T100240Z",
+      "static_RMS_percent_GT_D": 9.853614964665404,
+      "moving_shape_CD_percent_GT_D": [
+        12.935692712630217,
+        0.9251161464755523
+      ],
+      "joints": [
+        {
+          "GT_part": 1,
+          "GT_type": "revolute",
+          "predicted_type": "fixed",
+          "type_correct": false,
+          "axis_deg": null,
+          "pivot_percent_GT_D": null,
+          "native_range": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "GT_part": 2,
+          "GT_type": "revolute",
+          "predicted_type": "revolute",
+          "type_correct": true,
+          "axis_deg": 0.0,
+          "pivot_percent_GT_D": 51.09011123863693,
+          "native_range": [
+            0.0,
+            -113.88822937011719
+          ]
+        }
+      ],
+      "type_ok": false,
+      "geometry_ok": false,
+      "signal_ok": false,
+      "axes_ok": false,
+      "pivot_bad": true,
+      "strict_pass": false,
+      "shape_protocol": "Global static-AABB scale/pose remains fixed for joint scores. Independent per-moving-part rigid PCA24 + trimmed ICP35 (4000 fit / 8000 fresh evaluation samples), no scaling, gives shape-only lower-bound error at unknown rest pose. Not a corrected assembly and never passed to optimization."
+    },
+    "9016": {
+      "run": "/root/autodl-tmp/PAct/repro/outputs/gt_9016_20261025T100608Z",
+      "static_RMS_percent_GT_D": 21.65101657554826,
+      "moving_shape_CD_percent_GT_D": [
+        19.638436691479363,
+        3.202531471382255
+      ],
+      "joints": [
+        {
+          "GT_part": 1,
+          "GT_type": "revolute",
+          "predicted_type": "fixed",
+          "type_correct": false,
+          "axis_deg": null,
+          "pivot_percent_GT_D": null,
+          "native_range": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "GT_part": 2,
+          "GT_type": "revolute",
+          "predicted_type": "revolute",
+          "type_correct": true,
+          "axis_deg": 0.0,
+          "pivot_percent_GT_D": 63.37615641397065,
+          "native_range": [
+            0.0,
+            -78.67887115478516
+          ]
+        }
+      ],
+      "type_ok": false,
+      "geometry_ok": false,
+      "signal_ok": false,
+      "axes_ok": false,
+      "pivot_bad": true,
+      "strict_pass": false,
+      "shape_protocol": "Global static-AABB scale/pose remains fixed for joint scores. Independent per-moving-part rigid PCA24 + trimmed ICP35 (4000 fit / 8000 fresh evaluation samples), no scaling, gives shape-only lower-bound error at unknown rest pose. Not a corrected assembly and never passed to optimization."
+    },
+    "100481": {
+      "run": "/root/autodl-tmp/PAct/repro/outputs/gt_100481_20261025T100734Z",
+      "static_RMS_percent_GT_D": 14.574035154359091,
+      "moving_shape_CD_percent_GT_D": [
+        12.29678656648097,
+        5.173971767680093
+      ],
+      "joints": [
+        {
+          "GT_part": 1,
+          "GT_type": "revolute",
+          "predicted_type": "fixed",
+          "type_correct": false,
+          "axis_deg": null,
+          "pivot_percent_GT_D": null,
+          "native_range": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "GT_part": 2,
+          "GT_type": "revolute",
+          "predicted_type": "revolute",
+          "type_correct": true,
+          "axis_deg": 90.0,
+          "pivot_percent_GT_D": 46.01972076164194,
+          "native_range": [
+            0.0,
+            -63.154075622558594
+          ]
+        }
+      ],
+      "type_ok": false,
+      "geometry_ok": false,
+      "signal_ok": false,
+      "axes_ok": false,
+      "pivot_bad": true,
+      "strict_pass": false,
+      "shape_protocol": "Global static-AABB scale/pose remains fixed for joint scores. Independent per-moving-part rigid PCA24 + trimmed ICP35 (4000 fit / 8000 fresh evaluation samples), no scaling, gives shape-only lower-bound error at unknown rest pose. Not a corrected assembly and never passed to optimization."
+    }
+  },
+  "strict_pass_count": 0,
+  "selected_limited_trial": "/root/autodl-tmp/PAct/repro/outputs/pivot_case_screen_20261025T100108Z/10489_native_position",
+  "limitation": "Limited diagnostic: geometry and axis/type qualify, original predicted motion amplitudes <20deg. No strict clean success case identified in four new scenes.",
+  "integrity": {
+    "passed": true,
+    "only_pivot_changed": true,
+    "directions_types_ranges_mesh_GS_unchanged": true,
+    "fixed_final_steps": 200,
+    "finite_loss_and_pivot_gradients": true,
+    "GT_reads_during_optimization": [],
+    "original_refined_t0_metrics_and_unlabelled_pixels_identical": true,
+    "Gaussian_states_each": 41,
+    "triangle_states_each": 21,
+    "video_frames": 21,
+    "solid_volume_depth": "unavailable, no zero filling"
+  },
+  "original_GT": {
+    "status": "measured",
+    "alignment": "Exactly the same fixed rotation, scale and translation as the original GT evaluation; never re-fit per candidate",
+    "joint_type_correct_count": 2,
+    "joint_count": 2,
+    "valid_axis_count": 2,
+    "mean_valid_axis_error_degrees": 0.0,
+    "joints": [
+      {
+        "gt_mobility_id": 1,
+        "predicted_node_id": 2,
+        "GT_type": "revolute",
+        "predicted_type": "revolute",
+        "type_correct": true,
+        "direction_vector_diagnostic_degrees": 0.0,
+        "valid_axis_error_degrees": 0.0,
+        "pivot_to_GT_axis_percent_static_diagonal": 3.4888135162133085,
+        "same_baseline_registration_axis_error_degrees": 0.3816958684704731,
+        "same_baseline_registration_pivot_percent_diagonal": 6.664406645208574
+      },
+      {
+        "gt_mobility_id": 2,
+        "predicted_node_id": 0,
+        "GT_type": "revolute",
+        "predicted_type": "revolute",
+        "type_correct": true,
+        "direction_vector_diagnostic_degrees": 0.0,
+        "valid_axis_error_degrees": 0.0,
+        "pivot_to_GT_axis_percent_static_diagonal": 3.5223765290376505,
+        "same_baseline_registration_axis_error_degrees": 0.3816958684704731,
+        "same_baseline_registration_pivot_percent_diagonal": 6.610528768719083
+      }
+    ]
+  },
+  "refined_GT": {
+    "status": "measured",
+    "alignment": "Exactly the same fixed rotation, scale and translation as the original GT evaluation; never re-fit per candidate",
+    "joint_type_correct_count": 2,
+    "joint_count": 2,
+    "valid_axis_count": 2,
+    "mean_valid_axis_error_degrees": 0.0,
+    "joints": [
+      {
+        "gt_mobility_id": 1,
+        "predicted_node_id": 2,
+        "GT_type": "revolute",
+        "predicted_type": "revolute",
+        "type_correct": true,
+        "direction_vector_diagnostic_degrees": 0.0,
+        "valid_axis_error_degrees": 0.0,
+        "pivot_to_GT_axis_percent_static_diagonal": 8.876563207246841,
+        "same_baseline_registration_axis_error_degrees": 0.3816958684704731,
+        "same_baseline_registration_pivot_percent_diagonal": 12.066005041219153
+      },
+      {
+        "gt_mobility_id": 2,
+        "predicted_node_id": 0,
+        "GT_type": "revolute",
+        "predicted_type": "revolute",
+        "type_correct": true,
+        "direction_vector_diagnostic_degrees": 0.0,
+        "valid_axis_error_degrees": 0.0,
+        "pivot_to_GT_axis_percent_static_diagonal": 6.063201446873732,
+        "same_baseline_registration_axis_error_degrees": 0.3816958684704731,
+        "same_baseline_registration_pivot_percent_diagonal": 9.197373890449054
+      }
+    ]
+  },
+  "Gaussian_mean_original": 0.00017775152072414983,
+  "Gaussian_mean_refined": 5.91912561959885e-05,
+  "Gaussian_reduction_percent": 66.70000011541583,
+  "triangle_line_mean_original": 0.14059112248926128,
+  "triangle_line_mean_refined": 0.09954409024904709,
+  "triangle_line_reduction_percent": 29.196034225667034,
+  "axis_changes": [
+    {
+      "node_id": 0,
+      "type": "revolute",
+      "direction_change_degrees": 0.0,
+      "origin_shift_percent_asset_diagonal": 5.000000180951171,
+      "max_original_pivot_anchor_displacement_percent_asset_diagonal": 0.8670248380561484
+    },
+    {
+      "node_id": 2,
+      "type": "revolute",
+      "direction_change_degrees": 0.0,
+      "origin_shift_percent_asset_diagonal": 5.000000629964204,
+      "max_original_pivot_anchor_displacement_percent_asset_diagonal": 0.5691226711083982
+    }
+  ],
+  "optimization_protocol": {
+    "run": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z",
+    "variant": "position",
+    "steps": 200,
+    "samples_per_part": 2048,
+    "training_states": 21,
+    "sample_seed": 0,
+    "axis_bound_degrees": 5,
+    "pivot_bound_fraction_asset_diagonal": 0.05,
+    "sampling": "Uniform source quadrature, exact NN in all opacity-retained target centers, count reweighting for the full opacity-weighted kernel",
+    "regularization_weight": 0.05,
+    "objective": "mean nearest-center Gaussian overlap / original overlap + .05 * normalized quadratic axis/pivot displacement",
+    "geometry_frozen": true,
+    "range_frozen": true,
+    "type_frozen": true,
+    "selection": "Fixed final step only, no GT reads; all three ablations reported",
+    "original_object_sha256": "17677d40ee9b2a728128e354dc246ba5a342994609582b011fb0948f01ce215a",
+    "source_sha256": {
+      "/root/autodl-tmp/PAct/repro/tools/refine_collision_axes.py": "adb04a161f190f2451d7b1445fb0ffed20776e241028886543feddc13d10ea90",
+      "/root/autodl-tmp/PAct/repro/tools/collision_refinement_common.py": "09c9b1adf7618718e3813c6defd749b2acc21488e4d0dbbedd4bd4429c1d584d"
+    },
+    "frozen_files": [
+      {
+        "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@10489_000000_processed.@ng/ply/part_0.ply",
+        "mesh_sha256": "751c6b4636b1a9b3dd7ffeacec8d0b9849fb777740eddba64bcd6800933d84e1",
+        "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@10489_000000_processed.@ng/gs/part_0.ply",
+        "gs_sha256": "7dd6e844fde96e18834de1bb79374f5ff73f92ba3255379181a820bc0ba24771"
+      },
+      {
+        "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@10489_000000_processed.@ng/ply/part_1.ply",
+        "mesh_sha256": "6af53fb1dfb1ebdd7ac467bb491c301aeb9e5d91f6920f82750ccd863c1d412e",
+        "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@10489_000000_processed.@ng/gs/part_1.ply",
+        "gs_sha256": "3386fbbbd6e62af33be6ceb9b43d1090e414738c8a9bd04a2cfcd547970a0e4a"
+      },
+      {
+        "mesh": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@10489_000000_processed.@ng/ply/part_2.ply",
+        "mesh_sha256": "6b36b757c8b2c5755d7a0653d1c3926017c6b87682645078f6de2eb464e61500",
+        "gs": "/root/autodl-tmp/PAct/repro/outputs/gt_10489_20261024T070130Z/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@10489_000000_processed.@ng/gs/part_2.ply",
+        "gs_sha256": "257321d31747ca48cb6874c34befb1875445c8e0410ed1593377428105fa1168"
+      }
+    ]
+  },
+  "screen_protocol": {
+    "new_cases": [
+      "45503",
+      "10655",
+      "9016",
+      "100481"
+    ],
+    "fixed_seed": 42,
+    "purpose": "GT-assisted diagnostic case identification; all candidates retained, no GT during refinement",
+    "criteria": {
+      "axis_degrees_max": 3,
+      "pivot_percent_GT_D_min": 1,
+      "motion_degrees_min": 20,
+      "static_RMS_percent_GT_D_max": 3,
+      "moving_rigid_shape_CD_percent_GT_D_max": 3
+    },
+    "expansion_reason": "First two cases failed geometry/type checks; add two simple-shape revolute cases, no seed/loss tuning."
+  },
+  "source_commit": "d11b22d83229c230735fbc925fca8404cd67dac0"
+}

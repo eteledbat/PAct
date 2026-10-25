@@ -126,3 +126,8 @@ PYTHONDONTWRITEBYTECODE=1 /root/autodl-tmp/conda_envs/pact/bin/python repro/tool
 ## 20411 补充案例
 
 新增 [PAct 20411 原始重建与减少重叠轴优化](PACT_20411_RESULTS.md)。该案例来自 FreeArt3D 已有 PartNet 数据，使用单 RGB + GT-mask，GT 轴未参与优化或候选选择；原始方向误差 0.636°，优化后 5.092°，平均 Gaussian 代理下降 78.64%，全三角形交线下降 85.38%。与本报告前述案例分开统计，保留其数据和对齐协议差异。
+
+
+## 轴位置案例筛查与10489补充
+
+新增 [四场景筛查与10489原始行程下的pivot-only实测](PIVOT_CASE_SCREEN_RESULTS.md)。10489形状相对较好但运动幅度不足；固定几何及方向的200步优化降低重叠代理，却使GT pivot误差从3.49%/3.52%增至8.88%/6.06%。四个新场景因部件类型/角色及几何问题未通过筛查。该诊断按GT筛选并保留全部失败，不作为无偏泛化或成功证明。
