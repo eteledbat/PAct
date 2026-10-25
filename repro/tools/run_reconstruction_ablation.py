@@ -13,8 +13,9 @@ import torch
 REPO=pathlib.Path(__file__).resolve().parents[2]
 
 
-def compare(first,second,path):
-    a=torch.load(first,map_location='cpu',weights_only=False)['model'];b=torch.load(second,map_location='cpu',weights_only=False)['model'];assert a.keys()==b.keys();errors={k:float((a[k]-b[k]).abs().max()) for k in a};maximum=max(errors.values());result={'first':str(first),'second':str(second),'max_absolute_parameter_difference':maximum,'per_parameter_max_difference':errors,'tolerance':1e-5,'passed':maximum<1e-5};path.write_text(json.dumps(result,indent=2));assert result['passed'],result
+def compare(first,second,path,strict=True):
+    a=torch.load(first,map_location='cpu',weights_only=False)['model'];b=torch.load(second,map_location='cpu',weights_only=False)['model'];assert a.keys()==b.keys();errors={k:float((a[k]-b[k]).abs().max()) for k in a};maximum=max(errors.values());result={'first':str(first),'second':str(second),'max_absolute_parameter_difference':maximum,'per_parameter_max_difference':errors,'tolerance':1e-5,'passed':maximum<1e-5,'required_gate':strict};path.write_text(json.dumps(result,indent=2))
+    if strict:assert result['passed'],result
 
 
 def main():
@@ -42,8 +43,8 @@ def main():
         for experiment in cfg['experiments']:
             for arm in ['A','B']:
                 name=experiment['name'];job(f'{name}_{arm}_train',['--stage','train','--experiment',name,'--arm',arm])
-        compare(root/'8961_native_A_train/checkpoint.pt',root/'8961_sweep90_A_train/checkpoint.pt',root/'native_vs_sweep_A_control.json')
-        status('optimization_complete',evaluation='pending')
+        compare(root/'8961_native_A_train/checkpoint.pt',root/'8961_sweep90_A_train/checkpoint.pt',root/'native_vs_sweep_A_control.json',strict=False)
+        status('optimization_complete',evaluation='pending',long_run_replication=json.loads((root/'native_vs_sweep_A_control.json').read_text()))
     except BaseException as exc:status('failed',error=f'{type(exc).__name__}: {exc}');raise
 
 

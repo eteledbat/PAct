@@ -1,0 +1,51 @@
+{
+  "created_utc": "2026-10-25T15:16:32.387309+00:00",
+  "git_sha": "850111f37e233b333e344e3d4b0a2b7d73063ccb",
+  "cases": {
+    "8961": "/root/autodl-tmp/PAct/repro/outputs/gt_8961_20261025T131422Z",
+    "45194": "/root/autodl-tmp/PAct/repro/outputs/gt_45194_20261025T131221Z"
+  },
+  "resolution": 192,
+  "prealign_steps": 200,
+  "steps": 200,
+  "collision_weight": 0.02,
+  "collision_sources_per_part": 1024,
+  "geometry_grid": 4,
+  "geometry_bound_fraction_D": 0.03,
+  "pivot_bound_fraction_D": 0.1,
+  "direction_bound_degrees": 5.0,
+  "train_frames": [
+    0,
+    25,
+    50,
+    75,
+    100,
+    125
+  ],
+  "validation_frames": [
+    12,
+    37,
+    62,
+    87,
+    112,
+    137
+  ],
+  "experiments": [
+    {
+      "name": "8961_native",
+      "case": "8961",
+      "range": "native"
+    },
+    {
+      "name": "8961_sweep90",
+      "case": "8961",
+      "range": "signed90_assumption"
+    },
+    {
+      "name": "45194_native",
+      "case": "45194",
+      "range": "native"
+    }
+  ],
+  "protocol": "Multi-view RGB + oracle 2D part-mask post-reconstruction refinement, not original single-view PAct training. Six train and six held-out cameras at the same observed state. No GT axis/mesh point loss; fixed final step; no seed/lambda search. Gaussian centers and mesh vertices share a bounded trilinear deformation field; opacity, scales and color frozen in A/B."
+}

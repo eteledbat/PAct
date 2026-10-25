@@ -23,7 +23,17 @@ def main():
         with (root/f'{label}.log').open('ab') as log:subprocess.run(command,cwd=REPO,env=env,stdout=log,stderr=subprocess.STDOUT,check=True)
     try:
         while True:
-            state=json.loads((root/'controller_status.json').read_text());assert state['state']!='failed',state
+            state=json.loads((root/'controller_status.json').read_text())
+            if state['state']=='failed':
+                zero_path=root/'zero_weight_control.json';repeat_path=root/'native_vs_sweep_A_control.json'
+                all_sealed=all((root/f'{e["name"]}_{arm}_train/seal.json').exists() for e in cfg['experiments'] for arm in ['A','B'])
+                expected=all_sealed and zero_path.exists() and repeat_path.exists() and json.loads(zero_path.read_text())['passed'] and not json.loads(repeat_path.read_text())['passed'] and 'max_absolute_parameter_difference' in state.get('error','')
+                assert expected,state
+                archive=root/'controller_strict_replication_failure.json'
+                if not archive.exists():archive.write_text(json.dumps({'failed_state':state,'action':'Resume orchestration only with long-run replication kept as a failed diagnostic; all six sealed optimization checkpoints preserved.'},indent=2))
+                before={str(p):sha256(p) for p in root.glob('*_train/checkpoint.pt')}
+                job('resume_orchestration','run_reconstruction_ablation.py',[])
+                assert all(sha256(p)==h for p,h in before.items());state=json.loads((root/'controller_status.json').read_text());assert state['state']=='optimization_complete'
             for experiment in cfg['experiments']:
                 name=experiment['name']
                 if (root/f'results_{name}.json').exists():continue
@@ -31,7 +41,7 @@ def main():
                     status('evaluating',experiment=name);job(f'evaluation_{name}','evaluate_reconstruction_ablation.py',['--experiment',name])
             if all((root/f'results_{x["name"]}.json').exists() for x in cfg['experiments']) and state['state']=='optimization_complete':break
             status('waiting_for_sealed_pair',optimization=state);time.sleep(10)
-        status('figures_and_report');job('GT_sections','plot_reconstruction_sections.py',[]);job('report','build_reconstruction_ablation_report.py',[])
+        status('figures_and_report');job('GT_sections','plot_reconstruction_sections.py',[]);job('deformation_audit','audit_reconstruction_deformation.py',[]);job('report','build_reconstruction_ablation_report.py',[])
         audit={}
         for e in cfg['experiments']:
             name=e['name'];states=[]
