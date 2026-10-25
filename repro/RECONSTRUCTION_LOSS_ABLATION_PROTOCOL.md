@@ -1,6 +1,6 @@
 # 研究问题校正：运动碰撞 Loss 是否改善重建
 
-状态：已实现第一轮场景细化对照，先做梯度与 smoke 验证再正式运行；完成状态与实测结果另见本轮结果报告。此前固定几何的轴优化、原版场景筛选及其所有正负结果保持原样。
+状态：三组成对正式实验（共六次200步）及评价均已完成，实测结果见 [RECONSTRUCTION_LOSS_ABLATION_RESULTS.md](RECONSTRUCTION_LOSS_ABLATION_RESULTS.md)。此前固定几何的轴优化、原版场景筛选及其所有正负结果保持原样。
 
 ## 要回答的问题
 
@@ -29,13 +29,13 @@ GT 轴/pivot 不进入每场景无 GT 细化的 Loss 或 checkpoint 选择。输
 
 不要求预先找到“形状完美但轴错”的案例才能开展 A/B。可以在类型/数据可用的不同难度案例上检验收益，保留全部预先选定案例。8961 目前只是一项新的原版 baseline；其不足 1° 的预测范围不支持将原生范围实验解释为完整开合。
 
-## 运行前门槛与当前事实
+## 运行前门槛与当时的可行性检查记录
 
-1. 当前已运行的是预训练推理和冻结 Mesh/Gaussian 的轴后处理。`refine_collision_axes.py` 的 `geometry_frozen=True`，所以已有几何文件不变是设计结果，不能据此证明该 Loss 对可训练几何无效。
+1. 制定协议时已运行的是预训练推理和冻结 Mesh/Gaussian 的轴后处理。`refine_collision_axes.py` 的 `geometry_frozen=True`，所以已有几何文件不变是设计结果，不能据此证明该 Loss 对可训练几何无效。
 2. 当前 checkout 的官方 Stage 2 trainer 是 flow matching MSE + articulation MSE；未接入运动碰撞重建目标。离线导出的 PLY/object.json 不构成连回网络的可微训练图。
 3. 现有 VideoArtGS 图像、相机、mask 与 GT 可用于建立每场景数据接口；本轮有限深度搜索未发现现成的 PAct `dataset_index.jsonl`/`data_split.json`，不能宣称完整网络训练数据已就绪。
 4. 正式运行前需完成基础重建项、相机/rest pose/运动范围来源、可训练表示及评价划分的具体配置。对同一真实场景先测试基础目标与运动项的梯度；lambda=0 两组应具有相同更新；再做几十步 GPU smoke，检查显存、NaN、几何退化、checkpoint/恢复和输出。
-5. 上述门槛通过后才用 tmux 执行等预算 A/B，保留 R0，固定最终步选择，逐场景执行。当前没有这些 A/B 实测结果，不填写预计收益或假设的提升百分比。
+5. 上述门槛通过后才用 tmux 执行等预算 A/B，保留 R0，固定最终步选择，逐场景执行。制定协议时尚无这些 A/B 实测结果；现已完成，结果只按实际观测填写。
 
 ## 第一轮固定配置（正式 A/B 运行之前声明）
 

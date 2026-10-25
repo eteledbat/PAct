@@ -1,0 +1,1291 @@
+{
+  "root": "/root/autodl-tmp/PAct/repro/outputs/reconstruction_ablation_20261025_v1",
+  "config": {
+    "created_utc": "2026-10-25T15:16:32.387309+00:00",
+    "git_sha": "850111f37e233b333e344e3d4b0a2b7d73063ccb",
+    "cases": {
+      "8961": "/root/autodl-tmp/PAct/repro/outputs/gt_8961_20261025T131422Z",
+      "45194": "/root/autodl-tmp/PAct/repro/outputs/gt_45194_20261025T131221Z"
+    },
+    "resolution": 192,
+    "prealign_steps": 200,
+    "steps": 200,
+    "collision_weight": 0.02,
+    "collision_sources_per_part": 1024,
+    "geometry_grid": 4,
+    "geometry_bound_fraction_D": 0.03,
+    "pivot_bound_fraction_D": 0.1,
+    "direction_bound_degrees": 5.0,
+    "train_frames": [
+      0,
+      25,
+      50,
+      75,
+      100,
+      125
+    ],
+    "validation_frames": [
+      12,
+      37,
+      62,
+      87,
+      112,
+      137
+    ],
+    "experiments": [
+      {
+        "name": "8961_native",
+        "case": "8961",
+        "range": "native"
+      },
+      {
+        "name": "8961_sweep90",
+        "case": "8961",
+        "range": "signed90_assumption"
+      },
+      {
+        "name": "45194_native",
+        "case": "45194",
+        "range": "native"
+      }
+    ],
+    "protocol": "Multi-view RGB + oracle 2D part-mask post-reconstruction refinement, not original single-view PAct training. Six train and six held-out cameras at the same observed state. No GT axis/mesh point loss; fixed final step; no seed/lambda search. Gaussian centers and mesh vertices share a bounded trilinear deformation field; opacity, scales and color frozen in A/B."
+  },
+  "experiments": {
+    "8961_native": {
+      "summary": {
+        "R0": {
+          "PSNR": 12.034867067818949,
+          "foreground_PSNR": 11.045602084594664,
+          "SSIM": 0.7650583386421204,
+          "LPIPS_vgg": 0.19137852638959885,
+          "fixed_CD_percent_GT_D": 5.213596059604553,
+          "moving_CD_percent_GT_D": 1.9145151341865945,
+          "whole_CD_percent_GT_D": 3.2656607988188076,
+          "mean_axis_degrees": 0.0,
+          "mean_pivot_percent_GT_D": 24.92067925587091,
+          "Gaussian_motion_proxy": 0.027359480038285255,
+          "worst_Gaussian_motion_state": 0.028978783637285233,
+          "mesh_surface_intersection_line_over_D": 3.2251698154986066,
+          "max_motion_added_Gaussian_proxy_over_own_initial": 0.0,
+          "max_motion_added_mesh_line_over_own_initial": 0.0
+        },
+        "A": {
+          "PSNR": 14.106370936246075,
+          "foreground_PSNR": 11.961737152329135,
+          "SSIM": 0.814124325911204,
+          "LPIPS_vgg": 0.1586428259809812,
+          "fixed_CD_percent_GT_D": 3.9668768097015388,
+          "moving_CD_percent_GT_D": 1.553330768479606,
+          "whole_CD_percent_GT_D": 2.1531304389433896,
+          "mean_axis_degrees": 0.7144836884516156,
+          "mean_pivot_percent_GT_D": 23.781930837163117,
+          "Gaussian_motion_proxy": 0.015486466077466806,
+          "worst_Gaussian_motion_state": 0.018365653231739998,
+          "mesh_surface_intersection_line_over_D": 3.991415933383445,
+          "max_motion_added_Gaussian_proxy_over_own_initial": 0.004255916923284531,
+          "max_motion_added_mesh_line_over_own_initial": 0.9470278181374576
+        },
+        "B": {
+          "PSNR": 14.01311667074011,
+          "foreground_PSNR": 11.945007335524595,
+          "SSIM": 0.811295767625173,
+          "LPIPS_vgg": 0.15993167335788408,
+          "fixed_CD_percent_GT_D": 4.116214020864256,
+          "moving_CD_percent_GT_D": 1.9139518692030915,
+          "whole_CD_percent_GT_D": 2.48480401039385,
+          "mean_axis_degrees": 0.5252225093440751,
+          "mean_pivot_percent_GT_D": 22.98529406321588,
+          "Gaussian_motion_proxy": 0.0005656212451867759,
+          "worst_Gaussian_motion_state": 0.000687606108840555,
+          "mesh_surface_intersection_line_over_D": 0.044388339008960775,
+          "max_motion_added_Gaussian_proxy_over_own_initial": 0.0,
+          "max_motion_added_mesh_line_over_own_initial": 0.0006461266934976381
+        }
+      },
+      "B_minus_A": {
+        "PSNR": -0.09325426550596383,
+        "foreground_PSNR": -0.01672981680454022,
+        "SSIM": -0.0028285582860310132,
+        "LPIPS_vgg": 0.0012888473769028796,
+        "fixed_CD_percent_GT_D": 0.1493372111627176,
+        "moving_CD_percent_GT_D": 0.3606211007234854,
+        "whole_CD_percent_GT_D": 0.33167357145046017,
+        "mean_axis_degrees": -0.18926117910754048,
+        "mean_pivot_percent_GT_D": -0.7966367739472382,
+        "Gaussian_motion_proxy": -0.01492084483228003,
+        "worst_Gaussian_motion_state": -0.017678047122899443,
+        "mesh_surface_intersection_line_over_D": -3.947027594374484,
+        "max_motion_added_Gaussian_proxy_over_own_initial": -0.004255916923284531,
+        "max_motion_added_mesh_line_over_own_initial": -0.94638169144396
+      },
+      "B_relative_to_A_percent": {
+        "PSNR": -0.6610790679433265,
+        "foreground_PSNR": -0.1398610970253844,
+        "SSIM": -0.3474356675026491,
+        "LPIPS_vgg": 0.8124208384042486,
+        "fixed_CD_percent_GT_D": 3.7646042044334083,
+        "moving_CD_percent_GT_D": 23.215989024440688,
+        "whole_CD_percent_GT_D": 15.404248876497384,
+        "mean_axis_degrees": -26.489223220434255,
+        "mean_pivot_percent_GT_D": -3.3497564995957574,
+        "Gaussian_motion_proxy": -96.347641596492,
+        "worst_Gaussian_motion_state": -96.25602149749722,
+        "mesh_surface_intersection_line_over_D": -98.8879049502783,
+        "max_motion_added_Gaussian_proxy_over_own_initial": -100.0,
+        "max_motion_added_mesh_line_over_own_initial": -99.931773208651
+      },
+      "individual_joints": {
+        "R0": [
+          {
+            "GT_part": 1,
+            "node_id": 0,
+            "GT_type": "revolute",
+            "type": "revolute",
+            "type_correct": true,
+            "axis_degrees": 0.0,
+            "pivot_percent_GT_static_D": 25.706766782302974,
+            "predicted_axis_origin_world": [
+              -0.4049709892996738,
+              0.2763961622101192,
+              0.08524683678726319
+            ],
+            "predicted_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "GT_axis_origin_world": [
+              0.06656380173772726,
+              0.5031069626410286,
+              0.8463550209999084
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "GT_part": 2,
+            "node_id": 1,
+            "GT_type": "revolute",
+            "type": "revolute",
+            "type_correct": true,
+            "axis_degrees": 0.0,
+            "pivot_percent_GT_static_D": 24.134591729438846,
+            "predicted_axis_origin_world": [
+              -0.4005289002494692,
+              -0.3190220600244409,
+              0.04397249931001568
+            ],
+            "predicted_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "GT_axis_origin_world": [
+              0.05746366017555979,
+              -0.4965788093925727,
+              0.8463550209999084
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "A": [
+          {
+            "GT_part": 1,
+            "node_id": 0,
+            "GT_type": "revolute",
+            "type": "revolute",
+            "type_correct": true,
+            "axis_degrees": 0.973252269551212,
+            "pivot_percent_GT_static_D": 24.878970911524004,
+            "predicted_axis_origin_world": [
+              -0.38135920212343777,
+              0.2669675245836203,
+              0.08524683678726319
+            ],
+            "predicted_axis_direction_world": [
+              -0.014068816788494587,
+              0.009517371654510498,
+              0.9998557567596436
+            ],
+            "GT_axis_origin_world": [
+              0.06656380173772726,
+              0.5031069626410286,
+              0.8463550209999084
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "GT_part": 2,
+            "node_id": 1,
+            "GT_type": "revolute",
+            "type": "revolute",
+            "type_correct": true,
+            "axis_degrees": 0.4557151073520192,
+            "pivot_percent_GT_static_D": 22.68489076280223,
+            "predicted_axis_origin_world": [
+              -0.3748256878103611,
+              -0.3344259639031115,
+              0.04397249931001568
+            ],
+            "predicted_axis_direction_world": [
+              -0.0021658819168806076,
+              -0.007653066888451576,
+              0.999968409538269
+            ],
+            "GT_axis_origin_world": [
+              0.05746366017555979,
+              -0.4965788093925727,
+              0.8463550209999084
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "B": [
+          {
+            "GT_part": 1,
+            "node_id": 0,
+            "GT_type": "revolute",
+            "type": "revolute",
+            "type_correct": true,
+            "axis_degrees": 0.4530929736361296,
+            "pivot_percent_GT_static_D": 23.64195243565752,
+            "predicted_axis_origin_world": [
+              -0.36452975603396,
+              0.2893495761233815,
+              0.08524683678726319
+            ],
+            "predicted_axis_direction_world": [
+              -0.00158247584477067,
+              0.007747926749289036,
+              0.9999687671661377
+            ],
+            "GT_axis_origin_world": [
+              0.06656380173772726,
+              0.5031069626410286,
+              0.8463550209999084
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "GT_part": 2,
+            "node_id": 1,
+            "GT_type": "revolute",
+            "type": "revolute",
+            "type_correct": true,
+            "axis_degrees": 0.5973520450520206,
+            "pivot_percent_GT_static_D": 22.328635690774238,
+            "predicted_axis_origin_world": [
+              -0.3700671190563014,
+              -0.34249361686361013,
+              0.04397249931001568
+            ],
+            "predicted_axis_direction_world": [
+              0.00644380459561944,
+              -0.00819572526961565,
+              0.9999456405639648
+            ],
+            "GT_axis_origin_world": [
+              0.05746366017555979,
+              -0.4965788093925727,
+              0.8463550209999084
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    },
+    "8961_sweep90": {
+      "summary": {
+        "R0": {
+          "PSNR": 12.034867067818949,
+          "foreground_PSNR": 11.045602084594664,
+          "SSIM": 0.7650583386421204,
+          "LPIPS_vgg": 0.19137852638959885,
+          "fixed_CD_percent_GT_D": 5.213596059604553,
+          "moving_CD_percent_GT_D": 1.9145151341865945,
+          "whole_CD_percent_GT_D": 3.2656607988188076,
+          "mean_axis_degrees": 0.0,
+          "mean_pivot_percent_GT_D": 24.92067925587091,
+          "Gaussian_motion_proxy": 0.010592094312111536,
+          "worst_Gaussian_motion_state": 0.028978783637285233,
+          "mesh_surface_intersection_line_over_D": 0.49722686974986885,
+          "max_motion_added_Gaussian_proxy_over_own_initial": 0.0,
+          "max_motion_added_mesh_line_over_own_initial": 0.0
+        },
+        "A": {
+          "PSNR": 14.1060647967025,
+          "foreground_PSNR": 11.95958023844196,
+          "SSIM": 0.8141256670157114,
+          "LPIPS_vgg": 0.1586544414361318,
+          "fixed_CD_percent_GT_D": 3.9670655856808312,
+          "moving_CD_percent_GT_D": 1.5515388630067992,
+          "whole_CD_percent_GT_D": 2.150002188759406,
+          "mean_axis_degrees": 0.7169095763046285,
+          "mean_pivot_percent_GT_D": 23.780522169135068,
+          "Gaussian_motion_proxy": 0.008989715948700905,
+          "worst_Gaussian_motion_state": 0.030985675752162933,
+          "mesh_surface_intersection_line_over_D": 2.0647815869078814,
+          "max_motion_added_Gaussian_proxy_over_own_initial": 0.01683461107313633,
+          "max_motion_added_mesh_line_over_own_initial": 3.373323646032235
+        },
+        "B": {
+          "PSNR": 13.85414537566245,
+          "foreground_PSNR": 11.897681823379893,
+          "SSIM": 0.8085945347944895,
+          "LPIPS_vgg": 0.16353475550810495,
+          "fixed_CD_percent_GT_D": 4.216849800152176,
+          "moving_CD_percent_GT_D": 1.9387303511510063,
+          "whole_CD_percent_GT_D": 2.536421155729526,
+          "mean_axis_degrees": 0.605448302522666,
+          "mean_pivot_percent_GT_D": 23.020998153302322,
+          "Gaussian_motion_proxy": 0.0002700529839785304,
+          "worst_Gaussian_motion_state": 0.0007482940563932061,
+          "mesh_surface_intersection_line_over_D": 0.01482396467281721,
+          "max_motion_added_Gaussian_proxy_over_own_initial": 0.0,
+          "max_motion_added_mesh_line_over_own_initial": 0.03517386930288062
+        }
+      },
+      "B_minus_A": {
+        "PSNR": -0.25191942104004994,
+        "foreground_PSNR": -0.06189841506206761,
+        "SSIM": -0.005531132221221924,
+        "LPIPS_vgg": 0.004880314071973146,
+        "fixed_CD_percent_GT_D": 0.24978421447134513,
+        "moving_CD_percent_GT_D": 0.3871914881442071,
+        "whole_CD_percent_GT_D": 0.3864189669701199,
+        "mean_axis_degrees": -0.11146127378196247,
+        "mean_pivot_percent_GT_D": -0.7595240158327456,
+        "Gaussian_motion_proxy": -0.008719662964722374,
+        "worst_Gaussian_motion_state": -0.030237381695769727,
+        "mesh_surface_intersection_line_over_D": -2.0499576222350644,
+        "max_motion_added_Gaussian_proxy_over_own_initial": -0.01683461107313633,
+        "max_motion_added_mesh_line_over_own_initial": -3.338149776729354
+      },
+      "B_relative_to_A_percent": {
+        "PSNR": -1.7858943984075504,
+        "foreground_PSNR": -0.5175634414250285,
+        "SSIM": -0.6793953864023261,
+        "LPIPS_vgg": 3.0760652067454153,
+        "fixed_CD_percent_GT_D": 6.296447817070239,
+        "moving_CD_percent_GT_D": 24.955319997196245,
+        "whole_CD_percent_GT_D": 17.972956910945804,
+        "mean_axis_degrees": -15.54746616114393,
+        "mean_pivot_percent_GT_D": -3.1938912460826363,
+        "Gaussian_motion_proxy": -96.99597867697304,
+        "worst_Gaussian_motion_state": -97.58503231500131,
+        "mesh_surface_intersection_line_over_D": -99.28205652516415,
+        "max_motion_added_Gaussian_proxy_over_own_initial": -100.0,
+        "max_motion_added_mesh_line_over_own_initial": -98.95729337016765
+      },
+      "individual_joints": {
+        "R0": [
+          {
+            "GT_part": 1,
+            "node_id": 0,
+            "GT_type": "revolute",
+            "type": "revolute",
+            "type_correct": true,
+            "axis_degrees": 0.0,
+            "pivot_percent_GT_static_D": 25.706766782302974,
+            "predicted_axis_origin_world": [
+              -0.4049709892996738,
+              0.2763961622101192,
+              0.08524683678726319
+            ],
+            "predicted_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "GT_axis_origin_world": [
+              0.06656380173772726,
+              0.5031069626410286,
+              0.8463550209999084
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "GT_part": 2,
+            "node_id": 1,
+            "GT_type": "revolute",
+            "type": "revolute",
+            "type_correct": true,
+            "axis_degrees": 0.0,
+            "pivot_percent_GT_static_D": 24.134591729438846,
+            "predicted_axis_origin_world": [
+              -0.4005289002494692,
+              -0.3190220600244409,
+              0.04397249931001568
+            ],
+            "predicted_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "GT_axis_origin_world": [
+              0.05746366017555979,
+              -0.4965788093925727,
+              0.8463550209999084
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "A": [
+          {
+            "GT_part": 1,
+            "node_id": 0,
+            "GT_type": "revolute",
+            "type": "revolute",
+            "type_correct": true,
+            "axis_degrees": 0.9703534494751336,
+            "pivot_percent_GT_static_D": 24.876429931662752,
+            "predicted_axis_origin_world": [
+              -0.3813207912050238,
+              0.26700556030380795,
+              0.08524683678726319
+            ],
+            "predicted_axis_direction_world": [
+              -0.013825382106006145,
+              0.00978032872080803,
+              0.9998565912246704
+            ],
+            "GT_axis_origin_world": [
+              0.06656380173772726,
+              0.5031069626410286,
+              0.8463550209999084
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "GT_part": 2,
+            "node_id": 1,
+            "GT_type": "revolute",
+            "type": "revolute",
+            "type_correct": true,
+            "axis_degrees": 0.46346570313412344,
+            "pivot_percent_GT_static_D": 22.68461440660738,
+            "predicted_axis_origin_world": [
+              -0.37481452566312967,
+              -0.33441222226807454,
+              0.04397249931001568
+            ],
+            "predicted_axis_direction_world": [
+              -0.002036860678344965,
+              -0.00782826542854309,
+              0.9999673366546631
+            ],
+            "GT_axis_origin_world": [
+              0.05746366017555979,
+              -0.4965788093925727,
+              0.8463550209999084
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "B": [
+          {
+            "GT_part": 1,
+            "node_id": 0,
+            "GT_type": "revolute",
+            "type": "revolute",
+            "type_correct": true,
+            "axis_degrees": 0.506725339095067,
+            "pivot_percent_GT_static_D": 23.67820678627914,
+            "predicted_axis_origin_world": [
+              -0.3646198974078203,
+              0.28787420289814847,
+              0.08524683678726319
+            ],
+            "predicted_axis_direction_world": [
+              -0.0049782865680754185,
+              0.0073096794076263905,
+              0.9999608993530273
+            ],
+            "GT_axis_origin_world": [
+              0.06656380173772726,
+              0.5031069626410286,
+              0.8463550209999084
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "GT_part": 2,
+            "node_id": 1,
+            "GT_type": "revolute",
+            "type": "revolute",
+            "type_correct": true,
+            "axis_degrees": 0.7041712659502649,
+            "pivot_percent_GT_static_D": 22.363789520325504,
+            "predicted_axis_origin_world": [
+              -0.37064855905756744,
+              -0.341996948211591,
+              0.04397249931001568
+            ],
+            "predicted_axis_direction_world": [
+              0.008061785250902176,
+              -0.009276139549911022,
+              0.9999245405197144
+            ],
+            "GT_axis_origin_world": [
+              0.05746366017555979,
+              -0.4965788093925727,
+              0.8463550209999084
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ]
+      }
+    },
+    "45194_native": {
+      "summary": {
+        "R0": {
+          "PSNR": 14.546323239441895,
+          "foreground_PSNR": 11.337978869990488,
+          "SSIM": 0.719212273756663,
+          "LPIPS_vgg": 0.2529464438557625,
+          "fixed_CD_percent_GT_D": 21.174503675408456,
+          "moving_CD_percent_GT_D": 14.950504132059082,
+          "whole_CD_percent_GT_D": 7.7186439110294875,
+          "mean_axis_degrees": 0.5472561556385941,
+          "mean_pivot_percent_GT_D": 62.8616775621157,
+          "Gaussian_motion_proxy": 0.04760211929678917,
+          "worst_Gaussian_motion_state": 0.06487801671028137,
+          "mesh_surface_intersection_line_over_D": 4.970786416566422,
+          "max_motion_added_Gaussian_proxy_over_own_initial": 1.36643648147583e-05,
+          "max_motion_added_mesh_line_over_own_initial": 1.1046122026333212
+        },
+        "A": {
+          "PSNR": 15.489662987379418,
+          "foreground_PSNR": 11.829953374579986,
+          "SSIM": 0.7423424621423086,
+          "LPIPS_vgg": 0.241192397971948,
+          "fixed_CD_percent_GT_D": 18.937072360790385,
+          "moving_CD_percent_GT_D": 13.829898281249735,
+          "whole_CD_percent_GT_D": 6.541272746020527,
+          "mean_axis_degrees": 2.2259022718086783,
+          "mean_pivot_percent_GT_D": 62.984238919284465,
+          "Gaussian_motion_proxy": 0.019223906844854356,
+          "worst_Gaussian_motion_state": 0.023028219118714333,
+          "mesh_surface_intersection_line_over_D": 8.55947857025418,
+          "max_motion_added_Gaussian_proxy_over_own_initial": 0.0005592629313468933,
+          "max_motion_added_mesh_line_over_own_initial": 0.0
+        },
+        "B": {
+          "PSNR": 15.307586922782427,
+          "foreground_PSNR": 11.788772632184433,
+          "SSIM": 0.7376115222771963,
+          "LPIPS_vgg": 0.2444332093000412,
+          "fixed_CD_percent_GT_D": 19.79120067072208,
+          "moving_CD_percent_GT_D": 14.541705881748905,
+          "whole_CD_percent_GT_D": 7.063681550333345,
+          "mean_axis_degrees": 2.5702015079094047,
+          "mean_pivot_percent_GT_D": 62.94825749976464,
+          "Gaussian_motion_proxy": 0.0021044043358415367,
+          "worst_Gaussian_motion_state": 0.004856235813349485,
+          "mesh_surface_intersection_line_over_D": 3.439013515132433,
+          "max_motion_added_Gaussian_proxy_over_own_initial": 0.00269572576507926,
+          "max_motion_added_mesh_line_over_own_initial": 0.0
+        }
+      },
+      "B_minus_A": {
+        "PSNR": -0.18207606459699122,
+        "foreground_PSNR": -0.04118074239555369,
+        "SSIM": -0.004730939865112305,
+        "LPIPS_vgg": 0.0032408113280932016,
+        "fixed_CD_percent_GT_D": 0.8541283099316956,
+        "moving_CD_percent_GT_D": 0.7118076004991707,
+        "whole_CD_percent_GT_D": 0.5224088043128177,
+        "mean_axis_degrees": 0.34429923610072644,
+        "mean_pivot_percent_GT_D": -0.03598141951982825,
+        "Gaussian_motion_proxy": -0.01711950250901282,
+        "worst_Gaussian_motion_state": -0.018171983305364847,
+        "mesh_surface_intersection_line_over_D": -5.120465055121747,
+        "max_motion_added_Gaussian_proxy_over_own_initial": 0.0021364628337323666,
+        "max_motion_added_mesh_line_over_own_initial": 0.0
+      },
+      "B_relative_to_A_percent": {
+        "PSNR": -1.175468212222186,
+        "foreground_PSNR": -0.3481057033076884,
+        "SSIM": -0.6372988352921882,
+        "LPIPS_vgg": 1.3436623025200545,
+        "fixed_CD_percent_GT_D": 4.5103503522550215,
+        "moving_CD_percent_GT_D": 5.146875168736598,
+        "whole_CD_percent_GT_D": 7.986347987563014,
+        "mean_axis_degrees": 15.467850518925207,
+        "mean_pivot_percent_GT_D": -0.0571276562791212,
+        "Gaussian_motion_proxy": -89.05319114982696,
+        "worst_Gaussian_motion_state": -78.91180473698476,
+        "mesh_surface_intersection_line_over_D": -59.82216104747712,
+        "max_motion_added_Gaussian_proxy_over_own_initial": 382.01402488576264,
+        "max_motion_added_mesh_line_over_own_initial": null
+      },
+      "individual_joints": {
+        "R0": [
+          {
+            "GT_part": 1,
+            "node_id": 0,
+            "GT_type": "revolute",
+            "type": "revolute",
+            "type_correct": true,
+            "axis_degrees": 0.0,
+            "pivot_percent_GT_static_D": 62.8616775621157,
+            "predicted_axis_origin_world": [
+              -0.5280490565922733,
+              0.6081119721034014,
+              -0.20368353815447904
+            ],
+            "predicted_axis_direction_world": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "GT_axis_origin_world": [
+              -0.4117648367332666,
+              -0.6681607803488558,
+              -0.5002580285072327
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "GT_part": 2,
+            "node_id": 1,
+            "GT_type": "revolute",
+            "type": "fixed",
+            "type_correct": false,
+            "axis_degrees": null,
+            "pivot_percent_GT_static_D": null,
+            "predicted_axis_origin_world": [
+              -0.2139643132686615,
+              0.010513657703995705,
+              -0.05675427243113518
+            ],
+            "predicted_axis_direction_world": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "GT_axis_origin_world": [
+              -0.40982595009476297,
+              0.6813071306647132,
+              -0.5002580285072327
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "GT_part": 3,
+            "node_id": 3,
+            "GT_type": "prismatic",
+            "type": "prismatic",
+            "type_correct": true,
+            "axis_degrees": 0.9972516557768182,
+            "pivot_percent_GT_static_D": null,
+            "predicted_axis_origin_world": [
+              -0.2139643132686615,
+              0.010513657703995705,
+              -0.05675427243113518
+            ],
+            "predicted_axis_direction_world": [
+              0.9998485445976257,
+              0.016893791034817696,
+              0.004185041878372431
+            ],
+            "GT_axis_origin_world": [
+              0.41649198532104537,
+              -0.3216367870406491,
+              0.4078478067291077
+            ],
+            "GT_axis_direction_world": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "GT_part": 4,
+            "node_id": 4,
+            "GT_type": "prismatic",
+            "type": "prismatic",
+            "type_correct": true,
+            "axis_degrees": 0.6445168111389641,
+            "pivot_percent_GT_static_D": null,
+            "predicted_axis_origin_world": [
+              -0.2139643132686615,
+              0.010513657703995705,
+              -0.05675427243113518
+            ],
+            "predicted_axis_direction_world": [
+              0.9999367594718933,
+              0.009388824924826622,
+              0.006195425521582365
+            ],
+            "GT_axis_origin_world": [
+              0.41649198532104514,
+              0.3642076777137352,
+              0.40596716406381594
+            ],
+            "GT_axis_direction_world": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "A": [
+          {
+            "GT_part": 1,
+            "node_id": 0,
+            "GT_type": "revolute",
+            "type": "revolute",
+            "type_correct": true,
+            "axis_degrees": 1.2420965962403114,
+            "pivot_percent_GT_static_D": 62.984238919284465,
+            "predicted_axis_origin_world": [
+              -0.5311710037177093,
+              0.610333223501172,
+              -0.20368353815447904
+            ],
+            "predicted_axis_direction_world": [
+              0.018681365996599197,
+              0.010995356366038322,
+              0.9997649788856506
+            ],
+            "GT_axis_origin_world": [
+              -0.4117648367332666,
+              -0.6681607803488558,
+              -0.5002580285072327
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "GT_part": 2,
+            "node_id": 1,
+            "GT_type": "revolute",
+            "type": "fixed",
+            "type_correct": false,
+            "axis_degrees": null,
+            "pivot_percent_GT_static_D": null,
+            "predicted_axis_origin_world": [
+              -0.2139643132686615,
+              0.010513657703995705,
+              -0.05675427243113518
+            ],
+            "predicted_axis_direction_world": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "GT_axis_origin_world": [
+              -0.40982595009476297,
+              0.6813071306647132,
+              -0.5002580285072327
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "GT_part": 3,
+            "node_id": 3,
+            "GT_type": "prismatic",
+            "type": "prismatic",
+            "type_correct": true,
+            "axis_degrees": 4.697425740181708,
+            "pivot_percent_GT_static_D": null,
+            "predicted_axis_origin_world": [
+              -0.2139643132686615,
+              0.010513657703995705,
+              -0.05675427243113518
+            ],
+            "predicted_axis_direction_world": [
+              0.9966409802436829,
+              0.0027893066871911287,
+              -0.0818462073802948
+            ],
+            "GT_axis_origin_world": [
+              0.41649198532104537,
+              -0.3216367870406491,
+              0.4078478067291077
+            ],
+            "GT_axis_direction_world": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "GT_part": 4,
+            "node_id": 4,
+            "GT_type": "prismatic",
+            "type": "prismatic",
+            "type_correct": true,
+            "axis_degrees": 0.7381844790040153,
+            "pivot_percent_GT_static_D": null,
+            "predicted_axis_origin_world": [
+              -0.2139643132686615,
+              0.010513657703995705,
+              -0.05675427243113518
+            ],
+            "predicted_axis_direction_world": [
+              0.9999170303344727,
+              -0.004380566067993641,
+              0.012115794233977795
+            ],
+            "GT_axis_origin_world": [
+              0.41649198532104514,
+              0.3642076777137352,
+              0.40596716406381594
+            ],
+            "GT_axis_direction_world": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "B": [
+          {
+            "GT_part": 1,
+            "node_id": 0,
+            "GT_type": "revolute",
+            "type": "revolute",
+            "type_correct": true,
+            "axis_degrees": 1.3991935899272676,
+            "pivot_percent_GT_static_D": 62.94825749976464,
+            "predicted_axis_origin_world": [
+              -0.5376263303012365,
+              0.608976771408507,
+              -0.20368353815447904
+            ],
+            "predicted_axis_direction_world": [
+              0.02166012115776539,
+              0.011273114010691643,
+              0.9997017979621887
+            ],
+            "GT_axis_origin_world": [
+              -0.4117648367332666,
+              -0.6681607803488558,
+              -0.5002580285072327
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "GT_part": 2,
+            "node_id": 1,
+            "GT_type": "revolute",
+            "type": "fixed",
+            "type_correct": false,
+            "axis_degrees": null,
+            "pivot_percent_GT_static_D": null,
+            "predicted_axis_origin_world": [
+              -0.2139643132686615,
+              0.010513657703995705,
+              -0.05675427243113518
+            ],
+            "predicted_axis_direction_world": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "GT_axis_origin_world": [
+              -0.40982595009476297,
+              0.6813071306647132,
+              -0.5002580285072327
+            ],
+            "GT_axis_direction_world": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "GT_part": 3,
+            "node_id": 3,
+            "GT_type": "prismatic",
+            "type": "prismatic",
+            "type_correct": true,
+            "axis_degrees": 4.6886585955891915,
+            "pivot_percent_GT_static_D": null,
+            "predicted_axis_origin_world": [
+              -0.2139643132686615,
+              0.010513657703995705,
+              -0.05675427243113518
+            ],
+            "predicted_axis_direction_world": [
+              0.9966535568237305,
+              0.0020160973072052,
+              -0.08171635866165161
+            ],
+            "GT_axis_origin_world": [
+              0.41649198532104537,
+              -0.3216367870406491,
+              0.4078478067291077
+            ],
+            "GT_axis_direction_world": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "GT_part": 4,
+            "node_id": 4,
+            "GT_type": "prismatic",
+            "type": "prismatic",
+            "type_correct": true,
+            "axis_degrees": 1.6227523382117546,
+            "pivot_percent_GT_static_D": null,
+            "predicted_axis_origin_world": [
+              -0.2139643132686615,
+              0.010513657703995705,
+              -0.05675427243113518
+            ],
+            "predicted_axis_direction_world": [
+              0.9995989799499512,
+              0.0010143355466425419,
+              0.028300413861870766
+            ],
+            "GT_axis_origin_world": [
+              0.41649198532104514,
+              0.3642076777137352,
+              0.40596716406381594
+            ],
+            "GT_axis_direction_world": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "zero_weight_gate": {
+    "first": "/root/autodl-tmp/PAct/repro/outputs/reconstruction_ablation_20261025_v1/8961_native_A_smoke/checkpoint.pt",
+    "second": "/root/autodl-tmp/PAct/repro/outputs/reconstruction_ablation_20261025_v1/zero_weight_control_8961/checkpoint.pt",
+    "max_absolute_parameter_difference": 1.5273690223693848e-07,
+    "per_parameter_max_difference": {
+      "log_scale": 0.0,
+      "translation": 0.0,
+      "input_q": 0.0,
+      "geometry.0": 1.5273690223693848e-07,
+      "geometry.1": 2.3748725652694702e-08,
+      "geometry.2": 9.313225746154785e-09,
+      "joints.theta": 5.122274160385132e-09,
+      "joints.phi": 6.984919309616089e-10,
+      "joints.d0": 0.0,
+      "joints.o0": 0.0,
+      "joints.basis": 0.0,
+      "joints.pivot_mask": 0.0
+    },
+    "tolerance": 1e-05,
+    "passed": true,
+    "required_gate": true
+  },
+  "long_run_reproducibility_diagnostic": {
+    "first": "/root/autodl-tmp/PAct/repro/outputs/reconstruction_ablation_20261025_v1/8961_native_A_train/checkpoint.pt",
+    "second": "/root/autodl-tmp/PAct/repro/outputs/reconstruction_ablation_20261025_v1/8961_sweep90_A_train/checkpoint.pt",
+    "max_absolute_parameter_difference": 0.0009318573866039515,
+    "per_parameter_max_difference": {
+      "log_scale": 0.0,
+      "translation": 0.0,
+      "input_q": 0.0,
+      "geometry.0": 0.0005858726799488068,
+      "geometry.1": 0.0009318573866039515,
+      "geometry.2": 0.00022148527204990387,
+      "joints.theta": 0.0002629868686199188,
+      "joints.phi": 2.4398788809776306e-05,
+      "joints.d0": 0.0,
+      "joints.o0": 0.0,
+      "joints.basis": 0.0,
+      "joints.pivot_mask": 0.0
+    },
+    "tolerance": 1e-05,
+    "passed": false,
+    "required_gate": false
+  },
+  "environment": {
+    "python": "3.10.22",
+    "torch": "2.4.0+cu121",
+    "CUDA_runtime": "12.1",
+    "GPU": "NVIDIA GeForce RTX 4080 SUPER",
+    "nvidia_smi": "NVIDIA GeForce RTX 4080 SUPER, 595.71.05, 32760 MiB",
+    "optimization_commit": "429c304f6a4a7a1fa43d2baedcb6667012bccf43",
+    "evaluation_commit": "63a15c08db2eb01c8c312ff913a5de1df4107649"
+  },
+  "A_repeat_metric_delta": {
+    "PSNR": -0.0003061395435750569,
+    "foreground_PSNR": -0.0021569138871750937,
+    "SSIM": 1.341104507446289e-06,
+    "LPIPS_vgg": 1.1615455150604248e-05,
+    "fixed_CD_percent_GT_D": 0.00018877597929245482,
+    "moving_CD_percent_GT_D": -0.0017919054728068318,
+    "whole_CD_percent_GT_D": -0.0031282501839835497,
+    "mean_axis_degrees": 0.002425887853012898,
+    "mean_pivot_percent_GT_D": -0.0014086680280485098,
+    "Gaussian_motion_proxy": -0.0064967501287659015,
+    "worst_Gaussian_motion_state": 0.012620022520422935,
+    "mesh_surface_intersection_line_over_D": -1.9266343464755638,
+    "max_motion_added_Gaussian_proxy_over_own_initial": 0.012578694149851799,
+    "max_motion_added_mesh_line_over_own_initial": 2.4262958278947773
+  },
+  "deformation_audit": {
+    "results": {
+      "8961_native": {
+        "A": [
+          {
+            "part_index": 0,
+            "min_cell_center_Jacobian_det": 0.44255829153718623,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          },
+          {
+            "part_index": 1,
+            "min_cell_center_Jacobian_det": 0.6408381566317943,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          },
+          {
+            "part_index": 2,
+            "min_cell_center_Jacobian_det": 0.3598374978667213,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          }
+        ],
+        "B": [
+          {
+            "part_index": 0,
+            "min_cell_center_Jacobian_det": 0.6357102675213868,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          },
+          {
+            "part_index": 1,
+            "min_cell_center_Jacobian_det": 0.6166818213700276,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          },
+          {
+            "part_index": 2,
+            "min_cell_center_Jacobian_det": 0.45871107190459887,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          }
+        ]
+      },
+      "8961_sweep90": {
+        "A": [
+          {
+            "part_index": 0,
+            "min_cell_center_Jacobian_det": 0.4430530975973106,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          },
+          {
+            "part_index": 1,
+            "min_cell_center_Jacobian_det": 0.6407786618037066,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          },
+          {
+            "part_index": 2,
+            "min_cell_center_Jacobian_det": 0.35998515071679044,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          }
+        ],
+        "B": [
+          {
+            "part_index": 0,
+            "min_cell_center_Jacobian_det": 0.6372556590662427,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          },
+          {
+            "part_index": 1,
+            "min_cell_center_Jacobian_det": 0.6474710869736919,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          },
+          {
+            "part_index": 2,
+            "min_cell_center_Jacobian_det": 0.49689631303480103,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          }
+        ]
+      },
+      "45194_native": {
+        "A": [
+          {
+            "part_index": 0,
+            "min_cell_center_Jacobian_det": 0.25884896803855506,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          },
+          {
+            "part_index": 1,
+            "min_cell_center_Jacobian_det": 0.8395415221906275,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          },
+          {
+            "part_index": 2,
+            "min_cell_center_Jacobian_det": 0.1469053279252348,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          },
+          {
+            "part_index": 3,
+            "min_cell_center_Jacobian_det": 0.07310349850247833,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          },
+          {
+            "part_index": 4,
+            "min_cell_center_Jacobian_det": -0.24495125271617352,
+            "nonpositive_cell_centers": 5,
+            "sampled_cells": 27
+          }
+        ],
+        "B": [
+          {
+            "part_index": 0,
+            "min_cell_center_Jacobian_det": 0.24977161579012172,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          },
+          {
+            "part_index": 1,
+            "min_cell_center_Jacobian_det": 0.8324674821873711,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          },
+          {
+            "part_index": 2,
+            "min_cell_center_Jacobian_det": 0.08114963326783575,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          },
+          {
+            "part_index": 3,
+            "min_cell_center_Jacobian_det": 0.018151303084325013,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          },
+          {
+            "part_index": 4,
+            "min_cell_center_Jacobian_det": 0.3609704552880147,
+            "nonpositive_cell_centers": 0,
+            "sampled_cells": 27
+          }
+        ]
+      }
+    },
+    "interpretation": "Determinant<=0 at a sampled cell center indicates local field orientation reversal/degeneracy. Positive center samples do not certify no fold everywhere, self-intersection-free meshes, or solid validity."
+  },
+  "resume_validation": {
+    "interrupted_saved_step": 10,
+    "resumed_final_step": 30,
+    "history_steps": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ],
+    "max_parameter_difference_to_continuous_30steps": 7.990747690200806e-07,
+    "tolerance": 1e-05,
+    "passed": true
+  }
+}

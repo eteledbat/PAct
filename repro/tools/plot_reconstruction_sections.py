@@ -12,8 +12,9 @@ import trimesh
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--root',required=True);a=p.parse_args();root=pathlib.Path(a.root);cfg=json.loads((root/'config.json').read_text())
+    p=argparse.ArgumentParser();p.add_argument('--root',required=True);p.add_argument('--experiment');a=p.parse_args();root=pathlib.Path(a.root);cfg=json.loads((root/'config.json').read_text())
     for experiment in cfg['experiments']:
+        if a.experiment and experiment['name']!=a.experiment:continue
         name,case=experiment['name'],experiment['case'];results=json.loads((root/f'results_{name}.json').read_text());manifest=json.loads((root/'data'/case/'manifest.json').read_text());gtroot=pathlib.Path(manifest['source_data_root'])/'gt'
         joint=next((j for j in results['R0']['joints'] if j['GT_type']=='revolute'),None)
         if joint is None:continue

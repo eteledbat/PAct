@@ -142,7 +142,8 @@ def main():
             field=torch.stack(list(model.geometry)).detach().norm(dim=-1).cpu().numpy();result={'experiment':experiment,'method':method,'source':str(source),'checkpoint_sha256':seal['checkpoint_sha256'],
                     'images':images,'LPIPS_unavailable_reason':lpips_reason,'geometry':geometry,'joints':joints,'motion':motion,'mesh_motion':triangles,
                     'deformation':{'max_percent_initial_D':float(100*field.max()/model.D),'mean_percent_initial_D':float(100*field.mean()/model.D),'control_points_at_bound':int((field>=.999*model.bound).sum())},
-                    'elapsed_seconds':time.monotonic()-started,'sources_unchanged':seal['original_files_unchanged'],'GT_in_optimizer':False,'geometry_open_to_optimization':method!='R0'}
+                    'elapsed_seconds':time.monotonic()-started,'sources_unchanged':seal['original_files_unchanged'],
+                    'GT_usage':{'oracle_2D_GT_masks_in_optimizer':True,'GT_mesh_used_in_2D_mask_preparation':True,'GT_mesh_read_by_optimizer':False,'GT_joint_values_in_optimizer':False,'GT_3D_loss_targets_in_optimizer':False},'geometry_open_to_optimization':method!='R0'}
             (out/'metrics.json').write_text(json.dumps(result,indent=2,allow_nan=False));all_rows[method]=result;print('EVALUATED',name,method,flush=True)
             del model;torch.cuda.empty_cache()
         # Actual sampled image comparison, common camera, and independent motion curves.
