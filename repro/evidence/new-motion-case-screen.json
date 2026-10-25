@@ -1,0 +1,243 @@
+{
+  "root": "/root/autodl-tmp/PAct/repro/outputs/new_motion_case_screen_20261025T131141Z",
+  "protocol": {
+    "new_cases": [
+      "45194",
+      "8961"
+    ],
+    "fixed_seed": 42,
+    "purpose": "Fresh PAct cases, explicitly excluding all previous PAct runs; qualify geometry/type/native motion before any collision optimization. GT-assisted diagnostic screening, not unbiased benchmark.",
+    "criteria": {
+      "axis_degrees_max": 3,
+      "pivot_percent_GT_D_min": 1,
+      "motion_degrees_min": 20,
+      "static_RMS_percent_GT_D_max": 3,
+      "moving_rigid_shape_CD_percent_GT_D_max": 3
+    },
+    "selection": "Fixed first frame, seed42, original 25+25 denoising steps, CFG7; no sample or seed search.",
+    "motion_validation": "Native predicted joint ranges must be recorded. No hidden GT range substitution. If qualified, evaluate each joint moving separately with others held fixed and retain synchronized evaluation as a separate path. No optimization started by screening script."
+  },
+  "cases": {
+    "45194": {
+      "run": "/root/autodl-tmp/PAct/repro/outputs/gt_45194_20261025T131221Z",
+      "joint_rows": [
+        {
+          "GT_part": 1,
+          "predicted_node_id": 0,
+          "GT_type": "revolute",
+          "predicted_type": "revolute",
+          "type_correct": true,
+          "axis_error_degrees": 0.0,
+          "raw_head_axis_error_degrees": 7.21674446289616,
+          "pivot_percent_GT_D": 56.029068934552555,
+          "native_amplitude": 43.135154724121094,
+          "amplitude_unit": "degrees",
+          "shape_only_CD_percent_GT_D": 26.833226703214784
+        },
+        {
+          "GT_part": 2,
+          "predicted_node_id": 1,
+          "GT_type": "revolute",
+          "predicted_type": "fixed",
+          "type_correct": false,
+          "axis_error_degrees": null,
+          "raw_head_axis_error_degrees": 33.25202285144615,
+          "pivot_percent_GT_D": null,
+          "native_amplitude": 0.0,
+          "amplitude_unit": "model units",
+          "shape_only_CD_percent_GT_D": 32.64960766180963
+        },
+        {
+          "GT_part": 3,
+          "predicted_node_id": 3,
+          "GT_type": "prismatic",
+          "predicted_type": "prismatic",
+          "type_correct": true,
+          "axis_error_degrees": 0.9972516557768182,
+          "raw_head_axis_error_degrees": 0.9972516801559378,
+          "pivot_percent_GT_D": null,
+          "native_amplitude": 0.4420987069606781,
+          "amplitude_unit": "model units",
+          "shape_only_CD_percent_GT_D": 6.52808313414821
+        },
+        {
+          "GT_part": 4,
+          "predicted_node_id": 4,
+          "GT_type": "prismatic",
+          "predicted_type": "prismatic",
+          "type_correct": true,
+          "axis_error_degrees": 0.6445168495537483,
+          "raw_head_axis_error_degrees": 0.6445168514922724,
+          "pivot_percent_GT_D": null,
+          "native_amplitude": 0.4938230514526367,
+          "amplitude_unit": "model units",
+          "shape_only_CD_percent_GT_D": 5.105345407750174
+        }
+      ],
+      "static_RMS_percent_GT_D": 13.117697523075018,
+      "qualified": false,
+      "rejection_reasons": [
+        "\u9759\u6001\u51e0\u4f55 RMS \u8d85\u8fc7 3%",
+        "GTpart1 shape-only CD \u8d85\u8fc7 3%",
+        "GTpart2 \u7c7b\u578b\u9519\u8bef",
+        "GTpart2 shape-only CD \u8d85\u8fc7 3%",
+        "GTpart3 shape-only CD \u8d85\u8fc7 3%",
+        "GTpart4 shape-only CD \u8d85\u8fc7 3%"
+      ],
+      "original_inference_seconds": 101.21992459520698,
+      "peak_observed_gpu_mib": 25678,
+      "motion_paths": [
+        {
+          "name": "synchronized",
+          "moving_predicted_node_ids": [
+            0,
+            2,
+            3,
+            4
+          ],
+          "initial_state_proxy": 0.06451055151005557,
+          "mean_motion_only_proxy": 0.04764636602219988,
+          "max_state_proxy": 0.06451055151005557,
+          "max_state_minus_initial_proxy": 0.0
+        },
+        {
+          "name": "only_node_0",
+          "moving_predicted_node_ids": [
+            0
+          ],
+          "initial_state_proxy": 0.06451055151005557,
+          "mean_motion_only_proxy": 0.06446767316380718,
+          "max_state_proxy": 0.06451055151005557,
+          "max_state_minus_initial_proxy": 0.0
+        },
+        {
+          "name": "only_node_2",
+          "moving_predicted_node_ids": [
+            2
+          ],
+          "initial_state_proxy": 0.06451055151005557,
+          "mean_motion_only_proxy": 0.028722722903481584,
+          "max_state_proxy": 0.06451055151005557,
+          "max_state_minus_initial_proxy": 0.0
+        },
+        {
+          "name": "only_node_3",
+          "moving_predicted_node_ids": [
+            3
+          ],
+          "initial_state_proxy": 0.06451055151005557,
+          "mean_motion_only_proxy": 0.06449895588481372,
+          "max_state_proxy": 0.06451263854650005,
+          "max_state_minus_initial_proxy": 2.0870364444841583e-06
+        },
+        {
+          "name": "only_node_4",
+          "moving_predicted_node_ids": [
+            4
+          ],
+          "initial_state_proxy": 0.06451055151005557,
+          "mean_motion_only_proxy": 0.028273650083890454,
+          "max_state_proxy": 0.06451055151005557,
+          "max_state_minus_initial_proxy": 0.0
+        }
+      ],
+      "motion_checks": {
+        "synchronized_FK_max_abs_error": 0.0,
+        "all_paths_start_identical": true,
+        "source_hashes_unchanged": true
+      },
+      "strict_checkpoint_loads": 6,
+      "solid_volume": null,
+      "penetration_depth": null
+    },
+    "8961": {
+      "run": "/root/autodl-tmp/PAct/repro/outputs/gt_8961_20261025T131422Z",
+      "joint_rows": [
+        {
+          "GT_part": 1,
+          "predicted_node_id": 0,
+          "GT_type": "revolute",
+          "predicted_type": "revolute",
+          "type_correct": true,
+          "axis_error_degrees": 0.0,
+          "raw_head_axis_error_degrees": 10.540474067915925,
+          "pivot_percent_GT_D": 18.201880937419574,
+          "native_amplitude": 0.8738762140274048,
+          "amplitude_unit": "degrees",
+          "shape_only_CD_percent_GT_D": 0.8677731571270072
+        },
+        {
+          "GT_part": 2,
+          "predicted_node_id": 1,
+          "GT_type": "revolute",
+          "predicted_type": "revolute",
+          "type_correct": true,
+          "axis_error_degrees": 0.0,
+          "raw_head_axis_error_degrees": 13.135504414173374,
+          "pivot_percent_GT_D": 17.49761192497917,
+          "native_amplitude": 0.4847247898578644,
+          "amplitude_unit": "degrees",
+          "shape_only_CD_percent_GT_D": 0.7872717083057882
+        }
+      ],
+      "static_RMS_percent_GT_D": 4.198269351573723,
+      "qualified": false,
+      "rejection_reasons": [
+        "\u9759\u6001\u51e0\u4f55 RMS \u8d85\u8fc7 3%",
+        "GTpart1 \u539f\u751f\u8fd0\u52a8\u5c0f\u4e8e 20\u00b0",
+        "GTpart2 \u539f\u751f\u8fd0\u52a8\u5c0f\u4e8e 20\u00b0"
+      ],
+      "original_inference_seconds": 70.9007809907198,
+      "peak_observed_gpu_mib": 17306,
+      "motion_paths": [
+        {
+          "name": "synchronized",
+          "moving_predicted_node_ids": [
+            0,
+            1
+          ],
+          "initial_state_proxy": 0.029410647626929593,
+          "mean_motion_only_proxy": 0.026722780907224946,
+          "max_state_proxy": 0.029410647626929593,
+          "max_state_minus_initial_proxy": 0.0
+        },
+        {
+          "name": "only_node_0",
+          "moving_predicted_node_ids": [
+            0
+          ],
+          "initial_state_proxy": 0.029410647626929593,
+          "mean_motion_only_proxy": 0.027846929839559866,
+          "max_state_proxy": 0.029410647626929593,
+          "max_state_minus_initial_proxy": 0.0
+        },
+        {
+          "name": "only_node_1",
+          "moving_predicted_node_ids": [
+            1
+          ],
+          "initial_state_proxy": 0.029410647626929593,
+          "mean_motion_only_proxy": 0.02828649869459467,
+          "max_state_proxy": 0.029410647626929593,
+          "max_state_minus_initial_proxy": 0.0
+        }
+      ],
+      "motion_checks": {
+        "synchronized_FK_max_abs_error": 0.0,
+        "all_paths_start_identical": true,
+        "source_hashes_unchanged": true
+      },
+      "strict_checkpoint_loads": 6,
+      "solid_volume": null,
+      "penetration_depth": null
+    }
+  },
+  "optimization_started": false,
+  "git_sha": "bfa4ea1cee7e625eaa1d0a2519a6d4ca692649de",
+  "analysis_source_sha256": {
+    "build_fresh_motion_screen_report.py": "c1b627f6a713eaf6840a1267e868f7741720ee9bd513f40d70ef2cbc1edc89fe",
+    "inspect_independent_motion_paths.py": "f3077d5b8ad6fb93d6dff2b6ad2597b73b83f5a7102d8d38dd1115082411bc0e",
+    "evaluate_pivot_case_geometry.py": "171712de8e403d3149268a7d8c72c9469805b8fc756ced8eef18b01afab6bb2f",
+    "collision_refinement_common.py": "09c9b1adf7618718e3813c6defd749b2acc21488e4d0dbbedd4bd4429c1d584d"
+  }
+}
