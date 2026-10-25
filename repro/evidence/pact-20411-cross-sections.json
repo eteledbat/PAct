@@ -1,0 +1,92 @@
+{
+  "case": "20411",
+  "directory": "/root/autodl-tmp/PAct/repro/outputs/pact_20411_collision_20261024T163625Z/cross_sections_20261025_v2",
+  "figures": [
+    "fixed_YZ_center_overlay.png",
+    "fixed_YZ_walls_overlay.png",
+    "fixed_XZ_heights_overlay.png",
+    "fixed_YZ_center_separate.png",
+    "static_icp_YZ_center_overlay.png",
+    "static_icp_YZ_walls_overlay.png",
+    "static_icp_XZ_heights_overlay.png",
+    "static_icp_YZ_center_separate.png"
+  ],
+  "planes": [
+    {
+      "name": "YZ_left",
+      "normal_axis": 0,
+      "value": -0.31887516379356384,
+      "plot_axes": [
+        2,
+        1
+      ],
+      "label": "left sagittal"
+    },
+    {
+      "name": "YZ_center",
+      "normal_axis": 0,
+      "value": 0.00016999244689941406,
+      "plot_axes": [
+        2,
+        1
+      ],
+      "label": "center sagittal"
+    },
+    {
+      "name": "YZ_right",
+      "normal_axis": 0,
+      "value": 0.31921514868736267,
+      "plot_axes": [
+        2,
+        1
+      ],
+      "label": "right sagittal"
+    },
+    {
+      "name": "XZ_lower",
+      "normal_axis": 1,
+      "value": -0.10200150460004806,
+      "plot_axes": [
+        0,
+        2
+      ],
+      "label": "lower horizontal"
+    },
+    {
+      "name": "XZ_middle",
+      "normal_axis": 1,
+      "value": 0.013788998126983643,
+      "plot_axes": [
+        0,
+        2
+      ],
+      "label": "middle horizontal"
+    },
+    {
+      "name": "XZ_upper",
+      "normal_axis": 1,
+      "value": 0.16266250163316726,
+      "plot_axes": [
+        0,
+        2
+      ],
+      "label": "upper horizontal"
+    }
+  ],
+  "states": [
+    0.0,
+    0.5,
+    1.0
+  ],
+  "alignment": "Reuse stored fixed canonical rotation/static-AABB scale/translation. static_icp is a separately labeled sensitivity using exactly the existing global static registration, no new fitting.",
+  "pose_convention": "GT00 closed to GT05 open; t=.5 uses linear translation verified against all six original GT meshes. Predictions retain original ranges.",
+  "GT_geometry_status": "Open/nonmanifold surfaces: contours may be open; no hole repair, occupancy fill or collision-volume claim.",
+  "segment_arrays": 216,
+  "geometry_checks": 180,
+  "max_endpoint_plane_error": 9.435551534542341e-09,
+  "max_endpoint_triangle_edge_error": 1.5700924586837752e-16,
+  "closed_original_refined_sections_equal": true,
+  "source_and_original_GT_Mesh_GS_candidate_SHA_verified": true,
+  "generator_sha256": "f1375c989839b3ef894496d543cd1a982ab793a6d6cce8cdad86cf83caa1a671",
+  "manifest_sha256": "2a8432f4c5c392d4d33caf0f856e1e5ef1689ffac0ae21cf81e66c34e2003981"
+}

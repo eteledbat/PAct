@@ -57,6 +57,22 @@ Original Protocol 为固定官方模型、固定单次 seed 的原始导出（�
 
 方向图的三条线使用同一**显示锚点**；平移关节没有可识别 pivot，不能根据这张图宣称轴位置精度。
 
+
+## GT 对比截面图（新增）
+
+GT、原始 PAct 与方向优化候选使用完全相同的世界坐标切面、显示比例和运动进度；保留闭合 t=0、中间 t=.5、打开 t=1。主图沿用本报告固定 canonical/static-AABB 对齐，没有为了截面重新配准。另单独标注已有 static ICP 的敏感性图，GT 本身不变。中间 GT 状态为已通过六状态验证的平移轨迹插值。
+
+![同一中央纵截面，GT/原始/优化叠加，闭合至打开](outputs/pact_20411_collision_20261024T163625Z/cross_sections_20261025_v2/fixed_YZ_center_overlay.png)
+
+绿色虚线为 GT 抽屉，蓝线为原始 PAct 抽屉，紫线为方向优化抽屉；GT 桌体深灰虚线，PAct 共享桌体浅灰实线。闭合时两套 PAct 截面相同；其后紫色移动部件的下移与上一节量化的轨迹偏差一致。开口线段不会作实体填充，因此线段中断不等于新出现的空腔。
+
+中央纵截面还显示 PAct 抽屉底板、前面板及深度与 GT 的形状差异；方向准确不代表几何准确。主对齐下桌面有整体高度偏差，可结合单独提供的既有静态 ICP 截面对照区分。水平截面没有某部件交线，表示该固定高度未切到其表面，不等于该部件不存在。
+
+[GT / 原始 / 优化各自的中央纵截面](outputs/pact_20411_collision_20261024T163625Z/cross_sections_20261025_v2/fixed_YZ_center_separate.png) · [左右侧壁及中央三组纵截面](outputs/pact_20411_collision_20261024T163625Z/cross_sections_20261025_v2/fixed_YZ_walls_overlay.png) · [三个高度的水平截面](outputs/pact_20411_collision_20261024T163625Z/cross_sections_20261025_v2/fixed_XZ_heights_overlay.png) · [同一既有静态 ICP 下的中央截面](outputs/pact_20411_collision_20261024T163625Z/cross_sections_20261025_v2/static_icp_YZ_center_overlay.png) · [主图矢量 PDF](outputs/pact_20411_collision_20261024T163625Z/cross_sections_20261025_v2/fixed_YZ_center_overlay.pdf) · [切面、对齐、原始线段和端点核查记录](outputs/pact_20411_collision_20261024T163625Z/cross_sections_20261025_v2/sections_manifest.json)
+
+切面由 GT closed 抽屉定义：x 为中心及 ±95% 半宽；y 为高度的 15%、50%、95%，保持各方法/姿态/对齐方案相同。原始三角面不补洞、不修改；图由实际 Mesh 与平面的交线生成，原始三维交线保存为 NPZ。两个部件的静止 PAct 截面在优化前后逐元素一致，端点到切面和原三角形边的距离通过数值核查。
+
+
 ## 全运动范围的重叠与交线
 
 ![41 状态 Gaussian、21 状态全三角形交线、采样最小中心距离](outputs/pact_20411_collision_20261024T163625Z/figures/collision_curves.png)

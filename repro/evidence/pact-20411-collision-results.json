@@ -1,6 +1,6 @@
 {
   "case": "20411",
-  "completed_utc": "2026-10-24T17:07:07.439734+00:00",
+  "completed_utc": "2026-10-25T03:29:49.327149+00:00",
   "branch": "research/pact-20411-collision-20261025",
   "original_run": "/root/autodl-tmp/PAct/repro/outputs/gt_20411_20261024T163340Z",
   "experiment_root": "/root/autodl-tmp/PAct/repro/outputs/pact_20411_collision_20261024T163625Z",
@@ -389,5 +389,20 @@
     "protocol": "Oracle visible 2D part segmentation from actual GT mesh, with published FreeArt3D camera; RGB is the existing 05_pure image. GT type, axis, origin and range are excluded from PAct input.",
     "GT_joint_axis_passed_to_model": false,
     "selection": "Fixed last existing frame (05) chosen before inference to expose the drawer; single seed42, no GT metric sample selection."
+  },
+  "cross_sections": {
+    "directory": "/root/autodl-tmp/PAct/repro/outputs/pact_20411_collision_20261024T163625Z/cross_sections_20261025_v2",
+    "manifest_sha256": "2a8432f4c5c392d4d33caf0f856e1e5ef1689ffac0ae21cf81e66c34e2003981",
+    "figures": [
+      "fixed_YZ_center_overlay.png",
+      "fixed_YZ_walls_overlay.png",
+      "fixed_XZ_heights_overlay.png",
+      "fixed_YZ_center_separate.png",
+      "static_icp_YZ_center_overlay.png",
+      "static_icp_YZ_walls_overlay.png",
+      "static_icp_XZ_heights_overlay.png",
+      "static_icp_YZ_center_separate.png"
+    ],
+    "source_sha256": "f1375c989839b3ef894496d543cd1a982ab793a6d6cce8cdad86cf83caa1a671"
   }
 }
