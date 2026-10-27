@@ -31,7 +31,8 @@ def main():
                     x=tensor(part['xyz'][:20]);tr=world[part['node']['id']];y=torch.einsum('nj,bij->bni',x,tr[:,:3,:3])+tr[:,None,:3,3]
                     rigid=max(rigid,float((torch.cdist(y,y)-torch.cdist(x,x)[None]).abs().max()))
             # Three nonzero points on a synchronized trajectory exercise all joints.
-            coll=scene.proxy(qs[[2,10,20]])/scene.normalization
+            differentiable_qs=dict(paths(p.limits(),21))['synchronized']
+            coll=scene.proxy(differentiable_qs[[2,10,20]])/scene.normalization
             grads=torch.autograd.grad(coll,[p.theta,p.phi,p.range_delta])
             norms=[float(g.norm()) for g in grads]
             assert all(torch.isfinite(g).all() for g in grads) and min(norms)>0
