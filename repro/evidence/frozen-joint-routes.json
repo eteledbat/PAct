@@ -1,0 +1,149 @@
+{
+  "state": "complete",
+  "completed_utc": "2026-10-27T02:31:28.536574+00:00",
+  "branch": "research/frozen-geometry-protocol-20261027",
+  "source_git_sha": "bbc70481f8c7d6517cda9cdaf941637891760ede",
+  "formal_trials": 6,
+  "test_objects": [
+    "8961",
+    "45194"
+  ],
+  "head_train_objects": [
+    "10489",
+    "31249",
+    "45503",
+    "9016"
+  ],
+  "checkpoint_sha256": {
+    "direct_8961_A": "3528a689d81af1c1b6df90ddbfd2bda34a0ccc74dcdf72845179090a30c49cc6",
+    "direct_8961_B": "3f608452516e320ce7fde490536dcad6f14ee7157d2b5fcbdaa884e3a099d663",
+    "direct_45194_A": "01fb643d9a529381ab895b9a2fe887b41fd476e437097dc0c380c737c3c1d2de",
+    "direct_45194_B": "be8d2e99581c6842849e16e98593a0bdc0bdf88d77fc42f1df646411be173751",
+    "head_shared_A": "f333fbe464374eec2029f9f1101efb5be27da195aa580b8dae3d83667d586f52",
+    "head_shared_B": "efe8c517399bd6cdb8139810555ad4dd44cc39a01d1ada393b0a72c41fd10639"
+  },
+  "frozen_files_verified": 52,
+  "older_source_files_verified": 52,
+  "control_max_parameter_difference": {
+    "direct_zero_control": 0.0,
+    "head_zero_control": 0.0,
+    "resume_control": 0.0
+  },
+  "max_common_zero_pose_proxy_difference": 7.450580596923828e-09,
+  "movie_frame_counts": {
+    "direct_8961": 21,
+    "direct_45194": 21,
+    "head_8961": 21,
+    "head_45194": 21
+  },
+  "linked_exports": [
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/direct_8961_A/export_8961_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/direct_8961_B/export_8961_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/direct_45194_A/export_45194_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/direct_45194_B/export_45194_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_A/export_10489_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_A/export_31249_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_A/export_45503_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_A/export_9016_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_A/export_8961_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_A/export_45194_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_A/export_10489_official/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_A/export_31249_official/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_A/export_45503_official/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_A/export_9016_official/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_A/export_8961_official/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_A/export_45194_official/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_B/export_10489_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_B/export_31249_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_B/export_45503_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_B/export_9016_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_B/export_8961_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_B/export_45194_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_B/export_10489_official/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_B/export_31249_official/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_B/export_45503_official/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_B/export_9016_official/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_B/export_8961_official/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z/head_shared_B/export_45194_official/object.json"
+  ],
+  "config_sha256": "f0024bce5fa0a739678d181adc50cf664decf614a9cfe685e38833fbd5b8e0b7",
+  "results_sha256": "e913e788d99af87f690ea7b21f12e29ade40095ba5dffaefe61e788d1369f187",
+  "report_sha256": "24adaa745723e64e6ca8bd8321293926a28a48748b39c69e663faddab7e8c6d4",
+  "final_source_sha256": {
+    "cache_frozen_joint_features.py": "a2f5366840a5653487149015ae1396e078345a9b61e470ce77cee5b65e938bb0",
+    "frozen_joint_common.py": "4156bf64149ab19088997a794e2b2c26b676b5367e2b2b3fd8679d42b3b3abfb",
+    "prepare_frozen_joint_experiment.py": "62720060c07eed3c4de02a709d72ac432f5fed4f3b61a475c456b220c561be8e",
+    "prepare_frozen_head_targets.py": "01d663ec4aa69b8508f06c3393fca70ae5ecdb0e39ea294aed710c61d6290293",
+    "run_frozen_joint_trial.py": "f08c3766bc4b2b3c68e9af1e2688bcf804cd1f5cb9a1e9f781ea1378edcd0db6",
+    "check_frozen_joint_routes.py": "83c2009a1e2cc83a161d272b2fad2c201f03175a6b935012ce3e4ecc893bf335",
+    "run_frozen_joint_routes.py": "9ae2625eb18141ad9a02d230154ea1de3779f721bf0f1266c2c0a34a4278fd45",
+    "monitor_frozen_joint_routes.py": "a129115c9fbf9aa6f5121af058dae3549a47ad4bbdec08b52bfe6217cdb86091",
+    "finalize_frozen_joint_inputs.py": "c32ee4168dfb8254a5a335434c836d63f7493b892bbeb13c72207f8cb8708139",
+    "evaluate_frozen_joint_routes.py": "bf4b0732f1ee416013e0c838a206a3b6d8e3bbbc9c5153e16b891f45595b337d",
+    "build_frozen_joint_report.py": "9a411b79bf7e084b77ff0a95791ffc1549fa6e5936eec16faf39a4f1331f682f",
+    "seal_frozen_joint_routes.py": "df30255a614d444dd2b39cefc24bf0bde9ebb4b739ee06abc8a1f2dac8be3b62"
+  },
+  "root": "/root/autodl-tmp/PAct/repro/outputs/frozen_joint_routes_20261027T013904Z",
+  "axis_summary": [
+    {
+      "route": "direct",
+      "case": "8961",
+      "branch": "direct",
+      "axis_A": 0.0,
+      "axis_B": 0.5350042204428057,
+      "pivot_A": 17.88158279304384,
+      "pivot_B": 21.50599483992738,
+      "common_motion_proxy_relative_percent": 1.7612787136904506
+    },
+    {
+      "route": "direct",
+      "case": "45194",
+      "branch": "direct",
+      "axis_A": 0.5477643953478027,
+      "axis_B": 1.73288807208366,
+      "pivot_A": 56.01926139532514,
+      "pivot_B": 55.97213847546457,
+      "common_motion_proxy_relative_percent": -26.448348751769046
+    },
+    {
+      "route": "head",
+      "case": "8961",
+      "branch": "continuous",
+      "axis_A": 8.393683075049012,
+      "axis_B": 10.38941100440083,
+      "pivot_A": 23.050541228094485,
+      "pivot_B": 29.8207216521384,
+      "common_motion_proxy_relative_percent": 2.4390574330446224
+    },
+    {
+      "route": "head",
+      "case": "8961",
+      "branch": "official",
+      "axis_A": 0.0,
+      "axis_B": 0.0,
+      "pivot_A": 17.88158279304384,
+      "pivot_B": 12.564330547963792,
+      "common_motion_proxy_relative_percent": -4.961766070745699
+    },
+    {
+      "route": "head",
+      "case": "45194",
+      "branch": "continuous",
+      "axis_A": 15.800400802682276,
+      "axis_B": 3.655166681006392,
+      "pivot_A": 36.7371231285042,
+      "pivot_B": 43.221134427650334,
+      "common_motion_proxy_relative_percent": -6.597544379455133
+    },
+    {
+      "route": "head",
+      "case": "45194",
+      "branch": "official",
+      "axis_A": 1.6987535556398388,
+      "axis_B": 1.7672156929524354,
+      "pivot_A": 56.01926139532514,
+      "pivot_B": 58.74382637774436,
+      "common_motion_proxy_relative_percent": -6.690387446770019
+    }
+  ]
+}
