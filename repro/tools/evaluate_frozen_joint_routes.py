@@ -93,7 +93,9 @@ def plot_axes(rows_by_method,directory,title):
                 delta=np.array(r['predicted_axis_origin_world'])-go;pos.scatter(delta@u,delta@v,c=colors[method],label=method)
         pos.set_title(f'node {nid}: pivot in GT-normal plane' if first['type']=='revolute' else f'node {nid}: prismatic pivot N/A')
         pos.set_xlabel('u (GT data units)');pos.set_ylabel('v (GT data units)');ori.set_title(f'node {nid}: direction tilt from GT');ori.set_xlabel('tilt u (degrees)');ori.set_ylabel('tilt v (degrees)')
-        for ax in [pos,ori]:ax.grid(alpha=.25);ax.legend(fontsize=8);ax.set_aspect('equal',adjustable='datalim')
+        if first['type']!='revolute':
+            pos.text(.18,.5,'Prismatic axis origin is not identifiable.\nPosition error: unavailable.',transform=pos.transAxes);pos.set_axis_off()
+        for ax in ([pos,ori] if first['type']=='revolute' else [ori]):ax.grid(alpha=.25);ax.legend(fontsize=8);ax.set_aspect('equal',adjustable='datalim')
     fig.suptitle(title+' | frozen local geometry');fig.tight_layout();fig.savefig(directory/'axes_vs_GT.png',dpi=170);fig.savefig(directory/'axes_vs_GT.pdf');plt.close(fig)
 
 

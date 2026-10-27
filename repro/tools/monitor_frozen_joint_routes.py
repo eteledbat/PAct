@@ -13,7 +13,7 @@ def main():
         for f in [root/'controller_status.json',root/'evaluation_status.json',*sorted(root.glob('features/*/status.json')),*sorted(root.glob('*/status.json'))]:
             if not f.exists():continue
             try:
-                s=json.loads(f.read_text());print(f.parent.name,f.name,s.get('state'),s.get('step',''),s.get('job',''),s.get('error',''),flush=True)
+                s=json.loads(f.read_text());detail=' '.join(str(s[k]) for k in ['route','case','method'] if k in s);print(f.parent.name,f.name,s.get('state'),s.get('step',''),s.get('job',''),detail,s.get('error',''),flush=True)
             except (ValueError,OSError):continue
         if not a.watch:break
         time.sleep(20)

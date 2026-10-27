@@ -1,6 +1,8 @@
 # PAct baseline 准备记录
 
-最新状态（2026-10-24）：依用户新增授权，在独立research/collision-axis-refinement-20261024分支完成PAct的31249与Dishwasher共6项固定几何轴后处理（每项200步）。联合优化的留出Gaussian核均值降低32.79%/96.73%，21状态表面交线均值降低12.14%/98.98%；31249主协议GT轴/位置反而变差。无合法实体体积认证，不称为严格无穿模。见 [新实验完整对照](COLLISION_REFINEMENT_RESULTS.md)。原模型/几何/行程/类型和baseline保留，Part²GS仍暂停。以下为此前记录。
+最新状态（2026-10-27）：用户要求冻结生成部件并授权两条路线都试。本轮六次200步正式优化已完成：8961/45194直接参数后处理各A/B，以及原版关节输出MLP的小规模监督微调A/B（训练10489/31249/45503/9016，测试8961/45194）。局部几何/外观/类型/层级冻结；不使用RGB重建Loss。GT轴、起止值、41状态碰撞曲线和刚体运动视频均已评价，结果有局部收益和退化，不宣称一致改善。head保留原文masked MSE，但只更新输出MLP且使用冻结推理特征，不冒充完整原版flow-matching续训。见 [新结果](FROZEN_JOINT_ROUTES_RESULTS.md) 与 [设置](FROZEN_JOINT_ROUTES_PROTOCOL.md)。分支research/frozen-geometry-protocol-20261027；Part²GS仍暂停。以下为历史记录。
+
+此前状态（2026-10-24）：依用户新增授权，在独立research/collision-axis-refinement-20261024分支完成PAct的31249与Dishwasher共6项固定几何轴后处理（每项200步）。联合优化的留出Gaussian核均值降低32.79%/96.73%，21状态表面交线均值降低12.14%/98.98%；31249主协议GT轴/位置反而变差。无合法实体体积认证，不称为严格无穿模。见 [完整对照](COLLISION_REFINEMENT_RESULTS.md)。原模型/几何/行程/类型和baseline保留。
 
 此前GT对照（2026-10-24）：根据用户要求改选本机已有案例，10489、31249、101808 的固定帧/固定 seed 推理、raw/导出轴 GT 误差和静态几何配准敏感性均已完成。使用 GT Mesh 投影的 oracle 部件 mask；GT 轴/类型不输入模型。活动关节类型分别2/2、3/4、0/2正确，失败样本保留，不重配 GT 美化指标。见 [GT 对照报告](GT_JOINT_EVALUATION.md) 和 [完整小型证据](evidence/gt-joint-results.json)。
 
