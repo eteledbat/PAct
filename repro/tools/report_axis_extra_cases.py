@@ -33,6 +33,13 @@ def main():
     for case,methods in data['head'].items():
         correct=sum(j['type_correct'] for j in methods['R0']['joints']);total=len(methods['R0']['joints'])
         for method in ['R0','R0_raw']:lines.append(f"| {case}/{method} | {fmt(average(methods[method],'axis_error_degrees'))} | {fmt(average(methods[method],'pivot_error_percent_GT_D'))} | {correct}/{total} |")
+    lines+=['','| 场景 | GT静态部件对应预测节点 / 类型 | 错误活动GT类型节点 | 无活动GT匹配的预测活动节点 |',
+        '| --- | --- | --- | --- |']
+    for case,methods in data['direct'].items():
+        run=pathlib.Path(cfg['runs'][case]);provenance=json.loads((run/'input_provenance.json').read_text());obj=json.loads(pathlib.Path(json.loads((run/'status.json').read_text())['object']).read_text());byid={n['id']:n for n in obj['diffuse_tree']};base=next(x['pact_node_id'] for x in provenance['part_correspondence'] if x['gt_mesh_index']==0);joints=methods['R0']['joints'];matched={j['node_id'] for j in joints}
+        wrong=[str(j['node_id']) for j in joints if not j['type_correct']];unmatched=[str(n['id']) for n in obj['diffuse_tree'] if n['joint']['type']!='fixed' and n['id'] not in matched]
+        lines.append(f"| {case} | {base} / {byid[base]['joint']['type']} | {', '.join(wrong) or 'none'} | {', '.join(unmatched) or 'none'} |")
+    lines+=['','GT静态部件若被预测为活动，它仍按原版错误结构参与运动代理，不能把代理下降解释为完整正确机构的碰撞修复。']
     lines+=['','## 每个GT匹配关节的轴变化','',
         '| 路线 / 场景 / 输出 / 预测节点 | GT类型 / 预测类型 | 方向误差 A→B ° | 位置误差 A→B %GT D | 轴有向旋转 A→B ° | 原点位移 A→B %GT D |',
         '| --- | --- | --- | --- | --- | --- |']

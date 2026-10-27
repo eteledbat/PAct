@@ -1,5 +1,7 @@
 # PAct baseline 准备记录
 
+最新追加（2026-10-27）：20411、10655固定几何/起止值的direct A/B各200步均完成，上一轮已封存head A/B在两对象上直接迁移测试完成（新增head优化步数0）。41状态留出曲线与四段21帧视频齐全，GT轴结果没有稳定收益：20411直接方向0.633→4.937°，10655直接方向0→0.438°、位置51.165→53.152% GT D；head B亦退化。101284首次固定单次推理全部fixed，没有轴可优化，原样保留且未改GT类型。10655本身有GT活动/静态角色错误，不能当纯轴缺陷成功案例。见 [追加结果](AXIS_EXTRA_CASES_RESULTS.md) 与 [协议](AXIS_EXTRA_CASES_PROTOCOL.md)。分支research/axis-only-extra-cases-20261027；旧实验与Part²GS暂停状态保留。
+
 最新状态（2026-10-27，轴单独优化）：按用户新增要求，将部件及原版数值起止值同时冻结，重新完成同一批对象的两条A/B路线，共六项200步，41状态留出代理评价和四段21帧刚体视频均完成。所有步、全部导出起止值最大变化0；局部几何SHA不变。8961直接优化平均位置略好但一根轴变差；45194重叠下降而方向退化。head在8961的正向位置读数依赖官方后处理，连续参数反而变差；45194亦无一致收益。不能称为稳定改善GT轴。见 [本轮结果](AXIS_ONLY_FIXED_RANGES_RESULTS.md) 与 [设置](AXIS_ONLY_FIXED_RANGES_PROTOCOL.md)。分支research/axis-only-fixed-ranges-20261027；无新生成、无完整flow-matching续训，Part²GS仍暂停。
 
 上一轮（2026-10-27）：用户要求冻结生成部件并授权两条路线都试。本轮六次200步正式优化已完成：8961/45194直接参数后处理各A/B，以及原版关节输出MLP的小规模监督微调A/B（训练10489/31249/45503/9016，测试8961/45194）。局部几何/外观/类型/层级冻结；不使用RGB重建Loss。GT轴、起止值、41状态碰撞曲线和刚体运动视频均已评价，结果有局部收益和退化，不宣称一致改善。head保留原文masked MSE，但只更新输出MLP且使用冻结推理特征，不冒充完整原版flow-matching续训。见 [上轮结果](FROZEN_JOINT_ROUTES_RESULTS.md) 与 [设置](FROZEN_JOINT_ROUTES_PROTOCOL.md)。分支research/frozen-geometry-protocol-20261027；Part²GS仍暂停。以下为历史记录。
