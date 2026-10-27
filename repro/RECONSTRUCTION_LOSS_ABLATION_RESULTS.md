@@ -1,5 +1,7 @@
 # 运动碰撞 Loss 的重建 A/B 实测
 
+适用范围更正：本报告的 A/B 同时优化了部件几何和关节轴，不能用来回答“冻结部件后，碰撞约束能否改善轴和运动起止值”。这些结果保留为探索实验，不作为该问题的主要证据。参见 [设置核查](FROZEN_GEOMETRY_PROTOCOL_REVIEW.md)。
+
 直接比较B与A：三组中 0 组 Whole Chamfer 降低，0 组留出 PSNR 提高，3 组 Gaussian 运动重叠代理降低。重建细化本身的收益应看A与R0；额外碰撞项的收益必须看B与A，不能混为一谈。
 
 环境：NVIDIA GeForce RTX 4080 SUPER，Python 3.10.22，PyTorch 2.4.0+cu121，CUDA runtime 12.1。优化实现 commit `429c304f6a4a7a1fa43d2baedcb6667012bccf43`；完整环境、pip freeze、每组源码SHA与原始文件SHA均在产物目录。

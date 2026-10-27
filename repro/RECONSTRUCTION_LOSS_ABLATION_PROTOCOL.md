@@ -1,5 +1,7 @@
 # 研究问题校正：运动碰撞 Loss 是否改善重建
 
+研究范围更新：用户现明确要求冻结生成部件，仅优化轴位置、方向及运动起止值。以下是此前已完成的“几何与轴同时可变”实验历史协议，不再作为新要求的主要对照。原始配置、checkpoint 和实测结果保留；新设置与原文训练的区别见 [FROZEN_GEOMETRY_PROTOCOL_REVIEW.md](FROZEN_GEOMETRY_PROTOCOL_REVIEW.md)。
+
 状态：三组成对正式实验（共六次200步）及评价均已完成，实测结果见 [RECONSTRUCTION_LOSS_ABLATION_RESULTS.md](RECONSTRUCTION_LOSS_ABLATION_RESULTS.md)。此前固定几何的轴优化、原版场景筛选及其所有正负结果保持原样。
 
 ## 要回答的问题
