@@ -1,0 +1,175 @@
+{
+  "state": "complete",
+  "completed_utc": "2026-10-27T08:46:27.685821+00:00",
+  "root": "/root/autodl-tmp/PAct/repro/outputs/axis_extra_cases_20261027T082449Z",
+  "source_git_sha": "d1586b7b46511298d1e0723f6cc989f970bc8e35",
+  "branch": "research/axis-only-extra-cases-20261027",
+  "formal_direct_trials": 4,
+  "formal_direct_steps_each": 200,
+  "head_new_optimizer_steps": 0,
+  "head_source_steps_each": 200,
+  "test_objects": [
+    "20411",
+    "10655"
+  ],
+  "checkpoint_sha256": {
+    "direct_20411_A": "59d9e7f1610c5fe22b08c33788e12f5067d26b7a6ac2a831d0f7949c6056eb6a",
+    "direct_20411_B": "10a8e8bf10304932af7d3697dda7aafe52442c4f5d2ee50290a1707f48ffebb3",
+    "direct_10655_A": "d8b0c1dd114fe98167fc1fe03f2880c72cfe982407b77abb46c3d08a0531ebb4",
+    "direct_10655_B": "d2affd0c2c0b784440e8bd84e488875d6a09ccbaca890e8ce6539e46fd14281b",
+    "head_shared_A": "0ad7f636a6d1f33f05d697300217093d9eee1050eff0f462d9df735e02ce5045",
+    "head_shared_B": "7a4166bf65f1fbafc08b43c9a252c303df5c86b1680cd30c17dd83423a9af041"
+  },
+  "frozen_files_verified": 12,
+  "older_files_verified": 57,
+  "control_max_parameter_difference": {
+    "20411_zero_control": 0.0,
+    "10655_zero_control": 0.0,
+    "resume_control": 0.0
+  },
+  "max_numeric_endpoint_change": 0.0,
+  "max_common_zero_pose_proxy_difference": 0.0,
+  "all_export_axis_sign_reversals": {
+    "direct_20411_A/20411_candidate.json": [],
+    "direct_20411_B/20411_candidate.json": [],
+    "direct_10655_A/10655_candidate.json": [],
+    "direct_10655_B/10655_candidate.json": [],
+    "head_shared_A/20411_candidate.json": [],
+    "head_shared_A/10655_candidate.json": [],
+    "head_shared_A/20411_official.json": [],
+    "head_shared_A/10655_official.json": [],
+    "head_shared_B/20411_candidate.json": [],
+    "head_shared_B/10655_candidate.json": [],
+    "head_shared_B/20411_official.json": [],
+    "head_shared_B/10655_official.json": []
+  },
+  "movie_frame_counts": {
+    "direct_20411": 21,
+    "direct_10655": 21,
+    "head_20411": 21,
+    "head_10655": 21
+  },
+  "linked_exports": [
+    "/root/autodl-tmp/PAct/repro/outputs/axis_extra_cases_20261027T082449Z/direct_20411_A/export_20411_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/axis_extra_cases_20261027T082449Z/direct_20411_B/export_20411_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/axis_extra_cases_20261027T082449Z/direct_10655_A/export_10655_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/axis_extra_cases_20261027T082449Z/direct_10655_B/export_10655_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/axis_extra_cases_20261027T082449Z/head_shared_A/export_20411_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/axis_extra_cases_20261027T082449Z/head_shared_A/export_10655_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/axis_extra_cases_20261027T082449Z/head_shared_A/export_20411_official/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/axis_extra_cases_20261027T082449Z/head_shared_A/export_10655_official/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/axis_extra_cases_20261027T082449Z/head_shared_B/export_20411_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/axis_extra_cases_20261027T082449Z/head_shared_B/export_10655_continuous/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/axis_extra_cases_20261027T082449Z/head_shared_B/export_20411_official/object.json",
+    "/root/autodl-tmp/PAct/repro/outputs/axis_extra_cases_20261027T082449Z/head_shared_B/export_10655_official/object.json"
+  ],
+  "ineligible_cases": {
+    "101284": {
+      "reason": "All predicted nodes fixed. No axis exists under frozen-type protocol. No GT error used to reject it. Original preserved.",
+      "status_path": "/root/autodl-tmp/PAct/repro/outputs/axis_extra_cases_20261027T082449Z/features/101284/status.json",
+      "object": "/root/autodl-tmp/PAct/repro/outputs/axis_extra_cases_20261027T082449Z/features/101284/baseline/seed42_slatcfg7.0_sscfg7.0_sssteps25_slatsteps25_artioutmean_feature_regression_steps/exported_arti_objects/Sample@101284_000000_processed.@ng/object.json",
+      "object_sha256": "acf5ec5168d5ec49ea4166d2049a391cffd972ff9fa467409b096fd095944da2",
+      "predicted_types": [
+        "fixed",
+        "fixed",
+        "fixed"
+      ]
+    }
+  },
+  "config_sha256": "bd4dfa75ada5afc875f63d4e88ab1f36628b326bab88182a7b2cc1cf4ef92a6c",
+  "results_sha256": "480f6ba772e0316bf34476e812c490208974ed41db7da0a137f0f3d780531f1d",
+  "report_sha256": "2654899146e69662dbab0eeaa25e07771c5617f744d2e05281e590c53d7d3b92",
+  "parent_integrity_sha256": "1ab433a82b836ae6042dff93f1c54b2edcd9ac261ab1fa076f34fc494b2e8530",
+  "final_source_sha256": {
+    "report_axis_extra_cases.py": "d7bbb55cafd0b54e174b9ffe9b7510e5f42cac6da42909acc1ac1969d127bc92",
+    "run_frozen_joint_trial.py": "f08c3766bc4b2b3c68e9af1e2688bcf804cd1f5cb9a1e9f781ea1378edcd0db6",
+    "collision_refinement_common.py": "09c9b1adf7618718e3813c6defd749b2acc21488e4d0dbbedd4bd4429c1d584d",
+    "refine_collision_axes.py": "adb04a161f190f2451d7b1445fb0ffed20776e241028886543feddc13d10ea90",
+    "run_axis_fixed_trial.py": "c67c485ba243374dd9982b89e3160232fc7bf9e43e76beb518aaeb4bdcaf044a",
+    "axis_fixed_common.py": "1e5ff1dcae7c11106d03d9b933db51c0c125cb38b38e323b57e51367a7cf06d2",
+    "frozen_joint_common.py": "4156bf64149ab19088997a794e2b2c26b676b5367e2b2b3fd8679d42b3b3abfb",
+    "evaluate_freeart_partnet_case.py": "cee1fa86f3d036bf1f8c0a31f9a89f1b906e7f1f20fe822e3a280ee74d260dbe",
+    "cache_axis_extra_features.py": "1bb09eea964904ecbe8b141ea3c72489686bca1d0f5693cbd62f737360ca79ec",
+    "seal_axis_extra_cases.py": "901616728511e7e6b33a474f4aa7835d70920fdceab5959115f78e0d43e97d25",
+    "evaluate_axis_fixed_routes.py": "5fc1d5b3865da506e55796f6f00fc11bf618156c394f8f8c7c29519cf1f0bc00",
+    "run_axis_extra_cases.py": "0bf42e129c8760c3e94f79703b2bc7e44f083cb3acee566589e32fdb89bff492",
+    "evaluate_gt_joints.py": "23aaf0afc36791b93644d13f73e8b8c70e5a93b5c7017f9b7840fb79e0225edd",
+    "reconstruction_ablation_common.py": "a9839dc241e7c0a3d0629f74f02c57e7ae246662e960f8d813432c5b78f7beab",
+    "build_axis_fixed_report.py": "687f97b972ec38cf8fbc5eab8a712e43b7c4981ab6cd0448b4f68cc74edeb193",
+    "evaluate_frozen_joint_routes.py": "bf4b0732f1ee416013e0c838a206a3b6d8e3bbbc9c5153e16b891f45595b337d"
+  },
+  "axis_summary": [
+    {
+      "route": "direct",
+      "case": "20411",
+      "branch": "direct",
+      "axis_A": 0.6333759030975756,
+      "axis_B": 4.936846380510901,
+      "pivot_A": null,
+      "pivot_B": null,
+      "motion_proxy_change_percent": -80.94741250604666,
+      "motion_proxy_A": 0.0010869387180896522,
+      "motion_proxy_B": 0.00020708995026968584
+    },
+    {
+      "route": "direct",
+      "case": "10655",
+      "branch": "direct",
+      "axis_A": 0.0,
+      "axis_B": 0.43840802013875707,
+      "pivot_A": 51.164603125215784,
+      "pivot_B": 53.152354211863226,
+      "motion_proxy_change_percent": -6.835116608715753,
+      "motion_proxy_A": 0.011152924768786645,
+      "motion_proxy_B": 0.010390609355557736
+    },
+    {
+      "route": "head",
+      "case": "20411",
+      "branch": "continuous",
+      "axis_A": 0.4571807440094119,
+      "axis_B": 3.2613472395490164,
+      "pivot_A": null,
+      "pivot_B": null,
+      "motion_proxy_change_percent": 156.62395245425853,
+      "motion_proxy_A": 0.0019346519015593137,
+      "motion_proxy_B": 0.004964780176012981
+    },
+    {
+      "route": "head",
+      "case": "20411",
+      "branch": "official",
+      "axis_A": 0.4571807440094119,
+      "axis_B": 3.2613472395490164,
+      "pivot_A": null,
+      "pivot_B": null,
+      "motion_proxy_change_percent": 156.62395245425853,
+      "motion_proxy_A": 0.0019346519015593137,
+      "motion_proxy_B": 0.004964780176012981
+    },
+    {
+      "route": "head",
+      "case": "10655",
+      "branch": "continuous",
+      "axis_A": 2.3193993970635387,
+      "axis_B": 13.15973353807145,
+      "pivot_A": 38.459747880905,
+      "pivot_B": 75.9145829324267,
+      "motion_proxy_change_percent": -36.196580250879784,
+      "motion_proxy_A": 0.014070742714362658,
+      "motion_proxy_B": 0.008977615035863558
+    },
+    {
+      "route": "head",
+      "case": "10655",
+      "branch": "official",
+      "axis_A": 0.0,
+      "axis_B": 0.0,
+      "pivot_A": 51.164603125215784,
+      "pivot_B": 65.86016273200852,
+      "motion_proxy_change_percent": -13.895666346604074,
+      "motion_proxy_A": 0.011152924768786645,
+      "motion_proxy_B": 0.00960315155502829
+    }
+  ]
+}
