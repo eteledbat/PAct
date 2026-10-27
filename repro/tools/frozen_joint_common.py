@@ -148,13 +148,14 @@ def continuous_from_raw(raw, scene):
 
 
 def original_postprocessed(raw, scene):
-    """Use official decoding and bbox projection on the SAME frozen GS twice.
+    """Use official decoding, then the original GS->Mesh bbox projection order.
 
     Type/semantics/tree remain the original prediction, as requested.
     """
     from modules.utils.articulation_utils import convert_data_2_info, post_process_arti_info
     info = convert_data_2_info(raw.detach().cpu().numpy())
     reps = []
+    mesh_reps = []
     class Coordinates:
         pass
     for p in scene.asset['parts']:
@@ -166,11 +167,13 @@ def original_postprocessed(raw, scene):
         xyz = np.column_stack([v[k] for k in ['x','y','z']])
         rep = Coordinates(); rep.get_xyz = tensor(xyz)
         reps.append(rep)
+        mesh_rep=Coordinates();mesh_rep.get_xyz=tensor(np.asarray(p['mesh'].vertices)@RAW_TO_EXPORT)
+        mesh_reps.append(mesh_rep)
     for i, n in enumerate(scene.asset['nodes']):
         info[i]['name'] = n['name']
         info[i]['joint']['type'] = n['joint']['type']
     info = post_process_arti_info(info,reps)
-    info = post_process_arti_info(info,reps)
+    info = post_process_arti_info(info,mesh_reps)
     obj = copy.deepcopy(scene.asset['object'])
     for n, new in zip(obj['diffuse_tree'], info):
         if n['id'] not in scene.params.indices:
