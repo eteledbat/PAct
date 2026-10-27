@@ -5,7 +5,7 @@ import pathlib
 
 import numpy as np
 
-from axis_fixed_common import atomic_json
+from axis_fixed_common import atomic_json,sha256
 
 
 def fmt(x,n=3):return 'N/A' if x is None else f'{x:.{n}f}'
@@ -28,9 +28,28 @@ def summaries(results):
     return rows
 
 
+def predicted_changes(cfg,data):
+    """Read all optimized test nodes, including predictions without a GT match."""
+    changes={}
+    for route,cases in data.items():
+        changes[route]={}
+        for case,methods in cases.items():
+            run=pathlib.Path(cfg['runs'][case]);status=json.loads((run/'status.json').read_text());original=json.loads(pathlib.Path(status['object']).read_text());byid={n['id']:n for n in original['diffuse_tree']};changes[route][case]={}
+            for method,result in methods.items():
+                if not result['candidate']:continue
+                obj=json.loads(pathlib.Path(result['candidate']).read_text());rows=[]
+                for n in obj['diffuse_tree']:
+                    old=byid[n['id']];assert n['joint']['range']==old['joint']['range']
+                    if old['joint']['type']=='fixed':continue
+                    d=np.array(n['joint']['axis']['direction']);d0=np.array(old['joint']['axis']['direction']);cos=np.clip(d@d0/(np.linalg.norm(d)*np.linalg.norm(d0)),-1,1)
+                    rows.append({'node_id':n['id'],'type':n['joint']['type'],'oriented_rotation_from_original_degrees':float(np.degrees(np.arccos(cos))),'axis_sign_reversed':bool(cos<0),'numeric_endpoint_change':0.})
+                changes[route][case][method]=rows
+    return changes
+
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--root',required=True);a=p.parse_args();root=pathlib.Path(a.root);cfg=json.loads((root/'config.json').read_text());assert json.loads((root/'evaluation_status.json').read_text())['state']=='complete'
-    data=json.loads((root/'results.json').read_text());parent=pathlib.Path(cfg['parent_root']);old=json.loads((parent/'results.json').read_text());summary=summaries(data);prior=summaries(old)
+    data=json.loads((root/'results.json').read_text());parent=pathlib.Path(cfg['parent_root']);old=json.loads((parent/'results.json').read_text());summary=summaries(data);prior=summaries(old);all_changes=predicted_changes(cfg,data);atomic_json(root/'all_predicted_axis_changes.json',all_changes)
     lines=['# 只优化轴：冻结部件和原版起止数值','',
         '本轮直接检验：当部件几何与每个关节的原版预测起点、终点均固定时，加入运动碰撞Loss是否使轴位置和方向更接近GT。以下只包含完成的固定最终200步结果，原版和上一轮起止值可变结果保留。','',
         '两条路线各保留A不加/B加碰撞Loss。direct为逐物体轴后处理，A仅原预测二次先验（初始化为驻点）；B加同一定义的运动Gaussian代理。head为官方关节输出MLP的小规模GT轴监督微调，A/B只相差碰撞权重，不是完整flow-matching续训。','',
@@ -43,6 +62,9 @@ def main():
         '| 路线 / 场景 / 分支 | 方向误差 A→B ° | 位置误差 A→B %GT D | 固定范围代理变化 |',
         '| --- | --- | --- | --- |']
     for row in summary:lines.append(f"| {row['route']}/{row['case']}/{row['branch']} | {fmt(row['axis_A'])} → {fmt(row['axis_B'])} | {fmt(row['pivot_A'])} → {fmt(row['pivot_B'])} | {fmt(row['motion_proxy_change_percent'],2)}% |")
+    if (root/'interpretation.json').exists():
+        notes=json.loads((root/'interpretation.json').read_text());assert notes['results_sha256']==sha256(root/'results.json')
+        lines+=['','## 实测结果解释','',notes['text']]
     lines+=['','### 原版参照','',
         'A/B比较之外必须检查原版：head的A若因小样本微调退化，B优于A也不自动表示优于原版。R0为官方后处理结果，R0_raw为原始连续关节输出，二者使用相同生成部件。','',
         '| 场景 / 原版输出 | 方向误差 ° | 位置误差 %GT D |',
@@ -50,6 +72,15 @@ def main():
     for case,methods in data['head'].items():
         for method in ['R0','R0_raw']:
             lines.append(f"| {case}/{method} | {fmt(average(methods[method],'axis_error_degrees'))} | {fmt(average(methods[method],'pivot_error_percent_GT_D'))} |")
+    lines+=['','### 类型与GT匹配覆盖','',
+        'GT条件轴均值仅覆盖匹配且类型正确的活动关节，不能代表所有生成部件。未匹配的活动部件仍参与运动代理，但其轴精度不可评估。','',
+        '| 场景 | GT匹配关节类型正确数 | 错误类型节点 | 未匹配的预测活动节点 |',
+        '| --- | --- | --- | --- |']
+    for case,methods in data['direct'].items():
+        run=pathlib.Path(cfg['runs'][case]);status=json.loads((run/'status.json').read_text());obj=json.loads(pathlib.Path(status['object']).read_text());rows=methods['R0']['joints'];matched={j['node_id'] for j in rows}
+        unmatched=[str(n['id']) for n in obj['diffuse_tree'] if n['joint']['type']!='fixed' and n['id'] not in matched]
+        wrong=[f"{j['node_id']}: {j['type']} vs GT {j['GT_type']}" for j in rows if not j['type_correct']]
+        lines.append(f"| {case} | {sum(j['type_correct'] for j in rows)}/{len(rows)} | {', '.join(wrong) or 'none'} | {', '.join(unmatched) or 'none'} |")
     lines+=['','## 逐轴误差和实际参数变化','',
         '| 路线 / 场景 / 分支 | GT部件 | 方向误差 A→B ° | 位置误差 A→B %GT D | 原点实际移动 %GT D | 轴实际旋转 ° | 有向旋转 ° |',
         '| --- | --- | --- | --- | --- | --- | --- |']
@@ -83,11 +114,24 @@ def main():
     lines+=['','六项正式训练的每步检查、所有预测/导出文件和全部评价的最大起止数值变化均为0。若有轴方向翻转，另列如下；它不表示range数值更新。','',
         '| 路线 / 场景 / 输出 | 相对原版方向反向的节点 |',
         '| --- | --- |']
+    for route,cases in all_changes.items():
+        for case,methods in cases.items():
+            for method,rows in methods.items():
+                nodes=[str(j['node_id']) for j in rows if j['axis_sign_reversed']]
+                lines.append(f"| {route}/{case}/{method} | {', '.join(nodes) if nodes else 'none'} |")
+    lines+=['','此表检查全部正式A/B预测活动节点，包含没有GT匹配的预测部件；逐节点有向角见all_predicted_axis_changes.json。']
+    lines+=['','## 每条运动路径的重叠代理','',
+        '下列均为固定数值范围上的41状态均值。路径编号按原版活动节点顺序，非GT部件编号。单关节路径仍统计全物体部件对重叠，其他关节保持原版起点，不能把整条路径下降全部归给该关节局部接触。','',
+        '| 路线 / 场景 / 分支 | 路径（预测节点） | A→B 代理变化 |',
+        '| --- | --- | --- |']
     for route,cases in data.items():
         for case,methods in cases.items():
-            for method,result in methods.items():
-                nodes=[str(j['node_id']) for j in result['joints'] if j['axis_sign_reversed']]
-                lines.append(f"| {route}/{case}/{method} | {', '.join(nodes) if nodes else 'none'} |")
+            run=pathlib.Path(cfg['runs'][case]);obj=json.loads(pathlib.Path(json.loads((run/'status.json').read_text())['object']).read_text());active=[n['id'] for n in obj['diffuse_tree'] if n['joint']['type']!='fixed']
+            branches=[('A','B','direct')] if route=='direct' else [('A_raw','B_raw','continuous'),('A_official','B_official','official')]
+            for akey,bkey,branch in branches:
+                for x,y in zip(methods[akey]['fixed_range_motion']['paths'],methods[bkey]['fixed_range_motion']['paths']):
+                    name=x['path'];node=active[int(name.rsplit('_',1)[-1])] if name.startswith('only_index_') else 'all';base=x['mean_proxy'];change=100*(y['mean_proxy']/base-1) if base>1e-12 else None
+                    lines.append(f"| {route}/{case}/{branch} | {name} (node {node}) | {fmt(change,2)}% |")
     lines+=['','## 与上一轮起止可变实验对照','',
         '两轮使用同一批原版部件与特征，坐标/GT评价一致。新一轮移除运动区间自由度；head的范围监督也随之移除。下表是协议消融，不能将跨协议差异全归因于碰撞Loss。每轮内部的A/B才是加入该Loss的直接对照。','',
         '| 路线 / 场景 / 分支 | 上轮起止可变：方向 A→B ° | 本轮固定：方向 A→B ° | 上轮位置 A→B %GT D | 本轮位置 A→B %GT D |',

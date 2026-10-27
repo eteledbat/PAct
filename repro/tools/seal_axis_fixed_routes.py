@@ -38,7 +38,7 @@ def main():
         for key in ['target','mask']:
             value=pack[key].clone();value[:,6:12]=0;assert not torch.count_nonzero(value)
     labels=[*[f'direct_{c}_{arm}' for c in cfg['direct_cases'] for arm in ['A','B']],*[f'head_shared_{arm}' for arm in ['A','B']]]
-    seals={};exports=[];max_range=0.;training_sources=set()
+    seals={};exports=[];max_range=0.;training_sources=set();all_node_sign_reversals={}
     for label in labels:
         out=root/label;status=json.loads((out/'status.json').read_text());assert status['state']=='complete' and status['step']==cfg['steps']
         history=json.loads((out/'history.json').read_text());assert [h['step'] for h in history]==list(range(1,cfg['steps']+1))
@@ -73,9 +73,15 @@ def main():
             obj=json.loads(file.read_text());source=pathlib.Path(obj['geometry_source_object']);original=json.loads(source.read_text())
             byid={n['id']:n for n in original['diffuse_tree']}
             assert len(byid)==len(obj['diffuse_tree'])
+            reversed_nodes=[]
             for n in obj['diffuse_tree']:
                 old=byid[n['id']];assert n['joint']['range']==old['joint']['range'];assert n['joint']['type']==old['joint']['type'];assert n.get('parent')==old.get('parent')
                 for key in ['plys','gs']:assert n[key]==old[key]
+                if old['joint']['type']!='fixed':
+                    d=np.array(n['joint']['axis']['direction']);d0=np.array(old['joint']['axis']['direction'])
+                    assert np.isfinite(d).all() and np.linalg.norm(d)>1e-8
+                    if d@d0<0:reversed_nodes.append(n['id'])
+            all_node_sign_reversals[str(file.relative_to(root))]=reversed_nodes
             directory=out/f'export_{case}_{kind}';directory.mkdir(exist_ok=True)
             for name in ['ply','gs']:
                 target=directory/name
@@ -114,8 +120,10 @@ def main():
         'formal_trials':len(labels),'test_objects':cfg['test_cases'],'head_train_objects':cfg['train_cases'],
         'checkpoint_sha256':seals,'frozen_files_verified':len(frozen),'older_source_files_verified':len(older),
         'control_max_parameter_difference':checks,'max_numeric_endpoint_change':max_range,
+        'all_export_axis_sign_reversals':all_node_sign_reversals,
         'max_common_zero_pose_proxy_difference':max_static,'movie_frame_counts':movies,'linked_exports':exports,
         'config_sha256':sha256(root/'config.json'),'results_sha256':sha256(root/'results.json'),'report_sha256':sha256(root/'REPORT.md'),
+        'interpretation_sha256':sha256(root/'interpretation.json'),'all_predicted_axis_changes_sha256':sha256(root/'all_predicted_axis_changes.json'),
         'parent_integrity_sha256':cfg['parent_integrity_sha256'],
         'final_source_sha256':{f.name:sha256(f) for f in sources.iterdir()},'root':str(root)}
     atomic_json(root/'integrity.json',inventory)

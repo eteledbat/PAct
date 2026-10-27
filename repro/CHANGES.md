@@ -1,5 +1,7 @@
 # PAct 复现改动与环境偏差
 
+2026-10-27追加：research/axis-only-fixed-ranges-20261027进一步冻结原版native起止值，两条路线各A/B重新初始化，六项200步及评价已完成。新增独立axis_fixed工具，不修改上轮训练源码或已封存结果。direct仅theta/phi进入Adam；head只消费有效轴输出，其余通道回放原版，FK/导出显式固定原范围；训练GT目标剔除所有非轴通道。增加每步范围断言、共享MLP范围泄漏检查、真实中断恢复/零权重对照、全部活动节点有向旋转检查和GT匹配覆盖说明。保留相同运动Gaussian代理定义，不改原版Loss。完整参数、连续/官方导出两套GT轴读数、固定范围运动曲线与上一轮协议对照见AXIS_ONLY_FIXED_RANGES_RESULTS.md。未生成新几何、未恢复Part²GS、未执行完整flow-matching训练。
+
 2026-10-27新增：在独立research/frozen-geometry-protocol-20261027分支完成冻结部件的direct/head两条A/B路线，共六次200步。新增GT训练对象打包、官方冻结特征/输出MLP缓存、纯刚体参数优化、梯度/刚体/后处理顺序核验、恢复与零权重控制、41状态只读评价和文档。head复用原版关节MSE及编码函数，但训练分布、冻结范围、连续通道mask与小样本划分有明确偏差；不是完整原版续训。未修改官方train.py、Stage2配置、原版训练Loss和模型；未恢复Part²GS，未修改旧部件。全部局部几何/外观文件SHA封存，细化只改关节参数或输出MLP；无自写RGB重建项。详情见FROZEN_JOINT_ROUTES_PROTOCOL.md和FROZEN_JOINT_ROUTES_RESULTS.md。
 
 原版 commit `a5ccec5056e7b27f39ddb5b83613c0efba9b2861`，tag `upstream-original-a5ccec5`。工作分支 `repro/pact-baseline-20261024`，不推送 upstream。
