@@ -67,6 +67,14 @@ def main():
                     d0,d1=np.array(x['predicted_axis_direction_world']),np.array(y['predicted_axis_direction_world']);turn=float(np.degrees(np.arccos(np.clip(abs(d0@d1)/(np.linalg.norm(d0)*np.linalg.norm(d1)),0,1))))
                     displacement=100*np.linalg.norm(np.array(x['predicted_axis_origin_world'])-np.array(y['predicted_axis_origin_world']))/D if x['type']=='revolute' else None
                     lines.append(f"| {route}/{case}/{branch} | {x['GT_part']} | {fmt(displacement)} | {fmt(turn)} | {fmt(y['q_start']-x['q_start'])} | {fmt(y['q_end']-x['q_end'])} |")
+    lines+=['','原点沿轴的移动不改变轴线；原点移动幅度不能单独当作轴位置的改善，需结合到GT轴的垂距与方向误差。','',
+            '## 运行预算与耗时','',
+            'direct每个对象各200步；head为四个训练对象共享200次更新，每次一个对象，不是每个对象200步。A/B预算一致，跨路线的监督和预算不同，不直接当作同一训练设置排名。','',
+            '| 正式任务 | 步数 | 耗时 秒 | Torch峰值allocated MiB |',
+            '| --- | --- | --- | --- |']
+    for label in [*[f'direct_{c}_{arm}' for c in cfg['direct_cases'] for arm in ['A','B']],*[f'head_shared_{arm}' for arm in ['A','B']]]:
+        status=json.loads((root/label/'status.json').read_text());assert status['state']=='complete'
+        lines.append(f"| {label} | {status['step']} | {fmt(status['elapsed_seconds'],1)} | {fmt(status['peak_gpu_MiB'],1)} |")
     lines+=['','这是4个训练对象、2个测试对象、单seed、单碰撞权重的小规模实验，不构成泛化有效性的充分证据。几何冻结消除了本轮的形状变形自由度，但错误几何和错误类型仍会限制轴优化；不能将“存在可行碰撞下降”等同于找到GT机械轴。','',
             '## 核验与产物','',
             f'- 实验根目录：[{root.name}]({root})。',

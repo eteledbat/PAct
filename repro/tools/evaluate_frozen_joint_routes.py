@@ -1,8 +1,10 @@
 """Post-seal axis/endpoints and held-out-source motion analysis; no fitting."""
 import argparse
 import copy
+import hashlib
 import json
 import pathlib
+import os
 import time
 
 import imageio
@@ -47,6 +49,10 @@ def axis_metrics(scene,obj):
 
 
 def heldout_sources(scene,count=2048):
+    class ParallelQueries:
+        def __init__(self,tree):self.tree=tree
+        def query(self,points,workers=4):return self.tree.query(points,workers=min(16,len(os.sched_getaffinity(0))))
+    scene.objective.trees=[ParallelQueries(t) for t in scene.objective.trees]
     for p,data in zip(scene.asset['parts'],scene.objective.data):
         available=np.setdiff1d(p['retained_ids'],p['sample_ids']);rng=np.random.default_rng(2026+int(p['node']['id']));chosen=np.sort(rng.choice(available,min(count,len(available)),replace=False));assert not np.intersect1d(chosen,p['sample_ids']).size
         ids=torch.as_tensor(np.searchsorted(p['retained_ids'],chosen),device='cuda')
@@ -58,7 +64,7 @@ def motion(scene,limits):
     for name,qs in paths(limits,41):
         # Bound transient arrays without changing the independent evaluation grid.
         values={k:[] for k in ['proxy','minimum_sampled_center_distance','minimum_sampled_one_sigma_gap']}
-        for chunk in qs.split(8):
+        for chunk in qs.split(41):
             block=scene.proxy_states(chunk)
             for k in values:values[k].extend(block[k].cpu().tolist())
         result.append({'path':name,**values,'mean_proxy':float(np.mean(values['proxy'])),'max_proxy':float(max(values['proxy']))})
@@ -137,13 +143,24 @@ def main():
                         folder=root/f'head_shared_{arm}';seal=json.loads((folder/'seal.json').read_text());assert seal['frozen_assets_unchanged'] and seal['checkpoint_sha256']==sha256(folder/'checkpoint.pt')
                         for key,suffix in [('raw','candidate'),('official','official')]:
                             path=folder/f'{case}_{suffix}.json';assert sha256(path)==seal['candidates'][case+('_continuous' if key=='raw' else '_official')];objects[arm+'_'+key]=json.loads(path.read_text());sources[arm+'_'+key]=str(path)
-                directory=root/f'eval_{route}_{case}';directory.mkdir(exist_ok=True);results={}
+                directory=root/f'eval_{route}_{case}';directory.mkdir(exist_ok=True);results={};motion_cache={}
+                def motion_key(limits):
+                    return hashlib.sha256(b''.join(x.detach().cpu().numpy().tobytes() for x in [*scene.params.axes(),limits])).hexdigest()
+                def cached_motion(limits):
+                    key=motion_key(limits)
+                    if key not in motion_cache:motion_cache[key]=motion(scene,limits)
+                    return copy.deepcopy(motion_cache[key])
                 for method,obj in objects.items():
                     file=directory/f'{method}_metrics.json'
-                    if file.exists():results[method]=json.loads(file.read_text());continue
+                    scene.params.override=state_from_nodes(scene,obj['diffuse_tree'])
+                    if file.exists():
+                        result=json.loads(file.read_text());results[method]=result
+                        motion_cache[motion_key(scene.params.limits())]=result['own_range_motion']
+                        motion_cache[motion_key(scene.params.limits0)]=result['common_original_range_motion']
+                        continue
                     atomic_json(root/'evaluation_status.json',{'state':'running','route':route,'case':case,'method':method})
-                    scene.params.override=state_from_nodes(scene,obj['diffuse_tree']);rows=axis_metrics(scene,obj)
-                    with torch.no_grad():learned=motion(scene,scene.params.limits());common=motion(scene,scene.params.limits0)
+                    rows=axis_metrics(scene,obj)
+                    with torch.no_grad():learned=cached_motion(scene.params.limits());common=cached_motion(scene.params.limits0)
                     result={'case':case,'route':route,'method':method,'joints':rows,'own_range_motion':learned,'common_original_range_motion':common,'geometry_frozen':True,'candidate':sources.get(method),'axis_alignment':'Same original-baseline GT static-AABB similarity for every method; no candidate refit','GT_test_used':'Post-seal evaluation only'}
                     atomic_json(file,result);results[method]=result
                     print('EVALUATED',route,case,method,flush=True)
