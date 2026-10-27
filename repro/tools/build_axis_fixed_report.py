@@ -43,6 +43,13 @@ def main():
         '| 路线 / 场景 / 分支 | 方向误差 A→B ° | 位置误差 A→B %GT D | 固定范围代理变化 |',
         '| --- | --- | --- | --- |']
     for row in summary:lines.append(f"| {row['route']}/{row['case']}/{row['branch']} | {fmt(row['axis_A'])} → {fmt(row['axis_B'])} | {fmt(row['pivot_A'])} → {fmt(row['pivot_B'])} | {fmt(row['motion_proxy_change_percent'],2)}% |")
+    lines+=['','### 原版参照','',
+        'A/B比较之外必须检查原版：head的A若因小样本微调退化，B优于A也不自动表示优于原版。R0为官方后处理结果，R0_raw为原始连续关节输出，二者使用相同生成部件。','',
+        '| 场景 / 原版输出 | 方向误差 ° | 位置误差 %GT D |',
+        '| --- | --- | --- |']
+    for case,methods in data['head'].items():
+        for method in ['R0','R0_raw']:
+            lines.append(f"| {case}/{method} | {fmt(average(methods[method],'axis_error_degrees'))} | {fmt(average(methods[method],'pivot_error_percent_GT_D'))} |")
     lines+=['','## 逐轴误差和实际参数变化','',
         '| 路线 / 场景 / 分支 | GT部件 | 方向误差 A→B ° | 位置误差 A→B %GT D | 原点实际移动 %GT D | 轴实际旋转 ° | 有向旋转 ° |',
         '| --- | --- | --- | --- | --- | --- | --- |']

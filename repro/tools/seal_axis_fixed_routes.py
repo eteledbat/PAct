@@ -38,7 +38,7 @@ def main():
         for key in ['target','mask']:
             value=pack[key].clone();value[:,6:12]=0;assert not torch.count_nonzero(value)
     labels=[*[f'direct_{c}_{arm}' for c in cfg['direct_cases'] for arm in ['A','B']],*[f'head_shared_{arm}' for arm in ['A','B']]]
-    seals={};exports=[];max_range=0.
+    seals={};exports=[];max_range=0.;training_sources=set()
     for label in labels:
         out=root/label;status=json.loads((out/'status.json').read_text());assert status['state']=='complete' and status['step']==cfg['steps']
         history=json.loads((out/'history.json').read_text());assert [h['step'] for h in history]==list(range(1,cfg['steps']+1))
@@ -50,6 +50,8 @@ def main():
         assert seal['endpoints_frozen_all_steps'] and seal['max_endpoint_delta']==0
         seals[label]=seal['checkpoint_sha256']
         protocol=json.loads((out/'protocol.json').read_text());assert protocol['config_sha256']==sha256(root/'config.json')
+        for name,digest in protocol['sources'].items():
+            source=REPO/'repro/tools'/name;assert sha256(source)==digest;training_sources.add(source)
         checkpoint=torch.load(out/'checkpoint.pt',map_location='cpu',weights_only=False)
         if label.startswith('direct'):
             assert not torch.count_nonzero(checkpoint['model']['range_delta'])
@@ -59,6 +61,13 @@ def main():
                 cache=torch.load(root/'features'/case/'cache.pt',map_location='cpu',weights_only=False)
                 raw=np.load(out/f'{case}_raw.npy');base=cache['raw'].numpy()
                 assert np.array_equal(raw[:,12:18],base[:,12:18])
+                srcstatus=json.loads((pathlib.Path(cfg['runs'][case])/'status.json').read_text())
+                srcobj=json.loads(pathlib.Path(srcstatus['object']).read_text());free=np.zeros_like(raw,dtype=bool)
+                for node in srcobj['diffuse_tree']:
+                    if node['joint']['type']=='fixed':continue
+                    free[node['id'],6:9]=True
+                    if node['joint']['type'] in ['revolute','continuous']:free[node['id'],9:12]=True
+                assert np.array_equal(raw[~free],base[~free])
         for file in [*out.glob('*_candidate.json'),*out.glob('*_official.json')]:
             case=file.stem.split('_')[0];kind='official' if file.stem.endswith('_official') else 'continuous';assert sha256(file)==seal['candidates'][case+'_'+kind]
             obj=json.loads(file.read_text());source=pathlib.Path(obj['geometry_source_object']);original=json.loads(source.read_text())
@@ -96,6 +105,7 @@ def main():
     assert max_static<1e-6 and max_range==0
     sources=root/'final_sources';sources.mkdir(exist_ok=True)
     files=set((REPO/'repro/tools').glob('*axis_fixed*.py'))
+    files.update(training_sources)
     files.update(REPO/'repro/tools'/name for name in ['frozen_joint_common.py','run_frozen_joint_trial.py','collision_refinement_common.py','reconstruction_ablation_common.py','evaluate_frozen_joint_routes.py'])
     for file in files:(sources/file.name).write_bytes(file.read_bytes())
     inventory={'state':'complete','completed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
