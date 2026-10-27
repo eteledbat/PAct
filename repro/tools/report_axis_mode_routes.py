@@ -121,6 +121,14 @@ def main():
         '| 路线 / 场景 / 输出 | 此前both方向 A→B ° | 此前both位置 A→B %GT D | 此前both运动代理变化 |',
         '| --- | --- | --- | --- |']
     for r in summaries(old):lines.append(f"| {r['route']}/{r['case']}/{r['branch']} | {fmt(r['axis_A'])} → {fmt(r['axis_B'])} | {fmt(r['pivot_A'])} → {fmt(r['pivot_B'])} | {fmt(r['motion_proxy_change_percent'],2)}% |")
+    lines+=['','## 已有预检中的梯度尺度','',
+        '以下来自正式运行前已有预检：平均推理特征、同步路径固定三个状态[2,10,20]，输出MLP参数的梯度范数。它不是实际每步使用的单时刻特征/循环三状态梯度；未测梯度夹角，不能仅凭范数称为方向冲突。保留相同权重也不意味着方向与位置模式的物理/监督梯度比例相同，本轮没有用这些数值调参。','',
+        '| 模式 / 训练对象 | 0.02×物理梯度范数 / GT MSE梯度范数 |',
+        '| --- | --- |']
+    for mode in top['modes']:
+        preflight=json.loads((root/mode/'gradient_and_freeze_checks.json').read_text())
+        for case,row in preflight['head'].items():
+            ratio=.02*row['selected_collision_MLP_gradient_norm']/row['selected_MSE_MLP_gradient_norm'];lines.append(f'| {mode}/{case} | {ratio:.2f} |')
     lines+=['','## 类型、数据与读数限制','',
         '仍使用同一原版RGB及oracle二维部件mask；GT几何经mask进入输入，不能称RGB-only。GT只监督四个原训练对象的所选轴分量，测试GT不进入更新或checkpoint选择。测试对象此前已被检查，不是盲测，未排除PAct预训练重叠。','',
         '8961原版范围约2.60°/1.51°，运动信号小。45194仍有GT门被预测fixed、GT静态部件被预测为活动的角色错误；本轮固定类型/结构不修复，条件轴均值不能代表全机构正确。单seed、单权重和两个对象不支持稳定泛化结论。','',
