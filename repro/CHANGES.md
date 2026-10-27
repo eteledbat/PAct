@@ -1,5 +1,7 @@
 # PAct 复现改动与环境偏差
 
+2026-10-27方向/位置单变量消融：独立research/axis-direction-position-ablation-20261027分支，在同一原版资产/缓存上完成8961/45194的12项200步任务（direct8、head4），没有重生成或从此前训练后的A/B继续。新增axis_mode工具而不改旧训练/算法源码。direct仅theta或phi进入Adam；head仅消费所选输出并显式冻结另一物理分量，官方bbox后处理后再回放冻结字段。GT目标只留所选通道，原masked MSE分母、权重、学习率和预算保持。每步重查冻结状态；预检、30步smoke、零权重及实际恢复控制通过。新增41状态留出评价、八段21帧视频、连续/官方+冻结参照、H0混合初态说明、原点移动与平行轴线偏移分解、实际坐标CSV。未用GT挑checkpoint，不改原版物理Loss或其他项目。结果含局部收益及退化，见AXIS_DIRECTION_POSITION_RESULTS.md。
+
 2026-10-27追加对象：新增独立axis_extra工具与research/axis-only-extra-cases-20261027分支。20411/10655各200步direct A/B；不重复训练关节头，逐张量核实新特征的原始MLP后复用上轮封存A/B权重测试。新缓存入口从真实输入provenance选择FreeArt/VideoArtGS路径，支持未曾推理对象，不改原版采样。101284单次原版输出全fixed，失败保留、不强制GT类型。修预检允许平移pivot不参与计算图，第一次失败日志保留；原训练源码、Loss、旧资产和旧实验不改。新增后封存GT轴评估、41状态代理、21帧视频、类型/角色失败说明及完整性工具；结果见AXIS_EXTRA_CASES_RESULTS.md。
 
 2026-10-27追加：research/axis-only-fixed-ranges-20261027进一步冻结原版native起止值，两条路线各A/B重新初始化，六项200步及评价已完成。新增独立axis_fixed工具，不修改上轮训练源码或已封存结果。direct仅theta/phi进入Adam；head只消费有效轴输出，其余通道回放原版，FK/导出显式固定原范围；训练GT目标剔除所有非轴通道。增加每步范围断言、共享MLP范围泄漏检查、真实中断恢复/零权重对照、全部活动节点有向旋转检查和GT匹配覆盖说明。保留相同运动Gaussian代理定义，不改原版Loss。完整参数、连续/官方导出两套GT轴读数、固定范围运动曲线与上一轮协议对照见AXIS_ONLY_FIXED_RANGES_RESULTS.md。未生成新几何、未恢复Part²GS、未执行完整flow-matching训练。

@@ -28,11 +28,16 @@ def parameter_changes(root,data,configs):
                     A=json.loads(pathlib.Path(methods[ak]['candidate']).read_text());B=json.loads(pathlib.Path(methods[bk]['candidate']).read_text());ad={n['id']:n for n in A['diffuse_tree']};matched={j['node_id']:j for j in methods[bk]['joints']}
                     for n in B['diffuse_tree']:
                         if n['joint']['type']=='fixed':continue
-                        a=ad[n['id']]['joint'];b=n['joint'];da,db=np.array(a['axis']['direction']),np.array(b['axis']['direction']);cos=np.clip(da@db/np.linalg.norm(da)/np.linalg.norm(db),-1,1);delta=100*s*R@(np.array(b['axis']['origin'])-np.array(a['axis']['origin']))/D
+                        a=ad[n['id']]['joint'];b=n['joint'];da,db=np.array(a['axis']['direction']),np.array(b['axis']['direction']);cos=1. if np.array_equal(da,db) else np.clip(da@db/np.linalg.norm(da)/np.linalg.norm(db),-1,1);delta=100*s*R@(np.array(b['axis']['origin'])-np.array(a['axis']['origin']))/D
+                        parallel_offset=None;along_shift=None
+                        if mode=='position' and b['type'] in ['revolute','continuous']:
+                            assert np.array_equal(da,db);dw=R@da;dw/=np.linalg.norm(dw);along_shift=float(delta@dw);parallel_offset=float(np.linalg.norm(delta-along_shift*dw))
                         row={'mode':mode,'route':route,'case':case,'branch':branch,'node_id':n['id'],'predicted_type':b['type'],'GT_match':n['id'] in matched,
                             'oriented_axis_rotation_A_to_B_deg':float(np.degrees(np.arccos(cos))),
                             'unsigned_axis_rotation_A_to_B_deg':float(np.degrees(np.arccos(abs(cos)))),
                             'origin_displacement_A_to_B_percent_GT_D':float(np.linalg.norm(delta)) if b['type'] in ['revolute','continuous'] else None,
+                            'parallel_axis_line_offset_A_to_B_percent_GT_D':parallel_offset,
+                            'along_axis_origin_shift_A_to_B_percent_GT_D':along_shift,
                             'GT_axis_error_B_deg':matched[n['id']]['axis_error_degrees'] if n['id'] in matched else None,
                             'GT_pivot_error_B_percent_D':matched[n['id']]['pivot_error_percent_GT_D'] if n['id'] in matched else None}
                         for prefix,value in [('direction_A_export',da),('direction_B_export',db),('origin_A_export',a['axis']['origin']),('origin_B_export',b['axis']['origin']),('origin_delta_GT_percent_D',delta)]:
@@ -67,7 +72,7 @@ def main():
     lines=['# 8961 / 45194：只改方向与只改轴位置的A/B实测','',
         '本轮仅评价原来的8961、45194，分别做direction-only和position-only，两条路线均保留A不加/B加入相同运动Gaussian代理。12项正式任务全部固定最后200步，原始部件与起止值不变；没有重新生成、没有从此前训练后的A/B继续。','',
         'direct为逐物体参数后处理，A仅原预测二次先验、初始为驻点。head每模式从官方原始输出MLP重新开始，用原来四个对象的GT所选轴分量监督，共享200步，测试只看8961/45194。head使用冻结推理缓存，仅更新输出MLP，不能称为完整PAct/flow-matching续训。','',
-        'direction-only把原版导出原点固定，在FK、连续导出和后处理后均只放开方向。position-only把原版导出方向固定，仅放开转动轴有效位置，平移origin保持固定。共享MLP与官方bbox投影均可能带动未选字段，本轮在实际前向及后处理之后明确回放，不能只冻结末层权重或detach。','',
+        'direction-only把原版导出原点固定，在FK、连续导出和后处理后均只放开方向。position-only把原版导出方向固定，仅放开转动轴有效位置，平移origin保持固定。共享MLP与官方bbox投影均可能带动未选字段，本轮在实际前向及后处理之后明确回放，不能只冻结末层权重或detach。冻结的是原版导出坐标中的关节参数，父部件运动仍按原树传播。head checkpoint的配套推理入口为本轮封装及该对象的原始缓存，导出的JSON已包含冻结后的实际参数。','',
         '## 所选参数的GT精度','',
         '方向为无符号轴线误差（°），位置为预测pivot到GT无限轴的垂距 / GT静态部件对角线D（%）。只对匹配且类型正确的关节取均值，错误类型与无GT匹配的活动部件保留，不重排或强制修正。','',
         '| 路线 / 场景 / 输出 | 只改方向：方向 A→B ° | 只改位置：位置 A→B %GT D |',
@@ -101,10 +106,10 @@ def main():
                     for x,y in zip(methods[ak]['joints'],methods[bk]['joints']):lines.append(f"| {mode}/{route}/{case}/{branch}/{x['node_id']} | {x['type']} / {x['GT_type']} | {fmt(x['axis_error_degrees'])} → {fmt(y['axis_error_degrees'])} | {fmt(x['pivot_error_percent_GT_D'])} → {fmt(y['pivot_error_percent_GT_D'])} |")
     lines+=['','## 实际参数变化','',
         f"[全部活动预测节点的A/B方向与原点坐标CSV]({root}/axis_parameter_changes.csv) · [完整JSON]({root}/axis_parameter_changes.json)。坐标列明确区分export坐标与GT世界坐标下的位移百分比。包含未匹配活动部件，不将其GT误差伪造为0。",'',
-        '| 模式 / 路线 / 场景 / 输出 / 节点 | A→B有向旋转 ° | A→B原点位移 %GT D |',
-        '| --- | --- | --- |']
-    for r in params:lines.append(f"| {r['mode']}/{r['route']}/{r['case']}/{r['branch']}/{r['node_id']} | {fmt(r['oriented_axis_rotation_A_to_B_deg'])} | {fmt(r['origin_displacement_A_to_B_percent_GT_D'])} |")
-    lines+=['','direct的pivot仅开放垂轴的两个有效自由度，head仍沿用原版三维origin输出与所选GT MSE；沿轴平移不改变轴线，位移大小不等于精度改善。只改方向时固定的是原点坐标，整条轴线会随方向变化。所有相对原版的轴反向另存all_predicted_axis_changes.json。','',
+        '| 模式 / 路线 / 场景 / 输出 / 节点 | A→B有向旋转 ° | A→B原点位移 %GT D | 平行轴线实际偏移 %GT D |',
+        '| --- | --- | --- | --- |']
+    for r in params:lines.append(f"| {r['mode']}/{r['route']}/{r['case']}/{r['branch']}/{r['node_id']} | {fmt(r['oriented_axis_rotation_A_to_B_deg'])} | {fmt(r['origin_displacement_A_to_B_percent_GT_D'])} | {fmt(r['parallel_axis_line_offset_A_to_B_percent_GT_D'])} |")
+    lines+=['','direct的pivot仅开放垂轴的两个有效自由度，head仍沿用原版三维origin输出与所选GT MSE。位置模式额外分解垂轴偏移与沿轴原点平移：只有前者改变平行轴线，沿轴平移不改变轴线或运动。只改方向时固定的是原点坐标，整条轴线会随方向变化，不能使用平行轴偏移定义，记N/A。完全相同方向向量的A/B夹角明确为0，避免acos自比值的浮点微角度伪差。所有相对原版的轴反向另存all_predicted_axis_changes.json。','',
         '## 冻结检查','',
         '所有正式步记录起止值与未选物理分量的变化，必须均为0；head每次optimizer更新后重新前向断言，所有连续/后处理导出逐节点校验，仅允许指定轴字段改变。方向模式GT pivot点垂距应不变，位置模式GT方向误差应不变。','',
         '| 模式 | 正式任务数 | 最大起止变化 | 最大未选字段变化 |',

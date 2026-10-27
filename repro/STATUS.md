@@ -1,6 +1,8 @@
 # PAct baseline 准备记录
 
-最新追加（2026-10-27）：20411、10655固定几何/起止值的direct A/B各200步均完成，上一轮已封存head A/B在两对象上直接迁移测试完成（新增head优化步数0）。41状态留出曲线与四段21帧视频齐全，GT轴结果没有稳定收益：20411直接方向0.633→4.937°，10655直接方向0→0.438°、位置51.165→53.152% GT D；head B亦退化。101284首次固定单次推理全部fixed，没有轴可优化，原样保留且未改GT类型。10655本身有GT活动/静态角色错误，不能当纯轴缺陷成功案例。见 [追加结果](AXIS_EXTRA_CASES_RESULTS.md) 与 [协议](AXIS_EXTRA_CASES_PROTOCOL.md)。分支research/axis-only-extra-cases-20261027；旧实验与Part²GS暂停状态保留。
+最新（2026-10-27，方向/位置消融）：按用户要求仅在8961、45194评价，direction-only与position-only，两条路线各A/B，共12项200步正式任务及41状态评价已完成。未选轴分量、几何和起止值冻结；八段21帧视频和实际轴向量/原点/轴线偏移CSV已生成。direct位置-only在8961平均位置17.882→17.316% GT D，方向保持0°，但一根轴变差；45194位置改善微小。head官方正向读数依赖吸附/bbox，连续位置两例均退化，45194官方原点只沿轴平移而轴线未动。见 [本轮报告](AXIS_DIRECTION_POSITION_RESULTS.md) 与 [协议](AXIS_DIRECTION_POSITION_PROTOCOL.md)。分支research/axis-direction-position-ablation-20261027；head仍为原四个训练对象的官方输出MLP小规模微调，不是完整flow-matching续训。旧实验及Part²GS暂停状态保留。
+
+此前追加（2026-10-27）：20411、10655固定几何/起止值的direct A/B各200步均完成，上一轮已封存head A/B在两对象上直接迁移测试完成（新增head优化步数0）。41状态留出曲线与四段21帧视频齐全，GT轴结果没有稳定收益：20411直接方向0.633→4.937°，10655直接方向0→0.438°、位置51.165→53.152% GT D；head B亦退化。101284首次固定单次推理全部fixed，没有轴可优化，原样保留且未改GT类型。10655本身有GT活动/静态角色错误，不能当纯轴缺陷成功案例。见 [追加结果](AXIS_EXTRA_CASES_RESULTS.md) 与 [协议](AXIS_EXTRA_CASES_PROTOCOL.md)。分支research/axis-only-extra-cases-20261027；旧实验与Part²GS暂停状态保留。
 
 最新状态（2026-10-27，轴单独优化）：按用户新增要求，将部件及原版数值起止值同时冻结，重新完成同一批对象的两条A/B路线，共六项200步，41状态留出代理评价和四段21帧刚体视频均完成。所有步、全部导出起止值最大变化0；局部几何SHA不变。8961直接优化平均位置略好但一根轴变差；45194重叠下降而方向退化。head在8961的正向位置读数依赖官方后处理，连续参数反而变差；45194亦无一致收益。不能称为稳定改善GT轴。见 [本轮结果](AXIS_ONLY_FIXED_RANGES_RESULTS.md) 与 [设置](AXIS_ONLY_FIXED_RANGES_PROTOCOL.md)。分支research/axis-only-fixed-ranges-20261027；无新生成、无完整flow-matching续训，Part²GS仍暂停。
 

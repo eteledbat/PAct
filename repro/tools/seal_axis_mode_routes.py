@@ -45,6 +45,7 @@ def main():
             assert all(math.isfinite(r[k]) for r in h for k in ['loss','base_loss','motion_proxy']);assert all(math.isfinite(v) for r in h for v in r['gradient_norms'].values())
             seal=json.loads((out/'seal.json').read_text());assert seal['checkpoint_sha256']==sha256(out/'checkpoint.pt');assert seal['frozen_assets_unchanged'] and not seal['GT_reads_blocked'];assert seal['frozen_counterpart_all_steps'] and seal['endpoints_frozen_all_steps'];checkpoints[mode+'/'+label]=seal['checkpoint_sha256']
             protocol=json.loads((out/'protocol.json').read_text());assert protocol['config_sha256']==sha256(sub/'config.json') and protocol['mode']==mode
+            assert seal['protocol_sha256']==sha256(out/'protocol.json')
             for name,digest in protocol['sources'].items():
                 source=REPO/'repro/tools'/name;assert sha256(source)==digest;sources.add(source)
             checkpoint=torch.load(out/'checkpoint.pt',map_location='cpu',weights_only=False)
