@@ -54,6 +54,19 @@ def main():
                 original=A['common_original_range_motion']['mean_proxy'];rel=(B['common_original_range_motion']['mean_proxy']/original-1)*100 if original>1e-12 else None
                 lines.append(f'| {route}/{case}/{branch} | {fmt(aa)} → {fmt(ba)} | {fmt(ap)} → {fmt(bp)} | {fmt(rel,2)}% |')
                 averages.append({'route':route,'case':case,'branch':branch,'axis_A':aa,'axis_B':ba,'pivot_A':ap,'pivot_B':bp,'common_motion_proxy_relative_percent':rel})
+    lines+=['','## A→B 的实际参数变化','',
+            '| 路线 / 场景 / 分支 | GT部件 | 原点移动 %GT D | 轴实际旋转 ° | 起点变化 | 终点变化 |',
+            '| --- | --- | --- | --- | --- | --- |']
+    for route,cases in results.items():
+        for case,methods in cases.items():
+            baseline=json.loads((pathlib.Path(cfg['runs'][case])/'joint_evaluation/joint_errors.json').read_text());D=baseline['GT_static_diagonal']
+            branches=[('A','B','direct')] if route=='direct' else [('A_raw','B_raw','continuous'),('A_official','B_official','official')]
+            for akey,bkey,branch in branches:
+                for x,y in zip(methods[akey]['joints'],methods[bkey]['joints']):
+                    if x['q_start'] is None:continue
+                    d0,d1=np.array(x['predicted_axis_direction_world']),np.array(y['predicted_axis_direction_world']);turn=float(np.degrees(np.arccos(np.clip(abs(d0@d1)/(np.linalg.norm(d0)*np.linalg.norm(d1)),0,1))))
+                    displacement=100*np.linalg.norm(np.array(x['predicted_axis_origin_world'])-np.array(y['predicted_axis_origin_world']))/D if x['type']=='revolute' else None
+                    lines.append(f"| {route}/{case}/{branch} | {x['GT_part']} | {fmt(displacement)} | {fmt(turn)} | {fmt(y['q_start']-x['q_start'])} | {fmt(y['q_end']-x['q_end'])} |")
     lines+=['','这是4个训练对象、2个测试对象、单seed、单碰撞权重的小规模实验，不构成泛化有效性的充分证据。几何冻结消除了本轮的形状变形自由度，但错误几何和错误类型仍会限制轴优化；不能将“存在可行碰撞下降”等同于找到GT机械轴。','',
             '## 核验与产物','',
             f'- 实验根目录：[{root.name}]({root})。',

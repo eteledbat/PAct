@@ -74,6 +74,10 @@ def plot_axes(rows_by_method,directory,title):
     for index,nid in enumerate(keys):
         first=next(r for r in next(iter(rows_by_method.values())) if r['node_id']==nid);gd=np.array(first['GT_axis_direction_world']);gd/=np.linalg.norm(gd);ref=np.eye(3)[np.argmin(abs(gd))];u=np.cross(gd,ref);u/=np.linalg.norm(u);v=np.cross(gd,u);go=np.array(first['GT_axis_origin_world'])
         pos,ori=axes[index];ori.scatter([0],[0],marker='*',s=130,c='black',label='GT')
+        if not first['type_correct']:
+            for ax in [pos,ori]:
+                ax.clear();ax.text(.1,.5,f"node {nid}: predicted {first['type']} / GT {first['GT_type']}\nValid axis accuracy unavailable",transform=ax.transAxes);ax.set_axis_off()
+            continue
         if first['type']=='revolute':pos.scatter([0],[0],marker='*',s=130,c='black',label='GT axis')
         for method,rows in rows_by_method.items():
             r=next(r for r in rows if r['node_id']==nid);d=np.array(r['predicted_axis_direction_world']);d/=np.linalg.norm(d)
