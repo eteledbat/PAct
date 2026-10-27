@@ -67,8 +67,8 @@ def preflight(root,cfg):
                 x=tensor(part['xyz'][:20]);tr=world[part['node']['id']];y=torch.einsum('nj,bij->bni',x,tr[:,:3,:3])+tr[:,None,:3,3]
                 rigid=max(rigid,float((torch.cdist(y,y)-torch.cdist(x,x)[None]).abs().max()))
         collision=scene.proxy(qs[[2,10,20]])/scene.normalization
-        gs=torch.autograd.grad(collision,[p.theta,p.phi]);norms=[float(g.norm()) for g in gs]
-        assert all(torch.isfinite(g).all() for g in gs)
+        gs=torch.autograd.grad(collision,[p.theta,p.phi],allow_unused=True);norms=[float(g.norm()) if g is not None else 0. for g in gs]
+        assert all(torch.isfinite(g).all() for g in gs if g is not None)
         if scene.normalization>1e-8:assert norms[0]>0
         pivot_identifiable=bool(p.pivot_mask.any())
         if pivot_identifiable and scene.normalization>1e-8:assert norms[1]>0
