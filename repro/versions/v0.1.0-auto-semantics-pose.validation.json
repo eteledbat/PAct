@@ -1,0 +1,22 @@
+{
+  "version": "v0.1.0-auto-semantics-pose",
+  "date": "2026-10-30",
+  "unit_tests": {
+    "modules": [
+      "test_auto_semantic_axes",
+      "test_semantic_motion_rules",
+      "test_door_pull_priority",
+      "test_vlm_component_geometry",
+      "test_observed_drawer_pose"
+    ],
+    "tests_run": 41,
+    "result": "passed"
+  },
+  "AST_parse": "passed",
+  "local_tool_dependency_closure": "39 Python modules;2 already tracked in base commit",
+  "new_document_links": "passed",
+  "credential_pattern_scan": "passed",
+  "experiment_rerun": false,
+  "experiment_note": "This release publishes the existing validated snapshot; no expensive generation or fitting was rerun for publishing.11-case axis/fixed-q0 experiments and20411 observed-pose experiment retain their original sealed outputs.",
+  "excluded_worktree_change": "repro/AXIS_ONLY_FIXED_RANGES_RESULTS.md pre-existing whitespace edit is intentionally left unstaged."
+}

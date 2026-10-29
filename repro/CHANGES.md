@@ -1,5 +1,7 @@
 # PAct 复现改动与环境偏差
 
+2026-10-30：发布`v0.1.0-auto-semantics-pose`代码快照。新增原mask两阶段VLM语义、可见把手定位、连通片段到独立物理实例匹配、通用语义轴规则、自动实例几何拟合，以及单图prismatic观测q搜索→几何拟合的人工/VLM对照。新增五列视频、训练最优checkpoint保护、封存/GT读取隔离与FK/归属测试；未重新训练PAct，未改原mask，未优化机械区间。明确区分11-case固定q0实验和仅20411已验证的观测位移实验，披露oracle mask、历史缓存/路径依赖及额外关闭图旧实验的监督差异。完整版本说明见[版本文档](versions/v0.1.0-auto-semantics-pose.md)。
+
 2026-10-27方向/位置单变量消融：独立research/axis-direction-position-ablation-20261027分支，在同一原版资产/缓存上完成8961/45194的12项200步任务（direct8、head4），没有重生成或从此前训练后的A/B继续。新增axis_mode工具而不改旧训练/算法源码。direct仅theta或phi进入Adam；head仅消费所选输出并显式冻结另一物理分量，官方bbox后处理后再回放冻结字段。GT目标只留所选通道，原masked MSE分母、权重、学习率和预算保持。每步重查冻结状态；预检、30步smoke、零权重及实际恢复控制通过。新增41状态留出评价、八段21帧视频、连续/官方+冻结参照、H0混合初态说明、原点移动与平行轴线偏移分解、实际坐标CSV。未用GT挑checkpoint，不改原版物理Loss或其他项目。结果含局部收益及退化，见AXIS_DIRECTION_POSITION_RESULTS.md。
 
 2026-10-27追加对象：新增独立axis_extra工具与research/axis-only-extra-cases-20261027分支。20411/10655各200步direct A/B；不重复训练关节头，逐张量核实新特征的原始MLP后复用上轮封存A/B权重测试。新缓存入口从真实输入provenance选择FreeArt/VideoArtGS路径，支持未曾推理对象，不改原版采样。101284单次原版输出全fixed，失败保留、不强制GT类型。修预检允许平移pivot不参与计算图，第一次失败日志保留；原训练源码、Loss、旧资产和旧实验不改。新增后封存GT轴评估、41状态代理、21帧视频、类型/角色失败说明及完整性工具；结果见AXIS_EXTRA_CASES_RESULTS.md。

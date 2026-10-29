@@ -21,3 +21,7 @@ repro/vendor/
 repro/cache/
 repro/inputs/
 repro/outputs/
+# Local automation runtimes and machine-specific output pointers
+repro/envs/
+repro/*_controller.log
+repro/current_*.txt
