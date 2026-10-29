@@ -1,5 +1,7 @@
 # PAct 复现改动与环境偏差
 
+2026-10-30：`v0.1.1-handle-attachment-axis`修复提手后备轴的连接定位。两根细长支杆须有接近主体、可区分的连接端；以连接端确定方向、按主体距离加权轴位置，缺失/歧义时保留原生关节。新增端点/权重/间隙审计及4项测试（共45项通过），保持原mask、原生几何和行程幅度。100481已完成新轴上的独立几何拟合及84帧四列视频；未更新旧批量GT指标。见[补丁说明](versions/v0.1.1-handle-attachment-axis.md)。
+
 2026-10-30：发布`v0.1.0-auto-semantics-pose`代码快照。新增原mask两阶段VLM语义、可见把手定位、连通片段到独立物理实例匹配、通用语义轴规则、自动实例几何拟合，以及单图prismatic观测q搜索→几何拟合的人工/VLM对照。新增五列视频、训练最优checkpoint保护、封存/GT读取隔离与FK/归属测试；未重新训练PAct，未改原mask，未优化机械区间。明确区分11-case固定q0实验和仅20411已验证的观测位移实验，披露oracle mask、历史缓存/路径依赖及额外关闭图旧实验的监督差异。完整版本说明见[版本文档](versions/v0.1.0-auto-semantics-pose.md)。
 
 2026-10-27方向/位置单变量消融：独立research/axis-direction-position-ablation-20261027分支，在同一原版资产/缓存上完成8961/45194的12项200步任务（direct8、head4），没有重生成或从此前训练后的A/B继续。新增axis_mode工具而不改旧训练/算法源码。direct仅theta或phi进入Adam；head仅消费所选输出并显式冻结另一物理分量，官方bbox后处理后再回放冻结字段。GT目标只留所选通道，原masked MSE分母、权重、学习率和预算保持。每步重查冻结状态；预检、30步smoke、零权重及实际恢复控制通过。新增41状态留出评价、八段21帧视频、连续/官方+冻结参照、H0混合初态说明、原点移动与平行轴线偏移分解、实际坐标CSV。未用GT挑checkpoint，不改原版物理Loss或其他项目。结果含局部收益及退化，见AXIS_DIRECTION_POSITION_RESULTS.md。

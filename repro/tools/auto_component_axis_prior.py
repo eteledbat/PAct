@@ -180,9 +180,9 @@ def fit_axis(owner, fragments, semantics, body, asset, whole_bounds):
                 audit['rule'] = 'two separated body contact clusters'
             except ValueError as contact_error:
                 pivot, direction, audit = paired_handle_component_axis(
-                    [f['vertices'] for f in fragments], asset['diagonal'])
+                    [f['vertices'] for f in fragments], asset['diagonal'], static_vertices=body)
                 audit['body_contact_rule_failure'] = str(contact_error)
-                contacts = np.asarray(audit['support_centers'])
+                contacts = np.asarray(audit['attachment_points'])
             span = abs(float(np.diff(native['range'])[0])) if native['type'] in ('revolute', 'continuous') else 90.
             try:
                 sign, sign_audit = carrying_handle_outward_sign(

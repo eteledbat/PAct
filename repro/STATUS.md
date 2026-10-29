@@ -1,5 +1,7 @@
 # PAct baseline 准备记录
 
+最新补丁（2026-10-30）：`v0.1.1-handle-attachment-axis`修复可转动提手后备轴：由两根支杆中心改为靠近主体的连接端证据；证据不足保留原生轴并标记未解决。45项测试通过，100481已重新拟合几何并生成四列视频，未重跑全部10-case、未优化行程。见[补丁说明](versions/v0.1.1-handle-attachment-axis.md)。以下v0.1.0及更早记录保留其各自验证范围。
+
 最新代码版本（2026-10-30）：`v0.1.0-auto-semantics-pose`。原实例mask上的VLM识别、把手位置优先轴修复、自动物理部件几何及单图抽屉观测位移流程已整理；轴修复/固定q0几何有11-case结果，新增观测位移人工/VLM对照仅验证20411。Origin为RGB＋oracle实例mask，不接收后处理类别标签；当前单图拟合不使用额外关闭图，也不优化机械行程。入口见[自动化总览](AUTOMATION.md)和[版本说明](versions/v0.1.0-auto-semantics-pose.md)。以下保留历史实验记录。
 
 最新（2026-10-27，方向/位置消融）：按用户要求仅在8961、45194评价，direction-only与position-only，两条路线各A/B，共12项200步正式任务及41状态评价已完成。未选轴分量、几何和起止值冻结；八段21帧视频和实际轴向量/原点/轴线偏移CSV已生成。direct位置-only在8961平均位置17.882→17.316% GT D，方向保持0°，但一根轴变差；45194位置改善微小。head官方正向读数依赖吸附/bbox，连续位置两例均退化，45194官方原点只沿轴平移而轴线未动。见 [本轮报告](AXIS_DIRECTION_POSITION_RESULTS.md) 与 [协议](AXIS_DIRECTION_POSITION_PROTOCOL.md)。分支research/axis-direction-position-ablation-20261027；head仍为原四个训练对象的官方输出MLP小规模微调，不是完整flow-matching续训。旧实验及Part²GS暂停状态保留。

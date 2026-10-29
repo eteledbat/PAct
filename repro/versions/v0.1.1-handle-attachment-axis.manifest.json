@@ -1,0 +1,19 @@
+{
+  "version": "v0.1.1-handle-attachment-axis",
+  "base_commit": "d0baa9b0f6bf589a0bff1c760954c5b464c6cd38",
+  "base_tag": "v0.1.0-auto-semantics-pose",
+  "branch": "research/auto-semantics-pose-20261030",
+  "date": "2026-10-30",
+  "files_sha256": {
+    "repro/tools/semantic_motion_rules.py": "d15f754e5c78d4f68dba254e06e4010a21153199d3eda0d42c8da33eb8ad7eac",
+    "repro/tools/auto_component_axis_prior.py": "8aefd52d2f74a91e4158a6abc8bf4f941efb2cc9ff0b7a15b863869372449931",
+    "repro/tools/test_semantic_motion_rules.py": "5b919dd435c8555f489a83c61f3c1e345867495e09485984d9d56edef2a400d3",
+    "repro/AUTOMATION.md": "59c6af255a0ae47433445f5d32f5d1dcb271c19de2be298adafe87e826d2e384",
+    "repro/STATUS.md": "e28b7a28d97457cdf2a04061745e03931b68cb424999bc4a2b0ffeb2f6f28fc5",
+    "repro/CHANGES.md": "e8185b15ccfe32741a4e322631639b757ffd692714a6dfc01b002622e7a56e96",
+    "repro/versions/v0.1.1-handle-attachment-axis.md": "f8bd492882c9137819626ed95a5d015b769d5efcd69206a816ab66d7717e422a",
+    "repro/versions/v0.1.1-handle-attachment-axis.validation.json": "b36de32869d89d7fae7e75573cf58344f70bcae8ac1f31b873fee07c950020aa"
+  },
+  "manifest_self_hash_excluded": true,
+  "excluded": "Datasets, weights, masks, geometry, videos, runtime logs, local diagnostic/video wrappers, drawer-range optimization and unrelated dirty files"
+}

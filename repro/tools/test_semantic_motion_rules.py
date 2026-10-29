@@ -39,13 +39,37 @@ class MotionRuleTests(unittest.TestCase):
   points=connected_handle_contacts(v,body,3.);self.assertGreater(np.linalg.norm(points[0]-points[1]),1.8)
  def test_disconnected_carrying_handle_uses_two_long_support_bars(self):
   bars=[np.array([[x,y,z] for x in [-.02,.02] for y in np.linspace(0,.42,40) for z in [zc-.01,zc+.01]]) for zc in [-.31,.31]]
-  pivot,direction,audit=paired_handle_component_axis(bars,1.4)
+  body=np.array([[x,0.,z] for x in np.linspace(-.1,.1,20) for z in np.linspace(-.4,.4,80)])
+  pivot,direction,audit=paired_handle_component_axis(bars,1.4,static_vertices=body)
   self.assertGreater(abs(direction[2]),.999)
-  self.assertLess(abs(pivot[1]-.21),.01)
+  self.assertLess(abs(pivot[1]),.02)
+  self.assertGreater(abs(pivot[1]-.21),.15)
+  self.assertEqual(len(audit['attachment_points']),2)
   self.assertEqual(audit['support_component_indices'],[0,1])
+ def test_supports_can_attach_at_upper_ends(self):
+  bars=[np.array([[x,y,z] for x in [-.02,.02] for y in np.linspace(0,.42,40) for z in [zc-.01,zc+.01]]) for zc in [-.31,.31]]
+  body=np.array([[x,.42,z] for x in np.linspace(-.1,.1,20) for z in np.linspace(-.4,.4,80)])
+  pivot,_,_=paired_handle_component_axis(bars,1.4,static_vertices=body)
+  self.assertLess(abs(pivot[1]-.42),.02)
+ def test_attachment_evidence_required_instead_of_bar_centers(self):
+  bars=[np.array([[x,y,z] for x in [-.02,.02] for y in np.linspace(0,.42,40) for z in [zc-.01,zc+.01]]) for zc in [-.31,.31]]
+  with self.assertRaisesRegex(ValueError,'Static-body evidence'):paired_handle_component_axis(bars,1.4)
+  body=np.array([[x,y,z] for x in [-.02,.02] for y in [0.,.42] for z in np.linspace(-.4,.4,80)])
+  with self.assertRaisesRegex(ValueError,'unambiguous'):paired_handle_component_axis(bars,1.4,static_vertices=body)
+ def test_remote_body_does_not_create_handle_attachment(self):
+  bars=[np.array([[x,y,z] for x in [-.02,.02] for y in np.linspace(0,.42,40) for z in [zc-.01,zc+.01]]) for zc in [-.31,.31]]
+  body=np.array([[x,-2.,z] for x in [-.02,.02] for z in np.linspace(-.4,.4,80)])
+  with self.assertRaisesRegex(ValueError,'unambiguous'):paired_handle_component_axis(bars,1.4,static_vertices=body)
+ def test_truncated_support_does_not_shift_good_connection_to_gap_midpoint(self):
+  bars=[np.array([[x,y,z] for x in [-.02,.02] for y in np.linspace(start,.42,80) for z in [zc-.01,zc+.01]]) for zc,start in [(-.31,0.),(.31,.1)]]
+  body=np.array([[x,0.,z] for x in np.linspace(-.1,.1,20) for z in np.linspace(-.4,.4,80)])
+  pivot,_,audit=paired_handle_component_axis(bars,1.4,static_vertices=body)
+  self.assertLess(abs(pivot[1]),.025)
+  self.assertTrue(audit['approximate_body_gap'])
  def test_single_support_bar_cannot_create_handle_axis(self):
   bar=np.array([[x,y,z] for x in [-.02,.02] for y in np.linspace(0,.42,40) for z in [-.01,.01]])
-  with self.assertRaises(ValueError):paired_handle_component_axis([bar],1.4)
+  body=np.array([[x,0.,z] for x in [-.02,.02] for z in np.linspace(-.4,.4,80)])
+  with self.assertRaises(ValueError):paired_handle_component_axis([bar],1.4,static_vertices=body)
  def test_left_and_right_carrying_handles_swing_outward_oppositely(self):
   signs=[]
   for x in [-.25,.25]:

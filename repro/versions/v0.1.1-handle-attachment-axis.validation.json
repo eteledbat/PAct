@@ -1,0 +1,21 @@
+{
+  "version": "v0.1.1-handle-attachment-axis",
+  "tests": {
+    "command": "PYTHONPATH=repro/tools PYTHONDONTWRITEBYTECODE=1 python -m unittest test_auto_semantic_axes test_semantic_motion_rules test_door_pull_priority test_vlm_component_geometry test_observed_drawer_pose",
+    "tests_run": 45,
+    "passed": true
+  },
+  "AST_passed": true,
+  "new_document_links_passed": true,
+  "secret_pattern_scan_passed": true,
+  "local_evidence": {
+    "axis_diagnostic_final_seal_sha256": "a11059bab032e8b696bb80d448885886aaffa2086a071010314ee60c2a4b8fb5",
+    "four_version_video_final_seal_sha256": "74e8934a5d507a13ac5a12690f61fba34d6804d62feaf926125a5c1a3c620c78",
+    "case": "100481",
+    "video_frames_decoded": 84,
+    "fresh_geometry_fit": true,
+    "GT_used_for_rule_or_geometry_fit": false,
+    "all_cases_rerun_with_new_rule": false
+  },
+  "scope": "Only handle attachment fallback, caller, tests and version documentation; data/video, range optimization and unrelated dirty files excluded"
+}

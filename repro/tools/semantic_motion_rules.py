@@ -118,34 +118,61 @@ def connected_handle_contacts(vertices,static_vertices,object_diagonal):
  return centers
 
 
-def paired_handle_component_axis(components, object_diagonal):
- """Fit a carrying-handle hinge from two separated, elongated support bars.
+def paired_handle_component_axis(components, object_diagonal, static_vertices=None):
+ """Axis through body-facing support ENDPOINTS, never support-bar centers.
 
- This covers disconnected generated handles whose rear support is not close
- enough to the generated body for a nearest-body contact test. Both bars must
- independently be long and thin; their centers define the supported axis.
- A single fragment or small decorative piece cannot create an articulation.
+ A truncated generated support may miss the body slightly. Both endpoint
+ choices must still be close and unambiguous; the better actual contact anchors
+ the perpendicular axis position. Centers only identify the pair of bars.
  """
- D=float(object_diagonal);candidates=[]
+ D=float(object_diagonal)
+ if not np.isfinite(D) or D<=0:raise ValueError('Invalid object diagonal')
+ if static_vertices is None:raise ValueError('Static-body evidence required for handle attachments')
+ body=np.asarray(static_vertices,float)
+ if body.ndim!=2 or body.shape[1]!=3 or len(body)<8 or not np.isfinite(body).all():
+  raise ValueError('Insufficient static-body attachment evidence')
+ tree=cKDTree(body);candidates=[];rejected=[]
  for index,vertices in enumerate(components):
   v=np.asarray(vertices,float)
   if len(v)<64:continue
   span=np.ptp(v,axis=0);long=int(np.argmax(span));other=np.delete(span,long)
   if span[long]<.12*D or span[long]<2.5*max(float(other.max()),1e-8):continue
-  candidates.append(dict(index=index,count=len(v),center=np.median(v,axis=0),long_axis=long,span=span))
+  center=np.median(v,axis=0);_,_,V=np.linalg.svd(v[::max(1,len(v)//4000)]-center,full_matrices=False)
+  axial=(v-center)@V[0];low,high=np.quantile(axial,[.03,.97])
+  ends=np.stack([np.median(v[axial<=low],axis=0),np.median(v[axial>=high],axis=0)])
+  distances=tree.query(ends,workers=4)[0];selected=int(np.argmin(distances));best=float(distances[selected]);alternative=float(distances[1-selected])
+  if best>.08*D or alternative-best<=max(.01*D,.25*best):
+   rejected.append(dict(index=index,endpoint_body_distances=distances.tolist(),reason='Endpoint too far from body or attachment end ambiguous'));continue
+  candidates.append(dict(index=index,count=len(v),center=center,long_axis=long,span=span,
+   attachment=ends[selected],endpoints=ends,endpoint_body_distances=distances,
+   selected_endpoint=selected,body_distance=best))
  pairs=[]
  for i,a in enumerate(candidates):
   for b in candidates[i+1:]:
    if a['long_axis']!=b['long_axis']:continue
    delta=b['center']-a['center'];distance=float(np.linalg.norm(delta))
-   # Supports are separated across the handle, rather than along their bars.
    if distance<.15*D or abs(delta[a['long_axis']])>.3*distance:continue
+   if np.linalg.norm(b['attachment']-a['attachment'])<.10*D:continue
    pairs.append((min(a['count'],b['count']),distance,a,b))
- if not pairs:raise ValueError('No two separated elongated handle supports')
+ if not pairs:raise ValueError('No two support bars with unambiguous body-facing attachment ends')
  _,_,a,b=max(pairs,key=lambda row:(row[0],row[1]))
- supports=np.stack([a['center'],b['center']]);pivot,direction,audit=fit_attachment_axis(supports)
- audit.update(rule='separated elongated support bars',support_component_indices=[a['index'],b['index']],
-              support_centers=supports.tolist(),support_separation=float(np.linalg.norm(supports[1]-supports[0])))
+ attachments=np.stack([a['attachment'],b['attachment']]);_,direction,audit=fit_attachment_axis(attachments)
+ # A support with a missing lower fragment must not drag a well-observed
+ # contact to the middle of the gap. Distance weights use generated body only.
+ distances=np.array([a['body_distance'],b['body_distance']]);weights=1/(distances+.005*D)**2;weights/=weights.sum()
+ pivot=np.average(attachments,axis=0,weights=weights)
+ P=np.eye(3)-np.outer(direction,direction)
+ residual=float(np.sqrt(np.mean(np.sum(((attachments-pivot)@P)**2,axis=1))))
+ audit.update(rule='two body-facing support endpoints, contact-weighted axis position',
+  support_component_indices=[a['index'],b['index']],
+  support_centers=np.stack([a['center'],b['center']]).tolist(),
+  attachment_points=attachments.tolist(),attachment_weights=weights.tolist(),
+  attachment_body_distances=distances.tolist(),attachment_perpendicular_RMS=residual,
+  endpoint_evidence=[dict(component=x['index'],endpoints=x['endpoints'].tolist(),
+   endpoint_body_distances=x['endpoint_body_distances'].tolist(),selected_endpoint=x['selected_endpoint']) for x in [a,b]],
+  support_separation=float(np.linalg.norm(attachments[1]-attachments[0])),
+  attachment_policy='Nearest unambiguous endpoint within8% object diagonal; near-contact weights; never bar centers',
+  approximate_body_gap=bool(np.any(distances>.035*D)),rejected_components=rejected)
  return pivot,direction,audit
 
 
