@@ -1,0 +1,23 @@
+[SPARSE] Backend: spconv, Attention: flash_attn
+100481:evaluate complete
+10489:evaluate complete
+
+10489:evaluate complete
+10655:evaluate complete
+31249:evaluate complete
+20411:evaluate complete
+45194:evaluate complete
+45503:evaluate complete
+8961:evaluate complete
+9016:evaluate complete
+100481:render complete
+101808:render complete
+10489:render complete
+10655:render complete
+31249:render complete
+20411:render complete
+45194:render complete
+45503:render complete
+8961:render complete
+9016:render complete
+ALL COMPLETE

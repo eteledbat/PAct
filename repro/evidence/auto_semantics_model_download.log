@@ -1,0 +1,73 @@
+Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]Fetching 11 files:  27%|██▋       | 3/11 [00:01<00:05,  1.52it/s]Fetching 11 files:  55%|█████▍    | 6/11 [00:09<00:08,  1.66s/it]Fetching 11 files:  55%|█████▍    | 6/11 [00:19<00:16,  3.33s/it]Fetching 11 files:  64%|██████▎   | 7/11 [00:39<00:22,  5.71s/it]Fetching 11 files:  73%|███████▎  | 8/11 [00:40<00:15,  5.08s/it]Fetching 11 files:  82%|████████▏ | 9/11 [00:50<00:11,  5.65s/it]Error while downloading from https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct/resolve/66285546d2b821cf421d4f5eb2576359d3770cd3/model-00002-of-00002.safetensors: HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Read timed out.
+Trying to resume download...
+Fetching 11 files:  91%|█████████ | 10/11 [03:30<00:21, 21.10s/it]Error while downloading from https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct/resolve/66285546d2b821cf421d4f5eb2576359d3770cd3/model-00001-of-00002.safetensors: HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Read timed out.
+Trying to resume download...
+Fetching 11 files: 100%|██████████| 11/11 [03:43<00:00, 20.28s/it]Fetching 11 files: 100%|██████████| 11/11 [03:43<00:00, 20.28s/it]
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1017)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/urllib3/util/retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/6795ff8f7534713f94918fc5/d8cd65a1c446dc687c9b7f80caf1a2ce5f859f301e17c25cb73347def030f639?xip=LtRcGa5O6Tw&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model-00001-of-00002.safetensors%3B+filename%3D%22model-00001-of-00002.safetensors%22%3B&X-Xet-Cas-Uid=public&user_id=public&Expires=1793255512&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjc5NWZmOGY3NTM0NzEzZjk0OTE4ZmM1L2Q4Y2Q2NWExYzQ0NmRjNjg3YzliN2Y4MGNhZjFhMmNlNWY4NTlmMzAxZTE3YzI1Y2I3MzM0N2RlZjAzMGY2MzlcXD94aXA9THRSY0dhNU82VHcmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLTAwMDAxLW9mLTAwMDAyLnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwtMDAwMDEtb2YtMDAwMDIuc2FmZXRlbnNvcnMlMjIlM0ImWC1YZXQtQ2FzLVVpZD1wdWJsaWMmdXNlcl9pZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzI1NTUxMn19fV19&Signature=MEYCIQCAriSzqFKxAvIKc2Tfx2yxcCRnQfxkgcBOnPfUE7NfKwIhALJxaCpYqoMn5OpkX2E3OCNHNLVNI~jdxKKhWJ2OxpIq&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1017)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py", line 332, in snapshot_download
+    thread_map(
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/tqdm/contrib/concurrent.py", line 191, in thread_map
+    return _executor_map(ThreadPoolExecutor, fn, *iterables, **tqdm_kwargs)
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/tqdm/contrib/concurrent.py", line 163, in _executor_map
+    return list(ex.map(
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/concurrent/futures/_base.py", line 621, in result_iterator
+    yield _result_or_cancel(fs.pop())
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/concurrent/futures/_base.py", line 319, in _result_or_cancel
+    return fut.result(timeout)
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/concurrent/futures/_base.py", line 458, in result
+    return self.__get_result()
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/huggingface_hub/_snapshot_download.py", line 306, in _inner_hf_hub_download
+    return hf_hub_download(
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 990, in hf_hub_download
+    return _hf_hub_download_to_local_dir(
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1300, in _hf_hub_download_to_local_dir
+    _download_to_tmp_and_move(
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1738, in _download_to_tmp_and_move
+    http_get(
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 513, in http_get
+    return http_get(
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 426, in http_get
+    r = _request_wrapper(
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 309, in _request_wrapper
+    response = http_backoff(method=method, url=url, **params, retry_on_exceptions=(), retry_on_status_codes=(429,))
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 310, in http_backoff
+    response = session.request(method=method, url=url, **kwargs)
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/requests/sessions.py", line 805, in send
+    history = [resp for resp in gen]
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/requests/sessions.py", line 805, in <listcomp>
+    history = [resp for resp in gen]
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/requests/sessions.py", line 292, in resolve_redirects
+    resp = self.send(
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 96, in send
+    return super().send(request, *args, **kwargs)
+  File "/root/autodl-tmp/conda_envs/pact/lib/python3.10/site-packages/requests/adapters.py", line 727, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: (MaxRetryError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Max retries exceeded with url: /xet-bridge-us/6795ff8f7534713f94918fc5/d8cd65a1c446dc687c9b7f80caf1a2ce5f859f301e17c25cb73347def030f639?xip=LtRcGa5O6Tw&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model-00001-of-00002.safetensors%3B+filename%3D%22model-00001-of-00002.safetensors%22%3B&X-Xet-Cas-Uid=public&user_id=public&Expires=1793255512&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNjc5NWZmOGY3NTM0NzEzZjk0OTE4ZmM1L2Q4Y2Q2NWExYzQ0NmRjNjg3YzliN2Y4MGNhZjFhMmNlNWY4NTlmMzAxZTE3YzI1Y2I3MzM0N2RlZjAzMGY2MzlcXD94aXA9THRSY0dhNU82VHcmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0IrZmlsZW5hbWUlMkElM0RVVEYtOCUyNyUyN21vZGVsLTAwMDAxLW9mLTAwMDAyLnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIybW9kZWwtMDAwMDEtb2YtMDAwMDIuc2FmZXRlbnNvcnMlMjIlM0ImWC1YZXQtQ2FzLVVpZD1wdWJsaWMmdXNlcl9pZD1wdWJsaWMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkVwb2NoVGltZSI6MTc5MzI1NTUxMn19fV19&Signature=MEYCIQCAriSzqFKxAvIKc2Tfx2yxcCRnQfxkgcBOnPfUE7NfKwIhALJxaCpYqoMn5OpkX2E3OCNHNLVNI~jdxKKhWJ2OxpIq&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1017)')))"), '(Request ID: 907d66e6-ca35-4522-a92c-63e49ef10416)')
